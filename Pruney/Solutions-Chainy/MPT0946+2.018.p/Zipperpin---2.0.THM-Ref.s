@@ -1,0 +1,1673 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox2/benchmark/theBenchmark.p /export/starexec/sandbox2/tmp/tmp.gRRTPmnnjl
+
+% Computer   : n020.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 13:52:30 EST 2020
+
+% Result     : Theorem 0.43s
+% Output     : Refutation 0.43s
+% Verified   : 
+% Statistics : Number of formulae       :  140 ( 667 expanded)
+%              Number of leaves         :   27 ( 207 expanded)
+%              Depth                    :   41
+%              Number of atoms          : 1261 (7143 expanded)
+%              Number of equality atoms :   88 ( 562 expanded)
+%              Maximal formula depth    :   16 (   7 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(v1_relat_1_type,type,(
+    v1_relat_1: $i > $o )).
+
+thf(k2_wellord1_type,type,(
+    k2_wellord1: $i > $i > $i )).
+
+thf(sk_B_type,type,(
+    sk_B: $i )).
+
+thf(r1_tarski_type,type,(
+    r1_tarski: $i > $i > $o )).
+
+thf(r4_wellord1_type,type,(
+    r4_wellord1: $i > $i > $o )).
+
+thf(k1_wellord2_type,type,(
+    k1_wellord2: $i > $i )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(r2_xboole_0_type,type,(
+    r2_xboole_0: $i > $i > $o )).
+
+thf(v2_wellord1_type,type,(
+    v2_wellord1: $i > $o )).
+
+thf(k4_tarski_type,type,(
+    k4_tarski: $i > $i > $i )).
+
+thf(k1_wellord1_type,type,(
+    k1_wellord1: $i > $i > $i )).
+
+thf(r2_hidden_type,type,(
+    r2_hidden: $i > $i > $o )).
+
+thf(k3_relat_1_type,type,(
+    k3_relat_1: $i > $i )).
+
+thf(v3_ordinal1_type,type,(
+    v3_ordinal1: $i > $o )).
+
+thf(t24_ordinal1,axiom,(
+    ! [A: $i] :
+      ( ( v3_ordinal1 @ A )
+     => ! [B: $i] :
+          ( ( v3_ordinal1 @ B )
+         => ~ ( ~ ( r2_hidden @ A @ B )
+              & ( A != B )
+              & ~ ( r2_hidden @ B @ A ) ) ) ) )).
+
+thf('0',plain,(
+    ! [X3: $i,X4: $i] :
+      ( ~ ( v3_ordinal1 @ X3 )
+      | ( r2_hidden @ X4 @ X3 )
+      | ( X4 = X3 )
+      | ( r2_hidden @ X3 @ X4 )
+      | ~ ( v3_ordinal1 @ X4 ) ) ),
+    inference(cnf,[status(esa)],[t24_ordinal1])).
+
+thf(t7_wellord2,axiom,(
+    ! [A: $i] :
+      ( ( v3_ordinal1 @ A )
+     => ( v2_wellord1 @ ( k1_wellord2 @ A ) ) ) )).
+
+thf('1',plain,(
+    ! [X27: $i] :
+      ( ( v2_wellord1 @ ( k1_wellord2 @ X27 ) )
+      | ~ ( v3_ordinal1 @ X27 ) ) ),
+    inference(cnf,[status(esa)],[t7_wellord2])).
+
+thf('2',plain,(
+    ! [X3: $i,X4: $i] :
+      ( ~ ( v3_ordinal1 @ X3 )
+      | ( r2_hidden @ X4 @ X3 )
+      | ( X4 = X3 )
+      | ( r2_hidden @ X3 @ X4 )
+      | ~ ( v3_ordinal1 @ X4 ) ) ),
+    inference(cnf,[status(esa)],[t24_ordinal1])).
+
+thf(t50_ordinal1,axiom,(
+    ! [A: $i] :
+      ( ( v3_ordinal1 @ A )
+     => ! [B: $i] :
+          ( ( v3_ordinal1 @ B )
+         => ~ ( ~ ( r2_xboole_0 @ A @ B )
+              & ( A != B )
+              & ~ ( r2_xboole_0 @ B @ A ) ) ) ) )).
+
+thf('3',plain,(
+    ! [X5: $i,X6: $i] :
+      ( ~ ( v3_ordinal1 @ X5 )
+      | ( r2_xboole_0 @ X6 @ X5 )
+      | ( X6 = X5 )
+      | ( r2_xboole_0 @ X5 @ X6 )
+      | ~ ( v3_ordinal1 @ X6 ) ) ),
+    inference(cnf,[status(esa)],[t50_ordinal1])).
+
+thf(d8_xboole_0,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( r2_xboole_0 @ A @ B )
+    <=> ( ( r1_tarski @ A @ B )
+        & ( A != B ) ) ) )).
+
+thf('4',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( r1_tarski @ X0 @ X1 )
+      | ~ ( r2_xboole_0 @ X0 @ X1 ) ) ),
+    inference(cnf,[status(esa)],[d8_xboole_0])).
+
+thf('5',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v3_ordinal1 @ X1 )
+      | ( r2_xboole_0 @ X0 @ X1 )
+      | ( X1 = X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r1_tarski @ X1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['3','4'])).
+
+thf(t8_wellord2,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( r1_tarski @ A @ B )
+     => ( ( k2_wellord1 @ ( k1_wellord2 @ B ) @ A )
+        = ( k1_wellord2 @ A ) ) ) )).
+
+thf('6',plain,(
+    ! [X28: $i,X29: $i] :
+      ( ( ( k2_wellord1 @ ( k1_wellord2 @ X29 ) @ X28 )
+        = ( k1_wellord2 @ X28 ) )
+      | ~ ( r1_tarski @ X28 @ X29 ) ) ),
+    inference(cnf,[status(esa)],[t8_wellord2])).
+
+thf('7',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v3_ordinal1 @ X0 )
+      | ( X1 = X0 )
+      | ( r2_xboole_0 @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( ( k2_wellord1 @ ( k1_wellord2 @ X0 ) @ X1 )
+        = ( k1_wellord2 @ X1 ) ) ) ),
+    inference('sup-',[status(thm)],['5','6'])).
+
+thf(t19_wellord1,axiom,(
+    ! [A: $i,B: $i,C: $i] :
+      ( ( v1_relat_1 @ C )
+     => ( ( r2_hidden @ A @ ( k3_relat_1 @ ( k2_wellord1 @ C @ B ) ) )
+       => ( ( r2_hidden @ A @ ( k3_relat_1 @ C ) )
+          & ( r2_hidden @ A @ B ) ) ) ) )).
+
+thf('8',plain,(
+    ! [X13: $i,X14: $i,X15: $i] :
+      ( ~ ( r2_hidden @ X13 @ ( k3_relat_1 @ ( k2_wellord1 @ X14 @ X15 ) ) )
+      | ( r2_hidden @ X13 @ ( k3_relat_1 @ X14 ) )
+      | ~ ( v1_relat_1 @ X14 ) ) ),
+    inference(cnf,[status(esa)],[t19_wellord1])).
+
+thf('9',plain,(
+    ! [X0: $i,X1: $i,X2: $i] :
+      ( ~ ( r2_hidden @ X2 @ ( k3_relat_1 @ ( k1_wellord2 @ X0 ) ) )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_xboole_0 @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ~ ( v1_relat_1 @ ( k1_wellord2 @ X1 ) )
+      | ( r2_hidden @ X2 @ ( k3_relat_1 @ ( k1_wellord2 @ X1 ) ) ) ) ),
+    inference('sup-',[status(thm)],['7','8'])).
+
+thf(d1_wellord2,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( v1_relat_1 @ B )
+     => ( ( B
+          = ( k1_wellord2 @ A ) )
+      <=> ( ( ( k3_relat_1 @ B )
+            = A )
+          & ! [C: $i,D: $i] :
+              ( ( ( r2_hidden @ C @ A )
+                & ( r2_hidden @ D @ A ) )
+             => ( ( r2_hidden @ ( k4_tarski @ C @ D ) @ B )
+              <=> ( r1_tarski @ C @ D ) ) ) ) ) ) )).
+
+thf('10',plain,(
+    ! [X20: $i,X21: $i] :
+      ( ( X21
+       != ( k1_wellord2 @ X20 ) )
+      | ( ( k3_relat_1 @ X21 )
+        = X20 )
+      | ~ ( v1_relat_1 @ X21 ) ) ),
+    inference(cnf,[status(esa)],[d1_wellord2])).
+
+thf('11',plain,(
+    ! [X20: $i] :
+      ( ~ ( v1_relat_1 @ ( k1_wellord2 @ X20 ) )
+      | ( ( k3_relat_1 @ ( k1_wellord2 @ X20 ) )
+        = X20 ) ) ),
+    inference(simplify,[status(thm)],['10'])).
+
+thf(dt_k1_wellord2,axiom,(
+    ! [A: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ A ) ) )).
+
+thf('12',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('13',plain,(
+    ! [X20: $i] :
+      ( ( k3_relat_1 @ ( k1_wellord2 @ X20 ) )
+      = X20 ) ),
+    inference(demod,[status(thm)],['11','12'])).
+
+thf('14',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('15',plain,(
+    ! [X20: $i] :
+      ( ( k3_relat_1 @ ( k1_wellord2 @ X20 ) )
+      = X20 ) ),
+    inference(demod,[status(thm)],['11','12'])).
+
+thf('16',plain,(
+    ! [X0: $i,X1: $i,X2: $i] :
+      ( ~ ( r2_hidden @ X2 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_xboole_0 @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( r2_hidden @ X2 @ X1 ) ) ),
+    inference(demod,[status(thm)],['9','13','14','15'])).
+
+thf('17',plain,(
+    ! [X0: $i,X1: $i,X2: $i] :
+      ( ~ ( v3_ordinal1 @ X1 )
+      | ( r2_hidden @ X0 @ X1 )
+      | ( X1 = X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_hidden @ X1 @ X2 )
+      | ~ ( v3_ordinal1 @ X2 )
+      | ( X0 = X2 )
+      | ( r2_xboole_0 @ X2 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['2','16'])).
+
+thf('18',plain,(
+    ! [X0: $i,X1: $i,X2: $i] :
+      ( ( r2_xboole_0 @ X2 @ X0 )
+      | ( X0 = X2 )
+      | ~ ( v3_ordinal1 @ X2 )
+      | ( r2_hidden @ X1 @ X2 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( X1 = X0 )
+      | ( r2_hidden @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 ) ) ),
+    inference(simplify,[status(thm)],['17'])).
+
+thf('19',plain,(
+    ! [X3: $i,X4: $i] :
+      ( ~ ( v3_ordinal1 @ X3 )
+      | ( r2_hidden @ X4 @ X3 )
+      | ( X4 = X3 )
+      | ( r2_hidden @ X3 @ X4 )
+      | ~ ( v3_ordinal1 @ X4 ) ) ),
+    inference(cnf,[status(esa)],[t24_ordinal1])).
+
+thf(t10_wellord2,axiom,(
+    ! [A: $i] :
+      ( ( v3_ordinal1 @ A )
+     => ! [B: $i] :
+          ( ( v3_ordinal1 @ B )
+         => ( ( r2_hidden @ A @ B )
+           => ( A
+              = ( k1_wellord1 @ ( k1_wellord2 @ B ) @ A ) ) ) ) ) )).
+
+thf('20',plain,(
+    ! [X25: $i,X26: $i] :
+      ( ~ ( v3_ordinal1 @ X25 )
+      | ( X26
+        = ( k1_wellord1 @ ( k1_wellord2 @ X25 ) @ X26 ) )
+      | ~ ( r2_hidden @ X26 @ X25 )
+      | ~ ( v3_ordinal1 @ X26 ) ) ),
+    inference(cnf,[status(esa)],[t10_wellord2])).
+
+thf('21',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v3_ordinal1 @ X1 )
+      | ( r2_hidden @ X0 @ X1 )
+      | ( X1 = X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X1
+        = ( k1_wellord1 @ ( k1_wellord2 @ X0 ) @ X1 ) )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['19','20'])).
+
+thf('22',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( X1
+        = ( k1_wellord1 @ ( k1_wellord2 @ X0 ) @ X1 ) )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( X1 = X0 )
+      | ( r2_hidden @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 ) ) ),
+    inference(simplify,[status(thm)],['21'])).
+
+thf(d1_wellord1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ! [B: $i,C: $i] :
+          ( ( C
+            = ( k1_wellord1 @ A @ B ) )
+        <=> ! [D: $i] :
+              ( ( r2_hidden @ D @ C )
+            <=> ( ( D != B )
+                & ( r2_hidden @ ( k4_tarski @ D @ B ) @ A ) ) ) ) ) )).
+
+thf('23',plain,(
+    ! [X8: $i,X9: $i,X10: $i,X11: $i] :
+      ( ( X10
+       != ( k1_wellord1 @ X9 @ X8 ) )
+      | ( X11 != X8 )
+      | ~ ( r2_hidden @ X11 @ X10 )
+      | ~ ( v1_relat_1 @ X9 ) ) ),
+    inference(cnf,[status(esa)],[d1_wellord1])).
+
+thf('24',plain,(
+    ! [X8: $i,X9: $i] :
+      ( ~ ( v1_relat_1 @ X9 )
+      | ~ ( r2_hidden @ X8 @ ( k1_wellord1 @ X9 @ X8 ) ) ) ),
+    inference(simplify,[status(thm)],['23'])).
+
+thf('25',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r2_hidden @ X0 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ~ ( v1_relat_1 @ ( k1_wellord2 @ X1 ) ) ) ),
+    inference('sup-',[status(thm)],['22','24'])).
+
+thf('26',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('27',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r2_hidden @ X0 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 ) ) ),
+    inference(demod,[status(thm)],['25','26'])).
+
+thf('28',plain,(
+    ! [X0: $i,X1: $i,X2: $i] :
+      ( ~ ( v3_ordinal1 @ X0 )
+      | ( r2_hidden @ X2 @ X0 )
+      | ( X0 = X2 )
+      | ~ ( v3_ordinal1 @ X2 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( X2 = X0 )
+      | ( r2_xboole_0 @ X0 @ X2 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X0 = X1 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['18','27'])).
+
+thf('29',plain,(
+    ! [X0: $i,X1: $i,X2: $i] :
+      ( ( r2_hidden @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( r2_xboole_0 @ X0 @ X2 )
+      | ~ ( v3_ordinal1 @ X2 )
+      | ( X0 = X2 )
+      | ( r2_hidden @ X2 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference(simplify,[status(thm)],['28'])).
+
+thf('30',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v3_ordinal1 @ X0 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( r2_xboole_0 @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X0 = X1 ) ) ),
+    inference(eq_fact,[status(thm)],['29'])).
+
+thf('31',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( r2_xboole_0 @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X0 = X1 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference(simplify,[status(thm)],['30'])).
+
+thf('32',plain,(
+    ! [X27: $i] :
+      ( ( v2_wellord1 @ ( k1_wellord2 @ X27 ) )
+      | ~ ( v3_ordinal1 @ X27 ) ) ),
+    inference(cnf,[status(esa)],[t7_wellord2])).
+
+thf(t11_wellord2,conjecture,(
+    ! [A: $i] :
+      ( ( v3_ordinal1 @ A )
+     => ! [B: $i] :
+          ( ( v3_ordinal1 @ B )
+         => ( ( r4_wellord1 @ ( k1_wellord2 @ A ) @ ( k1_wellord2 @ B ) )
+           => ( A = B ) ) ) ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i] :
+        ( ( v3_ordinal1 @ A )
+       => ! [B: $i] :
+            ( ( v3_ordinal1 @ B )
+           => ( ( r4_wellord1 @ ( k1_wellord2 @ A ) @ ( k1_wellord2 @ B ) )
+             => ( A = B ) ) ) ) ),
+    inference('cnf.neg',[status(esa)],[t11_wellord2])).
+
+thf('33',plain,(
+    r4_wellord1 @ ( k1_wellord2 @ sk_A ) @ ( k1_wellord2 @ sk_B ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(t50_wellord1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ! [B: $i] :
+          ( ( v1_relat_1 @ B )
+         => ( ( r4_wellord1 @ A @ B )
+           => ( r4_wellord1 @ B @ A ) ) ) ) )).
+
+thf('34',plain,(
+    ! [X16: $i,X17: $i] :
+      ( ~ ( v1_relat_1 @ X16 )
+      | ( r4_wellord1 @ X16 @ X17 )
+      | ~ ( r4_wellord1 @ X17 @ X16 )
+      | ~ ( v1_relat_1 @ X17 ) ) ),
+    inference(cnf,[status(esa)],[t50_wellord1])).
+
+thf('35',plain,
+    ( ~ ( v1_relat_1 @ ( k1_wellord2 @ sk_A ) )
+    | ( r4_wellord1 @ ( k1_wellord2 @ sk_B ) @ ( k1_wellord2 @ sk_A ) )
+    | ~ ( v1_relat_1 @ ( k1_wellord2 @ sk_B ) ) ),
+    inference('sup-',[status(thm)],['33','34'])).
+
+thf('36',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('37',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('38',plain,(
+    r4_wellord1 @ ( k1_wellord2 @ sk_B ) @ ( k1_wellord2 @ sk_A ) ),
+    inference(demod,[status(thm)],['35','36','37'])).
+
+thf('39',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v3_ordinal1 @ X0 )
+      | ( X1 = X0 )
+      | ( r2_xboole_0 @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( ( k2_wellord1 @ ( k1_wellord2 @ X0 ) @ X1 )
+        = ( k1_wellord2 @ X1 ) ) ) ),
+    inference('sup-',[status(thm)],['5','6'])).
+
+thf('40',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( r2_xboole_0 @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X0 = X1 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference(simplify,[status(thm)],['30'])).
+
+thf('41',plain,(
+    ! [X25: $i,X26: $i] :
+      ( ~ ( v3_ordinal1 @ X25 )
+      | ( X26
+        = ( k1_wellord1 @ ( k1_wellord2 @ X25 ) @ X26 ) )
+      | ~ ( r2_hidden @ X26 @ X25 )
+      | ~ ( v3_ordinal1 @ X26 ) ) ),
+    inference(cnf,[status(esa)],[t10_wellord2])).
+
+thf('42',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v3_ordinal1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( r2_xboole_0 @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X1
+        = ( k1_wellord1 @ ( k1_wellord2 @ X0 ) @ X1 ) )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['40','41'])).
+
+thf('43',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( X1
+        = ( k1_wellord1 @ ( k1_wellord2 @ X0 ) @ X1 ) )
+      | ( r2_xboole_0 @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X0 ) ) ),
+    inference(simplify,[status(thm)],['42'])).
+
+thf(t57_wellord1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ( ( v2_wellord1 @ A )
+       => ! [B: $i] :
+            ~ ( ( r2_hidden @ B @ ( k3_relat_1 @ A ) )
+              & ( r4_wellord1 @ A @ ( k2_wellord1 @ A @ ( k1_wellord1 @ A @ B ) ) ) ) ) ) )).
+
+thf('44',plain,(
+    ! [X18: $i,X19: $i] :
+      ( ~ ( v2_wellord1 @ X18 )
+      | ~ ( r4_wellord1 @ X18 @ ( k2_wellord1 @ X18 @ ( k1_wellord1 @ X18 @ X19 ) ) )
+      | ~ ( r2_hidden @ X19 @ ( k3_relat_1 @ X18 ) )
+      | ~ ( v1_relat_1 @ X18 ) ) ),
+    inference(cnf,[status(esa)],[t57_wellord1])).
+
+thf('45',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r4_wellord1 @ ( k1_wellord2 @ X1 ) @ ( k2_wellord1 @ ( k1_wellord2 @ X1 ) @ X0 ) )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X1 = X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_xboole_0 @ X1 @ X0 )
+      | ~ ( v1_relat_1 @ ( k1_wellord2 @ X1 ) )
+      | ~ ( r2_hidden @ X0 @ ( k3_relat_1 @ ( k1_wellord2 @ X1 ) ) )
+      | ~ ( v2_wellord1 @ ( k1_wellord2 @ X1 ) ) ) ),
+    inference('sup-',[status(thm)],['43','44'])).
+
+thf('46',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('47',plain,(
+    ! [X20: $i] :
+      ( ( k3_relat_1 @ ( k1_wellord2 @ X20 ) )
+      = X20 ) ),
+    inference(demod,[status(thm)],['11','12'])).
+
+thf('48',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r4_wellord1 @ ( k1_wellord2 @ X1 ) @ ( k2_wellord1 @ ( k1_wellord2 @ X1 ) @ X0 ) )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X1 = X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_xboole_0 @ X1 @ X0 )
+      | ~ ( r2_hidden @ X0 @ X1 )
+      | ~ ( v2_wellord1 @ ( k1_wellord2 @ X1 ) ) ) ),
+    inference(demod,[status(thm)],['45','46','47'])).
+
+thf('49',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r4_wellord1 @ ( k1_wellord2 @ X1 ) @ ( k1_wellord2 @ X0 ) )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_xboole_0 @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ~ ( v2_wellord1 @ ( k1_wellord2 @ X1 ) )
+      | ~ ( r2_hidden @ X0 @ X1 )
+      | ( r2_xboole_0 @ X1 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( X1 = X0 )
+      | ~ ( v3_ordinal1 @ X1 ) ) ),
+    inference('sup-',[status(thm)],['39','48'])).
+
+thf('50',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r2_hidden @ X0 @ X1 )
+      | ~ ( v2_wellord1 @ ( k1_wellord2 @ X1 ) )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ( X0 = X1 )
+      | ( r2_xboole_0 @ X1 @ X0 )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ~ ( r4_wellord1 @ ( k1_wellord2 @ X1 ) @ ( k1_wellord2 @ X0 ) ) ) ),
+    inference(simplify,[status(thm)],['49'])).
+
+thf('51',plain,
+    ( ~ ( v3_ordinal1 @ sk_A )
+    | ( r2_xboole_0 @ sk_B @ sk_A )
+    | ( sk_A = sk_B )
+    | ~ ( v3_ordinal1 @ sk_B )
+    | ~ ( v2_wellord1 @ ( k1_wellord2 @ sk_B ) )
+    | ~ ( r2_hidden @ sk_A @ sk_B ) ),
+    inference('sup-',[status(thm)],['38','50'])).
+
+thf('52',plain,(
+    v3_ordinal1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('53',plain,(
+    v3_ordinal1 @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('54',plain,
+    ( ( r2_xboole_0 @ sk_B @ sk_A )
+    | ( sk_A = sk_B )
+    | ~ ( v2_wellord1 @ ( k1_wellord2 @ sk_B ) )
+    | ~ ( r2_hidden @ sk_A @ sk_B ) ),
+    inference(demod,[status(thm)],['51','52','53'])).
+
+thf('55',plain,(
+    sk_A != sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('56',plain,
+    ( ( r2_xboole_0 @ sk_B @ sk_A )
+    | ~ ( v2_wellord1 @ ( k1_wellord2 @ sk_B ) )
+    | ~ ( r2_hidden @ sk_A @ sk_B ) ),
+    inference('simplify_reflect-',[status(thm)],['54','55'])).
+
+thf('57',plain,
+    ( ~ ( v3_ordinal1 @ sk_B )
+    | ~ ( r2_hidden @ sk_A @ sk_B )
+    | ( r2_xboole_0 @ sk_B @ sk_A ) ),
+    inference('sup-',[status(thm)],['32','56'])).
+
+thf('58',plain,(
+    v3_ordinal1 @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('59',plain,
+    ( ~ ( r2_hidden @ sk_A @ sk_B )
+    | ( r2_xboole_0 @ sk_B @ sk_A ) ),
+    inference(demod,[status(thm)],['57','58'])).
+
+thf('60',plain,
+    ( ~ ( v3_ordinal1 @ sk_B )
+    | ( sk_B = sk_A )
+    | ~ ( v3_ordinal1 @ sk_A )
+    | ( r2_xboole_0 @ sk_B @ sk_A )
+    | ( r2_xboole_0 @ sk_B @ sk_A ) ),
+    inference('sup-',[status(thm)],['31','59'])).
+
+thf('61',plain,(
+    v3_ordinal1 @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('62',plain,(
+    v3_ordinal1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('63',plain,
+    ( ( sk_B = sk_A )
+    | ( r2_xboole_0 @ sk_B @ sk_A )
+    | ( r2_xboole_0 @ sk_B @ sk_A ) ),
+    inference(demod,[status(thm)],['60','61','62'])).
+
+thf('64',plain,
+    ( ( r2_xboole_0 @ sk_B @ sk_A )
+    | ( sk_B = sk_A ) ),
+    inference(simplify,[status(thm)],['63'])).
+
+thf('65',plain,(
+    sk_A != sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('66',plain,(
+    r2_xboole_0 @ sk_B @ sk_A ),
+    inference('simplify_reflect-',[status(thm)],['64','65'])).
+
+thf('67',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( r1_tarski @ X0 @ X1 )
+      | ~ ( r2_xboole_0 @ X0 @ X1 ) ) ),
+    inference(cnf,[status(esa)],[d8_xboole_0])).
+
+thf('68',plain,(
+    r1_tarski @ sk_B @ sk_A ),
+    inference('sup-',[status(thm)],['66','67'])).
+
+thf('69',plain,(
+    ! [X28: $i,X29: $i] :
+      ( ( ( k2_wellord1 @ ( k1_wellord2 @ X29 ) @ X28 )
+        = ( k1_wellord2 @ X28 ) )
+      | ~ ( r1_tarski @ X28 @ X29 ) ) ),
+    inference(cnf,[status(esa)],[t8_wellord2])).
+
+thf('70',plain,
+    ( ( k2_wellord1 @ ( k1_wellord2 @ sk_A ) @ sk_B )
+    = ( k1_wellord2 @ sk_B ) ),
+    inference('sup-',[status(thm)],['68','69'])).
+
+thf('71',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( X1
+        = ( k1_wellord1 @ ( k1_wellord2 @ X0 ) @ X1 ) )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( X1 = X0 )
+      | ( r2_hidden @ X0 @ X1 )
+      | ~ ( v3_ordinal1 @ X1 ) ) ),
+    inference(simplify,[status(thm)],['21'])).
+
+thf('72',plain,(
+    ! [X18: $i,X19: $i] :
+      ( ~ ( v2_wellord1 @ X18 )
+      | ~ ( r4_wellord1 @ X18 @ ( k2_wellord1 @ X18 @ ( k1_wellord1 @ X18 @ X19 ) ) )
+      | ~ ( r2_hidden @ X19 @ ( k3_relat_1 @ X18 ) )
+      | ~ ( v1_relat_1 @ X18 ) ) ),
+    inference(cnf,[status(esa)],[t57_wellord1])).
+
+thf('73',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r4_wellord1 @ ( k1_wellord2 @ X1 ) @ ( k2_wellord1 @ ( k1_wellord2 @ X1 ) @ X0 ) )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ~ ( v1_relat_1 @ ( k1_wellord2 @ X1 ) )
+      | ~ ( r2_hidden @ X0 @ ( k3_relat_1 @ ( k1_wellord2 @ X1 ) ) )
+      | ~ ( v2_wellord1 @ ( k1_wellord2 @ X1 ) ) ) ),
+    inference('sup-',[status(thm)],['71','72'])).
+
+thf('74',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('75',plain,(
+    ! [X20: $i] :
+      ( ( k3_relat_1 @ ( k1_wellord2 @ X20 ) )
+      = X20 ) ),
+    inference(demod,[status(thm)],['11','12'])).
+
+thf('76',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r4_wellord1 @ ( k1_wellord2 @ X1 ) @ ( k2_wellord1 @ ( k1_wellord2 @ X1 ) @ X0 ) )
+      | ~ ( v3_ordinal1 @ X0 )
+      | ( r2_hidden @ X1 @ X0 )
+      | ( X0 = X1 )
+      | ~ ( v3_ordinal1 @ X1 )
+      | ~ ( r2_hidden @ X0 @ X1 )
+      | ~ ( v2_wellord1 @ ( k1_wellord2 @ X1 ) ) ) ),
+    inference(demod,[status(thm)],['73','74','75'])).
+
+thf('77',plain,
+    ( ~ ( r4_wellord1 @ ( k1_wellord2 @ sk_A ) @ ( k1_wellord2 @ sk_B ) )
+    | ~ ( v2_wellord1 @ ( k1_wellord2 @ sk_A ) )
+    | ~ ( r2_hidden @ sk_B @ sk_A )
+    | ~ ( v3_ordinal1 @ sk_A )
+    | ( sk_B = sk_A )
+    | ( r2_hidden @ sk_A @ sk_B )
+    | ~ ( v3_ordinal1 @ sk_B ) ),
+    inference('sup-',[status(thm)],['70','76'])).
+
+thf('78',plain,(
+    r4_wellord1 @ ( k1_wellord2 @ sk_A ) @ ( k1_wellord2 @ sk_B ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('79',plain,(
+    v3_ordinal1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('80',plain,(
+    v3_ordinal1 @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('81',plain,
+    ( ~ ( v2_wellord1 @ ( k1_wellord2 @ sk_A ) )
+    | ~ ( r2_hidden @ sk_B @ sk_A )
+    | ( sk_B = sk_A )
+    | ( r2_hidden @ sk_A @ sk_B ) ),
+    inference(demod,[status(thm)],['77','78','79','80'])).
+
+thf('82',plain,(
+    sk_A != sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('83',plain,
+    ( ~ ( v2_wellord1 @ ( k1_wellord2 @ sk_A ) )
+    | ~ ( r2_hidden @ sk_B @ sk_A )
+    | ( r2_hidden @ sk_A @ sk_B ) ),
+    inference('simplify_reflect-',[status(thm)],['81','82'])).
+
+thf('84',plain,
+    ( ~ ( v3_ordinal1 @ sk_A )
+    | ( r2_hidden @ sk_A @ sk_B )
+    | ~ ( r2_hidden @ sk_B @ sk_A ) ),
+    inference('sup-',[status(thm)],['1','83'])).
+
+thf('85',plain,(
+    v3_ordinal1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('86',plain,
+    ( ( r2_hidden @ sk_A @ sk_B )
+    | ~ ( r2_hidden @ sk_B @ sk_A ) ),
+    inference(demod,[status(thm)],['84','85'])).
+
+thf('87',plain,
+    ( ~ ( v3_ordinal1 @ sk_B )
+    | ( r2_hidden @ sk_A @ sk_B )
+    | ( sk_B = sk_A )
+    | ~ ( v3_ordinal1 @ sk_A )
+    | ( r2_hidden @ sk_A @ sk_B ) ),
+    inference('sup-',[status(thm)],['0','86'])).
+
+thf('88',plain,(
+    v3_ordinal1 @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('89',plain,(
+    v3_ordinal1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('90',plain,
+    ( ( r2_hidden @ sk_A @ sk_B )
+    | ( sk_B = sk_A )
+    | ( r2_hidden @ sk_A @ sk_B ) ),
+    inference(demod,[status(thm)],['87','88','89'])).
+
+thf('91',plain,
+    ( ( sk_B = sk_A )
+    | ( r2_hidden @ sk_A @ sk_B ) ),
+    inference(simplify,[status(thm)],['90'])).
+
+thf('92',plain,(
+    sk_A != sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('93',plain,(
+    r2_hidden @ sk_A @ sk_B ),
+    inference('simplify_reflect-',[status(thm)],['91','92'])).
+
+thf('94',plain,(
+    ! [X25: $i,X26: $i] :
+      ( ~ ( v3_ordinal1 @ X25 )
+      | ( X26
+        = ( k1_wellord1 @ ( k1_wellord2 @ X25 ) @ X26 ) )
+      | ~ ( r2_hidden @ X26 @ X25 )
+      | ~ ( v3_ordinal1 @ X26 ) ) ),
+    inference(cnf,[status(esa)],[t10_wellord2])).
+
+thf('95',plain,
+    ( ~ ( v3_ordinal1 @ sk_A )
+    | ( sk_A
+      = ( k1_wellord1 @ ( k1_wellord2 @ sk_B ) @ sk_A ) )
+    | ~ ( v3_ordinal1 @ sk_B ) ),
+    inference('sup-',[status(thm)],['93','94'])).
+
+thf('96',plain,(
+    v3_ordinal1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('97',plain,(
+    v3_ordinal1 @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('98',plain,
+    ( sk_A
+    = ( k1_wellord1 @ ( k1_wellord2 @ sk_B ) @ sk_A ) ),
+    inference(demod,[status(thm)],['95','96','97'])).
+
+thf('99',plain,(
+    ! [X8: $i,X9: $i] :
+      ( ~ ( v1_relat_1 @ X9 )
+      | ~ ( r2_hidden @ X8 @ ( k1_wellord1 @ X9 @ X8 ) ) ) ),
+    inference(simplify,[status(thm)],['23'])).
+
+thf('100',plain,
+    ( ~ ( r2_hidden @ sk_A @ sk_A )
+    | ~ ( v1_relat_1 @ ( k1_wellord2 @ sk_B ) ) ),
+    inference('sup-',[status(thm)],['98','99'])).
+
+thf('101',plain,(
+    r2_hidden @ sk_A @ sk_B ),
+    inference('simplify_reflect-',[status(thm)],['91','92'])).
+
+thf('102',plain,
+    ( ( k2_wellord1 @ ( k1_wellord2 @ sk_A ) @ sk_B )
+    = ( k1_wellord2 @ sk_B ) ),
+    inference('sup-',[status(thm)],['68','69'])).
+
+thf('103',plain,(
+    ! [X13: $i,X14: $i,X15: $i] :
+      ( ~ ( r2_hidden @ X13 @ ( k3_relat_1 @ ( k2_wellord1 @ X14 @ X15 ) ) )
+      | ( r2_hidden @ X13 @ ( k3_relat_1 @ X14 ) )
+      | ~ ( v1_relat_1 @ X14 ) ) ),
+    inference(cnf,[status(esa)],[t19_wellord1])).
+
+thf('104',plain,(
+    ! [X0: $i] :
+      ( ~ ( r2_hidden @ X0 @ ( k3_relat_1 @ ( k1_wellord2 @ sk_B ) ) )
+      | ~ ( v1_relat_1 @ ( k1_wellord2 @ sk_A ) )
+      | ( r2_hidden @ X0 @ ( k3_relat_1 @ ( k1_wellord2 @ sk_A ) ) ) ) ),
+    inference('sup-',[status(thm)],['102','103'])).
+
+thf('105',plain,(
+    ! [X20: $i] :
+      ( ( k3_relat_1 @ ( k1_wellord2 @ X20 ) )
+      = X20 ) ),
+    inference(demod,[status(thm)],['11','12'])).
+
+thf('106',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('107',plain,(
+    ! [X20: $i] :
+      ( ( k3_relat_1 @ ( k1_wellord2 @ X20 ) )
+      = X20 ) ),
+    inference(demod,[status(thm)],['11','12'])).
+
+thf('108',plain,(
+    ! [X0: $i] :
+      ( ~ ( r2_hidden @ X0 @ sk_B )
+      | ( r2_hidden @ X0 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['104','105','106','107'])).
+
+thf('109',plain,(
+    r2_hidden @ sk_A @ sk_A ),
+    inference('sup-',[status(thm)],['101','108'])).
+
+thf('110',plain,(
+    ! [X24: $i] :
+      ( v1_relat_1 @ ( k1_wellord2 @ X24 ) ) ),
+    inference(cnf,[status(esa)],[dt_k1_wellord2])).
+
+thf('111',plain,(
+    $false ),
+    inference(demod,[status(thm)],['100','109','110'])).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.06/0.14  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.06/0.15  % Command    : run_portfolio.sh /export/starexec/sandbox2/benchmark/theBenchmark.p /export/starexec/sandbox2/tmp/tmp.gRRTPmnnjl
+% 0.16/0.38  % Computer   : n020.cluster.edu
+% 0.16/0.38  % Model      : x86_64 x86_64
+% 0.16/0.38  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.16/0.38  % Memory     : 8042.1875MB
+% 0.16/0.38  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.16/0.38  % CPULimit   : 60
+% 0.16/0.38  % DateTime   : Tue Dec  1 13:51:52 EST 2020
+% 0.16/0.38  % CPUTime    : 
+% 0.16/0.38  % Running portfolio for 600 s
+% 0.16/0.38  % File         : /export/starexec/sandbox2/benchmark/theBenchmark.p
+% 0.16/0.38  % Number of cores: 8
+% 0.16/0.38  % Python version: Python 3.6.8
+% 0.16/0.38  % Running in FO mode
+% 0.43/0.62  % Running /export/starexec/sandbox2/solver/bin/fo/fo7.sh for 78
+% 0.43/0.62  % Solved by: fo/fo7.sh
+% 0.43/0.62  To remain in the chosen logic fragment, unification with booleans has been disabled.
+% 0.43/0.62  % done 121 iterations in 0.127s
+% 0.43/0.62  % SZS status Theorem for '/export/starexec/sandbox2/benchmark/theBenchmark.p'
+% 0.43/0.62  % SZS output start Refutation
+% 0.43/0.62  thf(v1_relat_1_type, type, v1_relat_1: $i > $o).
+% 0.43/0.62  thf(k2_wellord1_type, type, k2_wellord1: $i > $i > $i).
+% 0.43/0.62  thf(sk_B_type, type, sk_B: $i).
+% 0.43/0.62  thf(r1_tarski_type, type, r1_tarski: $i > $i > $o).
+% 0.43/0.62  thf(r4_wellord1_type, type, r4_wellord1: $i > $i > $o).
+% 0.43/0.62  thf(k1_wellord2_type, type, k1_wellord2: $i > $i).
+% 0.43/0.62  thf(sk_A_type, type, sk_A: $i).
+% 0.43/0.62  thf(r2_xboole_0_type, type, r2_xboole_0: $i > $i > $o).
+% 0.43/0.62  thf(v2_wellord1_type, type, v2_wellord1: $i > $o).
+% 0.43/0.62  thf(k4_tarski_type, type, k4_tarski: $i > $i > $i).
+% 0.43/0.62  thf(k1_wellord1_type, type, k1_wellord1: $i > $i > $i).
+% 0.43/0.62  thf(r2_hidden_type, type, r2_hidden: $i > $i > $o).
+% 0.43/0.62  thf(k3_relat_1_type, type, k3_relat_1: $i > $i).
+% 0.43/0.62  thf(v3_ordinal1_type, type, v3_ordinal1: $i > $o).
+% 0.43/0.62  thf(t24_ordinal1, axiom,
+% 0.43/0.62    (![A:$i]:
+% 0.43/0.62     ( ( v3_ordinal1 @ A ) =>
+% 0.43/0.62       ( ![B:$i]:
+% 0.43/0.62         ( ( v3_ordinal1 @ B ) =>
+% 0.43/0.62           ( ~( ( ~( r2_hidden @ A @ B ) ) & ( ( A ) != ( B ) ) & 
+% 0.43/0.62                ( ~( r2_hidden @ B @ A ) ) ) ) ) ) ))).
+% 0.43/0.62  thf('0', plain,
+% 0.43/0.62      (![X3 : $i, X4 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X3)
+% 0.43/0.62          | (r2_hidden @ X4 @ X3)
+% 0.43/0.62          | ((X4) = (X3))
+% 0.43/0.62          | (r2_hidden @ X3 @ X4)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X4))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t24_ordinal1])).
+% 0.43/0.62  thf(t7_wellord2, axiom,
+% 0.43/0.62    (![A:$i]: ( ( v3_ordinal1 @ A ) => ( v2_wellord1 @ ( k1_wellord2 @ A ) ) ))).
+% 0.43/0.62  thf('1', plain,
+% 0.43/0.62      (![X27 : $i]:
+% 0.43/0.62         ((v2_wellord1 @ (k1_wellord2 @ X27)) | ~ (v3_ordinal1 @ X27))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t7_wellord2])).
+% 0.43/0.62  thf('2', plain,
+% 0.43/0.62      (![X3 : $i, X4 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X3)
+% 0.43/0.62          | (r2_hidden @ X4 @ X3)
+% 0.43/0.62          | ((X4) = (X3))
+% 0.43/0.62          | (r2_hidden @ X3 @ X4)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X4))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t24_ordinal1])).
+% 0.43/0.62  thf(t50_ordinal1, axiom,
+% 0.43/0.62    (![A:$i]:
+% 0.43/0.62     ( ( v3_ordinal1 @ A ) =>
+% 0.43/0.62       ( ![B:$i]:
+% 0.43/0.62         ( ( v3_ordinal1 @ B ) =>
+% 0.43/0.62           ( ~( ( ~( r2_xboole_0 @ A @ B ) ) & ( ( A ) != ( B ) ) & 
+% 0.43/0.62                ( ~( r2_xboole_0 @ B @ A ) ) ) ) ) ) ))).
+% 0.43/0.62  thf('3', plain,
+% 0.43/0.62      (![X5 : $i, X6 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X5)
+% 0.43/0.62          | (r2_xboole_0 @ X6 @ X5)
+% 0.43/0.62          | ((X6) = (X5))
+% 0.43/0.62          | (r2_xboole_0 @ X5 @ X6)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X6))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t50_ordinal1])).
+% 0.43/0.62  thf(d8_xboole_0, axiom,
+% 0.43/0.62    (![A:$i,B:$i]:
+% 0.43/0.62     ( ( r2_xboole_0 @ A @ B ) <=>
+% 0.43/0.62       ( ( r1_tarski @ A @ B ) & ( ( A ) != ( B ) ) ) ))).
+% 0.43/0.62  thf('4', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]: ((r1_tarski @ X0 @ X1) | ~ (r2_xboole_0 @ X0 @ X1))),
+% 0.43/0.62      inference('cnf', [status(esa)], [d8_xboole_0])).
+% 0.43/0.62  thf('5', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r1_tarski @ X1 @ X0))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['3', '4'])).
+% 0.43/0.62  thf(t8_wellord2, axiom,
+% 0.43/0.62    (![A:$i,B:$i]:
+% 0.43/0.62     ( ( r1_tarski @ A @ B ) =>
+% 0.43/0.62       ( ( k2_wellord1 @ ( k1_wellord2 @ B ) @ A ) = ( k1_wellord2 @ A ) ) ))).
+% 0.43/0.62  thf('6', plain,
+% 0.43/0.62      (![X28 : $i, X29 : $i]:
+% 0.43/0.62         (((k2_wellord1 @ (k1_wellord2 @ X29) @ X28) = (k1_wellord2 @ X28))
+% 0.43/0.62          | ~ (r1_tarski @ X28 @ X29))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t8_wellord2])).
+% 0.43/0.62  thf('7', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((k2_wellord1 @ (k1_wellord2 @ X0) @ X1) = (k1_wellord2 @ X1)))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['5', '6'])).
+% 0.43/0.62  thf(t19_wellord1, axiom,
+% 0.43/0.62    (![A:$i,B:$i,C:$i]:
+% 0.43/0.62     ( ( v1_relat_1 @ C ) =>
+% 0.43/0.62       ( ( r2_hidden @ A @ ( k3_relat_1 @ ( k2_wellord1 @ C @ B ) ) ) =>
+% 0.43/0.62         ( ( r2_hidden @ A @ ( k3_relat_1 @ C ) ) & ( r2_hidden @ A @ B ) ) ) ))).
+% 0.43/0.62  thf('8', plain,
+% 0.43/0.62      (![X13 : $i, X14 : $i, X15 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X13 @ (k3_relat_1 @ (k2_wellord1 @ X14 @ X15)))
+% 0.43/0.62          | (r2_hidden @ X13 @ (k3_relat_1 @ X14))
+% 0.43/0.62          | ~ (v1_relat_1 @ X14))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t19_wellord1])).
+% 0.43/0.62  thf('9', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i, X2 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X2 @ (k3_relat_1 @ (k1_wellord2 @ X0)))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_xboole_0 @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ~ (v1_relat_1 @ (k1_wellord2 @ X1))
+% 0.43/0.62          | (r2_hidden @ X2 @ (k3_relat_1 @ (k1_wellord2 @ X1))))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['7', '8'])).
+% 0.43/0.62  thf(d1_wellord2, axiom,
+% 0.43/0.62    (![A:$i,B:$i]:
+% 0.43/0.62     ( ( v1_relat_1 @ B ) =>
+% 0.43/0.62       ( ( ( B ) = ( k1_wellord2 @ A ) ) <=>
+% 0.43/0.62         ( ( ( k3_relat_1 @ B ) = ( A ) ) & 
+% 0.43/0.62           ( ![C:$i,D:$i]:
+% 0.43/0.62             ( ( ( r2_hidden @ C @ A ) & ( r2_hidden @ D @ A ) ) =>
+% 0.43/0.62               ( ( r2_hidden @ ( k4_tarski @ C @ D ) @ B ) <=>
+% 0.43/0.62                 ( r1_tarski @ C @ D ) ) ) ) ) ) ))).
+% 0.43/0.62  thf('10', plain,
+% 0.43/0.62      (![X20 : $i, X21 : $i]:
+% 0.43/0.62         (((X21) != (k1_wellord2 @ X20))
+% 0.43/0.62          | ((k3_relat_1 @ X21) = (X20))
+% 0.43/0.62          | ~ (v1_relat_1 @ X21))),
+% 0.43/0.62      inference('cnf', [status(esa)], [d1_wellord2])).
+% 0.43/0.62  thf('11', plain,
+% 0.43/0.62      (![X20 : $i]:
+% 0.43/0.62         (~ (v1_relat_1 @ (k1_wellord2 @ X20))
+% 0.43/0.62          | ((k3_relat_1 @ (k1_wellord2 @ X20)) = (X20)))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['10'])).
+% 0.43/0.62  thf(dt_k1_wellord2, axiom, (![A:$i]: ( v1_relat_1 @ ( k1_wellord2 @ A ) ))).
+% 0.43/0.62  thf('12', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('13', plain, (![X20 : $i]: ((k3_relat_1 @ (k1_wellord2 @ X20)) = (X20))),
+% 0.43/0.62      inference('demod', [status(thm)], ['11', '12'])).
+% 0.43/0.62  thf('14', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('15', plain, (![X20 : $i]: ((k3_relat_1 @ (k1_wellord2 @ X20)) = (X20))),
+% 0.43/0.62      inference('demod', [status(thm)], ['11', '12'])).
+% 0.43/0.62  thf('16', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i, X2 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X2 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_xboole_0 @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | (r2_hidden @ X2 @ X1))),
+% 0.43/0.62      inference('demod', [status(thm)], ['9', '13', '14', '15'])).
+% 0.43/0.62  thf('17', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i, X2 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_hidden @ X1 @ X2)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X2)
+% 0.43/0.62          | ((X0) = (X2))
+% 0.43/0.62          | (r2_xboole_0 @ X2 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['2', '16'])).
+% 0.43/0.62  thf('18', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i, X2 : $i]:
+% 0.43/0.62         ((r2_xboole_0 @ X2 @ X0)
+% 0.43/0.62          | ((X0) = (X2))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X2)
+% 0.43/0.62          | (r2_hidden @ X1 @ X2)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['17'])).
+% 0.43/0.62  thf('19', plain,
+% 0.43/0.62      (![X3 : $i, X4 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X3)
+% 0.43/0.62          | (r2_hidden @ X4 @ X3)
+% 0.43/0.62          | ((X4) = (X3))
+% 0.43/0.62          | (r2_hidden @ X3 @ X4)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X4))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t24_ordinal1])).
+% 0.43/0.62  thf(t10_wellord2, axiom,
+% 0.43/0.62    (![A:$i]:
+% 0.43/0.62     ( ( v3_ordinal1 @ A ) =>
+% 0.43/0.62       ( ![B:$i]:
+% 0.43/0.62         ( ( v3_ordinal1 @ B ) =>
+% 0.43/0.62           ( ( r2_hidden @ A @ B ) =>
+% 0.43/0.62             ( ( A ) = ( k1_wellord1 @ ( k1_wellord2 @ B ) @ A ) ) ) ) ) ))).
+% 0.43/0.62  thf('20', plain,
+% 0.43/0.62      (![X25 : $i, X26 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X25)
+% 0.43/0.62          | ((X26) = (k1_wellord1 @ (k1_wellord2 @ X25) @ X26))
+% 0.43/0.62          | ~ (r2_hidden @ X26 @ X25)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X26))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t10_wellord2])).
+% 0.43/0.62  thf('21', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X1) = (k1_wellord1 @ (k1_wellord2 @ X0) @ X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['19', '20'])).
+% 0.43/0.62  thf('22', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (((X1) = (k1_wellord1 @ (k1_wellord2 @ X0) @ X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['21'])).
+% 0.43/0.62  thf(d1_wellord1, axiom,
+% 0.43/0.62    (![A:$i]:
+% 0.43/0.62     ( ( v1_relat_1 @ A ) =>
+% 0.43/0.62       ( ![B:$i,C:$i]:
+% 0.43/0.62         ( ( ( C ) = ( k1_wellord1 @ A @ B ) ) <=>
+% 0.43/0.62           ( ![D:$i]:
+% 0.43/0.62             ( ( r2_hidden @ D @ C ) <=>
+% 0.43/0.62               ( ( ( D ) != ( B ) ) & ( r2_hidden @ ( k4_tarski @ D @ B ) @ A ) ) ) ) ) ) ))).
+% 0.43/0.62  thf('23', plain,
+% 0.43/0.62      (![X8 : $i, X9 : $i, X10 : $i, X11 : $i]:
+% 0.43/0.62         (((X10) != (k1_wellord1 @ X9 @ X8))
+% 0.43/0.62          | ((X11) != (X8))
+% 0.43/0.62          | ~ (r2_hidden @ X11 @ X10)
+% 0.43/0.62          | ~ (v1_relat_1 @ X9))),
+% 0.43/0.62      inference('cnf', [status(esa)], [d1_wellord1])).
+% 0.43/0.62  thf('24', plain,
+% 0.43/0.62      (![X8 : $i, X9 : $i]:
+% 0.43/0.62         (~ (v1_relat_1 @ X9) | ~ (r2_hidden @ X8 @ (k1_wellord1 @ X9 @ X8)))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['23'])).
+% 0.43/0.62  thf('25', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X0 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ~ (v1_relat_1 @ (k1_wellord2 @ X1)))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['22', '24'])).
+% 0.43/0.62  thf('26', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('27', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X0 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1))),
+% 0.43/0.62      inference('demod', [status(thm)], ['25', '26'])).
+% 0.43/0.62  thf('28', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i, X2 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_hidden @ X2 @ X0)
+% 0.43/0.62          | ((X0) = (X2))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X2)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X2) = (X0))
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X2)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['18', '27'])).
+% 0.43/0.62  thf('29', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i, X2 : $i]:
+% 0.43/0.62         ((r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X2)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X2)
+% 0.43/0.62          | ((X0) = (X2))
+% 0.43/0.62          | (r2_hidden @ X2 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['28'])).
+% 0.43/0.62  thf('30', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X0) = (X1)))),
+% 0.43/0.62      inference('eq_fact', [status(thm)], ['29'])).
+% 0.43/0.62  thf('31', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         ((r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['30'])).
+% 0.43/0.62  thf('32', plain,
+% 0.43/0.62      (![X27 : $i]:
+% 0.43/0.62         ((v2_wellord1 @ (k1_wellord2 @ X27)) | ~ (v3_ordinal1 @ X27))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t7_wellord2])).
+% 0.43/0.62  thf(t11_wellord2, conjecture,
+% 0.43/0.62    (![A:$i]:
+% 0.43/0.62     ( ( v3_ordinal1 @ A ) =>
+% 0.43/0.62       ( ![B:$i]:
+% 0.43/0.62         ( ( v3_ordinal1 @ B ) =>
+% 0.43/0.62           ( ( r4_wellord1 @ ( k1_wellord2 @ A ) @ ( k1_wellord2 @ B ) ) =>
+% 0.43/0.62             ( ( A ) = ( B ) ) ) ) ) ))).
+% 0.43/0.62  thf(zf_stmt_0, negated_conjecture,
+% 0.43/0.62    (~( ![A:$i]:
+% 0.43/0.62        ( ( v3_ordinal1 @ A ) =>
+% 0.43/0.62          ( ![B:$i]:
+% 0.43/0.62            ( ( v3_ordinal1 @ B ) =>
+% 0.43/0.62              ( ( r4_wellord1 @ ( k1_wellord2 @ A ) @ ( k1_wellord2 @ B ) ) =>
+% 0.43/0.62                ( ( A ) = ( B ) ) ) ) ) ) )),
+% 0.43/0.62    inference('cnf.neg', [status(esa)], [t11_wellord2])).
+% 0.43/0.62  thf('33', plain,
+% 0.43/0.62      ((r4_wellord1 @ (k1_wellord2 @ sk_A) @ (k1_wellord2 @ sk_B))),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf(t50_wellord1, axiom,
+% 0.43/0.62    (![A:$i]:
+% 0.43/0.62     ( ( v1_relat_1 @ A ) =>
+% 0.43/0.62       ( ![B:$i]:
+% 0.43/0.62         ( ( v1_relat_1 @ B ) =>
+% 0.43/0.62           ( ( r4_wellord1 @ A @ B ) => ( r4_wellord1 @ B @ A ) ) ) ) ))).
+% 0.43/0.62  thf('34', plain,
+% 0.43/0.62      (![X16 : $i, X17 : $i]:
+% 0.43/0.62         (~ (v1_relat_1 @ X16)
+% 0.43/0.62          | (r4_wellord1 @ X16 @ X17)
+% 0.43/0.62          | ~ (r4_wellord1 @ X17 @ X16)
+% 0.43/0.62          | ~ (v1_relat_1 @ X17))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t50_wellord1])).
+% 0.43/0.62  thf('35', plain,
+% 0.43/0.62      ((~ (v1_relat_1 @ (k1_wellord2 @ sk_A))
+% 0.43/0.62        | (r4_wellord1 @ (k1_wellord2 @ sk_B) @ (k1_wellord2 @ sk_A))
+% 0.43/0.62        | ~ (v1_relat_1 @ (k1_wellord2 @ sk_B)))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['33', '34'])).
+% 0.43/0.62  thf('36', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('37', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('38', plain,
+% 0.43/0.62      ((r4_wellord1 @ (k1_wellord2 @ sk_B) @ (k1_wellord2 @ sk_A))),
+% 0.43/0.62      inference('demod', [status(thm)], ['35', '36', '37'])).
+% 0.43/0.62  thf('39', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((k2_wellord1 @ (k1_wellord2 @ X0) @ X1) = (k1_wellord2 @ X1)))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['5', '6'])).
+% 0.43/0.62  thf('40', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         ((r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['30'])).
+% 0.43/0.62  thf('41', plain,
+% 0.43/0.62      (![X25 : $i, X26 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X25)
+% 0.43/0.62          | ((X26) = (k1_wellord1 @ (k1_wellord2 @ X25) @ X26))
+% 0.43/0.62          | ~ (r2_hidden @ X26 @ X25)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X26))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t10_wellord2])).
+% 0.43/0.62  thf('42', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X1) = (k1_wellord1 @ (k1_wellord2 @ X0) @ X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['40', '41'])).
+% 0.43/0.62  thf('43', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (((X1) = (k1_wellord1 @ (k1_wellord2 @ X0) @ X1))
+% 0.43/0.62          | (r2_xboole_0 @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['42'])).
+% 0.43/0.62  thf(t57_wellord1, axiom,
+% 0.43/0.62    (![A:$i]:
+% 0.43/0.62     ( ( v1_relat_1 @ A ) =>
+% 0.43/0.62       ( ( v2_wellord1 @ A ) =>
+% 0.43/0.62         ( ![B:$i]:
+% 0.43/0.62           ( ~( ( r2_hidden @ B @ ( k3_relat_1 @ A ) ) & 
+% 0.43/0.62                ( r4_wellord1 @
+% 0.43/0.62                  A @ ( k2_wellord1 @ A @ ( k1_wellord1 @ A @ B ) ) ) ) ) ) ) ))).
+% 0.43/0.62  thf('44', plain,
+% 0.43/0.62      (![X18 : $i, X19 : $i]:
+% 0.43/0.62         (~ (v2_wellord1 @ X18)
+% 0.43/0.62          | ~ (r4_wellord1 @ X18 @ 
+% 0.43/0.62               (k2_wellord1 @ X18 @ (k1_wellord1 @ X18 @ X19)))
+% 0.43/0.62          | ~ (r2_hidden @ X19 @ (k3_relat_1 @ X18))
+% 0.43/0.62          | ~ (v1_relat_1 @ X18))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t57_wellord1])).
+% 0.43/0.62  thf('45', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r4_wellord1 @ (k1_wellord2 @ X1) @ 
+% 0.43/0.62             (k2_wellord1 @ (k1_wellord2 @ X1) @ X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_xboole_0 @ X1 @ X0)
+% 0.43/0.62          | ~ (v1_relat_1 @ (k1_wellord2 @ X1))
+% 0.43/0.62          | ~ (r2_hidden @ X0 @ (k3_relat_1 @ (k1_wellord2 @ X1)))
+% 0.43/0.62          | ~ (v2_wellord1 @ (k1_wellord2 @ X1)))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['43', '44'])).
+% 0.43/0.62  thf('46', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('47', plain, (![X20 : $i]: ((k3_relat_1 @ (k1_wellord2 @ X20)) = (X20))),
+% 0.43/0.62      inference('demod', [status(thm)], ['11', '12'])).
+% 0.43/0.62  thf('48', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r4_wellord1 @ (k1_wellord2 @ X1) @ 
+% 0.43/0.62             (k2_wellord1 @ (k1_wellord2 @ X1) @ X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_xboole_0 @ X1 @ X0)
+% 0.43/0.62          | ~ (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ~ (v2_wellord1 @ (k1_wellord2 @ X1)))),
+% 0.43/0.62      inference('demod', [status(thm)], ['45', '46', '47'])).
+% 0.43/0.62  thf('49', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r4_wellord1 @ (k1_wellord2 @ X1) @ (k1_wellord2 @ X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_xboole_0 @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ~ (v2_wellord1 @ (k1_wellord2 @ X1))
+% 0.43/0.62          | ~ (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | (r2_xboole_0 @ X1 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['39', '48'])).
+% 0.43/0.62  thf('50', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ~ (v2_wellord1 @ (k1_wellord2 @ X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | (r2_xboole_0 @ X1 @ X0)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ~ (r4_wellord1 @ (k1_wellord2 @ X1) @ (k1_wellord2 @ X0)))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['49'])).
+% 0.43/0.62  thf('51', plain,
+% 0.43/0.62      ((~ (v3_ordinal1 @ sk_A)
+% 0.43/0.62        | (r2_xboole_0 @ sk_B @ sk_A)
+% 0.43/0.62        | ((sk_A) = (sk_B))
+% 0.43/0.62        | ~ (v3_ordinal1 @ sk_B)
+% 0.43/0.62        | ~ (v2_wellord1 @ (k1_wellord2 @ sk_B))
+% 0.43/0.62        | ~ (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['38', '50'])).
+% 0.43/0.62  thf('52', plain, ((v3_ordinal1 @ sk_A)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('53', plain, ((v3_ordinal1 @ sk_B)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('54', plain,
+% 0.43/0.62      (((r2_xboole_0 @ sk_B @ sk_A)
+% 0.43/0.62        | ((sk_A) = (sk_B))
+% 0.43/0.62        | ~ (v2_wellord1 @ (k1_wellord2 @ sk_B))
+% 0.43/0.62        | ~ (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('demod', [status(thm)], ['51', '52', '53'])).
+% 0.43/0.62  thf('55', plain, (((sk_A) != (sk_B))),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('56', plain,
+% 0.43/0.62      (((r2_xboole_0 @ sk_B @ sk_A)
+% 0.43/0.62        | ~ (v2_wellord1 @ (k1_wellord2 @ sk_B))
+% 0.43/0.62        | ~ (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('simplify_reflect-', [status(thm)], ['54', '55'])).
+% 0.43/0.62  thf('57', plain,
+% 0.43/0.62      ((~ (v3_ordinal1 @ sk_B)
+% 0.43/0.62        | ~ (r2_hidden @ sk_A @ sk_B)
+% 0.43/0.62        | (r2_xboole_0 @ sk_B @ sk_A))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['32', '56'])).
+% 0.43/0.62  thf('58', plain, ((v3_ordinal1 @ sk_B)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('59', plain,
+% 0.43/0.62      ((~ (r2_hidden @ sk_A @ sk_B) | (r2_xboole_0 @ sk_B @ sk_A))),
+% 0.43/0.62      inference('demod', [status(thm)], ['57', '58'])).
+% 0.43/0.62  thf('60', plain,
+% 0.43/0.62      ((~ (v3_ordinal1 @ sk_B)
+% 0.43/0.62        | ((sk_B) = (sk_A))
+% 0.43/0.62        | ~ (v3_ordinal1 @ sk_A)
+% 0.43/0.62        | (r2_xboole_0 @ sk_B @ sk_A)
+% 0.43/0.62        | (r2_xboole_0 @ sk_B @ sk_A))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['31', '59'])).
+% 0.43/0.62  thf('61', plain, ((v3_ordinal1 @ sk_B)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('62', plain, ((v3_ordinal1 @ sk_A)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('63', plain,
+% 0.43/0.62      ((((sk_B) = (sk_A))
+% 0.43/0.62        | (r2_xboole_0 @ sk_B @ sk_A)
+% 0.43/0.62        | (r2_xboole_0 @ sk_B @ sk_A))),
+% 0.43/0.62      inference('demod', [status(thm)], ['60', '61', '62'])).
+% 0.43/0.62  thf('64', plain, (((r2_xboole_0 @ sk_B @ sk_A) | ((sk_B) = (sk_A)))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['63'])).
+% 0.43/0.62  thf('65', plain, (((sk_A) != (sk_B))),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('66', plain, ((r2_xboole_0 @ sk_B @ sk_A)),
+% 0.43/0.62      inference('simplify_reflect-', [status(thm)], ['64', '65'])).
+% 0.43/0.62  thf('67', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]: ((r1_tarski @ X0 @ X1) | ~ (r2_xboole_0 @ X0 @ X1))),
+% 0.43/0.62      inference('cnf', [status(esa)], [d8_xboole_0])).
+% 0.43/0.62  thf('68', plain, ((r1_tarski @ sk_B @ sk_A)),
+% 0.43/0.62      inference('sup-', [status(thm)], ['66', '67'])).
+% 0.43/0.62  thf('69', plain,
+% 0.43/0.62      (![X28 : $i, X29 : $i]:
+% 0.43/0.62         (((k2_wellord1 @ (k1_wellord2 @ X29) @ X28) = (k1_wellord2 @ X28))
+% 0.43/0.62          | ~ (r1_tarski @ X28 @ X29))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t8_wellord2])).
+% 0.43/0.62  thf('70', plain,
+% 0.43/0.62      (((k2_wellord1 @ (k1_wellord2 @ sk_A) @ sk_B) = (k1_wellord2 @ sk_B))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['68', '69'])).
+% 0.43/0.62  thf('71', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (((X1) = (k1_wellord1 @ (k1_wellord2 @ X0) @ X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | ((X1) = (X0))
+% 0.43/0.62          | (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['21'])).
+% 0.43/0.62  thf('72', plain,
+% 0.43/0.62      (![X18 : $i, X19 : $i]:
+% 0.43/0.62         (~ (v2_wellord1 @ X18)
+% 0.43/0.62          | ~ (r4_wellord1 @ X18 @ 
+% 0.43/0.62               (k2_wellord1 @ X18 @ (k1_wellord1 @ X18 @ X19)))
+% 0.43/0.62          | ~ (r2_hidden @ X19 @ (k3_relat_1 @ X18))
+% 0.43/0.62          | ~ (v1_relat_1 @ X18))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t57_wellord1])).
+% 0.43/0.62  thf('73', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r4_wellord1 @ (k1_wellord2 @ X1) @ 
+% 0.43/0.62             (k2_wellord1 @ (k1_wellord2 @ X1) @ X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ~ (v1_relat_1 @ (k1_wellord2 @ X1))
+% 0.43/0.62          | ~ (r2_hidden @ X0 @ (k3_relat_1 @ (k1_wellord2 @ X1)))
+% 0.43/0.62          | ~ (v2_wellord1 @ (k1_wellord2 @ X1)))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['71', '72'])).
+% 0.43/0.62  thf('74', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('75', plain, (![X20 : $i]: ((k3_relat_1 @ (k1_wellord2 @ X20)) = (X20))),
+% 0.43/0.62      inference('demod', [status(thm)], ['11', '12'])).
+% 0.43/0.62  thf('76', plain,
+% 0.43/0.62      (![X0 : $i, X1 : $i]:
+% 0.43/0.62         (~ (r4_wellord1 @ (k1_wellord2 @ X1) @ 
+% 0.43/0.62             (k2_wellord1 @ (k1_wellord2 @ X1) @ X0))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X0)
+% 0.43/0.62          | (r2_hidden @ X1 @ X0)
+% 0.43/0.62          | ((X0) = (X1))
+% 0.43/0.62          | ~ (v3_ordinal1 @ X1)
+% 0.43/0.62          | ~ (r2_hidden @ X0 @ X1)
+% 0.43/0.62          | ~ (v2_wellord1 @ (k1_wellord2 @ X1)))),
+% 0.43/0.62      inference('demod', [status(thm)], ['73', '74', '75'])).
+% 0.43/0.62  thf('77', plain,
+% 0.43/0.62      ((~ (r4_wellord1 @ (k1_wellord2 @ sk_A) @ (k1_wellord2 @ sk_B))
+% 0.43/0.62        | ~ (v2_wellord1 @ (k1_wellord2 @ sk_A))
+% 0.43/0.62        | ~ (r2_hidden @ sk_B @ sk_A)
+% 0.43/0.62        | ~ (v3_ordinal1 @ sk_A)
+% 0.43/0.62        | ((sk_B) = (sk_A))
+% 0.43/0.62        | (r2_hidden @ sk_A @ sk_B)
+% 0.43/0.62        | ~ (v3_ordinal1 @ sk_B))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['70', '76'])).
+% 0.43/0.62  thf('78', plain,
+% 0.43/0.62      ((r4_wellord1 @ (k1_wellord2 @ sk_A) @ (k1_wellord2 @ sk_B))),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('79', plain, ((v3_ordinal1 @ sk_A)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('80', plain, ((v3_ordinal1 @ sk_B)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('81', plain,
+% 0.43/0.62      ((~ (v2_wellord1 @ (k1_wellord2 @ sk_A))
+% 0.43/0.62        | ~ (r2_hidden @ sk_B @ sk_A)
+% 0.43/0.62        | ((sk_B) = (sk_A))
+% 0.43/0.62        | (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('demod', [status(thm)], ['77', '78', '79', '80'])).
+% 0.43/0.62  thf('82', plain, (((sk_A) != (sk_B))),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('83', plain,
+% 0.43/0.62      ((~ (v2_wellord1 @ (k1_wellord2 @ sk_A))
+% 0.43/0.62        | ~ (r2_hidden @ sk_B @ sk_A)
+% 0.43/0.62        | (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('simplify_reflect-', [status(thm)], ['81', '82'])).
+% 0.43/0.62  thf('84', plain,
+% 0.43/0.62      ((~ (v3_ordinal1 @ sk_A)
+% 0.43/0.62        | (r2_hidden @ sk_A @ sk_B)
+% 0.43/0.62        | ~ (r2_hidden @ sk_B @ sk_A))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['1', '83'])).
+% 0.43/0.62  thf('85', plain, ((v3_ordinal1 @ sk_A)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('86', plain, (((r2_hidden @ sk_A @ sk_B) | ~ (r2_hidden @ sk_B @ sk_A))),
+% 0.43/0.62      inference('demod', [status(thm)], ['84', '85'])).
+% 0.43/0.62  thf('87', plain,
+% 0.43/0.62      ((~ (v3_ordinal1 @ sk_B)
+% 0.43/0.62        | (r2_hidden @ sk_A @ sk_B)
+% 0.43/0.62        | ((sk_B) = (sk_A))
+% 0.43/0.62        | ~ (v3_ordinal1 @ sk_A)
+% 0.43/0.62        | (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['0', '86'])).
+% 0.43/0.62  thf('88', plain, ((v3_ordinal1 @ sk_B)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('89', plain, ((v3_ordinal1 @ sk_A)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('90', plain,
+% 0.43/0.62      (((r2_hidden @ sk_A @ sk_B)
+% 0.43/0.62        | ((sk_B) = (sk_A))
+% 0.43/0.62        | (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('demod', [status(thm)], ['87', '88', '89'])).
+% 0.43/0.62  thf('91', plain, ((((sk_B) = (sk_A)) | (r2_hidden @ sk_A @ sk_B))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['90'])).
+% 0.43/0.62  thf('92', plain, (((sk_A) != (sk_B))),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('93', plain, ((r2_hidden @ sk_A @ sk_B)),
+% 0.43/0.62      inference('simplify_reflect-', [status(thm)], ['91', '92'])).
+% 0.43/0.62  thf('94', plain,
+% 0.43/0.62      (![X25 : $i, X26 : $i]:
+% 0.43/0.62         (~ (v3_ordinal1 @ X25)
+% 0.43/0.62          | ((X26) = (k1_wellord1 @ (k1_wellord2 @ X25) @ X26))
+% 0.43/0.62          | ~ (r2_hidden @ X26 @ X25)
+% 0.43/0.62          | ~ (v3_ordinal1 @ X26))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t10_wellord2])).
+% 0.43/0.62  thf('95', plain,
+% 0.43/0.62      ((~ (v3_ordinal1 @ sk_A)
+% 0.43/0.62        | ((sk_A) = (k1_wellord1 @ (k1_wellord2 @ sk_B) @ sk_A))
+% 0.43/0.62        | ~ (v3_ordinal1 @ sk_B))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['93', '94'])).
+% 0.43/0.62  thf('96', plain, ((v3_ordinal1 @ sk_A)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('97', plain, ((v3_ordinal1 @ sk_B)),
+% 0.43/0.62      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.43/0.62  thf('98', plain, (((sk_A) = (k1_wellord1 @ (k1_wellord2 @ sk_B) @ sk_A))),
+% 0.43/0.62      inference('demod', [status(thm)], ['95', '96', '97'])).
+% 0.43/0.62  thf('99', plain,
+% 0.43/0.62      (![X8 : $i, X9 : $i]:
+% 0.43/0.62         (~ (v1_relat_1 @ X9) | ~ (r2_hidden @ X8 @ (k1_wellord1 @ X9 @ X8)))),
+% 0.43/0.62      inference('simplify', [status(thm)], ['23'])).
+% 0.43/0.62  thf('100', plain,
+% 0.43/0.62      ((~ (r2_hidden @ sk_A @ sk_A) | ~ (v1_relat_1 @ (k1_wellord2 @ sk_B)))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['98', '99'])).
+% 0.43/0.62  thf('101', plain, ((r2_hidden @ sk_A @ sk_B)),
+% 0.43/0.62      inference('simplify_reflect-', [status(thm)], ['91', '92'])).
+% 0.43/0.62  thf('102', plain,
+% 0.43/0.62      (((k2_wellord1 @ (k1_wellord2 @ sk_A) @ sk_B) = (k1_wellord2 @ sk_B))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['68', '69'])).
+% 0.43/0.62  thf('103', plain,
+% 0.43/0.62      (![X13 : $i, X14 : $i, X15 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X13 @ (k3_relat_1 @ (k2_wellord1 @ X14 @ X15)))
+% 0.43/0.62          | (r2_hidden @ X13 @ (k3_relat_1 @ X14))
+% 0.43/0.62          | ~ (v1_relat_1 @ X14))),
+% 0.43/0.62      inference('cnf', [status(esa)], [t19_wellord1])).
+% 0.43/0.62  thf('104', plain,
+% 0.43/0.62      (![X0 : $i]:
+% 0.43/0.62         (~ (r2_hidden @ X0 @ (k3_relat_1 @ (k1_wellord2 @ sk_B)))
+% 0.43/0.62          | ~ (v1_relat_1 @ (k1_wellord2 @ sk_A))
+% 0.43/0.62          | (r2_hidden @ X0 @ (k3_relat_1 @ (k1_wellord2 @ sk_A))))),
+% 0.43/0.62      inference('sup-', [status(thm)], ['102', '103'])).
+% 0.43/0.62  thf('105', plain,
+% 0.43/0.62      (![X20 : $i]: ((k3_relat_1 @ (k1_wellord2 @ X20)) = (X20))),
+% 0.43/0.62      inference('demod', [status(thm)], ['11', '12'])).
+% 0.43/0.62  thf('106', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('107', plain,
+% 0.43/0.62      (![X20 : $i]: ((k3_relat_1 @ (k1_wellord2 @ X20)) = (X20))),
+% 0.43/0.62      inference('demod', [status(thm)], ['11', '12'])).
+% 0.43/0.62  thf('108', plain,
+% 0.43/0.62      (![X0 : $i]: (~ (r2_hidden @ X0 @ sk_B) | (r2_hidden @ X0 @ sk_A))),
+% 0.43/0.62      inference('demod', [status(thm)], ['104', '105', '106', '107'])).
+% 0.43/0.62  thf('109', plain, ((r2_hidden @ sk_A @ sk_A)),
+% 0.43/0.62      inference('sup-', [status(thm)], ['101', '108'])).
+% 0.43/0.62  thf('110', plain, (![X24 : $i]: (v1_relat_1 @ (k1_wellord2 @ X24))),
+% 0.43/0.62      inference('cnf', [status(esa)], [dt_k1_wellord2])).
+% 0.43/0.62  thf('111', plain, ($false),
+% 0.43/0.62      inference('demod', [status(thm)], ['100', '109', '110'])).
+% 0.43/0.62  
+% 0.43/0.62  % SZS output end Refutation
+% 0.43/0.62  
+% 0.45/0.63  % Zipperpin 1.5 exiting
+%------------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+rm -rf LOG
+touch LOG
+set type="Chainy"
+
+foreach file ( `grep -l "SZS status Theorem" */*/*` )
+    set system_problem=`dirname $file`
+    set system=`dirname $system_problem`
+    set system=`expr $system : ".*___\(.*\)"`
+    set problem=`basename $system_problem`
+    echo "Do $system for $problem" >> LOG
+    ~tptp/TSTP/X2TPTP/X2tptpExtractor -starexec -o "/exp/home/tptp/TPAP/MPTPTP2078/$type/Solutions/$problem/$system" $system $file >> LOG
+end

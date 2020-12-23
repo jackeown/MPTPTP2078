@@ -1,0 +1,325 @@
+%------------------------------------------------------------------------------
+% File       : Beagle---0.9.47
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+
+% Computer   : n018.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 09:42:43 EST 2020
+
+% Result     : Theorem 3.43s
+% Output     : CNFRefutation 3.43s
+% Verified   : 
+% Statistics : Number of formulae       :   36 (  47 expanded)
+%              Number of leaves         :   15 (  24 expanded)
+%              Depth                    :    8
+%              Number of atoms          :   55 (  87 expanded)
+%              Number of equality atoms :    1 (   3 expanded)
+%              Maximal formula depth    :    9 (   5 average)
+%              Maximal term depth       :    3 (   1 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+%$ r2_hidden > r1_tarski > k4_xboole_0 > #nlpp > #skF_5 > #skF_6 > #skF_2 > #skF_4 > #skF_3 > #skF_1
+
+%Foreground sorts:
+
+%Background operators:
+
+%Foreground operators:
+tff('#nlpp',type,(
+    '#nlpp': ( $real * $real ) > $real )).
+
+tff(r2_hidden,type,(
+    r2_hidden: ( $i * $i ) > $o )).
+
+tff(k4_xboole_0,type,(
+    k4_xboole_0: ( $i * $i ) > $i )).
+
+tff(r1_tarski,type,(
+    r1_tarski: ( $i * $i ) > $o )).
+
+tff('#skF_5',type,(
+    '#skF_5': $i )).
+
+tff('#skF_6',type,(
+    '#skF_6': $i )).
+
+tff('#skF_2',type,(
+    '#skF_2': ( $i * $i * $i ) > $i )).
+
+tff('#nlpp_001',type,(
+    '#nlpp': ( $rat * $rat ) > $rat )).
+
+tff('#skF_4',type,(
+    '#skF_4': $i )).
+
+tff('#skF_3',type,(
+    '#skF_3': ( $i * $i * $i ) > $i )).
+
+tff('#nlpp_002',type,(
+    '#nlpp': ( $int * $int ) > $int )).
+
+tff('#skF_1',type,(
+    '#skF_1': ( $i * $i ) > $i )).
+
+tff(f_32,axiom,(
+    ! [A,B] :
+      ( r1_tarski(A,B)
+    <=> ! [C] :
+          ( r2_hidden(C,A)
+         => r2_hidden(C,B) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',d3_tarski)).
+
+tff(f_42,axiom,(
+    ! [A,B,C] :
+      ( C = k4_xboole_0(A,B)
+    <=> ! [D] :
+          ( r2_hidden(D,C)
+        <=> ( r2_hidden(D,A)
+            & ~ r2_hidden(D,B) ) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',d5_xboole_0)).
+
+tff(f_47,negated_conjecture,(
+    ~ ! [A,B,C] :
+        ( r1_tarski(A,B)
+       => r1_tarski(k4_xboole_0(A,C),k4_xboole_0(B,C)) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t33_xboole_1)).
+
+tff(c_31,plain,(
+    ! [A_18,B_19] :
+      ( r2_hidden('#skF_1'(A_18,B_19),A_18)
+      | r1_tarski(A_18,B_19) ) ),
+    inference(cnfTransformation,[status(thm)],[f_32])).
+
+tff(c_12,plain,(
+    ! [D_11,A_6,B_7] :
+      ( r2_hidden(D_11,A_6)
+      | ~ r2_hidden(D_11,k4_xboole_0(A_6,B_7)) ) ),
+    inference(cnfTransformation,[status(thm)],[f_42])).
+
+tff(c_107,plain,(
+    ! [A_41,B_42,B_43] :
+      ( r2_hidden('#skF_1'(k4_xboole_0(A_41,B_42),B_43),A_41)
+      | r1_tarski(k4_xboole_0(A_41,B_42),B_43) ) ),
+    inference(resolution,[status(thm)],[c_31,c_12])).
+
+tff(c_4,plain,(
+    ! [A_1,B_2] :
+      ( ~ r2_hidden('#skF_1'(A_1,B_2),B_2)
+      | r1_tarski(A_1,B_2) ) ),
+    inference(cnfTransformation,[status(thm)],[f_32])).
+
+tff(c_128,plain,(
+    ! [A_41,B_42] : r1_tarski(k4_xboole_0(A_41,B_42),A_41) ),
+    inference(resolution,[status(thm)],[c_107,c_4])).
+
+tff(c_28,plain,(
+    r1_tarski('#skF_4','#skF_5') ),
+    inference(cnfTransformation,[status(thm)],[f_47])).
+
+tff(c_6,plain,(
+    ! [A_1,B_2] :
+      ( r2_hidden('#skF_1'(A_1,B_2),A_1)
+      | r1_tarski(A_1,B_2) ) ),
+    inference(cnfTransformation,[status(thm)],[f_32])).
+
+tff(c_49,plain,(
+    ! [C_23,B_24,A_25] :
+      ( r2_hidden(C_23,B_24)
+      | ~ r2_hidden(C_23,A_25)
+      | ~ r1_tarski(A_25,B_24) ) ),
+    inference(cnfTransformation,[status(thm)],[f_32])).
+
+tff(c_76,plain,(
+    ! [A_32,B_33,B_34] :
+      ( r2_hidden('#skF_1'(A_32,B_33),B_34)
+      | ~ r1_tarski(A_32,B_34)
+      | r1_tarski(A_32,B_33) ) ),
+    inference(resolution,[status(thm)],[c_6,c_49])).
+
+tff(c_2,plain,(
+    ! [C_5,B_2,A_1] :
+      ( r2_hidden(C_5,B_2)
+      | ~ r2_hidden(C_5,A_1)
+      | ~ r1_tarski(A_1,B_2) ) ),
+    inference(cnfTransformation,[status(thm)],[f_32])).
+
+tff(c_374,plain,(
+    ! [A_96,B_97,B_98,B_99] :
+      ( r2_hidden('#skF_1'(A_96,B_97),B_98)
+      | ~ r1_tarski(B_99,B_98)
+      | ~ r1_tarski(A_96,B_99)
+      | r1_tarski(A_96,B_97) ) ),
+    inference(resolution,[status(thm)],[c_76,c_2])).
+
+tff(c_386,plain,(
+    ! [A_96,B_97] :
+      ( r2_hidden('#skF_1'(A_96,B_97),'#skF_5')
+      | ~ r1_tarski(A_96,'#skF_4')
+      | r1_tarski(A_96,B_97) ) ),
+    inference(resolution,[status(thm)],[c_28,c_374])).
+
+tff(c_53,plain,(
+    ! [D_26,A_27,B_28] :
+      ( r2_hidden(D_26,k4_xboole_0(A_27,B_28))
+      | r2_hidden(D_26,B_28)
+      | ~ r2_hidden(D_26,A_27) ) ),
+    inference(cnfTransformation,[status(thm)],[f_42])).
+
+tff(c_1073,plain,(
+    ! [A_156,A_157,B_158] :
+      ( r1_tarski(A_156,k4_xboole_0(A_157,B_158))
+      | r2_hidden('#skF_1'(A_156,k4_xboole_0(A_157,B_158)),B_158)
+      | ~ r2_hidden('#skF_1'(A_156,k4_xboole_0(A_157,B_158)),A_157) ) ),
+    inference(resolution,[status(thm)],[c_53,c_4])).
+
+tff(c_1244,plain,(
+    ! [A_164,B_165] :
+      ( r2_hidden('#skF_1'(A_164,k4_xboole_0('#skF_5',B_165)),B_165)
+      | ~ r1_tarski(A_164,'#skF_4')
+      | r1_tarski(A_164,k4_xboole_0('#skF_5',B_165)) ) ),
+    inference(resolution,[status(thm)],[c_386,c_1073])).
+
+tff(c_10,plain,(
+    ! [D_11,B_7,A_6] :
+      ( ~ r2_hidden(D_11,B_7)
+      | ~ r2_hidden(D_11,k4_xboole_0(A_6,B_7)) ) ),
+    inference(cnfTransformation,[status(thm)],[f_42])).
+
+tff(c_40,plain,(
+    ! [A_6,B_7,B_19] :
+      ( ~ r2_hidden('#skF_1'(k4_xboole_0(A_6,B_7),B_19),B_7)
+      | r1_tarski(k4_xboole_0(A_6,B_7),B_19) ) ),
+    inference(resolution,[status(thm)],[c_31,c_10])).
+
+tff(c_1399,plain,(
+    ! [A_174,B_175] :
+      ( ~ r1_tarski(k4_xboole_0(A_174,B_175),'#skF_4')
+      | r1_tarski(k4_xboole_0(A_174,B_175),k4_xboole_0('#skF_5',B_175)) ) ),
+    inference(resolution,[status(thm)],[c_1244,c_40])).
+
+tff(c_26,plain,(
+    ~ r1_tarski(k4_xboole_0('#skF_4','#skF_6'),k4_xboole_0('#skF_5','#skF_6')) ),
+    inference(cnfTransformation,[status(thm)],[f_47])).
+
+tff(c_1421,plain,(
+    ~ r1_tarski(k4_xboole_0('#skF_4','#skF_6'),'#skF_4') ),
+    inference(resolution,[status(thm)],[c_1399,c_26])).
+
+tff(c_1436,plain,(
+    $false ),
+    inference(demodulation,[status(thm),theory(equality)],[c_128,c_1421])).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.10/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.10/0.13  % Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+% 0.13/0.34  % Computer   : n018.cluster.edu
+% 0.13/0.34  % Model      : x86_64 x86_64
+% 0.13/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.34  % Memory     : 8042.1875MB
+% 0.13/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.34  % CPULimit   : 60
+% 0.13/0.34  % DateTime   : Tue Dec  1 15:29:57 EST 2020
+% 0.13/0.35  % CPUTime    : 
+% 0.13/0.35  OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=384M; support was removed in 8.0
+% 3.43/1.56  % SZS status Theorem for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 3.43/1.56  
+% 3.43/1.56  % SZS output start CNFRefutation for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 3.43/1.56  %$ r2_hidden > r1_tarski > k4_xboole_0 > #nlpp > #skF_5 > #skF_6 > #skF_2 > #skF_4 > #skF_3 > #skF_1
+% 3.43/1.56  
+% 3.43/1.56  %Foreground sorts:
+% 3.43/1.56  
+% 3.43/1.56  
+% 3.43/1.56  %Background operators:
+% 3.43/1.56  
+% 3.43/1.56  
+% 3.43/1.56  %Foreground operators:
+% 3.43/1.56  tff('#nlpp', type, '#nlpp': ($real * $real) > $real).
+% 3.43/1.56  tff(r2_hidden, type, r2_hidden: ($i * $i) > $o).
+% 3.43/1.56  tff(k4_xboole_0, type, k4_xboole_0: ($i * $i) > $i).
+% 3.43/1.56  tff(r1_tarski, type, r1_tarski: ($i * $i) > $o).
+% 3.43/1.56  tff('#skF_5', type, '#skF_5': $i).
+% 3.43/1.56  tff('#skF_6', type, '#skF_6': $i).
+% 3.43/1.56  tff('#skF_2', type, '#skF_2': ($i * $i * $i) > $i).
+% 3.43/1.56  tff('#nlpp', type, '#nlpp': ($rat * $rat) > $rat).
+% 3.43/1.56  tff('#skF_4', type, '#skF_4': $i).
+% 3.43/1.56  tff('#skF_3', type, '#skF_3': ($i * $i * $i) > $i).
+% 3.43/1.56  tff('#nlpp', type, '#nlpp': ($int * $int) > $int).
+% 3.43/1.56  tff('#skF_1', type, '#skF_1': ($i * $i) > $i).
+% 3.43/1.56  
+% 3.43/1.57  tff(f_32, axiom, (![A, B]: (r1_tarski(A, B) <=> (![C]: (r2_hidden(C, A) => r2_hidden(C, B))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', d3_tarski)).
+% 3.43/1.57  tff(f_42, axiom, (![A, B, C]: ((C = k4_xboole_0(A, B)) <=> (![D]: (r2_hidden(D, C) <=> (r2_hidden(D, A) & ~r2_hidden(D, B)))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', d5_xboole_0)).
+% 3.43/1.57  tff(f_47, negated_conjecture, ~(![A, B, C]: (r1_tarski(A, B) => r1_tarski(k4_xboole_0(A, C), k4_xboole_0(B, C)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t33_xboole_1)).
+% 3.43/1.57  tff(c_31, plain, (![A_18, B_19]: (r2_hidden('#skF_1'(A_18, B_19), A_18) | r1_tarski(A_18, B_19))), inference(cnfTransformation, [status(thm)], [f_32])).
+% 3.43/1.57  tff(c_12, plain, (![D_11, A_6, B_7]: (r2_hidden(D_11, A_6) | ~r2_hidden(D_11, k4_xboole_0(A_6, B_7)))), inference(cnfTransformation, [status(thm)], [f_42])).
+% 3.43/1.57  tff(c_107, plain, (![A_41, B_42, B_43]: (r2_hidden('#skF_1'(k4_xboole_0(A_41, B_42), B_43), A_41) | r1_tarski(k4_xboole_0(A_41, B_42), B_43))), inference(resolution, [status(thm)], [c_31, c_12])).
+% 3.43/1.57  tff(c_4, plain, (![A_1, B_2]: (~r2_hidden('#skF_1'(A_1, B_2), B_2) | r1_tarski(A_1, B_2))), inference(cnfTransformation, [status(thm)], [f_32])).
+% 3.43/1.57  tff(c_128, plain, (![A_41, B_42]: (r1_tarski(k4_xboole_0(A_41, B_42), A_41))), inference(resolution, [status(thm)], [c_107, c_4])).
+% 3.43/1.57  tff(c_28, plain, (r1_tarski('#skF_4', '#skF_5')), inference(cnfTransformation, [status(thm)], [f_47])).
+% 3.43/1.57  tff(c_6, plain, (![A_1, B_2]: (r2_hidden('#skF_1'(A_1, B_2), A_1) | r1_tarski(A_1, B_2))), inference(cnfTransformation, [status(thm)], [f_32])).
+% 3.43/1.57  tff(c_49, plain, (![C_23, B_24, A_25]: (r2_hidden(C_23, B_24) | ~r2_hidden(C_23, A_25) | ~r1_tarski(A_25, B_24))), inference(cnfTransformation, [status(thm)], [f_32])).
+% 3.43/1.57  tff(c_76, plain, (![A_32, B_33, B_34]: (r2_hidden('#skF_1'(A_32, B_33), B_34) | ~r1_tarski(A_32, B_34) | r1_tarski(A_32, B_33))), inference(resolution, [status(thm)], [c_6, c_49])).
+% 3.43/1.57  tff(c_2, plain, (![C_5, B_2, A_1]: (r2_hidden(C_5, B_2) | ~r2_hidden(C_5, A_1) | ~r1_tarski(A_1, B_2))), inference(cnfTransformation, [status(thm)], [f_32])).
+% 3.43/1.57  tff(c_374, plain, (![A_96, B_97, B_98, B_99]: (r2_hidden('#skF_1'(A_96, B_97), B_98) | ~r1_tarski(B_99, B_98) | ~r1_tarski(A_96, B_99) | r1_tarski(A_96, B_97))), inference(resolution, [status(thm)], [c_76, c_2])).
+% 3.43/1.57  tff(c_386, plain, (![A_96, B_97]: (r2_hidden('#skF_1'(A_96, B_97), '#skF_5') | ~r1_tarski(A_96, '#skF_4') | r1_tarski(A_96, B_97))), inference(resolution, [status(thm)], [c_28, c_374])).
+% 3.43/1.57  tff(c_53, plain, (![D_26, A_27, B_28]: (r2_hidden(D_26, k4_xboole_0(A_27, B_28)) | r2_hidden(D_26, B_28) | ~r2_hidden(D_26, A_27))), inference(cnfTransformation, [status(thm)], [f_42])).
+% 3.43/1.57  tff(c_1073, plain, (![A_156, A_157, B_158]: (r1_tarski(A_156, k4_xboole_0(A_157, B_158)) | r2_hidden('#skF_1'(A_156, k4_xboole_0(A_157, B_158)), B_158) | ~r2_hidden('#skF_1'(A_156, k4_xboole_0(A_157, B_158)), A_157))), inference(resolution, [status(thm)], [c_53, c_4])).
+% 3.43/1.57  tff(c_1244, plain, (![A_164, B_165]: (r2_hidden('#skF_1'(A_164, k4_xboole_0('#skF_5', B_165)), B_165) | ~r1_tarski(A_164, '#skF_4') | r1_tarski(A_164, k4_xboole_0('#skF_5', B_165)))), inference(resolution, [status(thm)], [c_386, c_1073])).
+% 3.43/1.57  tff(c_10, plain, (![D_11, B_7, A_6]: (~r2_hidden(D_11, B_7) | ~r2_hidden(D_11, k4_xboole_0(A_6, B_7)))), inference(cnfTransformation, [status(thm)], [f_42])).
+% 3.43/1.57  tff(c_40, plain, (![A_6, B_7, B_19]: (~r2_hidden('#skF_1'(k4_xboole_0(A_6, B_7), B_19), B_7) | r1_tarski(k4_xboole_0(A_6, B_7), B_19))), inference(resolution, [status(thm)], [c_31, c_10])).
+% 3.43/1.57  tff(c_1399, plain, (![A_174, B_175]: (~r1_tarski(k4_xboole_0(A_174, B_175), '#skF_4') | r1_tarski(k4_xboole_0(A_174, B_175), k4_xboole_0('#skF_5', B_175)))), inference(resolution, [status(thm)], [c_1244, c_40])).
+% 3.43/1.57  tff(c_26, plain, (~r1_tarski(k4_xboole_0('#skF_4', '#skF_6'), k4_xboole_0('#skF_5', '#skF_6'))), inference(cnfTransformation, [status(thm)], [f_47])).
+% 3.43/1.57  tff(c_1421, plain, (~r1_tarski(k4_xboole_0('#skF_4', '#skF_6'), '#skF_4')), inference(resolution, [status(thm)], [c_1399, c_26])).
+% 3.43/1.57  tff(c_1436, plain, $false, inference(demodulation, [status(thm), theory('equality')], [c_128, c_1421])).
+% 3.43/1.57  % SZS output end CNFRefutation for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 3.43/1.57  
+% 3.43/1.57  Inference rules
+% 3.43/1.57  ----------------------
+% 3.43/1.57  #Ref     : 0
+% 3.43/1.57  #Sup     : 308
+% 3.43/1.57  #Fact    : 2
+% 3.43/1.57  #Define  : 0
+% 3.43/1.57  #Split   : 1
+% 3.43/1.57  #Chain   : 0
+% 3.43/1.57  #Close   : 0
+% 3.43/1.57  
+% 3.43/1.57  Ordering : KBO
+% 3.43/1.57  
+% 3.43/1.57  Simplification rules
+% 3.43/1.57  ----------------------
+% 3.43/1.57  #Subsume      : 65
+% 3.43/1.57  #Demod        : 66
+% 3.43/1.57  #Tautology    : 59
+% 3.43/1.57  #SimpNegUnit  : 0
+% 3.43/1.57  #BackRed      : 0
+% 3.43/1.57  
+% 3.43/1.57  #Partial instantiations: 0
+% 3.43/1.57  #Strategies tried      : 1
+% 3.43/1.57  
+% 3.43/1.57  Timing (in seconds)
+% 3.43/1.57  ----------------------
+% 3.43/1.58  Preprocessing        : 0.26
+% 3.43/1.58  Parsing              : 0.14
+% 3.43/1.58  CNF conversion       : 0.02
+% 3.43/1.58  Main loop            : 0.53
+% 3.43/1.58  Inferencing          : 0.19
+% 3.43/1.58  Reduction            : 0.12
+% 3.43/1.58  Demodulation         : 0.08
+% 3.43/1.58  BG Simplification    : 0.02
+% 3.43/1.58  Subsumption          : 0.16
+% 3.43/1.58  Abstraction          : 0.03
+% 3.43/1.58  MUC search           : 0.00
+% 3.43/1.58  Cooper               : 0.00
+% 3.43/1.58  Total                : 0.81
+% 3.43/1.58  Index Insertion      : 0.00
+% 3.43/1.58  Index Deletion       : 0.00
+% 3.43/1.58  Index Matching       : 0.00
+% 3.43/1.58  BG Taut test         : 0.00
+%------------------------------------------------------------------------------

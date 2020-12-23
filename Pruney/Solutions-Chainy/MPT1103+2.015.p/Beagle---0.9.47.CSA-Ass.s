@@ -1,0 +1,82 @@
+%------------------------------------------------------------------------------
+% File       : Beagle---0.9.47
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+
+% Computer   : n006.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 10:18:34 EST 2020
+
+% Result     : CounterSatisfiable 2.45s
+% Output     : Assurance 0s
+% Verified   : 
+% Statistics : -
+
+% Comments   : 
+%------------------------------------------------------------------------------
+%----No solution output by system
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.07/0.13  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.07/0.14  % Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+% 0.14/0.35  % Computer   : n006.cluster.edu
+% 0.14/0.35  % Model      : x86_64 x86_64
+% 0.14/0.35  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.14/0.35  % Memory     : 8042.1875MB
+% 0.14/0.35  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.14/0.35  % CPULimit   : 60
+% 0.14/0.35  % DateTime   : Tue Dec  1 09:26:52 EST 2020
+% 0.14/0.35  % CPUTime    : 
+% 0.14/0.36  OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=384M; support was removed in 8.0
+% 2.45/1.34  
+% 2.45/1.34  % SZS status CounterSatisfiable for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 2.45/1.34  
+% 2.45/1.34  Inference rules
+% 2.45/1.34  ----------------------
+% 2.45/1.34  #Ref     : 0
+% 2.45/1.34  #Sup     : 136
+% 2.45/1.34  #Fact    : 0
+% 2.45/1.34  #Define  : 0
+% 2.45/1.34  #Split   : 2
+% 2.45/1.34  #Chain   : 0
+% 2.45/1.34  #Close   : 0
+% 2.45/1.34  
+% 2.45/1.34  Ordering : KBO
+% 2.45/1.34  
+% 2.45/1.34  Simplification rules
+% 2.45/1.34  ----------------------
+% 2.45/1.34  #Subsume      : 3
+% 2.45/1.34  #Demod        : 36
+% 2.45/1.34  #Tautology    : 107
+% 2.45/1.34  #SimpNegUnit  : 2
+% 2.45/1.34  #BackRed      : 2
+% 2.45/1.34  
+% 2.45/1.34  #Partial instantiations: 0
+% 2.45/1.34  #Strategies tried      : 1
+% 2.45/1.34  
+% 2.45/1.34  Timing (in seconds)
+% 2.45/1.34  ----------------------
+% 2.45/1.34  Preprocessing        : 0.32
+% 2.45/1.34  Parsing              : 0.17
+% 2.45/1.35  CNF conversion       : 0.02
+% 2.45/1.35  Main loop            : 0.27
+% 2.45/1.35  Inferencing          : 0.10
+% 2.45/1.35  Reduction            : 0.09
+% 2.45/1.35  Demodulation         : 0.07
+% 2.45/1.35  BG Simplification    : 0.01
+% 2.45/1.35  Subsumption          : 0.04
+% 2.45/1.35  Abstraction          : 0.02
+% 2.45/1.35  MUC search           : 0.00
+% 2.45/1.35  Cooper               : 0.00
+% 2.45/1.35  Total                : 0.59
+% 2.45/1.35  Index Insertion      : 0.00
+% 2.45/1.35  Index Deletion       : 0.00
+% 2.45/1.35  Index Matching       : 0.00
+% 2.45/1.35  BG Taut test         : 0.00
+%------------------------------------------------------------------------------

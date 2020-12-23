@@ -1,0 +1,250 @@
+%------------------------------------------------------------------------------
+% File       : Beagle---0.9.47
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+
+% Computer   : n011.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 10:10:36 EST 2020
+
+% Result     : Theorem 1.64s
+% Output     : CNFRefutation 1.64s
+% Verified   : 
+% Statistics : Number of formulae       :   28 (  30 expanded)
+%              Number of leaves         :   19 (  20 expanded)
+%              Depth                    :    5
+%              Number of atoms          :   27 (  29 expanded)
+%              Number of equality atoms :    4 (   4 expanded)
+%              Maximal formula depth    :   10 (   3 average)
+%              Maximal term depth       :    3 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+%$ r8_relat_2 > r2_hidden > r1_tarski > v8_relat_2 > v1_relat_1 > k4_tarski > #nlpp > k3_relat_1 > k1_wellord2 > #skF_3 > #skF_2 > #skF_1
+
+%Foreground sorts:
+
+%Background operators:
+
+%Foreground operators:
+tff('#nlpp',type,(
+    '#nlpp': ( $real * $real ) > $real )).
+
+tff(r2_hidden,type,(
+    r2_hidden: ( $i * $i ) > $o )).
+
+tff(k4_tarski,type,(
+    k4_tarski: ( $i * $i ) > $i )).
+
+tff(v8_relat_2,type,(
+    v8_relat_2: $i > $o )).
+
+tff(k3_relat_1,type,(
+    k3_relat_1: $i > $i )).
+
+tff(r1_tarski,type,(
+    r1_tarski: ( $i * $i ) > $o )).
+
+tff(k1_wellord2,type,(
+    k1_wellord2: $i > $i )).
+
+tff('#skF_3',type,(
+    '#skF_3': $i )).
+
+tff('#nlpp_001',type,(
+    '#nlpp': ( $rat * $rat ) > $rat )).
+
+tff(v1_relat_1,type,(
+    v1_relat_1: $i > $o )).
+
+tff('#nlpp_002',type,(
+    '#nlpp': ( $int * $int ) > $int )).
+
+tff('#skF_2',type,(
+    '#skF_2': ( $i * $i ) > $i )).
+
+tff(r8_relat_2,type,(
+    r8_relat_2: ( $i * $i ) > $o )).
+
+tff('#skF_1',type,(
+    '#skF_1': ( $i * $i ) > $i )).
+
+tff(f_48,axiom,(
+    ! [A] : v1_relat_1(k1_wellord2(A)) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',dt_k1_wellord2)).
+
+tff(f_50,axiom,(
+    ! [A] : v8_relat_2(k1_wellord2(A)) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t3_wellord2)).
+
+tff(f_46,axiom,(
+    ! [A,B] :
+      ( v1_relat_1(B)
+     => ( B = k1_wellord2(A)
+      <=> ( k3_relat_1(B) = A
+          & ! [C,D] :
+              ( ( r2_hidden(C,A)
+                & r2_hidden(D,A) )
+             => ( r2_hidden(k4_tarski(C,D),B)
+              <=> r1_tarski(C,D) ) ) ) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',d1_wellord2)).
+
+tff(f_31,axiom,(
+    ! [A] :
+      ( v1_relat_1(A)
+     => ( v8_relat_2(A)
+      <=> r8_relat_2(A,k3_relat_1(A)) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',d16_relat_2)).
+
+tff(f_53,negated_conjecture,(
+    ~ ! [A] : r8_relat_2(k1_wellord2(A),A) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t30_wellord2)).
+
+tff(c_24,plain,(
+    ! [A_10] : v1_relat_1(k1_wellord2(A_10)) ),
+    inference(cnfTransformation,[status(thm)],[f_48])).
+
+tff(c_26,plain,(
+    ! [A_11] : v8_relat_2(k1_wellord2(A_11)) ),
+    inference(cnfTransformation,[status(thm)],[f_50])).
+
+tff(c_18,plain,(
+    ! [A_2] :
+      ( k3_relat_1(k1_wellord2(A_2)) = A_2
+      | ~ v1_relat_1(k1_wellord2(A_2)) ) ),
+    inference(cnfTransformation,[status(thm)],[f_46])).
+
+tff(c_34,plain,(
+    ! [A_2] : k3_relat_1(k1_wellord2(A_2)) = A_2 ),
+    inference(demodulation,[status(thm),theory(equality)],[c_24,c_18])).
+
+tff(c_46,plain,(
+    ! [A_15] :
+      ( r8_relat_2(A_15,k3_relat_1(A_15))
+      | ~ v8_relat_2(A_15)
+      | ~ v1_relat_1(A_15) ) ),
+    inference(cnfTransformation,[status(thm)],[f_31])).
+
+tff(c_49,plain,(
+    ! [A_2] :
+      ( r8_relat_2(k1_wellord2(A_2),A_2)
+      | ~ v8_relat_2(k1_wellord2(A_2))
+      | ~ v1_relat_1(k1_wellord2(A_2)) ) ),
+    inference(superposition,[status(thm),theory(equality)],[c_34,c_46])).
+
+tff(c_51,plain,(
+    ! [A_2] : r8_relat_2(k1_wellord2(A_2),A_2) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_24,c_26,c_49])).
+
+tff(c_28,plain,(
+    ~ r8_relat_2(k1_wellord2('#skF_3'),'#skF_3') ),
+    inference(cnfTransformation,[status(thm)],[f_53])).
+
+tff(c_64,plain,(
+    $false ),
+    inference(demodulation,[status(thm),theory(equality)],[c_51,c_28])).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.00/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.14/0.13  % Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+% 0.14/0.34  % Computer   : n011.cluster.edu
+% 0.14/0.34  % Model      : x86_64 x86_64
+% 0.14/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.14/0.34  % Memory     : 8042.1875MB
+% 0.14/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.14/0.34  % CPULimit   : 60
+% 0.14/0.34  % DateTime   : Tue Dec  1 19:59:42 EST 2020
+% 0.14/0.34  % CPUTime    : 
+% 0.14/0.35  OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=384M; support was removed in 8.0
+% 1.64/1.12  % SZS status Theorem for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 1.64/1.13  
+% 1.64/1.13  % SZS output start CNFRefutation for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 1.64/1.13  %$ r8_relat_2 > r2_hidden > r1_tarski > v8_relat_2 > v1_relat_1 > k4_tarski > #nlpp > k3_relat_1 > k1_wellord2 > #skF_3 > #skF_2 > #skF_1
+% 1.64/1.13  
+% 1.64/1.13  %Foreground sorts:
+% 1.64/1.13  
+% 1.64/1.13  
+% 1.64/1.13  %Background operators:
+% 1.64/1.13  
+% 1.64/1.13  
+% 1.64/1.13  %Foreground operators:
+% 1.64/1.13  tff('#nlpp', type, '#nlpp': ($real * $real) > $real).
+% 1.64/1.13  tff(r2_hidden, type, r2_hidden: ($i * $i) > $o).
+% 1.64/1.13  tff(k4_tarski, type, k4_tarski: ($i * $i) > $i).
+% 1.64/1.13  tff(v8_relat_2, type, v8_relat_2: $i > $o).
+% 1.64/1.13  tff(k3_relat_1, type, k3_relat_1: $i > $i).
+% 1.64/1.13  tff(r1_tarski, type, r1_tarski: ($i * $i) > $o).
+% 1.64/1.13  tff(k1_wellord2, type, k1_wellord2: $i > $i).
+% 1.64/1.13  tff('#skF_3', type, '#skF_3': $i).
+% 1.64/1.13  tff('#nlpp', type, '#nlpp': ($rat * $rat) > $rat).
+% 1.64/1.13  tff(v1_relat_1, type, v1_relat_1: $i > $o).
+% 1.64/1.13  tff('#nlpp', type, '#nlpp': ($int * $int) > $int).
+% 1.64/1.13  tff('#skF_2', type, '#skF_2': ($i * $i) > $i).
+% 1.64/1.13  tff(r8_relat_2, type, r8_relat_2: ($i * $i) > $o).
+% 1.64/1.13  tff('#skF_1', type, '#skF_1': ($i * $i) > $i).
+% 1.64/1.13  
+% 1.64/1.14  tff(f_48, axiom, (![A]: v1_relat_1(k1_wellord2(A))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', dt_k1_wellord2)).
+% 1.64/1.14  tff(f_50, axiom, (![A]: v8_relat_2(k1_wellord2(A))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t3_wellord2)).
+% 1.64/1.14  tff(f_46, axiom, (![A, B]: (v1_relat_1(B) => ((B = k1_wellord2(A)) <=> ((k3_relat_1(B) = A) & (![C, D]: ((r2_hidden(C, A) & r2_hidden(D, A)) => (r2_hidden(k4_tarski(C, D), B) <=> r1_tarski(C, D)))))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', d1_wellord2)).
+% 1.64/1.14  tff(f_31, axiom, (![A]: (v1_relat_1(A) => (v8_relat_2(A) <=> r8_relat_2(A, k3_relat_1(A))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', d16_relat_2)).
+% 1.64/1.14  tff(f_53, negated_conjecture, ~(![A]: r8_relat_2(k1_wellord2(A), A)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t30_wellord2)).
+% 1.64/1.14  tff(c_24, plain, (![A_10]: (v1_relat_1(k1_wellord2(A_10)))), inference(cnfTransformation, [status(thm)], [f_48])).
+% 1.64/1.14  tff(c_26, plain, (![A_11]: (v8_relat_2(k1_wellord2(A_11)))), inference(cnfTransformation, [status(thm)], [f_50])).
+% 1.64/1.14  tff(c_18, plain, (![A_2]: (k3_relat_1(k1_wellord2(A_2))=A_2 | ~v1_relat_1(k1_wellord2(A_2)))), inference(cnfTransformation, [status(thm)], [f_46])).
+% 1.64/1.14  tff(c_34, plain, (![A_2]: (k3_relat_1(k1_wellord2(A_2))=A_2)), inference(demodulation, [status(thm), theory('equality')], [c_24, c_18])).
+% 1.64/1.14  tff(c_46, plain, (![A_15]: (r8_relat_2(A_15, k3_relat_1(A_15)) | ~v8_relat_2(A_15) | ~v1_relat_1(A_15))), inference(cnfTransformation, [status(thm)], [f_31])).
+% 1.64/1.14  tff(c_49, plain, (![A_2]: (r8_relat_2(k1_wellord2(A_2), A_2) | ~v8_relat_2(k1_wellord2(A_2)) | ~v1_relat_1(k1_wellord2(A_2)))), inference(superposition, [status(thm), theory('equality')], [c_34, c_46])).
+% 1.64/1.14  tff(c_51, plain, (![A_2]: (r8_relat_2(k1_wellord2(A_2), A_2))), inference(demodulation, [status(thm), theory('equality')], [c_24, c_26, c_49])).
+% 1.64/1.14  tff(c_28, plain, (~r8_relat_2(k1_wellord2('#skF_3'), '#skF_3')), inference(cnfTransformation, [status(thm)], [f_53])).
+% 1.64/1.14  tff(c_64, plain, $false, inference(demodulation, [status(thm), theory('equality')], [c_51, c_28])).
+% 1.64/1.14  % SZS output end CNFRefutation for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 1.64/1.14  
+% 1.64/1.14  Inference rules
+% 1.64/1.14  ----------------------
+% 1.64/1.14  #Ref     : 0
+% 1.64/1.14  #Sup     : 5
+% 1.64/1.14  #Fact    : 0
+% 1.64/1.14  #Define  : 0
+% 1.64/1.14  #Split   : 0
+% 1.64/1.14  #Chain   : 0
+% 1.64/1.14  #Close   : 0
+% 1.64/1.14  
+% 1.64/1.14  Ordering : KBO
+% 1.64/1.14  
+% 1.64/1.14  Simplification rules
+% 1.64/1.14  ----------------------
+% 1.64/1.14  #Subsume      : 0
+% 1.64/1.14  #Demod        : 8
+% 1.64/1.14  #Tautology    : 6
+% 1.64/1.14  #SimpNegUnit  : 0
+% 1.64/1.14  #BackRed      : 1
+% 1.64/1.14  
+% 1.64/1.14  #Partial instantiations: 0
+% 1.64/1.14  #Strategies tried      : 1
+% 1.64/1.14  
+% 1.64/1.14  Timing (in seconds)
+% 1.64/1.14  ----------------------
+% 1.64/1.14  Preprocessing        : 0.28
+% 1.64/1.14  Parsing              : 0.15
+% 1.64/1.14  CNF conversion       : 0.02
+% 1.64/1.14  Main loop            : 0.09
+% 1.64/1.14  Inferencing          : 0.03
+% 1.64/1.14  Reduction            : 0.03
+% 1.64/1.14  Demodulation         : 0.02
+% 1.64/1.14  BG Simplification    : 0.01
+% 1.64/1.14  Subsumption          : 0.01
+% 1.64/1.14  Abstraction          : 0.00
+% 1.64/1.14  MUC search           : 0.00
+% 1.64/1.14  Cooper               : 0.00
+% 1.64/1.14  Total                : 0.39
+% 1.64/1.14  Index Insertion      : 0.00
+% 1.64/1.14  Index Deletion       : 0.00
+% 1.64/1.14  Index Matching       : 0.00
+% 1.64/1.14  BG Taut test         : 0.00
+%------------------------------------------------------------------------------

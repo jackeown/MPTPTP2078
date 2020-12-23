@@ -1,0 +1,68 @@
+%------------------------------------------------------------------------------
+% File     : MPT0254+2.049 : TPTP v7.5.0. Released v7.5.0.
+% Domain   : Set theory
+% Problem  : Pruney version 049 of t49_zfmisc_1
+% Version  : [MPTP] axioms : Especial.
+% English  :
+
+% Refs     : [AH+14] Alma et al. (2014), Premise Selection for Mathematics
+%          : [PU20]  Piotrowski & Urban (2020), Stateful Premise Selection
+% Source   : [PU20]
+% Names    :
+
+% Status   : Theorem
+% Rating   : ? v7.5.0
+% Syntax   : Number of formulae    :    9 (   6 unit)
+%            Number of atoms       :   16 (   9 equality)
+%            Maximal formula depth :    8 (   4 average)
+%            Number of connectives :    9 (   2   ~;   2   |;   0   &)
+%                                         (   5 <=>;   0  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :    3 (   0 propositional; 1-2 arity)
+%            Number of functors    :    7 (   1 constant; 0-3 arity)
+%            Number of variables   :   19 (   0 sgn;  19   !;   0   ?)
+%            Maximal term depth    :    3 (   1 average)
+% SPC      : FOF_THM_RFO_SEQ
+
+% Comments :
+%------------------------------------------------------------------------------
+fof(commutativity_k2_xboole_0,axiom,(
+    ! [A,B] : k2_xboole_0(A,B) = k2_xboole_0(B,A) )).
+
+fof(d1_xboole_0,axiom,(
+    ! [A] :
+      ( v1_xboole_0(A)
+    <=> ! [B] : ~ r2_hidden(B,A) ) )).
+
+fof(d3_xboole_0,axiom,(
+    ! [A,B,C] :
+      ( C = k2_xboole_0(A,B)
+    <=> ! [D] :
+          ( r2_hidden(D,C)
+        <=> ( r2_hidden(D,A)
+            | r2_hidden(D,B) ) ) ) )).
+
+fof(fc1_xboole_0,axiom,(
+    v1_xboole_0(k1_xboole_0) )).
+
+fof(t98_xboole_1,axiom,(
+    ! [A,B] : k2_xboole_0(A,B) = k5_xboole_0(A,k4_xboole_0(B,A)) )).
+
+fof(d2_tarski,axiom,(
+    ! [A,B,C] :
+      ( C = k2_tarski(A,B)
+    <=> ! [D] :
+          ( r2_hidden(D,C)
+        <=> ( D = A
+            | D = B ) ) ) )).
+
+fof(t69_enumset1,axiom,(
+    ! [A] : k2_tarski(A,A) = k1_tarski(A) )).
+
+fof(t70_enumset1,axiom,(
+    ! [A,B] : k1_enumset1(A,A,B) = k2_tarski(A,B) )).
+
+fof(t49_zfmisc_1,conjecture,(
+    ! [A,B] : k2_xboole_0(k1_tarski(A),B) != k1_xboole_0 )).
+
+%------------------------------------------------------------------------------

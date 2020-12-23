@@ -1,0 +1,115 @@
+%------------------------------------------------------------------------------
+% File     : MPT1047+1.003 : TPTP v7.4.0. Released v7.4.0.
+% Domain   : Set theory
+% Problem  :
+% Version  : [MPTP] axioms : Especial.
+% English  :
+
+% Refs     : [AH+14] Alma et al. (2014), Premise Selection for Mathematics
+% Source   : [MPTP]
+% Names    : funct_2__t164_funct_2---3.p [MPTPTP]
+
+% Status   : Theorem
+% Rating   : ? v7.4.0
+% Syntax   : Number of formulae    :   10 (   1 unit)
+%            Number of atoms       :   49 (   6 equality)
+%            Maximal formula depth :   14 (   8 average)
+%            Number of connectives :   41 (   2   ~;   0   |;  20   &)
+%                                         (   6 <=>;  13  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :   10 (   0 propositional; 1-4 arity)
+%            Number of functors    :    4 (   0 constant; 1-3 arity)
+%            Number of variables   :   35 (   0 sgn;  34   !;   1   ?)
+%            Maximal term depth    :    4 (   1 average)
+% SPC      : FOF_THM_RFO_SEQ
+
+% Comments : 
+%------------------------------------------------------------------------------
+fof(cc5_funct_2,axiom,(
+    ! [A,B] :
+      ( ~ v1_xboole_0(B)
+     => ! [C] :
+          ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+         => ( ( v1_funct_1(C)
+              & v1_funct_2(C,A,B) )
+           => ( v1_funct_1(C)
+              & v1_partfun1(C,A) ) ) ) ) )).
+
+fof(d1_tarski,axiom,(
+    ! [A,B] :
+      ( B = k1_tarski(A)
+    <=> ! [C] :
+          ( r2_hidden(C,B)
+        <=> C = A ) ) )).
+
+fof(d7_partfun1,axiom,(
+    ! [A,B,C] :
+      ( ( v1_funct_1(C)
+        & m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B))) )
+     => ! [D] :
+          ( D = k5_partfun1(A,B,C)
+        <=> ! [E] :
+              ( r2_hidden(E,D)
+            <=> ? [F] :
+                  ( v1_funct_1(F)
+                  & m1_subset_1(F,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+                  & F = E
+                  & v1_partfun1(F,A)
+                  & r1_partfun1(C,F) ) ) ) ) )).
+
+fof(fc2_xboole_0,axiom,(
+    ! [A] : ~ v1_xboole_0(k1_tarski(A)) )).
+
+fof(redefinition_r2_relset_1,axiom,(
+    ! [A,B,C,D] :
+      ( ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+        & m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(A,B))) )
+     => ( r2_relset_1(A,B,C,D)
+      <=> C = D ) ) )).
+
+fof(t143_partfun1,axiom,(
+    ! [A,B,C] :
+      ( ( v1_funct_1(C)
+        & m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,k1_tarski(B)))) )
+     => ! [D] :
+          ( ( v1_funct_1(D)
+            & m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(A,k1_tarski(B)))) )
+         => r1_partfun1(C,D) ) ) )).
+
+fof(t158_funct_2,axiom,(
+    ! [A,B,C] :
+      ( ( v1_funct_1(C)
+        & m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B))) )
+     => ! [D] :
+          ( r2_hidden(D,k5_partfun1(A,B,C))
+         => ( v1_funct_1(D)
+            & v1_funct_2(D,A,B)
+            & m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(A,B))) ) ) ) )).
+
+fof(t3_subset,axiom,(
+    ! [A,B] :
+      ( m1_subset_1(A,k1_zfmisc_1(B))
+    <=> r1_tarski(A,B) ) )).
+
+fof(t66_funct_2,axiom,(
+    ! [A,B,C] :
+      ( ( v1_funct_1(C)
+        & v1_funct_2(C,A,k1_tarski(B))
+        & m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,k1_tarski(B)))) )
+     => ! [D] :
+          ( ( v1_funct_1(D)
+            & v1_funct_2(D,A,k1_tarski(B))
+            & m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(A,k1_tarski(B)))) )
+         => r2_relset_1(A,k1_tarski(B),C,D) ) ) )).
+
+fof(t164_funct_2,conjecture,(
+    ! [A,B,C] :
+      ( ( v1_funct_1(C)
+        & m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,k1_tarski(B)))) )
+     => ! [D] :
+          ( ( v1_funct_1(D)
+            & v1_funct_2(D,A,k1_tarski(B))
+            & m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(A,k1_tarski(B)))) )
+         => k5_partfun1(A,k1_tarski(B),C) = k1_tarski(D) ) ) )).
+
+%------------------------------------------------------------------------------

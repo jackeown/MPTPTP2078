@@ -1,0 +1,1601 @@
+%------------------------------------------------------------------------------
+% File       : Beagle---0.9.47
+% Problem    : MPT0813+2 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+
+% Computer   : n009.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Wed Dec 16 12:07:29 EST 2020
+
+% Result     : Theorem 34.88s
+% Output     : CNFRefutation 35.13s
+% Verified   : 
+% Statistics : Number of formulae       :  507 ( 514 expanded)
+%              Number of leaves         :  486 ( 491 expanded)
+%              Depth                    :    7
+%              Number of atoms          :   37 (  51 expanded)
+%              Number of equality atoms :   13 (  17 expanded)
+%              Maximal formula depth    :   13 (   4 average)
+%              Maximal term depth       :    3 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+%$ r3_wellord1 > v5_relat_1 > v5_funct_1 > v4_relat_1 > v3_setfam_1 > v1_subset_1 > r8_relat_2 > r6_relat_2 > r4_wellord1 > r4_relat_2 > r3_xboole_0 > r2_xboole_0 > r2_wellord1 > r2_tarski > r2_setfam_1 > r2_hidden > r1_xboole_0 > r1_wellord1 > r1_tarski > r1_subset_1 > r1_setfam_1 > r1_relat_2 > r1_ordinal1 > m1_subset_1 > m1_setfam_1 > v8_relat_2 > v6_relat_2 > v6_ordinal1 > v5_ordinal1 > v4_relat_2 > v4_ordinal1 > v4_funct_1 > v3_relat_1 > v3_ordinal1 > v3_funct_1 > v2_wellord1 > v2_setfam_1 > v2_relat_1 > v2_ordinal1 > v2_funct_1 > v1_zfmisc_1 > v1_xboole_0 > v1_wellord1 > v1_setfam_1 > v1_relat_2 > v1_relat_1 > v1_ordinal1 > v1_funct_1 > k8_enumset1 > k7_enumset1 > k6_enumset1 > k5_enumset1 > k4_enumset1 > k3_enumset1 > k2_enumset1 > k9_subset_1 > k8_subset_1 > k7_subset_1 > k5_subset_1 > k4_subset_1 > k1_enumset1 > o_2_1_setfam_1 > o_2_1_relat_1 > o_2_0_wellord1 > o_2_0_setfam_1 > o_2_0_relat_1 > o_2_0_ordinal1 > k9_relat_1 > k8_setfam_1 > k8_relat_1 > k7_setfam_1 > k7_relat_1 > k6_subset_1 > k6_setfam_1 > k5_xboole_0 > k5_setfam_1 > k5_relat_1 > k4_xboole_0 > k4_tarski > k4_setfam_1 > k3_xboole_0 > k3_wellord1 > k3_subset_1 > k3_setfam_1 > k2_zfmisc_1 > k2_xboole_0 > k2_wellord1 > k2_tarski > k2_setfam_1 > k1_wellord1 > k1_funct_1 > k11_relat_1 > k10_relat_1 > #nlpp > o_1_6_relat_1 > o_1_5_relat_1 > o_1_4_relat_1 > o_1_3_relat_1 > o_1_2_relat_1 > o_1_1_relat_1 > o_1_0_setfam_1 > o_1_0_ordinal1 > o_1_0_funct_1 > k6_relat_1 > k4_relat_1 > k3_tarski > k3_relat_1 > k2_subset_1 > k2_relat_1 > k2_ordinal1 > k2_funct_1 > k1_zfmisc_1 > k1_tarski > k1_subset_1 > k1_setfam_1 > k1_relat_1 > k1_ordinal1 > o_0_0_xboole_0 > np__1 > k1_xboole_0 > #skF_13 > #skF_330 > #skF_287 > #skF_142 > #skF_238 > #skF_338 > #skF_91 > #skF_289 > #skF_76 > #skF_114 > #skF_298 > #skF_199 > #skF_47 > #skF_118 > #skF_168 > #skF_326 > #skF_343 > #skF_26 > #skF_337 > #skF_106 > #skF_248 > #skF_11 > #skF_225 > #skF_75 > #skF_254 > #skF_133 > #skF_311 > #skF_41 > #skF_73 > #skF_281 > #skF_219 > #skF_228 > #skF_316 > #skF_190 > #skF_175 > #skF_65 > #skF_183 > #skF_93 > #skF_33 > #skF_57 > #skF_278 > #skF_148 > #skF_198 > #skF_86 > #skF_18 > #skF_144 > #skF_146 > #skF_266 > #skF_121 > #skF_113 > #skF_45 > #skF_200 > #skF_268 > #skF_264 > #skF_61 > #skF_66 > #skF_111 > #skF_180 > #skF_265 > #skF_6 > #skF_297 > #skF_296 > #skF_300 > #skF_131 > #skF_349 > #skF_327 > #skF_218 > #skF_320 > #skF_87 > #skF_127 > #skF_317 > #skF_272 > #skF_1 > #skF_356 > #skF_68 > #skF_17 > #skF_269 > #skF_162 > #skF_217 > #skF_188 > #skF_48 > #skF_208 > #skF_302 > #skF_149 > #skF_112 > #skF_202 > #skF_115 > #skF_171 > #skF_255 > #skF_347 > #skF_257 > #skF_301 > #skF_247 > #skF_352 > #skF_334 > #skF_324 > #skF_32 > #skF_116 > #skF_306 > #skF_286 > #skF_94 > #skF_203 > #skF_308 > #skF_165 > #skF_292 > #skF_72 > #skF_353 > #skF_280 > #skF_70 > #skF_314 > #skF_153 > #skF_275 > #skF_299 > #skF_342 > #skF_155 > #skF_99 > #skF_60 > #skF_92 > #skF_31 > #skF_136 > #skF_303 > #skF_209 > #skF_161 > #skF_4 > #skF_36 > #skF_319 > #skF_108 > #skF_235 > #skF_291 > #skF_138 > #skF_261 > #skF_79 > #skF_332 > #skF_69 > #skF_10 > #skF_81 > #skF_318 > #skF_322 > #skF_117 > #skF_192 > #skF_95 > #skF_159 > #skF_84 > #skF_325 > #skF_253 > #skF_100 > #skF_305 > #skF_187 > #skF_176 > #skF_313 > #skF_37 > #skF_221 > #skF_284 > #skF_82 > #skF_167 > #skF_12 > #skF_123 > #skF_169 > #skF_96 > #skF_56 > #skF_143 > #skF_78 > #skF_172 > #skF_240 > #skF_173 > #skF_88 > #skF_28 > #skF_156 > #skF_67 > #skF_197 > #skF_46 > #skF_160 > #skF_277 > #skF_290 > #skF_35 > #skF_74 > #skF_5 > #skF_196 > #skF_267 > #skF_355 > #skF_49 > #skF_19 > #skF_44 > #skF_215 > #skF_163 > #skF_30 > #skF_232 > #skF_141 > #skF_321 > #skF_27 > #skF_224 > #skF_110 > #skF_97 > #skF_244 > #skF_154 > #skF_251 > #skF_184 > #skF_107 > #skF_164 > #skF_85 > #skF_80 > #skF_193 > #skF_51 > #skF_9 > #skF_220 > #skF_231 > #skF_201 > #skF_166 > #skF_212 > #skF_90 > #skF_206 > #skF_126 > #skF_71 > #skF_234 > #skF_222 > #skF_195 > #skF_307 > #skF_7 > #skF_119 > #skF_328 > #skF_64 > #skF_276 > #skF_223 > #skF_348 > #skF_357 > #skF_252 > #skF_170 > #skF_103 > #skF_216 > #skF_229 > #skF_294 > #skF_20 > #skF_335 > #skF_279 > #skF_260 > #skF_189 > #skF_211 > #skF_236 > #skF_24 > #skF_340 > #skF_329 > #skF_34 > #skF_23 > #skF_182 > #skF_185 > #skF_128 > #skF_151 > #skF_14 > #skF_50 > #skF_89 > #skF_140 > #skF_178 > #skF_205 > #skF_130 > #skF_77 > #skF_186 > #skF_263 > #skF_204 > #skF_152 > #skF_145 > #skF_242 > #skF_174 > #skF_233 > #skF_249 > #skF_285 > #skF_63 > #skF_59 > #skF_315 > #skF_230 > #skF_207 > #skF_104 > #skF_58 > #skF_181 > #skF_336 > #skF_43 > #skF_52 > #skF_137 > #skF_54 > #skF_274 > #skF_125 > #skF_191 > #skF_3 > #skF_309 > #skF_341 > #skF_62 > #skF_288 > #skF_339 > #skF_55 > #skF_38 > #skF_331 > #skF_2 > #skF_157 > #skF_21 > #skF_101 > #skF_333 > #skF_179 > #skF_243 > #skF_241 > #skF_226 > #skF_177 > #skF_120 > #skF_102 > #skF_354 > #skF_105 > #skF_40 > #skF_214 > #skF_135 > #skF_122 > #skF_8 > #skF_270 > #skF_262 > #skF_345 > #skF_25 > #skF_304 > #skF_273 > #skF_258 > #skF_227 > #skF_147 > #skF_293 > #skF_259 > #skF_312 > #skF_213 > #skF_132 > #skF_124 > #skF_295 > #skF_29 > #skF_237 > #skF_210 > #skF_250 > #skF_344 > #skF_16 > #skF_283 > #skF_129 > #skF_150 > #skF_346 > #skF_98 > #skF_134 > #skF_83 > #skF_22 > #skF_15 > #skF_139 > #skF_351 > #skF_239 > #skF_282 > #skF_158 > #skF_42 > #skF_53 > #skF_194 > #skF_350 > #skF_245 > #skF_256 > #skF_323 > #skF_39 > #skF_310 > #skF_271 > #skF_246 > #skF_109
+
+%Foreground sorts:
+
+%Background operators:
+
+%Foreground operators:
+tff('#skF_13',type,(
+    '#skF_13': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_330',type,(
+    '#skF_330': ( $i * $i ) > $i )).
+
+tff('#skF_287',type,(
+    '#skF_287': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_142',type,(
+    '#skF_142': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_238',type,(
+    '#skF_238': ( $i * $i ) > $i )).
+
+tff('#skF_338',type,(
+    '#skF_338': ( $i * $i ) > $i )).
+
+tff('#skF_91',type,(
+    '#skF_91': $i > $i )).
+
+tff('#skF_289',type,(
+    '#skF_289': $i > $i )).
+
+tff('#skF_76',type,(
+    '#skF_76': ( $i * $i ) > $i )).
+
+tff('#skF_114',type,(
+    '#skF_114': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_298',type,(
+    '#skF_298': $i > $i )).
+
+tff('#skF_199',type,(
+    '#skF_199': $i > $i )).
+
+tff('#skF_47',type,(
+    '#skF_47': ( $i * $i ) > $i )).
+
+tff('#skF_118',type,(
+    '#skF_118': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_168',type,(
+    '#skF_168': ( $i * $i ) > $i )).
+
+tff('#skF_326',type,(
+    '#skF_326': $i > $i )).
+
+tff(k8_relat_1,type,(
+    k8_relat_1: ( $i * $i ) > $i )).
+
+tff('#skF_343',type,(
+    '#skF_343': ( $i * $i ) > $i )).
+
+tff('#skF_26',type,(
+    '#skF_26': ( $i * ( $i * $i ) ) > $i )).
+
+tff(r4_relat_2,type,(
+    r4_relat_2: ( $i * $i ) > $o )).
+
+tff('#skF_337',type,(
+    '#skF_337': ( $i * $i ) > $i )).
+
+tff('#skF_106',type,(
+    '#skF_106': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_248',type,(
+    '#skF_248': $i > $i )).
+
+tff('#skF_11',type,(
+    '#skF_11': ( $i * $i ) > $i )).
+
+tff(o_1_0_funct_1,type,(
+    o_1_0_funct_1: $i > $i )).
+
+tff('#skF_225',type,(
+    '#skF_225': ( $i * $i ) > $i )).
+
+tff(np__1,type,(
+    np__1: $i )).
+
+tff('#skF_75',type,(
+    '#skF_75': ( $i * $i ) > $i )).
+
+tff('#skF_254',type,(
+    '#skF_254': ( $i * $i ) > $i )).
+
+tff('#skF_133',type,(
+    '#skF_133': $i > $i )).
+
+tff('#skF_311',type,(
+    '#skF_311': ( $i * $i ) > $i )).
+
+tff('#skF_41',type,(
+    '#skF_41': ( $i * $i ) > $i )).
+
+tff('#skF_73',type,(
+    '#skF_73': ( $i * $i ) > $i )).
+
+tff('#skF_281',type,(
+    '#skF_281': $i )).
+
+tff('#skF_219',type,(
+    '#skF_219': $i )).
+
+tff('#skF_228',type,(
+    '#skF_228': ( $i * $i ) > $i )).
+
+tff(o_2_1_relat_1,type,(
+    o_2_1_relat_1: ( $i * $i ) > $i )).
+
+tff(r1_subset_1,type,(
+    r1_subset_1: ( $i * $i ) > $o )).
+
+tff('#skF_316',type,(
+    '#skF_316': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_190',type,(
+    '#skF_190': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_175',type,(
+    '#skF_175': ( $i * $i ) > $i )).
+
+tff('#skF_65',type,(
+    '#skF_65': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(r1_wellord1,type,(
+    r1_wellord1: ( $i * $i ) > $o )).
+
+tff(r2_tarski,type,(
+    r2_tarski: ( $i * $i ) > $o )).
+
+tff('#skF_183',type,(
+    '#skF_183': ( $i * $i ) > $i )).
+
+tff(o_0_0_xboole_0,type,(
+    o_0_0_xboole_0: $i )).
+
+tff('#skF_93',type,(
+    '#skF_93': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_33',type,(
+    '#skF_33': ( $i * ( $i * $i ) ) > $i )).
+
+tff(o_1_4_relat_1,type,(
+    o_1_4_relat_1: $i > $i )).
+
+tff('#skF_57',type,(
+    '#skF_57': ( $i * $i ) > $i )).
+
+tff(v1_funct_1,type,(
+    v1_funct_1: $i > $o )).
+
+tff('#skF_278',type,(
+    '#skF_278': $i > $i )).
+
+tff(r4_wellord1,type,(
+    r4_wellord1: ( $i * $i ) > $o )).
+
+tff('#skF_148',type,(
+    '#skF_148': ( $i * ( $i * $i ) ) > $i )).
+
+tff(r3_wellord1,type,(
+    r3_wellord1: ( $i * ( $i * $i ) ) > $o )).
+
+tff('#skF_198',type,(
+    '#skF_198': ( $i * $i ) > $i )).
+
+tff('#skF_86',type,(
+    '#skF_86': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) > $i )).
+
+tff(k2_funct_1,type,(
+    k2_funct_1: $i > $i )).
+
+tff(k1_ordinal1,type,(
+    k1_ordinal1: $i > $i )).
+
+tff(v2_funct_1,type,(
+    v2_funct_1: $i > $o )).
+
+tff('#skF_18',type,(
+    '#skF_18': $i > $i )).
+
+tff('#nlpp',type,(
+    '#nlpp': ( $real * $real ) > $real )).
+
+tff(r1_setfam_1,type,(
+    r1_setfam_1: ( $i * $i ) > $o )).
+
+tff('#skF_144',type,(
+    '#skF_144': ( $i * $i ) > $i )).
+
+tff('#skF_146',type,(
+    '#skF_146': ( $i * $i ) > $i )).
+
+tff('#skF_266',type,(
+    '#skF_266': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_121',type,(
+    '#skF_121': ( $i * ( $i * $i ) ) > $i )).
+
+tff(v2_relat_1,type,(
+    v2_relat_1: $i > $o )).
+
+tff('#skF_113',type,(
+    '#skF_113': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_45',type,(
+    '#skF_45': ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) > $i )).
+
+tff('#skF_200',type,(
+    '#skF_200': $i > $i )).
+
+tff('#skF_268',type,(
+    '#skF_268': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_264',type,(
+    '#skF_264': ( $i * $i ) > $i )).
+
+tff('#skF_61',type,(
+    '#skF_61': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_66',type,(
+    '#skF_66': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_111',type,(
+    '#skF_111': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_180',type,(
+    '#skF_180': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_265',type,(
+    '#skF_265': ( $i * ( $i * $i ) ) > $i )).
+
+tff(r2_hidden,type,(
+    r2_hidden: ( $i * $i ) > $o )).
+
+tff(v1_subset_1,type,(
+    v1_subset_1: ( $i * $i ) > $o )).
+
+tff(o_2_1_setfam_1,type,(
+    o_2_1_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_6',type,(
+    '#skF_6': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_297',type,(
+    '#skF_297': $i > $i )).
+
+tff(k1_tarski,type,(
+    k1_tarski: $i > $i )).
+
+tff('#skF_296',type,(
+    '#skF_296': $i > $i )).
+
+tff('#skF_300',type,(
+    '#skF_300': $i > $i )).
+
+tff('#skF_131',type,(
+    '#skF_131': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(k4_xboole_0,type,(
+    k4_xboole_0: ( $i * $i ) > $i )).
+
+tff('#skF_349',type,(
+    '#skF_349': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_327',type,(
+    '#skF_327': $i > $i )).
+
+tff('#skF_218',type,(
+    '#skF_218': $i )).
+
+tff('#skF_320',type,(
+    '#skF_320': $i > $i )).
+
+tff(v1_ordinal1,type,(
+    v1_ordinal1: $i > $o )).
+
+tff('#skF_87',type,(
+    '#skF_87': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) > $i )).
+
+tff(k7_relat_1,type,(
+    k7_relat_1: ( $i * $i ) > $i )).
+
+tff('#skF_127',type,(
+    '#skF_127': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k4_tarski,type,(
+    k4_tarski: ( $i * $i ) > $i )).
+
+tff('#skF_317',type,(
+    '#skF_317': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_272',type,(
+    '#skF_272': $i > $i )).
+
+tff('#skF_1',type,(
+    '#skF_1': $i > $i )).
+
+tff('#skF_356',type,(
+    '#skF_356': $i )).
+
+tff('#skF_68',type,(
+    '#skF_68': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_17',type,(
+    '#skF_17': ( $i * $i ) > $i )).
+
+tff('#skF_269',type,(
+    '#skF_269': ( $i * $i ) > $i )).
+
+tff('#skF_162',type,(
+    '#skF_162': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_217',type,(
+    '#skF_217': $i )).
+
+tff(k1_xboole_0,type,(
+    k1_xboole_0: $i )).
+
+tff('#skF_188',type,(
+    '#skF_188': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_48',type,(
+    '#skF_48': ( $i * $i ) > $i )).
+
+tff('#skF_208',type,(
+    '#skF_208': $i > $i )).
+
+tff('#skF_302',type,(
+    '#skF_302': $i > $i )).
+
+tff('#skF_149',type,(
+    '#skF_149': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_112',type,(
+    '#skF_112': ( $i * $i ) > $i )).
+
+tff('#skF_202',type,(
+    '#skF_202': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_115',type,(
+    '#skF_115': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_171',type,(
+    '#skF_171': ( $i * $i ) > $i )).
+
+tff('#skF_255',type,(
+    '#skF_255': ( $i * $i ) > $i )).
+
+tff('#skF_347',type,(
+    '#skF_347': ( $i * $i ) > $i )).
+
+tff(k7_setfam_1,type,(
+    k7_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_257',type,(
+    '#skF_257': $i > $i )).
+
+tff('#skF_301',type,(
+    '#skF_301': $i > $i )).
+
+tff('#skF_247',type,(
+    '#skF_247': $i > $i )).
+
+tff('#skF_352',type,(
+    '#skF_352': ( $i * $i ) > $i )).
+
+tff('#skF_334',type,(
+    '#skF_334': ( $i * $i ) > $i )).
+
+tff('#skF_324',type,(
+    '#skF_324': $i > $i )).
+
+tff(v1_relat_2,type,(
+    v1_relat_2: $i > $o )).
+
+tff('#skF_32',type,(
+    '#skF_32': ( $i * $i ) > $i )).
+
+tff(o_1_5_relat_1,type,(
+    o_1_5_relat_1: $i > $i )).
+
+tff('#skF_116',type,(
+    '#skF_116': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_306',type,(
+    '#skF_306': ( $i * $i ) > $i )).
+
+tff('#skF_286',type,(
+    '#skF_286': $i > $i )).
+
+tff('#skF_94',type,(
+    '#skF_94': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_203',type,(
+    '#skF_203': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_308',type,(
+    '#skF_308': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_165',type,(
+    '#skF_165': ( $i * $i ) > $i )).
+
+tff(k8_setfam_1,type,(
+    k8_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_292',type,(
+    '#skF_292': ( $i * $i ) > $i )).
+
+tff('#skF_72',type,(
+    '#skF_72': ( $i * $i ) > $i )).
+
+tff(k5_relat_1,type,(
+    k5_relat_1: ( $i * $i ) > $i )).
+
+tff('#skF_353',type,(
+    '#skF_353': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_280',type,(
+    '#skF_280': $i )).
+
+tff('#skF_70',type,(
+    '#skF_70': ( $i * $i ) > $i )).
+
+tff('#skF_314',type,(
+    '#skF_314': ( $i * $i ) > $i )).
+
+tff(r6_relat_2,type,(
+    r6_relat_2: ( $i * $i ) > $o )).
+
+tff('#skF_153',type,(
+    '#skF_153': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_275',type,(
+    '#skF_275': $i > $i )).
+
+tff(v3_relat_1,type,(
+    v3_relat_1: $i > $o )).
+
+tff('#skF_299',type,(
+    '#skF_299': $i > $i )).
+
+tff('#skF_342',type,(
+    '#skF_342': ( $i * $i ) > $i )).
+
+tff(v8_relat_2,type,(
+    v8_relat_2: $i > $o )).
+
+tff('#skF_155',type,(
+    '#skF_155': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k3_enumset1,type,(
+    k3_enumset1: ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) > $i )).
+
+tff('#skF_99',type,(
+    '#skF_99': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k3_relat_1,type,(
+    k3_relat_1: $i > $i )).
+
+tff('#skF_60',type,(
+    '#skF_60': ( $i * $i ) > $i )).
+
+tff('#skF_92',type,(
+    '#skF_92': ( $i * $i ) > $i )).
+
+tff('#skF_31',type,(
+    '#skF_31': ( $i * $i ) > $i )).
+
+tff('#skF_136',type,(
+    '#skF_136': $i > $i )).
+
+tff('#skF_303',type,(
+    '#skF_303': $i > $i )).
+
+tff(k7_enumset1,type,(
+    k7_enumset1: ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) > $i )).
+
+tff('#skF_209',type,(
+    '#skF_209': ( $i * $i ) > $i )).
+
+tff('#skF_161',type,(
+    '#skF_161': ( $i * ( $i * $i ) ) > $i )).
+
+tff(v6_relat_2,type,(
+    v6_relat_2: $i > $o )).
+
+tff('#skF_4',type,(
+    '#skF_4': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k5_xboole_0,type,(
+    k5_xboole_0: ( $i * $i ) > $i )).
+
+tff(k8_subset_1,type,(
+    k8_subset_1: ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_36',type,(
+    '#skF_36': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_319',type,(
+    '#skF_319': ( $i * $i ) > $i )).
+
+tff('#skF_108',type,(
+    '#skF_108': ( $i * $i ) > $i )).
+
+tff('#skF_235',type,(
+    '#skF_235': $i > $i )).
+
+tff('#skF_291',type,(
+    '#skF_291': $i > $i )).
+
+tff('#skF_138',type,(
+    '#skF_138': $i > $i )).
+
+tff('#skF_261',type,(
+    '#skF_261': ( $i * $i ) > $i )).
+
+tff(r1_tarski,type,(
+    r1_tarski: ( $i * $i ) > $o )).
+
+tff(k2_enumset1,type,(
+    k2_enumset1: ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_79',type,(
+    '#skF_79': ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) > $i )).
+
+tff(v5_funct_1,type,(
+    v5_funct_1: ( $i * $i ) > $o )).
+
+tff('#skF_332',type,(
+    '#skF_332': ( $i * $i ) > $i )).
+
+tff('#skF_69',type,(
+    '#skF_69': $i > $i )).
+
+tff('#skF_10',type,(
+    '#skF_10': $i )).
+
+tff(k2_relat_1,type,(
+    k2_relat_1: $i > $i )).
+
+tff('#skF_81',type,(
+    '#skF_81': ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) > $i )).
+
+tff('#skF_318',type,(
+    '#skF_318': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_322',type,(
+    '#skF_322': $i > $i )).
+
+tff('#skF_117',type,(
+    '#skF_117': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_192',type,(
+    '#skF_192': $i )).
+
+tff('#skF_95',type,(
+    '#skF_95': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(r1_relat_2,type,(
+    r1_relat_2: ( $i * $i ) > $o )).
+
+tff('#skF_159',type,(
+    '#skF_159': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_84',type,(
+    '#skF_84': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) > $i )).
+
+tff('#skF_325',type,(
+    '#skF_325': $i > $i )).
+
+tff(k5_subset_1,type,(
+    k5_subset_1: ( $i * ( $i * $i ) ) > $i )).
+
+tff(v4_relat_2,type,(
+    v4_relat_2: $i > $o )).
+
+tff('#skF_253',type,(
+    '#skF_253': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_100',type,(
+    '#skF_100': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_305',type,(
+    '#skF_305': $i > $i )).
+
+tff(r1_ordinal1,type,(
+    r1_ordinal1: ( $i * $i ) > $o )).
+
+tff('#skF_187',type,(
+    '#skF_187': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_176',type,(
+    '#skF_176': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_313',type,(
+    '#skF_313': ( $i * $i ) > $i )).
+
+tff('#skF_37',type,(
+    '#skF_37': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_221',type,(
+    '#skF_221': $i )).
+
+tff('#skF_284',type,(
+    '#skF_284': $i > $i )).
+
+tff(v5_ordinal1,type,(
+    v5_ordinal1: $i > $o )).
+
+tff('#skF_82',type,(
+    '#skF_82': ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) > $i )).
+
+tff('#skF_167',type,(
+    '#skF_167': ( $i * $i ) > $i )).
+
+tff('#skF_12',type,(
+    '#skF_12': ( $i * $i ) > $i )).
+
+tff('#skF_123',type,(
+    '#skF_123': ( $i * ( $i * $i ) ) > $i )).
+
+tff(v1_setfam_1,type,(
+    v1_setfam_1: $i > $o )).
+
+tff('#skF_169',type,(
+    '#skF_169': ( $i * $i ) > $i )).
+
+tff(o_1_0_setfam_1,type,(
+    o_1_0_setfam_1: $i > $i )).
+
+tff(k2_tarski,type,(
+    k2_tarski: ( $i * $i ) > $i )).
+
+tff('#skF_96',type,(
+    '#skF_96': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(k3_subset_1,type,(
+    k3_subset_1: ( $i * $i ) > $i )).
+
+tff('#skF_56',type,(
+    '#skF_56': $i > $i )).
+
+tff(k4_subset_1,type,(
+    k4_subset_1: ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_143',type,(
+    '#skF_143': ( $i * $i ) > $i )).
+
+tff(v4_funct_1,type,(
+    v4_funct_1: $i > $o )).
+
+tff('#skF_78',type,(
+    '#skF_78': ( $i * $i ) > $i )).
+
+tff('#skF_172',type,(
+    '#skF_172': ( $i * $i ) > $i )).
+
+tff('#skF_240',type,(
+    '#skF_240': ( $i * $i ) > $i )).
+
+tff('#skF_173',type,(
+    '#skF_173': ( $i * $i ) > $i )).
+
+tff('#skF_88',type,(
+    '#skF_88': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) > $i )).
+
+tff('#skF_28',type,(
+    '#skF_28': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) ) > $i )).
+
+tff('#skF_156',type,(
+    '#skF_156': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_67',type,(
+    '#skF_67': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_197',type,(
+    '#skF_197': ( $i * $i ) > $i )).
+
+tff(v6_ordinal1,type,(
+    v6_ordinal1: $i > $o )).
+
+tff('#skF_46',type,(
+    '#skF_46': ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) > $i )).
+
+tff('#skF_160',type,(
+    '#skF_160': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_277',type,(
+    '#skF_277': $i > $i )).
+
+tff(v2_wellord1,type,(
+    v2_wellord1: $i > $o )).
+
+tff('#skF_290',type,(
+    '#skF_290': ( $i * $i ) > $i )).
+
+tff('#skF_35',type,(
+    '#skF_35': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k11_relat_1,type,(
+    k11_relat_1: ( $i * $i ) > $i )).
+
+tff('#skF_74',type,(
+    '#skF_74': ( $i * $i ) > $i )).
+
+tff('#skF_5',type,(
+    '#skF_5': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_196',type,(
+    '#skF_196': $i > $i )).
+
+tff('#skF_267',type,(
+    '#skF_267': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k4_setfam_1,type,(
+    k4_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_355',type,(
+    '#skF_355': $i )).
+
+tff(k1_enumset1,type,(
+    k1_enumset1: ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_49',type,(
+    '#skF_49': ( $i * $i ) > $i )).
+
+tff(r1_xboole_0,type,(
+    r1_xboole_0: ( $i * $i ) > $o )).
+
+tff('#skF_19',type,(
+    '#skF_19': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k2_ordinal1,type,(
+    k2_ordinal1: $i > $i )).
+
+tff('#skF_44',type,(
+    '#skF_44': ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) > $i )).
+
+tff(k7_subset_1,type,(
+    k7_subset_1: ( $i * ( $i * $i ) ) > $i )).
+
+tff(k9_relat_1,type,(
+    k9_relat_1: ( $i * $i ) > $i )).
+
+tff('#skF_215',type,(
+    '#skF_215': $i > $i )).
+
+tff('#skF_163',type,(
+    '#skF_163': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(k6_subset_1,type,(
+    k6_subset_1: ( $i * $i ) > $i )).
+
+tff('#skF_30',type,(
+    '#skF_30': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) ) ) > $i )).
+
+tff('#skF_232',type,(
+    '#skF_232': $i > $i )).
+
+tff('#skF_141',type,(
+    '#skF_141': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_321',type,(
+    '#skF_321': $i > $i )).
+
+tff('#skF_27',type,(
+    '#skF_27': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) ) > $i )).
+
+tff('#skF_224',type,(
+    '#skF_224': ( $i * $i ) > $i )).
+
+tff('#skF_110',type,(
+    '#skF_110': ( $i * $i ) > $i )).
+
+tff('#skF_97',type,(
+    '#skF_97': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_244',type,(
+    '#skF_244': ( $i * $i ) > $i )).
+
+tff('#skF_154',type,(
+    '#skF_154': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_251',type,(
+    '#skF_251': ( $i * ( $i * $i ) ) > $i )).
+
+tff(r2_setfam_1,type,(
+    r2_setfam_1: ( $i * $i ) > $o )).
+
+tff('#skF_184',type,(
+    '#skF_184': ( $i * $i ) > $i )).
+
+tff('#skF_107',type,(
+    '#skF_107': ( $i * $i ) > $i )).
+
+tff('#skF_164',type,(
+    '#skF_164': $i > $i )).
+
+tff('#skF_85',type,(
+    '#skF_85': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) > $i )).
+
+tff('#skF_80',type,(
+    '#skF_80': ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) > $i )).
+
+tff('#skF_193',type,(
+    '#skF_193': ( $i * $i ) > $i )).
+
+tff('#skF_51',type,(
+    '#skF_51': ( $i * $i ) > $i )).
+
+tff(v3_ordinal1,type,(
+    v3_ordinal1: $i > $o )).
+
+tff(k4_enumset1,type,(
+    k4_enumset1: ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) > $i )).
+
+tff(v2_setfam_1,type,(
+    v2_setfam_1: $i > $o )).
+
+tff('#skF_9',type,(
+    '#skF_9': $i )).
+
+tff('#skF_220',type,(
+    '#skF_220': $i )).
+
+tff('#skF_231',type,(
+    '#skF_231': $i > $i )).
+
+tff('#skF_201',type,(
+    '#skF_201': ( $i * $i ) > $i )).
+
+tff('#skF_166',type,(
+    '#skF_166': ( $i * $i ) > $i )).
+
+tff(v5_relat_1,type,(
+    v5_relat_1: ( $i * $i ) > $o )).
+
+tff('#skF_212',type,(
+    '#skF_212': ( $i * $i ) > $i )).
+
+tff('#skF_90',type,(
+    '#skF_90': $i > $i )).
+
+tff('#skF_206',type,(
+    '#skF_206': ( $i * ( $i * $i ) ) > $i )).
+
+tff(m1_setfam_1,type,(
+    m1_setfam_1: ( $i * $i ) > $o )).
+
+tff('#skF_126',type,(
+    '#skF_126': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_71',type,(
+    '#skF_71': ( $i * $i ) > $i )).
+
+tff('#skF_234',type,(
+    '#skF_234': $i > $i )).
+
+tff('#skF_222',type,(
+    '#skF_222': ( $i * $i ) > $i )).
+
+tff('#skF_195',type,(
+    '#skF_195': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_307',type,(
+    '#skF_307': ( $i * ( $i * $i ) ) > $i )).
+
+tff(v2_ordinal1,type,(
+    v2_ordinal1: $i > $o )).
+
+tff(k1_zfmisc_1,type,(
+    k1_zfmisc_1: $i > $i )).
+
+tff('#skF_7',type,(
+    '#skF_7': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_119',type,(
+    '#skF_119': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_328',type,(
+    '#skF_328': ( $i * $i ) > $i )).
+
+tff('#skF_64',type,(
+    '#skF_64': ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) > $i )).
+
+tff(r2_xboole_0,type,(
+    r2_xboole_0: ( $i * $i ) > $o )).
+
+tff('#skF_276',type,(
+    '#skF_276': $i > $i )).
+
+tff('#skF_223',type,(
+    '#skF_223': ( $i * $i ) > $i )).
+
+tff('#skF_348',type,(
+    '#skF_348': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_357',type,(
+    '#skF_357': $i )).
+
+tff('#skF_252',type,(
+    '#skF_252': ( $i * ( $i * $i ) ) > $i )).
+
+tff(r2_wellord1,type,(
+    r2_wellord1: ( $i * $i ) > $o )).
+
+tff('#skF_170',type,(
+    '#skF_170': ( $i * $i ) > $i )).
+
+tff(k1_funct_1,type,(
+    k1_funct_1: ( $i * $i ) > $i )).
+
+tff('#skF_103',type,(
+    '#skF_103': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_216',type,(
+    '#skF_216': $i )).
+
+tff('#skF_229',type,(
+    '#skF_229': ( $i * $i ) > $i )).
+
+tff('#skF_294',type,(
+    '#skF_294': ( $i * $i ) > $i )).
+
+tff('#skF_20',type,(
+    '#skF_20': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_335',type,(
+    '#skF_335': ( $i * $i ) > $i )).
+
+tff(k5_setfam_1,type,(
+    k5_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_279',type,(
+    '#skF_279': $i > $i )).
+
+tff('#skF_260',type,(
+    '#skF_260': ( $i * $i ) > $i )).
+
+tff(k6_enumset1,type,(
+    k6_enumset1: ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) > $i )).
+
+tff(v4_ordinal1,type,(
+    v4_ordinal1: $i > $o )).
+
+tff('#skF_189',type,(
+    '#skF_189': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_211',type,(
+    '#skF_211': ( $i * $i ) > $i )).
+
+tff('#skF_236',type,(
+    '#skF_236': $i > $i )).
+
+tff('#skF_24',type,(
+    '#skF_24': ( $i * $i ) > $i )).
+
+tff(o_1_6_relat_1,type,(
+    o_1_6_relat_1: $i > $i )).
+
+tff('#skF_340',type,(
+    '#skF_340': ( $i * $i ) > $i )).
+
+tff('#skF_329',type,(
+    '#skF_329': $i > $i )).
+
+tff('#skF_34',type,(
+    '#skF_34': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_23',type,(
+    '#skF_23': ( $i * $i ) > $i )).
+
+tff('#skF_182',type,(
+    '#skF_182': ( $i * $i ) > $i )).
+
+tff('#skF_185',type,(
+    '#skF_185': ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) > $i )).
+
+tff('#nlpp_001',type,(
+    '#nlpp': ( $rat * $rat ) > $rat )).
+
+tff(k10_relat_1,type,(
+    k10_relat_1: ( $i * $i ) > $i )).
+
+tff(k3_wellord1,type,(
+    k3_wellord1: ( $i * $i ) > $i )).
+
+tff('#skF_128',type,(
+    '#skF_128': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_151',type,(
+    '#skF_151': ( $i * ( $i * $i ) ) > $i )).
+
+tff(o_1_0_ordinal1,type,(
+    o_1_0_ordinal1: $i > $i )).
+
+tff('#skF_14',type,(
+    '#skF_14': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k3_tarski,type,(
+    k3_tarski: $i > $i )).
+
+tff('#skF_50',type,(
+    '#skF_50': ( $i * $i ) > $i )).
+
+tff('#skF_89',type,(
+    '#skF_89': $i > $i )).
+
+tff(o_2_0_setfam_1,type,(
+    o_2_0_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_140',type,(
+    '#skF_140': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_178',type,(
+    '#skF_178': ( $i * $i ) > $i )).
+
+tff(v1_relat_1,type,(
+    v1_relat_1: $i > $o )).
+
+tff('#skF_205',type,(
+    '#skF_205': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(k2_zfmisc_1,type,(
+    k2_zfmisc_1: ( $i * $i ) > $i )).
+
+tff('#skF_130',type,(
+    '#skF_130': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_77',type,(
+    '#skF_77': $i > $i )).
+
+tff(k2_setfam_1,type,(
+    k2_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_186',type,(
+    '#skF_186': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_263',type,(
+    '#skF_263': ( $i * $i ) > $i )).
+
+tff(o_2_0_ordinal1,type,(
+    o_2_0_ordinal1: ( $i * $i ) > $i )).
+
+tff('#skF_204',type,(
+    '#skF_204': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_152',type,(
+    '#skF_152': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_145',type,(
+    '#skF_145': ( $i * $i ) > $i )).
+
+tff('#skF_242',type,(
+    '#skF_242': ( $i * $i ) > $i )).
+
+tff('#skF_174',type,(
+    '#skF_174': ( $i * $i ) > $i )).
+
+tff('#skF_233',type,(
+    '#skF_233': $i > $i )).
+
+tff(k6_setfam_1,type,(
+    k6_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_249',type,(
+    '#skF_249': ( $i * $i ) > $i )).
+
+tff('#skF_285',type,(
+    '#skF_285': $i > $i )).
+
+tff('#skF_63',type,(
+    '#skF_63': ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) > $i )).
+
+tff(k1_wellord1,type,(
+    k1_wellord1: ( $i * $i ) > $i )).
+
+tff('#skF_59',type,(
+    '#skF_59': ( $i * $i ) > $i )).
+
+tff('#skF_315',type,(
+    '#skF_315': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_230',type,(
+    '#skF_230': $i > $i )).
+
+tff('#skF_207',type,(
+    '#skF_207': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_104',type,(
+    '#skF_104': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_58',type,(
+    '#skF_58': ( $i * $i ) > $i )).
+
+tff('#skF_181',type,(
+    '#skF_181': ( $i * $i ) > $i )).
+
+tff('#skF_336',type,(
+    '#skF_336': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_43',type,(
+    '#skF_43': ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) > $i )).
+
+tff('#skF_52',type,(
+    '#skF_52': ( $i * $i ) > $i )).
+
+tff('#skF_137',type,(
+    '#skF_137': $i > $i )).
+
+tff('#skF_54',type,(
+    '#skF_54': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_274',type,(
+    '#skF_274': $i > $i )).
+
+tff(r3_xboole_0,type,(
+    r3_xboole_0: ( $i * $i ) > $o )).
+
+tff('#skF_125',type,(
+    '#skF_125': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_191',type,(
+    '#skF_191': $i )).
+
+tff('#skF_3',type,(
+    '#skF_3': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k6_relat_1,type,(
+    k6_relat_1: $i > $i )).
+
+tff('#skF_309',type,(
+    '#skF_309': ( $i * $i ) > $i )).
+
+tff('#skF_341',type,(
+    '#skF_341': ( $i * $i ) > $i )).
+
+tff('#skF_62',type,(
+    '#skF_62': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_288',type,(
+    '#skF_288': ( $i * $i ) > $i )).
+
+tff('#skF_339',type,(
+    '#skF_339': $i > $i )).
+
+tff(k3_setfam_1,type,(
+    k3_setfam_1: ( $i * $i ) > $i )).
+
+tff('#skF_55',type,(
+    '#skF_55': ( $i * $i ) > $i )).
+
+tff('#skF_38',type,(
+    '#skF_38': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_331',type,(
+    '#skF_331': ( $i * $i ) > $i )).
+
+tff('#nlpp_002',type,(
+    '#nlpp': ( $int * $int ) > $int )).
+
+tff('#skF_2',type,(
+    '#skF_2': ( $i * $i ) > $i )).
+
+tff('#skF_157',type,(
+    '#skF_157': ( $i * ( $i * $i ) ) > $i )).
+
+tff(v3_setfam_1,type,(
+    v3_setfam_1: ( $i * $i ) > $o )).
+
+tff('#skF_21',type,(
+    '#skF_21': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(v1_zfmisc_1,type,(
+    v1_zfmisc_1: $i > $o )).
+
+tff('#skF_101',type,(
+    '#skF_101': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_333',type,(
+    '#skF_333': ( $i * $i ) > $i )).
+
+tff('#skF_179',type,(
+    '#skF_179': ( $i * $i ) > $i )).
+
+tff('#skF_243',type,(
+    '#skF_243': $i > $i )).
+
+tff('#skF_241',type,(
+    '#skF_241': $i > $i )).
+
+tff(k1_subset_1,type,(
+    k1_subset_1: $i > $i )).
+
+tff(k8_enumset1,type,(
+    k8_enumset1: ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) ) > $i )).
+
+tff(v4_relat_1,type,(
+    v4_relat_1: ( $i * $i ) > $o )).
+
+tff(o_2_0_wellord1,type,(
+    o_2_0_wellord1: ( $i * $i ) > $i )).
+
+tff('#skF_226',type,(
+    '#skF_226': ( $i * $i ) > $i )).
+
+tff('#skF_177',type,(
+    '#skF_177': ( $i * $i ) > $i )).
+
+tff('#skF_120',type,(
+    '#skF_120': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_102',type,(
+    '#skF_102': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_354',type,(
+    '#skF_354': $i )).
+
+tff('#skF_105',type,(
+    '#skF_105': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_40',type,(
+    '#skF_40': ( $i * $i ) > $i )).
+
+tff('#skF_214',type,(
+    '#skF_214': $i > $i )).
+
+tff('#skF_135',type,(
+    '#skF_135': $i )).
+
+tff('#skF_122',type,(
+    '#skF_122': ( $i * ( $i * $i ) ) > $i )).
+
+tff(k3_xboole_0,type,(
+    k3_xboole_0: ( $i * $i ) > $i )).
+
+tff(o_2_0_relat_1,type,(
+    o_2_0_relat_1: ( $i * $i ) > $i )).
+
+tff('#skF_8',type,(
+    '#skF_8': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_270',type,(
+    '#skF_270': ( $i * $i ) > $i )).
+
+tff('#skF_262',type,(
+    '#skF_262': ( $i * $i ) > $i )).
+
+tff(v3_funct_1,type,(
+    v3_funct_1: $i > $o )).
+
+tff('#skF_345',type,(
+    '#skF_345': ( $i * ( $i * $i ) ) > $i )).
+
+tff(o_1_1_relat_1,type,(
+    o_1_1_relat_1: $i > $i )).
+
+tff(k2_xboole_0,type,(
+    k2_xboole_0: ( $i * $i ) > $i )).
+
+tff('#skF_25',type,(
+    '#skF_25': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_304',type,(
+    '#skF_304': $i > $i )).
+
+tff('#skF_273',type,(
+    '#skF_273': $i > $i )).
+
+tff(k5_enumset1,type,(
+    k5_enumset1: ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) > $i )).
+
+tff('#skF_258',type,(
+    '#skF_258': $i > $i )).
+
+tff('#skF_227',type,(
+    '#skF_227': $i > $i )).
+
+tff('#skF_147',type,(
+    '#skF_147': ( $i * $i ) > $i )).
+
+tff(o_1_2_relat_1,type,(
+    o_1_2_relat_1: $i > $i )).
+
+tff('#skF_293',type,(
+    '#skF_293': $i > $i )).
+
+tff('#skF_259',type,(
+    '#skF_259': ( $i * $i ) > $i )).
+
+tff('#skF_312',type,(
+    '#skF_312': ( $i * ( $i * $i ) ) > $i )).
+
+tff(r8_relat_2,type,(
+    r8_relat_2: ( $i * $i ) > $o )).
+
+tff('#skF_213',type,(
+    '#skF_213': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_132',type,(
+    '#skF_132': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_124',type,(
+    '#skF_124': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff('#skF_295',type,(
+    '#skF_295': $i > $i )).
+
+tff(k2_wellord1,type,(
+    k2_wellord1: ( $i * $i ) > $i )).
+
+tff('#skF_29',type,(
+    '#skF_29': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) ) ) ) ) > $i )).
+
+tff(v1_wellord1,type,(
+    v1_wellord1: $i > $o )).
+
+tff('#skF_237',type,(
+    '#skF_237': $i > $i )).
+
+tff('#skF_210',type,(
+    '#skF_210': ( $i * $i ) > $i )).
+
+tff('#skF_250',type,(
+    '#skF_250': ( $i * $i ) > $i )).
+
+tff('#skF_344',type,(
+    '#skF_344': ( $i * $i ) > $i )).
+
+tff('#skF_16',type,(
+    '#skF_16': ( $i * $i ) > $i )).
+
+tff(k2_subset_1,type,(
+    k2_subset_1: $i > $i )).
+
+tff('#skF_283',type,(
+    '#skF_283': $i > $i )).
+
+tff('#skF_129',type,(
+    '#skF_129': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_150',type,(
+    '#skF_150': ( $i * ( $i * $i ) ) > $i )).
+
+tff(v1_xboole_0,type,(
+    v1_xboole_0: $i > $o )).
+
+tff('#skF_346',type,(
+    '#skF_346': ( $i * $i ) > $i )).
+
+tff('#skF_98',type,(
+    '#skF_98': ( $i * $i ) > $i )).
+
+tff('#skF_134',type,(
+    '#skF_134': $i )).
+
+tff('#skF_83',type,(
+    '#skF_83': ( $i * ( $i * ( $i * ( $i * ( $i * ( $i * $i ) ) ) ) ) ) > $i )).
+
+tff('#skF_22',type,(
+    '#skF_22': ( $i * ( $i * ( $i * $i ) ) ) > $i )).
+
+tff(k1_relat_1,type,(
+    k1_relat_1: $i > $i )).
+
+tff('#skF_15',type,(
+    '#skF_15': ( $i * $i ) > $i )).
+
+tff('#skF_139',type,(
+    '#skF_139': $i > $i )).
+
+tff('#skF_351',type,(
+    '#skF_351': ( $i * $i ) > $i )).
+
+tff('#skF_239',type,(
+    '#skF_239': $i > $i )).
+
+tff('#skF_282',type,(
+    '#skF_282': $i > $i )).
+
+tff(k4_relat_1,type,(
+    k4_relat_1: $i > $i )).
+
+tff('#skF_158',type,(
+    '#skF_158': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_42',type,(
+    '#skF_42': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_53',type,(
+    '#skF_53': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_194',type,(
+    '#skF_194': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_350',type,(
+    '#skF_350': ( $i * $i ) > $i )).
+
+tff('#skF_245',type,(
+    '#skF_245': ( $i * ( $i * $i ) ) > $i )).
+
+tff(o_1_3_relat_1,type,(
+    o_1_3_relat_1: $i > $i )).
+
+tff('#skF_256',type,(
+    '#skF_256': ( $i * $i ) > $i )).
+
+tff(k9_subset_1,type,(
+    k9_subset_1: ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_323',type,(
+    '#skF_323': $i > $i )).
+
+tff('#skF_39',type,(
+    '#skF_39': ( $i * $i ) > $i )).
+
+tff(m1_subset_1,type,(
+    m1_subset_1: ( $i * $i ) > $o )).
+
+tff('#skF_310',type,(
+    '#skF_310': $i > $i )).
+
+tff('#skF_271',type,(
+    '#skF_271': ( $i * $i ) > $i )).
+
+tff(k1_setfam_1,type,(
+    k1_setfam_1: $i > $i )).
+
+tff('#skF_246',type,(
+    '#skF_246': ( $i * ( $i * $i ) ) > $i )).
+
+tff('#skF_109',type,(
+    '#skF_109': ( $i * $i ) > $i )).
+
+tff(f_3420,axiom,(
+    ! [A,B] :
+      ( m1_subset_1(A,k1_zfmisc_1(B))
+    <=> r1_tarski(A,B) ) ),
+    file('/export/starexec/sandbox/benchmark/Axioms/MPT006+2.ax',t3_subset)).
+
+tff(f_8844,negated_conjecture,(
+    ~ ! [A,B,C,D] :
+        ( m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(B,C)))
+       => ( r1_tarski(A,D)
+         => m1_subset_1(A,k1_zfmisc_1(k2_zfmisc_1(B,C))) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t4_relset_1)).
+
+tff(f_515,axiom,(
+    ! [A,B] : k2_xboole_0(A,k4_xboole_0(B,A)) = k2_xboole_0(A,B) ),
+    file('/export/starexec/sandbox/benchmark/Axioms/MPT002+2.ax',t39_xboole_1)).
+
+tff(f_539,axiom,(
+    ! [A,B] :
+      ( r1_tarski(A,B)
+     => B = k2_xboole_0(A,k4_xboole_0(B,A)) ) ),
+    file('/export/starexec/sandbox/benchmark/Axioms/MPT002+2.ax',t45_xboole_1)).
+
+tff(f_451,axiom,(
+    ! [A,B] : k3_xboole_0(A,k2_xboole_0(A,B)) = A ),
+    file('/export/starexec/sandbox/benchmark/Axioms/MPT002+2.ax',t21_xboole_1)).
+
+tff(f_63,axiom,(
+    ! [A,B] : k3_xboole_0(A,B) = k3_xboole_0(B,A) ),
+    file('/export/starexec/sandbox/benchmark/Axioms/MPT001+2.ax',commutativity_k3_xboole_0)).
+
+tff(f_475,axiom,(
+    ! [A,B,C] : r1_tarski(k3_xboole_0(A,B),k2_xboole_0(A,C)) ),
+    file('/export/starexec/sandbox/benchmark/Axioms/MPT002+2.ax',t29_xboole_1)).
+
+tff(c_12699,plain,(
+    ! [A_5888,B_5889] :
+      ( m1_subset_1(A_5888,k1_zfmisc_1(B_5889))
+      | ~ r1_tarski(A_5888,B_5889) ) ),
+    inference(cnfTransformation,[status(thm)],[f_3420])).
+
+tff(c_5076,plain,(
+    ~ m1_subset_1('#skF_354',k1_zfmisc_1(k2_zfmisc_1('#skF_355','#skF_356'))) ),
+    inference(cnfTransformation,[status(thm)],[f_8844])).
+
+tff(c_12706,plain,(
+    ~ r1_tarski('#skF_354',k2_zfmisc_1('#skF_355','#skF_356')) ),
+    inference(resolution,[status(thm)],[c_12699,c_5076])).
+
+tff(c_5078,plain,(
+    r1_tarski('#skF_354','#skF_357') ),
+    inference(cnfTransformation,[status(thm)],[f_8844])).
+
+tff(c_348,plain,(
+    ! [A_242,B_243] : k2_xboole_0(A_242,k4_xboole_0(B_243,A_242)) = k2_xboole_0(A_242,B_243) ),
+    inference(cnfTransformation,[status(thm)],[f_515])).
+
+tff(c_364,plain,(
+    ! [A_260,B_261] :
+      ( k2_xboole_0(A_260,k4_xboole_0(B_261,A_260)) = B_261
+      | ~ r1_tarski(A_260,B_261) ) ),
+    inference(cnfTransformation,[status(thm)],[f_539])).
+
+tff(c_11998,plain,(
+    ! [A_5846,B_5847] :
+      ( k2_xboole_0(A_5846,B_5847) = B_5847
+      | ~ r1_tarski(A_5846,B_5847) ) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_348,c_364])).
+
+tff(c_12084,plain,(
+    k2_xboole_0('#skF_354','#skF_357') = '#skF_357' ),
+    inference(resolution,[status(thm)],[c_5078,c_11998])).
+
+tff(c_306,plain,(
+    ! [A_191,B_192] : k3_xboole_0(A_191,k2_xboole_0(A_191,B_192)) = A_191 ),
+    inference(cnfTransformation,[status(thm)],[f_451])).
+
+tff(c_12103,plain,(
+    k3_xboole_0('#skF_354','#skF_357') = '#skF_354' ),
+    inference(superposition,[status(thm),theory(equality)],[c_12084,c_306])).
+
+tff(c_8,plain,(
+    ! [B_8,A_7] : k3_xboole_0(B_8,A_7) = k3_xboole_0(A_7,B_8) ),
+    inference(cnfTransformation,[status(thm)],[f_63])).
+
+tff(c_5080,plain,(
+    m1_subset_1('#skF_357',k1_zfmisc_1(k2_zfmisc_1('#skF_355','#skF_356'))) ),
+    inference(cnfTransformation,[status(thm)],[f_8844])).
+
+tff(c_13340,plain,(
+    ! [A_5903,B_5904] :
+      ( r1_tarski(A_5903,B_5904)
+      | ~ m1_subset_1(A_5903,k1_zfmisc_1(B_5904)) ) ),
+    inference(cnfTransformation,[status(thm)],[f_3420])).
+
+tff(c_13405,plain,(
+    r1_tarski('#skF_357',k2_zfmisc_1('#skF_355','#skF_356')) ),
+    inference(resolution,[status(thm)],[c_5080,c_13340])).
+
+tff(c_5206,plain,(
+    ! [A_260,B_261] :
+      ( k2_xboole_0(A_260,B_261) = B_261
+      | ~ r1_tarski(A_260,B_261) ) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_348,c_364])).
+
+tff(c_13439,plain,(
+    k2_xboole_0('#skF_357',k2_zfmisc_1('#skF_355','#skF_356')) = k2_zfmisc_1('#skF_355','#skF_356') ),
+    inference(resolution,[status(thm)],[c_13405,c_5206])).
+
+tff(c_16694,plain,(
+    ! [A_6049,B_6050,C_6051] : r1_tarski(k3_xboole_0(A_6049,B_6050),k2_xboole_0(A_6049,C_6051)) ),
+    inference(cnfTransformation,[status(thm)],[f_475])).
+
+tff(c_17276,plain,(
+    ! [B_6068] : r1_tarski(k3_xboole_0('#skF_357',B_6068),k2_zfmisc_1('#skF_355','#skF_356')) ),
+    inference(superposition,[status(thm),theory(equality)],[c_13439,c_16694])).
+
+tff(c_20624,plain,(
+    ! [A_6150] : r1_tarski(k3_xboole_0(A_6150,'#skF_357'),k2_zfmisc_1('#skF_355','#skF_356')) ),
+    inference(superposition,[status(thm),theory(equality)],[c_8,c_17276])).
+
+tff(c_20637,plain,(
+    r1_tarski('#skF_354',k2_zfmisc_1('#skF_355','#skF_356')) ),
+    inference(superposition,[status(thm),theory(equality)],[c_12103,c_20624])).
+
+tff(c_20657,plain,(
+    $false ),
+    inference(negUnitSimplification,[status(thm)],[c_12706,c_20637])).
+%------------------------------------------------------------------------------

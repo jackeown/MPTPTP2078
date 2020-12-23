@@ -1,0 +1,548 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.C5buxDH2V9
+
+% Computer   : n023.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 13:48:34 EST 2020
+
+% Result     : Theorem 0.36s
+% Output     : Refutation 0.36s
+% Verified   : 
+% Statistics : Number of formulae       :   55 (  80 expanded)
+%              Number of leaves         :   19 (  32 expanded)
+%              Depth                    :   12
+%              Number of atoms          :  383 (1117 expanded)
+%              Number of equality atoms :   20 (  44 expanded)
+%              Maximal formula depth    :   17 (   6 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(r2_hidden_type,type,(
+    r2_hidden: $i > $i > $o )).
+
+thf(k3_relat_1_type,type,(
+    k3_relat_1: $i > $i )).
+
+thf(sk_B_2_type,type,(
+    sk_B_2: $i )).
+
+thf(v1_relat_1_type,type,(
+    v1_relat_1: $i > $o )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(v1_relat_2_type,type,(
+    v1_relat_2: $i > $o )).
+
+thf(v1_wellord1_type,type,(
+    v1_wellord1: $i > $o )).
+
+thf(k1_wellord1_type,type,(
+    k1_wellord1: $i > $i > $i )).
+
+thf(sk_C_1_type,type,(
+    sk_C_1: $i )).
+
+thf(v6_relat_2_type,type,(
+    v6_relat_2: $i > $o )).
+
+thf(v4_relat_2_type,type,(
+    v4_relat_2: $i > $o )).
+
+thf(k4_tarski_type,type,(
+    k4_tarski: $i > $i > $i )).
+
+thf(v2_wellord1_type,type,(
+    v2_wellord1: $i > $o )).
+
+thf(v8_relat_2_type,type,(
+    v8_relat_2: $i > $o )).
+
+thf(t42_wellord1,conjecture,(
+    ! [A: $i,B: $i,C: $i] :
+      ( ( v1_relat_1 @ C )
+     => ( ( ( v2_wellord1 @ C )
+          & ( r2_hidden @ A @ ( k3_relat_1 @ C ) )
+          & ( r2_hidden @ B @ ( k3_relat_1 @ C ) )
+          & ! [D: $i] :
+              ( ( r2_hidden @ D @ ( k1_wellord1 @ C @ A ) )
+             => ( ( r2_hidden @ ( k4_tarski @ D @ B ) @ C )
+                & ( D != B ) ) ) )
+       => ( r2_hidden @ ( k4_tarski @ A @ B ) @ C ) ) ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i,B: $i,C: $i] :
+        ( ( v1_relat_1 @ C )
+       => ( ( ( v2_wellord1 @ C )
+            & ( r2_hidden @ A @ ( k3_relat_1 @ C ) )
+            & ( r2_hidden @ B @ ( k3_relat_1 @ C ) )
+            & ! [D: $i] :
+                ( ( r2_hidden @ D @ ( k1_wellord1 @ C @ A ) )
+               => ( ( r2_hidden @ ( k4_tarski @ D @ B ) @ C )
+                  & ( D != B ) ) ) )
+         => ( r2_hidden @ ( k4_tarski @ A @ B ) @ C ) ) ) ),
+    inference('cnf.neg',[status(esa)],[t42_wellord1])).
+
+thf('0',plain,(
+    ~ ( r2_hidden @ ( k4_tarski @ sk_A @ sk_B_2 ) @ sk_C_1 ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('1',plain,(
+    r2_hidden @ sk_B_2 @ ( k3_relat_1 @ sk_C_1 ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('2',plain,(
+    r2_hidden @ sk_A @ ( k3_relat_1 @ sk_C_1 ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(l4_wellord1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ( ( v6_relat_2 @ A )
+      <=> ! [B: $i,C: $i] :
+            ~ ( ( r2_hidden @ B @ ( k3_relat_1 @ A ) )
+              & ( r2_hidden @ C @ ( k3_relat_1 @ A ) )
+              & ( B != C )
+              & ~ ( r2_hidden @ ( k4_tarski @ B @ C ) @ A )
+              & ~ ( r2_hidden @ ( k4_tarski @ C @ B ) @ A ) ) ) ) )).
+
+thf('3',plain,(
+    ! [X9: $i,X10: $i,X11: $i] :
+      ( ~ ( v6_relat_2 @ X9 )
+      | ~ ( r2_hidden @ X10 @ ( k3_relat_1 @ X9 ) )
+      | ( r2_hidden @ ( k4_tarski @ X11 @ X10 ) @ X9 )
+      | ( r2_hidden @ ( k4_tarski @ X10 @ X11 ) @ X9 )
+      | ( X10 = X11 )
+      | ~ ( r2_hidden @ X11 @ ( k3_relat_1 @ X9 ) )
+      | ~ ( v1_relat_1 @ X9 ) ) ),
+    inference(cnf,[status(esa)],[l4_wellord1])).
+
+thf('4',plain,(
+    ! [X0: $i] :
+      ( ~ ( v1_relat_1 @ sk_C_1 )
+      | ~ ( r2_hidden @ X0 @ ( k3_relat_1 @ sk_C_1 ) )
+      | ( sk_A = X0 )
+      | ( r2_hidden @ ( k4_tarski @ sk_A @ X0 ) @ sk_C_1 )
+      | ( r2_hidden @ ( k4_tarski @ X0 @ sk_A ) @ sk_C_1 )
+      | ~ ( v6_relat_2 @ sk_C_1 ) ) ),
+    inference('sup-',[status(thm)],['2','3'])).
+
+thf('5',plain,(
+    v1_relat_1 @ sk_C_1 ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('6',plain,(
+    v1_relat_1 @ sk_C_1 ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(d4_wellord1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ( ( v2_wellord1 @ A )
+      <=> ( ( v1_relat_2 @ A )
+          & ( v8_relat_2 @ A )
+          & ( v4_relat_2 @ A )
+          & ( v6_relat_2 @ A )
+          & ( v1_wellord1 @ A ) ) ) ) )).
+
+thf('7',plain,(
+    ! [X6: $i] :
+      ( ~ ( v2_wellord1 @ X6 )
+      | ( v6_relat_2 @ X6 )
+      | ~ ( v1_relat_1 @ X6 ) ) ),
+    inference(cnf,[status(esa)],[d4_wellord1])).
+
+thf('8',plain,
+    ( ( v6_relat_2 @ sk_C_1 )
+    | ~ ( v2_wellord1 @ sk_C_1 ) ),
+    inference('sup-',[status(thm)],['6','7'])).
+
+thf('9',plain,(
+    v2_wellord1 @ sk_C_1 ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('10',plain,(
+    v6_relat_2 @ sk_C_1 ),
+    inference(demod,[status(thm)],['8','9'])).
+
+thf('11',plain,(
+    ! [X0: $i] :
+      ( ~ ( r2_hidden @ X0 @ ( k3_relat_1 @ sk_C_1 ) )
+      | ( sk_A = X0 )
+      | ( r2_hidden @ ( k4_tarski @ sk_A @ X0 ) @ sk_C_1 )
+      | ( r2_hidden @ ( k4_tarski @ X0 @ sk_A ) @ sk_C_1 ) ) ),
+    inference(demod,[status(thm)],['4','5','10'])).
+
+thf('12',plain,
+    ( ( r2_hidden @ ( k4_tarski @ sk_B_2 @ sk_A ) @ sk_C_1 )
+    | ( r2_hidden @ ( k4_tarski @ sk_A @ sk_B_2 ) @ sk_C_1 )
+    | ( sk_A = sk_B_2 ) ),
+    inference('sup-',[status(thm)],['1','11'])).
+
+thf('13',plain,(
+    ~ ( r2_hidden @ ( k4_tarski @ sk_A @ sk_B_2 ) @ sk_C_1 ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('14',plain,
+    ( ( sk_A = sk_B_2 )
+    | ( r2_hidden @ ( k4_tarski @ sk_B_2 @ sk_A ) @ sk_C_1 ) ),
+    inference(clc,[status(thm)],['12','13'])).
+
+thf(d1_wellord1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ! [B: $i,C: $i] :
+          ( ( C
+            = ( k1_wellord1 @ A @ B ) )
+        <=> ! [D: $i] :
+              ( ( r2_hidden @ D @ C )
+            <=> ( ( D != B )
+                & ( r2_hidden @ ( k4_tarski @ D @ B ) @ A ) ) ) ) ) )).
+
+thf('15',plain,(
+    ! [X1: $i,X2: $i,X3: $i,X5: $i] :
+      ( ( X3
+       != ( k1_wellord1 @ X2 @ X1 ) )
+      | ( r2_hidden @ X5 @ X3 )
+      | ~ ( r2_hidden @ ( k4_tarski @ X5 @ X1 ) @ X2 )
+      | ( X5 = X1 )
+      | ~ ( v1_relat_1 @ X2 ) ) ),
+    inference(cnf,[status(esa)],[d1_wellord1])).
+
+thf('16',plain,(
+    ! [X1: $i,X2: $i,X5: $i] :
+      ( ~ ( v1_relat_1 @ X2 )
+      | ( X5 = X1 )
+      | ~ ( r2_hidden @ ( k4_tarski @ X5 @ X1 ) @ X2 )
+      | ( r2_hidden @ X5 @ ( k1_wellord1 @ X2 @ X1 ) ) ) ),
+    inference(simplify,[status(thm)],['15'])).
+
+thf('17',plain,
+    ( ( sk_A = sk_B_2 )
+    | ( r2_hidden @ sk_B_2 @ ( k1_wellord1 @ sk_C_1 @ sk_A ) )
+    | ( sk_B_2 = sk_A )
+    | ~ ( v1_relat_1 @ sk_C_1 ) ),
+    inference('sup-',[status(thm)],['14','16'])).
+
+thf('18',plain,(
+    v1_relat_1 @ sk_C_1 ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('19',plain,
+    ( ( sk_A = sk_B_2 )
+    | ( r2_hidden @ sk_B_2 @ ( k1_wellord1 @ sk_C_1 @ sk_A ) )
+    | ( sk_B_2 = sk_A ) ),
+    inference(demod,[status(thm)],['17','18'])).
+
+thf('20',plain,
+    ( ( r2_hidden @ sk_B_2 @ ( k1_wellord1 @ sk_C_1 @ sk_A ) )
+    | ( sk_A = sk_B_2 ) ),
+    inference(simplify,[status(thm)],['19'])).
+
+thf('21',plain,(
+    ! [X12: $i] :
+      ( ( X12 != sk_B_2 )
+      | ~ ( r2_hidden @ X12 @ ( k1_wellord1 @ sk_C_1 @ sk_A ) ) ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('22',plain,(
+    ~ ( r2_hidden @ sk_B_2 @ ( k1_wellord1 @ sk_C_1 @ sk_A ) ) ),
+    inference(simplify,[status(thm)],['21'])).
+
+thf('23',plain,(
+    sk_A = sk_B_2 ),
+    inference(clc,[status(thm)],['20','22'])).
+
+thf('24',plain,(
+    r2_hidden @ sk_A @ ( k3_relat_1 @ sk_C_1 ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(l1_wellord1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ( ( v1_relat_2 @ A )
+      <=> ! [B: $i] :
+            ( ( r2_hidden @ B @ ( k3_relat_1 @ A ) )
+           => ( r2_hidden @ ( k4_tarski @ B @ B ) @ A ) ) ) ) )).
+
+thf('25',plain,(
+    ! [X7: $i,X8: $i] :
+      ( ~ ( v1_relat_2 @ X7 )
+      | ( r2_hidden @ ( k4_tarski @ X8 @ X8 ) @ X7 )
+      | ~ ( r2_hidden @ X8 @ ( k3_relat_1 @ X7 ) )
+      | ~ ( v1_relat_1 @ X7 ) ) ),
+    inference(cnf,[status(esa)],[l1_wellord1])).
+
+thf('26',plain,
+    ( ~ ( v1_relat_1 @ sk_C_1 )
+    | ( r2_hidden @ ( k4_tarski @ sk_A @ sk_A ) @ sk_C_1 )
+    | ~ ( v1_relat_2 @ sk_C_1 ) ),
+    inference('sup-',[status(thm)],['24','25'])).
+
+thf('27',plain,(
+    v1_relat_1 @ sk_C_1 ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('28',plain,(
+    v1_relat_1 @ sk_C_1 ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('29',plain,(
+    ! [X6: $i] :
+      ( ~ ( v2_wellord1 @ X6 )
+      | ( v1_relat_2 @ X6 )
+      | ~ ( v1_relat_1 @ X6 ) ) ),
+    inference(cnf,[status(esa)],[d4_wellord1])).
+
+thf('30',plain,
+    ( ( v1_relat_2 @ sk_C_1 )
+    | ~ ( v2_wellord1 @ sk_C_1 ) ),
+    inference('sup-',[status(thm)],['28','29'])).
+
+thf('31',plain,(
+    v2_wellord1 @ sk_C_1 ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('32',plain,(
+    v1_relat_2 @ sk_C_1 ),
+    inference(demod,[status(thm)],['30','31'])).
+
+thf('33',plain,(
+    r2_hidden @ ( k4_tarski @ sk_A @ sk_A ) @ sk_C_1 ),
+    inference(demod,[status(thm)],['26','27','32'])).
+
+thf('34',plain,(
+    $false ),
+    inference(demod,[status(thm)],['0','23','33'])).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.06/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.06/0.13  % Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.C5buxDH2V9
+% 0.13/0.34  % Computer   : n023.cluster.edu
+% 0.13/0.34  % Model      : x86_64 x86_64
+% 0.13/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.34  % Memory     : 8042.1875MB
+% 0.13/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.35  % CPULimit   : 60
+% 0.13/0.35  % DateTime   : Tue Dec  1 16:26:36 EST 2020
+% 0.13/0.35  % CPUTime    : 
+% 0.13/0.35  % Running portfolio for 600 s
+% 0.13/0.35  % File         : /export/starexec/sandbox/benchmark/theBenchmark.p
+% 0.13/0.35  % Number of cores: 8
+% 0.13/0.35  % Python version: Python 3.6.8
+% 0.13/0.35  % Running in FO mode
+% 0.36/0.55  % Running /export/starexec/sandbox/solver/bin/fo/fo7.sh for 78
+% 0.36/0.55  % Solved by: fo/fo7.sh
+% 0.36/0.55  To remain in the chosen logic fragment, unification with booleans has been disabled.
+% 0.36/0.55  % done 45 iterations in 0.056s
+% 0.36/0.55  % SZS status Theorem for '/export/starexec/sandbox/benchmark/theBenchmark.p'
+% 0.36/0.55  % SZS output start Refutation
+% 0.36/0.55  thf(r2_hidden_type, type, r2_hidden: $i > $i > $o).
+% 0.36/0.55  thf(k3_relat_1_type, type, k3_relat_1: $i > $i).
+% 0.36/0.55  thf(sk_B_2_type, type, sk_B_2: $i).
+% 0.36/0.55  thf(v1_relat_1_type, type, v1_relat_1: $i > $o).
+% 0.36/0.55  thf(sk_A_type, type, sk_A: $i).
+% 0.36/0.55  thf(v1_relat_2_type, type, v1_relat_2: $i > $o).
+% 0.36/0.55  thf(v1_wellord1_type, type, v1_wellord1: $i > $o).
+% 0.36/0.55  thf(k1_wellord1_type, type, k1_wellord1: $i > $i > $i).
+% 0.36/0.55  thf(sk_C_1_type, type, sk_C_1: $i).
+% 0.36/0.55  thf(v6_relat_2_type, type, v6_relat_2: $i > $o).
+% 0.36/0.55  thf(v4_relat_2_type, type, v4_relat_2: $i > $o).
+% 0.36/0.55  thf(k4_tarski_type, type, k4_tarski: $i > $i > $i).
+% 0.36/0.55  thf(v2_wellord1_type, type, v2_wellord1: $i > $o).
+% 0.36/0.55  thf(v8_relat_2_type, type, v8_relat_2: $i > $o).
+% 0.36/0.55  thf(t42_wellord1, conjecture,
+% 0.36/0.55    (![A:$i,B:$i,C:$i]:
+% 0.36/0.55     ( ( v1_relat_1 @ C ) =>
+% 0.36/0.55       ( ( ( v2_wellord1 @ C ) & ( r2_hidden @ A @ ( k3_relat_1 @ C ) ) & 
+% 0.36/0.55           ( r2_hidden @ B @ ( k3_relat_1 @ C ) ) & 
+% 0.36/0.55           ( ![D:$i]:
+% 0.36/0.55             ( ( r2_hidden @ D @ ( k1_wellord1 @ C @ A ) ) =>
+% 0.36/0.55               ( ( r2_hidden @ ( k4_tarski @ D @ B ) @ C ) & ( ( D ) != ( B ) ) ) ) ) ) =>
+% 0.36/0.55         ( r2_hidden @ ( k4_tarski @ A @ B ) @ C ) ) ))).
+% 0.36/0.55  thf(zf_stmt_0, negated_conjecture,
+% 0.36/0.55    (~( ![A:$i,B:$i,C:$i]:
+% 0.36/0.55        ( ( v1_relat_1 @ C ) =>
+% 0.36/0.55          ( ( ( v2_wellord1 @ C ) & ( r2_hidden @ A @ ( k3_relat_1 @ C ) ) & 
+% 0.36/0.55              ( r2_hidden @ B @ ( k3_relat_1 @ C ) ) & 
+% 0.36/0.55              ( ![D:$i]:
+% 0.36/0.55                ( ( r2_hidden @ D @ ( k1_wellord1 @ C @ A ) ) =>
+% 0.36/0.55                  ( ( r2_hidden @ ( k4_tarski @ D @ B ) @ C ) & 
+% 0.36/0.55                    ( ( D ) != ( B ) ) ) ) ) ) =>
+% 0.36/0.55            ( r2_hidden @ ( k4_tarski @ A @ B ) @ C ) ) ) )),
+% 0.36/0.55    inference('cnf.neg', [status(esa)], [t42_wellord1])).
+% 0.36/0.55  thf('0', plain, (~ (r2_hidden @ (k4_tarski @ sk_A @ sk_B_2) @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('1', plain, ((r2_hidden @ sk_B_2 @ (k3_relat_1 @ sk_C_1))),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('2', plain, ((r2_hidden @ sk_A @ (k3_relat_1 @ sk_C_1))),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf(l4_wellord1, axiom,
+% 0.36/0.55    (![A:$i]:
+% 0.36/0.55     ( ( v1_relat_1 @ A ) =>
+% 0.36/0.55       ( ( v6_relat_2 @ A ) <=>
+% 0.36/0.55         ( ![B:$i,C:$i]:
+% 0.36/0.55           ( ~( ( r2_hidden @ B @ ( k3_relat_1 @ A ) ) & 
+% 0.36/0.55                ( r2_hidden @ C @ ( k3_relat_1 @ A ) ) & ( ( B ) != ( C ) ) & 
+% 0.36/0.55                ( ~( r2_hidden @ ( k4_tarski @ B @ C ) @ A ) ) & 
+% 0.36/0.55                ( ~( r2_hidden @ ( k4_tarski @ C @ B ) @ A ) ) ) ) ) ) ))).
+% 0.36/0.55  thf('3', plain,
+% 0.36/0.55      (![X9 : $i, X10 : $i, X11 : $i]:
+% 0.36/0.55         (~ (v6_relat_2 @ X9)
+% 0.36/0.55          | ~ (r2_hidden @ X10 @ (k3_relat_1 @ X9))
+% 0.36/0.55          | (r2_hidden @ (k4_tarski @ X11 @ X10) @ X9)
+% 0.36/0.55          | (r2_hidden @ (k4_tarski @ X10 @ X11) @ X9)
+% 0.36/0.55          | ((X10) = (X11))
+% 0.36/0.55          | ~ (r2_hidden @ X11 @ (k3_relat_1 @ X9))
+% 0.36/0.55          | ~ (v1_relat_1 @ X9))),
+% 0.36/0.55      inference('cnf', [status(esa)], [l4_wellord1])).
+% 0.36/0.55  thf('4', plain,
+% 0.36/0.55      (![X0 : $i]:
+% 0.36/0.55         (~ (v1_relat_1 @ sk_C_1)
+% 0.36/0.55          | ~ (r2_hidden @ X0 @ (k3_relat_1 @ sk_C_1))
+% 0.36/0.55          | ((sk_A) = (X0))
+% 0.36/0.55          | (r2_hidden @ (k4_tarski @ sk_A @ X0) @ sk_C_1)
+% 0.36/0.55          | (r2_hidden @ (k4_tarski @ X0 @ sk_A) @ sk_C_1)
+% 0.36/0.55          | ~ (v6_relat_2 @ sk_C_1))),
+% 0.36/0.55      inference('sup-', [status(thm)], ['2', '3'])).
+% 0.36/0.55  thf('5', plain, ((v1_relat_1 @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('6', plain, ((v1_relat_1 @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf(d4_wellord1, axiom,
+% 0.36/0.55    (![A:$i]:
+% 0.36/0.55     ( ( v1_relat_1 @ A ) =>
+% 0.36/0.55       ( ( v2_wellord1 @ A ) <=>
+% 0.36/0.55         ( ( v1_relat_2 @ A ) & ( v8_relat_2 @ A ) & ( v4_relat_2 @ A ) & 
+% 0.36/0.55           ( v6_relat_2 @ A ) & ( v1_wellord1 @ A ) ) ) ))).
+% 0.36/0.55  thf('7', plain,
+% 0.36/0.55      (![X6 : $i]:
+% 0.36/0.55         (~ (v2_wellord1 @ X6) | (v6_relat_2 @ X6) | ~ (v1_relat_1 @ X6))),
+% 0.36/0.55      inference('cnf', [status(esa)], [d4_wellord1])).
+% 0.36/0.55  thf('8', plain, (((v6_relat_2 @ sk_C_1) | ~ (v2_wellord1 @ sk_C_1))),
+% 0.36/0.55      inference('sup-', [status(thm)], ['6', '7'])).
+% 0.36/0.55  thf('9', plain, ((v2_wellord1 @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('10', plain, ((v6_relat_2 @ sk_C_1)),
+% 0.36/0.55      inference('demod', [status(thm)], ['8', '9'])).
+% 0.36/0.55  thf('11', plain,
+% 0.36/0.55      (![X0 : $i]:
+% 0.36/0.55         (~ (r2_hidden @ X0 @ (k3_relat_1 @ sk_C_1))
+% 0.36/0.55          | ((sk_A) = (X0))
+% 0.36/0.55          | (r2_hidden @ (k4_tarski @ sk_A @ X0) @ sk_C_1)
+% 0.36/0.55          | (r2_hidden @ (k4_tarski @ X0 @ sk_A) @ sk_C_1))),
+% 0.36/0.55      inference('demod', [status(thm)], ['4', '5', '10'])).
+% 0.36/0.55  thf('12', plain,
+% 0.36/0.55      (((r2_hidden @ (k4_tarski @ sk_B_2 @ sk_A) @ sk_C_1)
+% 0.36/0.55        | (r2_hidden @ (k4_tarski @ sk_A @ sk_B_2) @ sk_C_1)
+% 0.36/0.55        | ((sk_A) = (sk_B_2)))),
+% 0.36/0.55      inference('sup-', [status(thm)], ['1', '11'])).
+% 0.36/0.55  thf('13', plain, (~ (r2_hidden @ (k4_tarski @ sk_A @ sk_B_2) @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('14', plain,
+% 0.36/0.55      ((((sk_A) = (sk_B_2))
+% 0.36/0.55        | (r2_hidden @ (k4_tarski @ sk_B_2 @ sk_A) @ sk_C_1))),
+% 0.36/0.55      inference('clc', [status(thm)], ['12', '13'])).
+% 0.36/0.55  thf(d1_wellord1, axiom,
+% 0.36/0.55    (![A:$i]:
+% 0.36/0.55     ( ( v1_relat_1 @ A ) =>
+% 0.36/0.55       ( ![B:$i,C:$i]:
+% 0.36/0.55         ( ( ( C ) = ( k1_wellord1 @ A @ B ) ) <=>
+% 0.36/0.55           ( ![D:$i]:
+% 0.36/0.55             ( ( r2_hidden @ D @ C ) <=>
+% 0.36/0.55               ( ( ( D ) != ( B ) ) & ( r2_hidden @ ( k4_tarski @ D @ B ) @ A ) ) ) ) ) ) ))).
+% 0.36/0.55  thf('15', plain,
+% 0.36/0.55      (![X1 : $i, X2 : $i, X3 : $i, X5 : $i]:
+% 0.36/0.55         (((X3) != (k1_wellord1 @ X2 @ X1))
+% 0.36/0.55          | (r2_hidden @ X5 @ X3)
+% 0.36/0.55          | ~ (r2_hidden @ (k4_tarski @ X5 @ X1) @ X2)
+% 0.36/0.55          | ((X5) = (X1))
+% 0.36/0.55          | ~ (v1_relat_1 @ X2))),
+% 0.36/0.55      inference('cnf', [status(esa)], [d1_wellord1])).
+% 0.36/0.55  thf('16', plain,
+% 0.36/0.55      (![X1 : $i, X2 : $i, X5 : $i]:
+% 0.36/0.55         (~ (v1_relat_1 @ X2)
+% 0.36/0.55          | ((X5) = (X1))
+% 0.36/0.55          | ~ (r2_hidden @ (k4_tarski @ X5 @ X1) @ X2)
+% 0.36/0.55          | (r2_hidden @ X5 @ (k1_wellord1 @ X2 @ X1)))),
+% 0.36/0.55      inference('simplify', [status(thm)], ['15'])).
+% 0.36/0.55  thf('17', plain,
+% 0.36/0.55      ((((sk_A) = (sk_B_2))
+% 0.36/0.55        | (r2_hidden @ sk_B_2 @ (k1_wellord1 @ sk_C_1 @ sk_A))
+% 0.36/0.55        | ((sk_B_2) = (sk_A))
+% 0.36/0.55        | ~ (v1_relat_1 @ sk_C_1))),
+% 0.36/0.55      inference('sup-', [status(thm)], ['14', '16'])).
+% 0.36/0.55  thf('18', plain, ((v1_relat_1 @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('19', plain,
+% 0.36/0.55      ((((sk_A) = (sk_B_2))
+% 0.36/0.55        | (r2_hidden @ sk_B_2 @ (k1_wellord1 @ sk_C_1 @ sk_A))
+% 0.36/0.55        | ((sk_B_2) = (sk_A)))),
+% 0.36/0.55      inference('demod', [status(thm)], ['17', '18'])).
+% 0.36/0.55  thf('20', plain,
+% 0.36/0.55      (((r2_hidden @ sk_B_2 @ (k1_wellord1 @ sk_C_1 @ sk_A))
+% 0.36/0.55        | ((sk_A) = (sk_B_2)))),
+% 0.36/0.55      inference('simplify', [status(thm)], ['19'])).
+% 0.36/0.55  thf('21', plain,
+% 0.36/0.55      (![X12 : $i]:
+% 0.36/0.55         (((X12) != (sk_B_2))
+% 0.36/0.55          | ~ (r2_hidden @ X12 @ (k1_wellord1 @ sk_C_1 @ sk_A)))),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('22', plain, (~ (r2_hidden @ sk_B_2 @ (k1_wellord1 @ sk_C_1 @ sk_A))),
+% 0.36/0.55      inference('simplify', [status(thm)], ['21'])).
+% 0.36/0.55  thf('23', plain, (((sk_A) = (sk_B_2))),
+% 0.36/0.55      inference('clc', [status(thm)], ['20', '22'])).
+% 0.36/0.55  thf('24', plain, ((r2_hidden @ sk_A @ (k3_relat_1 @ sk_C_1))),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf(l1_wellord1, axiom,
+% 0.36/0.55    (![A:$i]:
+% 0.36/0.55     ( ( v1_relat_1 @ A ) =>
+% 0.36/0.55       ( ( v1_relat_2 @ A ) <=>
+% 0.36/0.55         ( ![B:$i]:
+% 0.36/0.55           ( ( r2_hidden @ B @ ( k3_relat_1 @ A ) ) =>
+% 0.36/0.55             ( r2_hidden @ ( k4_tarski @ B @ B ) @ A ) ) ) ) ))).
+% 0.36/0.55  thf('25', plain,
+% 0.36/0.55      (![X7 : $i, X8 : $i]:
+% 0.36/0.55         (~ (v1_relat_2 @ X7)
+% 0.36/0.55          | (r2_hidden @ (k4_tarski @ X8 @ X8) @ X7)
+% 0.36/0.55          | ~ (r2_hidden @ X8 @ (k3_relat_1 @ X7))
+% 0.36/0.55          | ~ (v1_relat_1 @ X7))),
+% 0.36/0.55      inference('cnf', [status(esa)], [l1_wellord1])).
+% 0.36/0.55  thf('26', plain,
+% 0.36/0.55      ((~ (v1_relat_1 @ sk_C_1)
+% 0.36/0.55        | (r2_hidden @ (k4_tarski @ sk_A @ sk_A) @ sk_C_1)
+% 0.36/0.55        | ~ (v1_relat_2 @ sk_C_1))),
+% 0.36/0.55      inference('sup-', [status(thm)], ['24', '25'])).
+% 0.36/0.55  thf('27', plain, ((v1_relat_1 @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('28', plain, ((v1_relat_1 @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('29', plain,
+% 0.36/0.55      (![X6 : $i]:
+% 0.36/0.55         (~ (v2_wellord1 @ X6) | (v1_relat_2 @ X6) | ~ (v1_relat_1 @ X6))),
+% 0.36/0.55      inference('cnf', [status(esa)], [d4_wellord1])).
+% 0.36/0.55  thf('30', plain, (((v1_relat_2 @ sk_C_1) | ~ (v2_wellord1 @ sk_C_1))),
+% 0.36/0.55      inference('sup-', [status(thm)], ['28', '29'])).
+% 0.36/0.55  thf('31', plain, ((v2_wellord1 @ sk_C_1)),
+% 0.36/0.55      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.36/0.55  thf('32', plain, ((v1_relat_2 @ sk_C_1)),
+% 0.36/0.55      inference('demod', [status(thm)], ['30', '31'])).
+% 0.36/0.55  thf('33', plain, ((r2_hidden @ (k4_tarski @ sk_A @ sk_A) @ sk_C_1)),
+% 0.36/0.55      inference('demod', [status(thm)], ['26', '27', '32'])).
+% 0.36/0.55  thf('34', plain, ($false),
+% 0.36/0.55      inference('demod', [status(thm)], ['0', '23', '33'])).
+% 0.36/0.55  
+% 0.36/0.55  % SZS output end Refutation
+% 0.36/0.55  
+% 0.36/0.56  % Zipperpin 1.5 exiting
+%------------------------------------------------------------------------------

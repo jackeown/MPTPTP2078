@@ -1,0 +1,71 @@
+%------------------------------------------------------------------------------
+% File     : MPT1905+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Domain   : Set theory
+% Problem  :
+% Version  : [MPTP] axioms : Especial.
+% English  :
+
+% Refs     : [AH+14] Alma et al. (2014), Premise Selection for Mathematics
+% Source   : [MPTP]
+% Names    : tex_2__t73_tex_2---1.p [MPTPTP]
+
+% Status   : Theorem
+% Rating   : ? v7.4.0
+% Syntax   : Number of formulae    :    3 (   0 unit)
+%            Number of atoms       :   29 (   0 equality)
+%            Maximal formula depth :   11 (   9 average)
+%            Number of connectives :   32 (   6   ~;   0   |;  19   &)
+%                                         (   1 <=>;   6  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :   11 (   0 propositional; 1-3 arity)
+%            Number of functors    :    3 (   0 constant; 1-2 arity)
+%            Number of variables   :    8 (   0 sgn;   6   !;   2   ?)
+%            Maximal term depth    :    4 (   1 average)
+% SPC      : FOF_THM_RFO_NEQ
+
+% Comments : 
+%------------------------------------------------------------------------------
+fof(d20_borsuk_1,axiom,(
+    ! [A] :
+      ( ( ~ v2_struct_0(A)
+        & v2_pre_topc(A)
+        & l1_pre_topc(A) )
+     => ! [B] :
+          ( ( ~ v2_struct_0(B)
+            & m1_pre_topc(B,A) )
+         => ( r1_borsuk_1(A,B)
+          <=> ? [C] :
+                ( v1_funct_1(C)
+                & v1_funct_2(C,u1_struct_0(A),u1_struct_0(B))
+                & v5_pre_topc(C,A,B)
+                & m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(u1_struct_0(A),u1_struct_0(B))))
+                & v3_borsuk_1(C,A,B) ) ) ) ) )).
+
+fof(t72_tex_2,axiom,(
+    ! [A] :
+      ( ( ~ v2_struct_0(A)
+        & v2_pre_topc(A)
+        & v1_tdlat_3(A)
+        & l1_pre_topc(A) )
+     => ! [B] :
+          ( ( ~ v2_struct_0(B)
+            & m1_pre_topc(B,A) )
+         => ? [C] :
+              ( v1_funct_1(C)
+              & v1_funct_2(C,u1_struct_0(A),u1_struct_0(B))
+              & v5_pre_topc(C,A,B)
+              & m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(u1_struct_0(A),u1_struct_0(B))))
+              & v3_borsuk_1(C,A,B) ) ) ) )).
+
+fof(t73_tex_2,conjecture,(
+    ! [A] :
+      ( ( ~ v2_struct_0(A)
+        & v2_pre_topc(A)
+        & v1_tdlat_3(A)
+        & l1_pre_topc(A) )
+     => ! [B] :
+          ( ( ~ v2_struct_0(B)
+            & m1_pre_topc(B,A) )
+         => r1_borsuk_1(A,B) ) ) )).
+
+%------------------------------------------------------------------------------

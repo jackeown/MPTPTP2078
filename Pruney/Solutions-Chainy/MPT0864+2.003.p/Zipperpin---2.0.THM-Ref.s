@@ -1,0 +1,694 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.jvMbUSgSVG
+
+% Computer   : n017.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 13:50:59 EST 2020
+
+% Result     : Theorem 0.21s
+% Output     : Refutation 0.21s
+% Verified   : 
+% Statistics : Number of formulae       :   71 ( 150 expanded)
+%              Number of leaves         :   19 (  49 expanded)
+%              Depth                    :   22
+%              Number of atoms          :  448 (1179 expanded)
+%              Number of equality atoms :   85 ( 221 expanded)
+%              Maximal formula depth    :   14 (   5 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(k4_xboole_0_type,type,(
+    k4_xboole_0: $i > $i > $i )).
+
+thf(sk_B_1_type,type,(
+    sk_B_1: $i > $i )).
+
+thf(r1_tarski_type,type,(
+    r1_tarski: $i > $i > $o )).
+
+thf(r2_hidden_type,type,(
+    r2_hidden: $i > $i > $o )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(k2_mcart_1_type,type,(
+    k2_mcart_1: $i > $i )).
+
+thf(k1_tarski_type,type,(
+    k1_tarski: $i > $i )).
+
+thf(k4_tarski_type,type,(
+    k4_tarski: $i > $i > $i )).
+
+thf(k1_xboole_0_type,type,(
+    k1_xboole_0: $i )).
+
+thf(sk_B_2_type,type,(
+    sk_B_2: $i )).
+
+thf(k1_mcart_1_type,type,(
+    k1_mcart_1: $i > $i )).
+
+thf(sk_C_1_type,type,(
+    sk_C_1: $i )).
+
+thf(t9_mcart_1,axiom,(
+    ! [A: $i] :
+      ~ ( ( A != k1_xboole_0 )
+        & ! [B: $i] :
+            ~ ( ( r2_hidden @ B @ A )
+              & ! [C: $i,D: $i] :
+                  ~ ( ( ( r2_hidden @ C @ A )
+                      | ( r2_hidden @ D @ A ) )
+                    & ( B
+                      = ( k4_tarski @ C @ D ) ) ) ) ) )).
+
+thf('0',plain,(
+    ! [X36: $i] :
+      ( ( X36 = k1_xboole_0 )
+      | ( r2_hidden @ ( sk_B_1 @ X36 ) @ X36 ) ) ),
+    inference(cnf,[status(esa)],[t9_mcart_1])).
+
+thf(d1_tarski,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( B
+        = ( k1_tarski @ A ) )
+    <=> ! [C: $i] :
+          ( ( r2_hidden @ C @ B )
+        <=> ( C = A ) ) ) )).
+
+thf('1',plain,(
+    ! [X19: $i,X21: $i,X22: $i] :
+      ( ~ ( r2_hidden @ X22 @ X21 )
+      | ( X22 = X19 )
+      | ( X21
+       != ( k1_tarski @ X19 ) ) ) ),
+    inference(cnf,[status(esa)],[d1_tarski])).
+
+thf('2',plain,(
+    ! [X19: $i,X22: $i] :
+      ( ( X22 = X19 )
+      | ~ ( r2_hidden @ X22 @ ( k1_tarski @ X19 ) ) ) ),
+    inference(simplify,[status(thm)],['1'])).
+
+thf('3',plain,(
+    ! [X0: $i] :
+      ( ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( ( sk_B_1 @ ( k1_tarski @ X0 ) )
+        = X0 ) ) ),
+    inference('sup-',[status(thm)],['0','2'])).
+
+thf('4',plain,(
+    ! [X19: $i,X20: $i,X21: $i] :
+      ( ( X20 != X19 )
+      | ( r2_hidden @ X20 @ X21 )
+      | ( X21
+       != ( k1_tarski @ X19 ) ) ) ),
+    inference(cnf,[status(esa)],[d1_tarski])).
+
+thf('5',plain,(
+    ! [X19: $i] :
+      ( r2_hidden @ X19 @ ( k1_tarski @ X19 ) ) ),
+    inference(simplify,[status(thm)],['4'])).
+
+thf(t20_mcart_1,conjecture,(
+    ! [A: $i] :
+      ( ? [B: $i,C: $i] :
+          ( A
+          = ( k4_tarski @ B @ C ) )
+     => ( ( A
+         != ( k1_mcart_1 @ A ) )
+        & ( A
+         != ( k2_mcart_1 @ A ) ) ) ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i] :
+        ( ? [B: $i,C: $i] :
+            ( A
+            = ( k4_tarski @ B @ C ) )
+       => ( ( A
+           != ( k1_mcart_1 @ A ) )
+          & ( A
+           != ( k2_mcart_1 @ A ) ) ) ) ),
+    inference('cnf.neg',[status(esa)],[t20_mcart_1])).
+
+thf('6',plain,
+    ( ( sk_A
+      = ( k1_mcart_1 @ sk_A ) )
+    | ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('7',plain,
+    ( ( sk_A
+      = ( k1_mcart_1 @ sk_A ) )
+   <= ( sk_A
+      = ( k1_mcart_1 @ sk_A ) ) ),
+    inference(split,[status(esa)],['6'])).
+
+thf('8',plain,
+    ( sk_A
+    = ( k4_tarski @ sk_B_2 @ sk_C_1 ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('9',plain,
+    ( sk_A
+    = ( k4_tarski @ sk_B_2 @ sk_C_1 ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(t7_mcart_1,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( ( k2_mcart_1 @ ( k4_tarski @ A @ B ) )
+        = B )
+      & ( ( k1_mcart_1 @ ( k4_tarski @ A @ B ) )
+        = A ) ) )).
+
+thf('10',plain,(
+    ! [X33: $i,X34: $i] :
+      ( ( k1_mcart_1 @ ( k4_tarski @ X33 @ X34 ) )
+      = X33 ) ),
+    inference(cnf,[status(esa)],[t7_mcart_1])).
+
+thf('11',plain,
+    ( ( k1_mcart_1 @ sk_A )
+    = sk_B_2 ),
+    inference('sup+',[status(thm)],['9','10'])).
+
+thf('12',plain,
+    ( sk_A
+    = ( k4_tarski @ ( k1_mcart_1 @ sk_A ) @ sk_C_1 ) ),
+    inference(demod,[status(thm)],['8','11'])).
+
+thf('13',plain,
+    ( sk_A
+    = ( k4_tarski @ ( k1_mcart_1 @ sk_A ) @ sk_C_1 ) ),
+    inference(demod,[status(thm)],['8','11'])).
+
+thf('14',plain,(
+    ! [X33: $i,X35: $i] :
+      ( ( k2_mcart_1 @ ( k4_tarski @ X33 @ X35 ) )
+      = X35 ) ),
+    inference(cnf,[status(esa)],[t7_mcart_1])).
+
+thf('15',plain,
+    ( ( k2_mcart_1 @ sk_A )
+    = sk_C_1 ),
+    inference('sup+',[status(thm)],['13','14'])).
+
+thf('16',plain,
+    ( sk_A
+    = ( k4_tarski @ ( k1_mcart_1 @ sk_A ) @ ( k2_mcart_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['12','15'])).
+
+thf('17',plain,
+    ( ( sk_A
+      = ( k4_tarski @ sk_A @ ( k2_mcart_1 @ sk_A ) ) )
+   <= ( sk_A
+      = ( k1_mcart_1 @ sk_A ) ) ),
+    inference('sup+',[status(thm)],['7','16'])).
+
+thf('18',plain,(
+    ! [X0: $i] :
+      ( ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( ( sk_B_1 @ ( k1_tarski @ X0 ) )
+        = X0 ) ) ),
+    inference('sup-',[status(thm)],['0','2'])).
+
+thf('19',plain,(
+    ! [X19: $i] :
+      ( r2_hidden @ X19 @ ( k1_tarski @ X19 ) ) ),
+    inference(simplify,[status(thm)],['4'])).
+
+thf('20',plain,
+    ( ( sk_A
+      = ( k2_mcart_1 @ sk_A ) )
+   <= ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference(split,[status(esa)],['6'])).
+
+thf('21',plain,
+    ( sk_A
+    = ( k4_tarski @ ( k1_mcart_1 @ sk_A ) @ ( k2_mcart_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['12','15'])).
+
+thf('22',plain,
+    ( ( sk_A
+      = ( k4_tarski @ ( k1_mcart_1 @ sk_A ) @ sk_A ) )
+   <= ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference('sup+',[status(thm)],['20','21'])).
+
+thf('23',plain,(
+    ! [X36: $i,X37: $i,X38: $i] :
+      ( ( X36 = k1_xboole_0 )
+      | ~ ( r2_hidden @ X37 @ X36 )
+      | ( ( sk_B_1 @ X36 )
+       != ( k4_tarski @ X38 @ X37 ) ) ) ),
+    inference(cnf,[status(esa)],[t9_mcart_1])).
+
+thf('24',plain,
+    ( ! [X0: $i] :
+        ( ( ( sk_B_1 @ X0 )
+         != sk_A )
+        | ~ ( r2_hidden @ sk_A @ X0 )
+        | ( X0 = k1_xboole_0 ) )
+   <= ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['22','23'])).
+
+thf('25',plain,
+    ( ( ( ( k1_tarski @ sk_A )
+        = k1_xboole_0 )
+      | ( ( sk_B_1 @ ( k1_tarski @ sk_A ) )
+       != sk_A ) )
+   <= ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['19','24'])).
+
+thf('26',plain,
+    ( ( ( sk_A != sk_A )
+      | ( ( k1_tarski @ sk_A )
+        = k1_xboole_0 )
+      | ( ( k1_tarski @ sk_A )
+        = k1_xboole_0 ) )
+   <= ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['18','25'])).
+
+thf('27',plain,
+    ( ( ( k1_tarski @ sk_A )
+      = k1_xboole_0 )
+   <= ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference(simplify,[status(thm)],['26'])).
+
+thf(d10_xboole_0,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( A = B )
+    <=> ( ( r1_tarski @ A @ B )
+        & ( r1_tarski @ B @ A ) ) ) )).
+
+thf('28',plain,(
+    ! [X1: $i,X2: $i] :
+      ( ( r1_tarski @ X1 @ X2 )
+      | ( X1 != X2 ) ) ),
+    inference(cnf,[status(esa)],[d10_xboole_0])).
+
+thf('29',plain,(
+    ! [X2: $i] :
+      ( r1_tarski @ X2 @ X2 ) ),
+    inference(simplify,[status(thm)],['28'])).
+
+thf(l32_xboole_1,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( ( k4_xboole_0 @ A @ B )
+        = k1_xboole_0 )
+    <=> ( r1_tarski @ A @ B ) ) )).
+
+thf('30',plain,(
+    ! [X4: $i,X6: $i] :
+      ( ( ( k4_xboole_0 @ X4 @ X6 )
+        = k1_xboole_0 )
+      | ~ ( r1_tarski @ X4 @ X6 ) ) ),
+    inference(cnf,[status(esa)],[l32_xboole_1])).
+
+thf('31',plain,(
+    ! [X0: $i] :
+      ( ( k4_xboole_0 @ X0 @ X0 )
+      = k1_xboole_0 ) ),
+    inference('sup-',[status(thm)],['29','30'])).
+
+thf(t65_zfmisc_1,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( ( k4_xboole_0 @ A @ ( k1_tarski @ B ) )
+        = A )
+    <=> ~ ( r2_hidden @ B @ A ) ) )).
+
+thf('32',plain,(
+    ! [X30: $i,X31: $i] :
+      ( ~ ( r2_hidden @ X30 @ X31 )
+      | ( ( k4_xboole_0 @ X31 @ ( k1_tarski @ X30 ) )
+       != X31 ) ) ),
+    inference(cnf,[status(esa)],[t65_zfmisc_1])).
+
+thf('33',plain,(
+    ! [X0: $i] :
+      ( ( k1_xboole_0
+       != ( k1_tarski @ X0 ) )
+      | ~ ( r2_hidden @ X0 @ ( k1_tarski @ X0 ) ) ) ),
+    inference('sup-',[status(thm)],['31','32'])).
+
+thf('34',plain,(
+    ! [X19: $i] :
+      ( r2_hidden @ X19 @ ( k1_tarski @ X19 ) ) ),
+    inference(simplify,[status(thm)],['4'])).
+
+thf('35',plain,(
+    ! [X0: $i] :
+      ( k1_xboole_0
+     != ( k1_tarski @ X0 ) ) ),
+    inference(demod,[status(thm)],['33','34'])).
+
+thf('36',plain,
+    ( ( k1_xboole_0 != k1_xboole_0 )
+   <= ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['27','35'])).
+
+thf('37',plain,(
+    sk_A
+ != ( k2_mcart_1 @ sk_A ) ),
+    inference(simplify,[status(thm)],['36'])).
+
+thf('38',plain,
+    ( ( sk_A
+      = ( k1_mcart_1 @ sk_A ) )
+    | ( sk_A
+      = ( k2_mcart_1 @ sk_A ) ) ),
+    inference(split,[status(esa)],['6'])).
+
+thf('39',plain,
+    ( sk_A
+    = ( k1_mcart_1 @ sk_A ) ),
+    inference('sat_resolution*',[status(thm)],['37','38'])).
+
+thf('40',plain,
+    ( sk_A
+    = ( k4_tarski @ sk_A @ ( k2_mcart_1 @ sk_A ) ) ),
+    inference(simpl_trail,[status(thm)],['17','39'])).
+
+thf('41',plain,(
+    ! [X36: $i,X37: $i,X38: $i] :
+      ( ( X36 = k1_xboole_0 )
+      | ~ ( r2_hidden @ X38 @ X36 )
+      | ( ( sk_B_1 @ X36 )
+       != ( k4_tarski @ X38 @ X37 ) ) ) ),
+    inference(cnf,[status(esa)],[t9_mcart_1])).
+
+thf('42',plain,(
+    ! [X0: $i] :
+      ( ( ( sk_B_1 @ X0 )
+       != sk_A )
+      | ~ ( r2_hidden @ sk_A @ X0 )
+      | ( X0 = k1_xboole_0 ) ) ),
+    inference('sup-',[status(thm)],['40','41'])).
+
+thf('43',plain,
+    ( ( ( k1_tarski @ sk_A )
+      = k1_xboole_0 )
+    | ( ( sk_B_1 @ ( k1_tarski @ sk_A ) )
+     != sk_A ) ),
+    inference('sup-',[status(thm)],['5','42'])).
+
+thf('44',plain,(
+    ! [X0: $i] :
+      ( k1_xboole_0
+     != ( k1_tarski @ X0 ) ) ),
+    inference(demod,[status(thm)],['33','34'])).
+
+thf('45',plain,(
+    ( sk_B_1 @ ( k1_tarski @ sk_A ) )
+ != sk_A ),
+    inference(clc,[status(thm)],['43','44'])).
+
+thf('46',plain,
+    ( ( sk_A != sk_A )
+    | ( ( k1_tarski @ sk_A )
+      = k1_xboole_0 ) ),
+    inference('sup-',[status(thm)],['3','45'])).
+
+thf('47',plain,
+    ( ( k1_tarski @ sk_A )
+    = k1_xboole_0 ),
+    inference(simplify,[status(thm)],['46'])).
+
+thf('48',plain,(
+    ! [X0: $i] :
+      ( k1_xboole_0
+     != ( k1_tarski @ X0 ) ) ),
+    inference(demod,[status(thm)],['33','34'])).
+
+thf('49',plain,(
+    k1_xboole_0 != k1_xboole_0 ),
+    inference('sup-',[status(thm)],['47','48'])).
+
+thf('50',plain,(
+    $false ),
+    inference(simplify,[status(thm)],['49'])).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.00/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.12/0.13  % Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.jvMbUSgSVG
+% 0.13/0.35  % Computer   : n017.cluster.edu
+% 0.13/0.35  % Model      : x86_64 x86_64
+% 0.13/0.35  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.35  % Memory     : 8042.1875MB
+% 0.13/0.35  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.35  % CPULimit   : 60
+% 0.13/0.35  % DateTime   : Tue Dec  1 16:25:31 EST 2020
+% 0.13/0.35  % CPUTime    : 
+% 0.13/0.35  % Running portfolio for 600 s
+% 0.13/0.35  % File         : /export/starexec/sandbox/benchmark/theBenchmark.p
+% 0.13/0.35  % Number of cores: 8
+% 0.13/0.35  % Python version: Python 3.6.8
+% 0.13/0.35  % Running in FO mode
+% 0.21/0.52  % Running /export/starexec/sandbox/solver/bin/fo/fo7.sh for 78
+% 0.21/0.52  % Solved by: fo/fo7.sh
+% 0.21/0.52  To remain in the chosen logic fragment, unification with booleans has been disabled.
+% 0.21/0.52  % done 82 iterations in 0.039s
+% 0.21/0.52  % SZS status Theorem for '/export/starexec/sandbox/benchmark/theBenchmark.p'
+% 0.21/0.52  % SZS output start Refutation
+% 0.21/0.52  thf(k4_xboole_0_type, type, k4_xboole_0: $i > $i > $i).
+% 0.21/0.52  thf(sk_B_1_type, type, sk_B_1: $i > $i).
+% 0.21/0.52  thf(r1_tarski_type, type, r1_tarski: $i > $i > $o).
+% 0.21/0.52  thf(r2_hidden_type, type, r2_hidden: $i > $i > $o).
+% 0.21/0.52  thf(sk_A_type, type, sk_A: $i).
+% 0.21/0.52  thf(k2_mcart_1_type, type, k2_mcart_1: $i > $i).
+% 0.21/0.52  thf(k1_tarski_type, type, k1_tarski: $i > $i).
+% 0.21/0.52  thf(k4_tarski_type, type, k4_tarski: $i > $i > $i).
+% 0.21/0.52  thf(k1_xboole_0_type, type, k1_xboole_0: $i).
+% 0.21/0.52  thf(sk_B_2_type, type, sk_B_2: $i).
+% 0.21/0.52  thf(k1_mcart_1_type, type, k1_mcart_1: $i > $i).
+% 0.21/0.52  thf(sk_C_1_type, type, sk_C_1: $i).
+% 0.21/0.52  thf(t9_mcart_1, axiom,
+% 0.21/0.52    (![A:$i]:
+% 0.21/0.52     ( ~( ( ( A ) != ( k1_xboole_0 ) ) & 
+% 0.21/0.52          ( ![B:$i]:
+% 0.21/0.52            ( ~( ( r2_hidden @ B @ A ) & 
+% 0.21/0.52                 ( ![C:$i,D:$i]:
+% 0.21/0.52                   ( ~( ( ( r2_hidden @ C @ A ) | ( r2_hidden @ D @ A ) ) & 
+% 0.21/0.52                        ( ( B ) = ( k4_tarski @ C @ D ) ) ) ) ) ) ) ) ) ))).
+% 0.21/0.52  thf('0', plain,
+% 0.21/0.52      (![X36 : $i]:
+% 0.21/0.52         (((X36) = (k1_xboole_0)) | (r2_hidden @ (sk_B_1 @ X36) @ X36))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t9_mcart_1])).
+% 0.21/0.52  thf(d1_tarski, axiom,
+% 0.21/0.52    (![A:$i,B:$i]:
+% 0.21/0.52     ( ( ( B ) = ( k1_tarski @ A ) ) <=>
+% 0.21/0.52       ( ![C:$i]: ( ( r2_hidden @ C @ B ) <=> ( ( C ) = ( A ) ) ) ) ))).
+% 0.21/0.52  thf('1', plain,
+% 0.21/0.52      (![X19 : $i, X21 : $i, X22 : $i]:
+% 0.21/0.52         (~ (r2_hidden @ X22 @ X21)
+% 0.21/0.52          | ((X22) = (X19))
+% 0.21/0.52          | ((X21) != (k1_tarski @ X19)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [d1_tarski])).
+% 0.21/0.52  thf('2', plain,
+% 0.21/0.52      (![X19 : $i, X22 : $i]:
+% 0.21/0.52         (((X22) = (X19)) | ~ (r2_hidden @ X22 @ (k1_tarski @ X19)))),
+% 0.21/0.52      inference('simplify', [status(thm)], ['1'])).
+% 0.21/0.52  thf('3', plain,
+% 0.21/0.52      (![X0 : $i]:
+% 0.21/0.52         (((k1_tarski @ X0) = (k1_xboole_0))
+% 0.21/0.52          | ((sk_B_1 @ (k1_tarski @ X0)) = (X0)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['0', '2'])).
+% 0.21/0.52  thf('4', plain,
+% 0.21/0.52      (![X19 : $i, X20 : $i, X21 : $i]:
+% 0.21/0.52         (((X20) != (X19))
+% 0.21/0.52          | (r2_hidden @ X20 @ X21)
+% 0.21/0.52          | ((X21) != (k1_tarski @ X19)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [d1_tarski])).
+% 0.21/0.52  thf('5', plain, (![X19 : $i]: (r2_hidden @ X19 @ (k1_tarski @ X19))),
+% 0.21/0.52      inference('simplify', [status(thm)], ['4'])).
+% 0.21/0.52  thf(t20_mcart_1, conjecture,
+% 0.21/0.52    (![A:$i]:
+% 0.21/0.52     ( ( ?[B:$i,C:$i]: ( ( A ) = ( k4_tarski @ B @ C ) ) ) =>
+% 0.21/0.52       ( ( ( A ) != ( k1_mcart_1 @ A ) ) & ( ( A ) != ( k2_mcart_1 @ A ) ) ) ))).
+% 0.21/0.52  thf(zf_stmt_0, negated_conjecture,
+% 0.21/0.52    (~( ![A:$i]:
+% 0.21/0.52        ( ( ?[B:$i,C:$i]: ( ( A ) = ( k4_tarski @ B @ C ) ) ) =>
+% 0.21/0.52          ( ( ( A ) != ( k1_mcart_1 @ A ) ) & ( ( A ) != ( k2_mcart_1 @ A ) ) ) ) )),
+% 0.21/0.52    inference('cnf.neg', [status(esa)], [t20_mcart_1])).
+% 0.21/0.52  thf('6', plain,
+% 0.21/0.52      ((((sk_A) = (k1_mcart_1 @ sk_A)) | ((sk_A) = (k2_mcart_1 @ sk_A)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.52  thf('7', plain,
+% 0.21/0.52      ((((sk_A) = (k1_mcart_1 @ sk_A))) <= ((((sk_A) = (k1_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('split', [status(esa)], ['6'])).
+% 0.21/0.52  thf('8', plain, (((sk_A) = (k4_tarski @ sk_B_2 @ sk_C_1))),
+% 0.21/0.52      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.52  thf('9', plain, (((sk_A) = (k4_tarski @ sk_B_2 @ sk_C_1))),
+% 0.21/0.52      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.52  thf(t7_mcart_1, axiom,
+% 0.21/0.52    (![A:$i,B:$i]:
+% 0.21/0.52     ( ( ( k2_mcart_1 @ ( k4_tarski @ A @ B ) ) = ( B ) ) & 
+% 0.21/0.52       ( ( k1_mcart_1 @ ( k4_tarski @ A @ B ) ) = ( A ) ) ))).
+% 0.21/0.52  thf('10', plain,
+% 0.21/0.52      (![X33 : $i, X34 : $i]: ((k1_mcart_1 @ (k4_tarski @ X33 @ X34)) = (X33))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t7_mcart_1])).
+% 0.21/0.52  thf('11', plain, (((k1_mcart_1 @ sk_A) = (sk_B_2))),
+% 0.21/0.52      inference('sup+', [status(thm)], ['9', '10'])).
+% 0.21/0.52  thf('12', plain, (((sk_A) = (k4_tarski @ (k1_mcart_1 @ sk_A) @ sk_C_1))),
+% 0.21/0.52      inference('demod', [status(thm)], ['8', '11'])).
+% 0.21/0.52  thf('13', plain, (((sk_A) = (k4_tarski @ (k1_mcart_1 @ sk_A) @ sk_C_1))),
+% 0.21/0.52      inference('demod', [status(thm)], ['8', '11'])).
+% 0.21/0.52  thf('14', plain,
+% 0.21/0.52      (![X33 : $i, X35 : $i]: ((k2_mcart_1 @ (k4_tarski @ X33 @ X35)) = (X35))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t7_mcart_1])).
+% 0.21/0.52  thf('15', plain, (((k2_mcart_1 @ sk_A) = (sk_C_1))),
+% 0.21/0.52      inference('sup+', [status(thm)], ['13', '14'])).
+% 0.21/0.52  thf('16', plain,
+% 0.21/0.52      (((sk_A) = (k4_tarski @ (k1_mcart_1 @ sk_A) @ (k2_mcart_1 @ sk_A)))),
+% 0.21/0.52      inference('demod', [status(thm)], ['12', '15'])).
+% 0.21/0.52  thf('17', plain,
+% 0.21/0.52      ((((sk_A) = (k4_tarski @ sk_A @ (k2_mcart_1 @ sk_A))))
+% 0.21/0.52         <= ((((sk_A) = (k1_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('sup+', [status(thm)], ['7', '16'])).
+% 0.21/0.52  thf('18', plain,
+% 0.21/0.52      (![X0 : $i]:
+% 0.21/0.52         (((k1_tarski @ X0) = (k1_xboole_0))
+% 0.21/0.52          | ((sk_B_1 @ (k1_tarski @ X0)) = (X0)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['0', '2'])).
+% 0.21/0.52  thf('19', plain, (![X19 : $i]: (r2_hidden @ X19 @ (k1_tarski @ X19))),
+% 0.21/0.52      inference('simplify', [status(thm)], ['4'])).
+% 0.21/0.52  thf('20', plain,
+% 0.21/0.52      ((((sk_A) = (k2_mcart_1 @ sk_A))) <= ((((sk_A) = (k2_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('split', [status(esa)], ['6'])).
+% 0.21/0.52  thf('21', plain,
+% 0.21/0.52      (((sk_A) = (k4_tarski @ (k1_mcart_1 @ sk_A) @ (k2_mcart_1 @ sk_A)))),
+% 0.21/0.52      inference('demod', [status(thm)], ['12', '15'])).
+% 0.21/0.52  thf('22', plain,
+% 0.21/0.52      ((((sk_A) = (k4_tarski @ (k1_mcart_1 @ sk_A) @ sk_A)))
+% 0.21/0.52         <= ((((sk_A) = (k2_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('sup+', [status(thm)], ['20', '21'])).
+% 0.21/0.52  thf('23', plain,
+% 0.21/0.52      (![X36 : $i, X37 : $i, X38 : $i]:
+% 0.21/0.52         (((X36) = (k1_xboole_0))
+% 0.21/0.52          | ~ (r2_hidden @ X37 @ X36)
+% 0.21/0.52          | ((sk_B_1 @ X36) != (k4_tarski @ X38 @ X37)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t9_mcart_1])).
+% 0.21/0.52  thf('24', plain,
+% 0.21/0.52      ((![X0 : $i]:
+% 0.21/0.52          (((sk_B_1 @ X0) != (sk_A))
+% 0.21/0.52           | ~ (r2_hidden @ sk_A @ X0)
+% 0.21/0.52           | ((X0) = (k1_xboole_0))))
+% 0.21/0.52         <= ((((sk_A) = (k2_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['22', '23'])).
+% 0.21/0.52  thf('25', plain,
+% 0.21/0.52      (((((k1_tarski @ sk_A) = (k1_xboole_0))
+% 0.21/0.52         | ((sk_B_1 @ (k1_tarski @ sk_A)) != (sk_A))))
+% 0.21/0.52         <= ((((sk_A) = (k2_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['19', '24'])).
+% 0.21/0.52  thf('26', plain,
+% 0.21/0.52      (((((sk_A) != (sk_A))
+% 0.21/0.52         | ((k1_tarski @ sk_A) = (k1_xboole_0))
+% 0.21/0.52         | ((k1_tarski @ sk_A) = (k1_xboole_0))))
+% 0.21/0.52         <= ((((sk_A) = (k2_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['18', '25'])).
+% 0.21/0.52  thf('27', plain,
+% 0.21/0.52      ((((k1_tarski @ sk_A) = (k1_xboole_0)))
+% 0.21/0.52         <= ((((sk_A) = (k2_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('simplify', [status(thm)], ['26'])).
+% 0.21/0.52  thf(d10_xboole_0, axiom,
+% 0.21/0.52    (![A:$i,B:$i]:
+% 0.21/0.52     ( ( ( A ) = ( B ) ) <=> ( ( r1_tarski @ A @ B ) & ( r1_tarski @ B @ A ) ) ))).
+% 0.21/0.52  thf('28', plain,
+% 0.21/0.52      (![X1 : $i, X2 : $i]: ((r1_tarski @ X1 @ X2) | ((X1) != (X2)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [d10_xboole_0])).
+% 0.21/0.52  thf('29', plain, (![X2 : $i]: (r1_tarski @ X2 @ X2)),
+% 0.21/0.52      inference('simplify', [status(thm)], ['28'])).
+% 0.21/0.52  thf(l32_xboole_1, axiom,
+% 0.21/0.52    (![A:$i,B:$i]:
+% 0.21/0.52     ( ( ( k4_xboole_0 @ A @ B ) = ( k1_xboole_0 ) ) <=> ( r1_tarski @ A @ B ) ))).
+% 0.21/0.52  thf('30', plain,
+% 0.21/0.52      (![X4 : $i, X6 : $i]:
+% 0.21/0.52         (((k4_xboole_0 @ X4 @ X6) = (k1_xboole_0)) | ~ (r1_tarski @ X4 @ X6))),
+% 0.21/0.52      inference('cnf', [status(esa)], [l32_xboole_1])).
+% 0.21/0.52  thf('31', plain, (![X0 : $i]: ((k4_xboole_0 @ X0 @ X0) = (k1_xboole_0))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['29', '30'])).
+% 0.21/0.52  thf(t65_zfmisc_1, axiom,
+% 0.21/0.52    (![A:$i,B:$i]:
+% 0.21/0.52     ( ( ( k4_xboole_0 @ A @ ( k1_tarski @ B ) ) = ( A ) ) <=>
+% 0.21/0.52       ( ~( r2_hidden @ B @ A ) ) ))).
+% 0.21/0.52  thf('32', plain,
+% 0.21/0.52      (![X30 : $i, X31 : $i]:
+% 0.21/0.52         (~ (r2_hidden @ X30 @ X31)
+% 0.21/0.52          | ((k4_xboole_0 @ X31 @ (k1_tarski @ X30)) != (X31)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t65_zfmisc_1])).
+% 0.21/0.52  thf('33', plain,
+% 0.21/0.52      (![X0 : $i]:
+% 0.21/0.52         (((k1_xboole_0) != (k1_tarski @ X0))
+% 0.21/0.52          | ~ (r2_hidden @ X0 @ (k1_tarski @ X0)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['31', '32'])).
+% 0.21/0.52  thf('34', plain, (![X19 : $i]: (r2_hidden @ X19 @ (k1_tarski @ X19))),
+% 0.21/0.52      inference('simplify', [status(thm)], ['4'])).
+% 0.21/0.52  thf('35', plain, (![X0 : $i]: ((k1_xboole_0) != (k1_tarski @ X0))),
+% 0.21/0.52      inference('demod', [status(thm)], ['33', '34'])).
+% 0.21/0.52  thf('36', plain,
+% 0.21/0.52      ((((k1_xboole_0) != (k1_xboole_0))) <= ((((sk_A) = (k2_mcart_1 @ sk_A))))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['27', '35'])).
+% 0.21/0.52  thf('37', plain, (~ (((sk_A) = (k2_mcart_1 @ sk_A)))),
+% 0.21/0.52      inference('simplify', [status(thm)], ['36'])).
+% 0.21/0.52  thf('38', plain,
+% 0.21/0.52      ((((sk_A) = (k1_mcart_1 @ sk_A))) | (((sk_A) = (k2_mcart_1 @ sk_A)))),
+% 0.21/0.52      inference('split', [status(esa)], ['6'])).
+% 0.21/0.52  thf('39', plain, ((((sk_A) = (k1_mcart_1 @ sk_A)))),
+% 0.21/0.52      inference('sat_resolution*', [status(thm)], ['37', '38'])).
+% 0.21/0.52  thf('40', plain, (((sk_A) = (k4_tarski @ sk_A @ (k2_mcart_1 @ sk_A)))),
+% 0.21/0.52      inference('simpl_trail', [status(thm)], ['17', '39'])).
+% 0.21/0.52  thf('41', plain,
+% 0.21/0.52      (![X36 : $i, X37 : $i, X38 : $i]:
+% 0.21/0.52         (((X36) = (k1_xboole_0))
+% 0.21/0.52          | ~ (r2_hidden @ X38 @ X36)
+% 0.21/0.52          | ((sk_B_1 @ X36) != (k4_tarski @ X38 @ X37)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t9_mcart_1])).
+% 0.21/0.52  thf('42', plain,
+% 0.21/0.52      (![X0 : $i]:
+% 0.21/0.52         (((sk_B_1 @ X0) != (sk_A))
+% 0.21/0.52          | ~ (r2_hidden @ sk_A @ X0)
+% 0.21/0.52          | ((X0) = (k1_xboole_0)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['40', '41'])).
+% 0.21/0.52  thf('43', plain,
+% 0.21/0.52      ((((k1_tarski @ sk_A) = (k1_xboole_0))
+% 0.21/0.52        | ((sk_B_1 @ (k1_tarski @ sk_A)) != (sk_A)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['5', '42'])).
+% 0.21/0.52  thf('44', plain, (![X0 : $i]: ((k1_xboole_0) != (k1_tarski @ X0))),
+% 0.21/0.52      inference('demod', [status(thm)], ['33', '34'])).
+% 0.21/0.52  thf('45', plain, (((sk_B_1 @ (k1_tarski @ sk_A)) != (sk_A))),
+% 0.21/0.52      inference('clc', [status(thm)], ['43', '44'])).
+% 0.21/0.52  thf('46', plain,
+% 0.21/0.52      ((((sk_A) != (sk_A)) | ((k1_tarski @ sk_A) = (k1_xboole_0)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['3', '45'])).
+% 0.21/0.52  thf('47', plain, (((k1_tarski @ sk_A) = (k1_xboole_0))),
+% 0.21/0.52      inference('simplify', [status(thm)], ['46'])).
+% 0.21/0.52  thf('48', plain, (![X0 : $i]: ((k1_xboole_0) != (k1_tarski @ X0))),
+% 0.21/0.52      inference('demod', [status(thm)], ['33', '34'])).
+% 0.21/0.52  thf('49', plain, (((k1_xboole_0) != (k1_xboole_0))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['47', '48'])).
+% 0.21/0.52  thf('50', plain, ($false), inference('simplify', [status(thm)], ['49'])).
+% 0.21/0.52  
+% 0.21/0.52  % SZS output end Refutation
+% 0.21/0.52  
+% 0.21/0.53  % Zipperpin 1.5 exiting
+%------------------------------------------------------------------------------

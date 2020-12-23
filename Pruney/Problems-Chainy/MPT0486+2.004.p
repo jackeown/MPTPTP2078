@@ -1,0 +1,79 @@
+%------------------------------------------------------------------------------
+% File     : MPT0486+2.004 : TPTP v7.5.0. Released v7.5.0.
+% Domain   : Set theory
+% Problem  : Pruney version 004 of t81_relat_1
+% Version  : [MPTP] axioms : Especial.
+% English  :
+
+% Refs     : [AH+14] Alma et al. (2014), Premise Selection for Mathematics
+%          : [PU20]  Piotrowski & Urban (2020), Stateful Premise Selection
+% Source   : [PU20]
+% Names    :
+
+% Status   : Theorem
+% Rating   : ? v7.5.0
+% Syntax   : Number of formulae    :    9 (   3 unit)
+%            Number of atoms       :   24 (  16 equality)
+%            Maximal formula depth :   10 (   6 average)
+%            Number of connectives :   23 (   8   ~;   1   |;   6   &)
+%                                         (   7 <=>;   1  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :    3 (   0 propositional; 1-2 arity)
+%            Number of functors    :    8 (   1 constant; 0-4 arity)
+%            Number of variables   :   22 (   0 sgn;  22   !;   0   ?)
+%            Maximal term depth    :    3 (   1 average)
+% SPC      : FOF_THM_RFO_SEQ
+
+% Comments :
+%------------------------------------------------------------------------------
+fof(t77_enumset1,axiom,(
+    ! [A,B] : k2_enumset1(A,A,A,B) = k2_tarski(A,B) )).
+
+fof(t82_enumset1,axiom,(
+    ! [A] : k2_enumset1(A,A,A,A) = k1_tarski(A) )).
+
+fof(t113_zfmisc_1,axiom,(
+    ! [A,B] :
+      ( k2_zfmisc_1(A,B) = k1_xboole_0
+    <=> ( A = k1_xboole_0
+        | B = k1_xboole_0 ) ) )).
+
+fof(t129_zfmisc_1,axiom,(
+    ! [A,B,C,D] :
+      ( r2_hidden(k4_tarski(A,B),k2_zfmisc_1(C,k1_tarski(D)))
+    <=> ( r2_hidden(A,C)
+        & B = D ) ) )).
+
+fof(t65_zfmisc_1,axiom,(
+    ! [A,B] :
+      ( k4_xboole_0(A,k1_tarski(B)) = A
+    <=> ~ r2_hidden(B,A) ) )).
+
+fof(t75_zfmisc_1,axiom,(
+    ! [A,B,C] :
+      ( k4_xboole_0(A,k2_tarski(B,C)) = k1_xboole_0
+    <=> ~ ( A != k1_xboole_0
+          & A != k1_tarski(B)
+          & A != k1_tarski(C)
+          & A != k2_tarski(B,C) ) ) )).
+
+fof(d10_relat_1,axiom,(
+    ! [A,B] :
+      ( v1_relat_1(B)
+     => ( B = k6_relat_1(A)
+      <=> ! [C,D] :
+            ( r2_hidden(k4_tarski(C,D),B)
+          <=> ( r2_hidden(C,A)
+              & C = D ) ) ) ) )).
+
+fof(d1_relat_1,axiom,(
+    ! [A] :
+      ( v1_relat_1(A)
+    <=> ! [B] :
+          ~ ( r2_hidden(B,A)
+            & ! [C,D] : B != k4_tarski(C,D) ) ) )).
+
+fof(t81_relat_1,conjecture,(
+    k6_relat_1(k1_xboole_0) = k1_xboole_0 )).
+
+%------------------------------------------------------------------------------

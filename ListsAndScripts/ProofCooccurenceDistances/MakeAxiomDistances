@@ -1,0 +1,60 @@
+#!/bin/tcsh
+
+#---- for each pair of formula name,role in any Pruney-Chainy problem
+#----     intersection =  number of proofs the pair occurs in together 
+#----     union =  number of proofs either of the pair occurs in 
+#----     distance = 1 - (intersection/union)
+
+#----Variable to track the names of all formulae in all proofs
+set all_formula_names = ()
+#----File to store all formulae names in one proof, one list per line
+rm -rf ProofFormulaNames
+touch ProofFormulaNames
+#----Variable to track total number of proofs found
+set TotalNumberOfProofs = 0
+
+#----For each problem
+foreach problem_path (/exp/home/tptp/TPAP/MPTPTP2078/Chainy/Problems/MPT*+2.p)
+    set problem = `basename $problem_path .p`
+#DEBUG echo "Doing problem $problem"
+#----Check if there are any proofs
+    if (`ls /exp/home/tptp/TPAP/MPTPTP2078/Pruney/Problems-Chainy/$problem*.p |& sed -e "/ls: No match/d" | wc -w` > 0) then
+#----For each proof to this problem
+        foreach proof (/exp/home/tptp/TPAP/MPTPTP2078/Pruney/Problems-Chainy/$problem*.p)
+#----Increament total number of proofs found
+            @ TotalNumberOfProofs++
+#DEBUG echo "Doing proof $proof"
+#----Extract the formula names and roles in this proof (note that a name 
+#----occuring as an axiom is different from a name appearing as a conjecture), 
+#----sort, and output to file.
+            set formula_names = `tptp4X -u machine $proof | grep -E ',conjecture,|,axiom,' | sed -e "s/...(\([^,]*,[^,]*\),.*/\1/" | sort -u`
+            echo " $formula_names " >> ProofFormulaNames
+#----Add proof's formula names to global list (maybe duplicates at this stage)
+            set all_formula_names = ($all_formula_names $formula_names)
+#DEBUG echo "F: $proof = $formula_names"
+        end
+    endif
+end
+
+#----Sort and uniqueify the list of names of all formulae in all proofs
+set all_formula_names = `echo $all_formula_names | sed -e "s/  */\n/g" | sort -u`
+#DEBUG echo "AFN: $all_formula_names"
+#----For each pair of formula names (first name smaller than last name)
+foreach formula_1 ($all_formula_names)
+    foreach formula_2 ($all_formula_names)
+        if (`expr "$formula_2" \> "$formula_1"`) then
+#----Find how many proofs they occur in together
+            set occurences_together = `grep -c " $formula_1 .*$formula_2 " ProofFormulaNames`
+#----Find how many proofs either occur in 
+            set occurences_either = `grep -c -E " $formula_1 | $formula_2 " ProofFormulaNames`
+#----If they do occur together then output their names and roles, occurences 
+#----together, occurences total, and the total number of proofs
+            if ($occurences_together != 0) then
+                echo "$formula_1,$formula_2,$occurences_together,$occurences_either,$TotalNumberOfProofs"
+            endif
+        endif
+    end
+end
+
+#----Remove the file
+rm -rf ProofFormulaNames

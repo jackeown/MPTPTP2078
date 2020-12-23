@@ -1,0 +1,295 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.jLQ6SvK3or
+
+% Computer   : n017.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 13:48:41 EST 2020
+
+% Result     : Theorem 0.21s
+% Output     : Refutation 0.21s
+% Verified   : 
+% Statistics : Number of formulae       :   33 (  46 expanded)
+%              Number of leaves         :   17 (  22 expanded)
+%              Depth                    :    9
+%              Number of atoms          :  186 ( 348 expanded)
+%              Number of equality atoms :    2 (   2 expanded)
+%              Maximal formula depth    :   12 (   5 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(m1_subset_1_type,type,(
+    m1_subset_1: $i > $i > $o )).
+
+thf(sk_D_type,type,(
+    sk_D: $i )).
+
+thf(sk_B_type,type,(
+    sk_B: $i )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(k1_tarski_type,type,(
+    k1_tarski: $i > $i )).
+
+thf(sk_C_type,type,(
+    sk_C: $i )).
+
+thf(r1_tarski_type,type,(
+    r1_tarski: $i > $i > $o )).
+
+thf(k1_zfmisc_1_type,type,(
+    k1_zfmisc_1: $i > $i )).
+
+thf(k4_tarski_type,type,(
+    k4_tarski: $i > $i > $i )).
+
+thf(k2_tarski_type,type,(
+    k2_tarski: $i > $i > $i )).
+
+thf(r2_hidden_type,type,(
+    r2_hidden: $i > $i > $o )).
+
+thf(k2_zfmisc_1_type,type,(
+    k2_zfmisc_1: $i > $i > $i )).
+
+thf(t8_relset_1,conjecture,(
+    ! [A: $i,B: $i,C: $i,D: $i] :
+      ( ( ( r2_hidden @ A @ B )
+        & ( r2_hidden @ C @ D ) )
+     => ( m1_subset_1 @ ( k1_tarski @ ( k4_tarski @ A @ C ) ) @ ( k1_zfmisc_1 @ ( k2_zfmisc_1 @ B @ D ) ) ) ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i,B: $i,C: $i,D: $i] :
+        ( ( ( r2_hidden @ A @ B )
+          & ( r2_hidden @ C @ D ) )
+       => ( m1_subset_1 @ ( k1_tarski @ ( k4_tarski @ A @ C ) ) @ ( k1_zfmisc_1 @ ( k2_zfmisc_1 @ B @ D ) ) ) ) ),
+    inference('cnf.neg',[status(esa)],[t8_relset_1])).
+
+thf('0',plain,(
+    ~ ( m1_subset_1 @ ( k1_tarski @ ( k4_tarski @ sk_A @ sk_C ) ) @ ( k1_zfmisc_1 @ ( k2_zfmisc_1 @ sk_B @ sk_D ) ) ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('1',plain,(
+    r2_hidden @ sk_A @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('2',plain,(
+    r2_hidden @ sk_C @ sk_D ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(l54_zfmisc_1,axiom,(
+    ! [A: $i,B: $i,C: $i,D: $i] :
+      ( ( r2_hidden @ ( k4_tarski @ A @ B ) @ ( k2_zfmisc_1 @ C @ D ) )
+    <=> ( ( r2_hidden @ A @ C )
+        & ( r2_hidden @ B @ D ) ) ) )).
+
+thf('3',plain,(
+    ! [X28: $i,X29: $i,X30: $i,X32: $i] :
+      ( ( r2_hidden @ ( k4_tarski @ X28 @ X30 ) @ ( k2_zfmisc_1 @ X29 @ X32 ) )
+      | ~ ( r2_hidden @ X30 @ X32 )
+      | ~ ( r2_hidden @ X28 @ X29 ) ) ),
+    inference(cnf,[status(esa)],[l54_zfmisc_1])).
+
+thf('4',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r2_hidden @ X1 @ X0 )
+      | ( r2_hidden @ ( k4_tarski @ X1 @ sk_C ) @ ( k2_zfmisc_1 @ X0 @ sk_D ) ) ) ),
+    inference('sup-',[status(thm)],['2','3'])).
+
+thf('5',plain,(
+    r2_hidden @ ( k4_tarski @ sk_A @ sk_C ) @ ( k2_zfmisc_1 @ sk_B @ sk_D ) ),
+    inference('sup-',[status(thm)],['1','4'])).
+
+thf('6',plain,(
+    r2_hidden @ ( k4_tarski @ sk_A @ sk_C ) @ ( k2_zfmisc_1 @ sk_B @ sk_D ) ),
+    inference('sup-',[status(thm)],['1','4'])).
+
+thf(t38_zfmisc_1,axiom,(
+    ! [A: $i,B: $i,C: $i] :
+      ( ( r1_tarski @ ( k2_tarski @ A @ B ) @ C )
+    <=> ( ( r2_hidden @ A @ C )
+        & ( r2_hidden @ B @ C ) ) ) )).
+
+thf('7',plain,(
+    ! [X33: $i,X35: $i,X36: $i] :
+      ( ( r1_tarski @ ( k2_tarski @ X33 @ X35 ) @ X36 )
+      | ~ ( r2_hidden @ X35 @ X36 )
+      | ~ ( r2_hidden @ X33 @ X36 ) ) ),
+    inference(cnf,[status(esa)],[t38_zfmisc_1])).
+
+thf('8',plain,(
+    ! [X0: $i] :
+      ( ~ ( r2_hidden @ X0 @ ( k2_zfmisc_1 @ sk_B @ sk_D ) )
+      | ( r1_tarski @ ( k2_tarski @ X0 @ ( k4_tarski @ sk_A @ sk_C ) ) @ ( k2_zfmisc_1 @ sk_B @ sk_D ) ) ) ),
+    inference('sup-',[status(thm)],['6','7'])).
+
+thf('9',plain,(
+    r1_tarski @ ( k2_tarski @ ( k4_tarski @ sk_A @ sk_C ) @ ( k4_tarski @ sk_A @ sk_C ) ) @ ( k2_zfmisc_1 @ sk_B @ sk_D ) ),
+    inference('sup-',[status(thm)],['5','8'])).
+
+thf(t69_enumset1,axiom,(
+    ! [A: $i] :
+      ( ( k2_tarski @ A @ A )
+      = ( k1_tarski @ A ) ) )).
+
+thf('10',plain,(
+    ! [X0: $i] :
+      ( ( k2_tarski @ X0 @ X0 )
+      = ( k1_tarski @ X0 ) ) ),
+    inference(cnf,[status(esa)],[t69_enumset1])).
+
+thf('11',plain,(
+    r1_tarski @ ( k1_tarski @ ( k4_tarski @ sk_A @ sk_C ) ) @ ( k2_zfmisc_1 @ sk_B @ sk_D ) ),
+    inference(demod,[status(thm)],['9','10'])).
+
+thf(t3_subset,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( m1_subset_1 @ A @ ( k1_zfmisc_1 @ B ) )
+    <=> ( r1_tarski @ A @ B ) ) )).
+
+thf('12',plain,(
+    ! [X37: $i,X39: $i] :
+      ( ( m1_subset_1 @ X37 @ ( k1_zfmisc_1 @ X39 ) )
+      | ~ ( r1_tarski @ X37 @ X39 ) ) ),
+    inference(cnf,[status(esa)],[t3_subset])).
+
+thf('13',plain,(
+    m1_subset_1 @ ( k1_tarski @ ( k4_tarski @ sk_A @ sk_C ) ) @ ( k1_zfmisc_1 @ ( k2_zfmisc_1 @ sk_B @ sk_D ) ) ),
+    inference('sup-',[status(thm)],['11','12'])).
+
+thf('14',plain,(
+    $false ),
+    inference(demod,[status(thm)],['0','13'])).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.07/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.07/0.13  % Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.jLQ6SvK3or
+% 0.14/0.34  % Computer   : n017.cluster.edu
+% 0.14/0.34  % Model      : x86_64 x86_64
+% 0.14/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.14/0.34  % Memory     : 8042.1875MB
+% 0.14/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.14/0.34  % CPULimit   : 60
+% 0.14/0.34  % DateTime   : Tue Dec  1 11:26:46 EST 2020
+% 0.14/0.35  % CPUTime    : 
+% 0.14/0.35  % Running portfolio for 600 s
+% 0.14/0.35  % File         : /export/starexec/sandbox/benchmark/theBenchmark.p
+% 0.14/0.35  % Number of cores: 8
+% 0.14/0.35  % Python version: Python 3.6.8
+% 0.14/0.35  % Running in FO mode
+% 0.21/0.52  % Running /export/starexec/sandbox/solver/bin/fo/fo7.sh for 78
+% 0.21/0.52  % Solved by: fo/fo7.sh
+% 0.21/0.52  To remain in the chosen logic fragment, unification with booleans has been disabled.
+% 0.21/0.52  % done 123 iterations in 0.050s
+% 0.21/0.52  % SZS status Theorem for '/export/starexec/sandbox/benchmark/theBenchmark.p'
+% 0.21/0.52  % SZS output start Refutation
+% 0.21/0.52  thf(m1_subset_1_type, type, m1_subset_1: $i > $i > $o).
+% 0.21/0.52  thf(sk_D_type, type, sk_D: $i).
+% 0.21/0.52  thf(sk_B_type, type, sk_B: $i).
+% 0.21/0.52  thf(sk_A_type, type, sk_A: $i).
+% 0.21/0.52  thf(k1_tarski_type, type, k1_tarski: $i > $i).
+% 0.21/0.52  thf(sk_C_type, type, sk_C: $i).
+% 0.21/0.52  thf(r1_tarski_type, type, r1_tarski: $i > $i > $o).
+% 0.21/0.52  thf(k1_zfmisc_1_type, type, k1_zfmisc_1: $i > $i).
+% 0.21/0.52  thf(k4_tarski_type, type, k4_tarski: $i > $i > $i).
+% 0.21/0.52  thf(k2_tarski_type, type, k2_tarski: $i > $i > $i).
+% 0.21/0.52  thf(r2_hidden_type, type, r2_hidden: $i > $i > $o).
+% 0.21/0.52  thf(k2_zfmisc_1_type, type, k2_zfmisc_1: $i > $i > $i).
+% 0.21/0.52  thf(t8_relset_1, conjecture,
+% 0.21/0.52    (![A:$i,B:$i,C:$i,D:$i]:
+% 0.21/0.52     ( ( ( r2_hidden @ A @ B ) & ( r2_hidden @ C @ D ) ) =>
+% 0.21/0.52       ( m1_subset_1 @
+% 0.21/0.52         ( k1_tarski @ ( k4_tarski @ A @ C ) ) @ 
+% 0.21/0.52         ( k1_zfmisc_1 @ ( k2_zfmisc_1 @ B @ D ) ) ) ))).
+% 0.21/0.52  thf(zf_stmt_0, negated_conjecture,
+% 0.21/0.52    (~( ![A:$i,B:$i,C:$i,D:$i]:
+% 0.21/0.52        ( ( ( r2_hidden @ A @ B ) & ( r2_hidden @ C @ D ) ) =>
+% 0.21/0.52          ( m1_subset_1 @
+% 0.21/0.52            ( k1_tarski @ ( k4_tarski @ A @ C ) ) @ 
+% 0.21/0.52            ( k1_zfmisc_1 @ ( k2_zfmisc_1 @ B @ D ) ) ) ) )),
+% 0.21/0.52    inference('cnf.neg', [status(esa)], [t8_relset_1])).
+% 0.21/0.52  thf('0', plain,
+% 0.21/0.52      (~ (m1_subset_1 @ (k1_tarski @ (k4_tarski @ sk_A @ sk_C)) @ 
+% 0.21/0.52          (k1_zfmisc_1 @ (k2_zfmisc_1 @ sk_B @ sk_D)))),
+% 0.21/0.52      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.52  thf('1', plain, ((r2_hidden @ sk_A @ sk_B)),
+% 0.21/0.52      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.52  thf('2', plain, ((r2_hidden @ sk_C @ sk_D)),
+% 0.21/0.52      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.52  thf(l54_zfmisc_1, axiom,
+% 0.21/0.52    (![A:$i,B:$i,C:$i,D:$i]:
+% 0.21/0.52     ( ( r2_hidden @ ( k4_tarski @ A @ B ) @ ( k2_zfmisc_1 @ C @ D ) ) <=>
+% 0.21/0.52       ( ( r2_hidden @ A @ C ) & ( r2_hidden @ B @ D ) ) ))).
+% 0.21/0.52  thf('3', plain,
+% 0.21/0.52      (![X28 : $i, X29 : $i, X30 : $i, X32 : $i]:
+% 0.21/0.52         ((r2_hidden @ (k4_tarski @ X28 @ X30) @ (k2_zfmisc_1 @ X29 @ X32))
+% 0.21/0.52          | ~ (r2_hidden @ X30 @ X32)
+% 0.21/0.52          | ~ (r2_hidden @ X28 @ X29))),
+% 0.21/0.52      inference('cnf', [status(esa)], [l54_zfmisc_1])).
+% 0.21/0.52  thf('4', plain,
+% 0.21/0.52      (![X0 : $i, X1 : $i]:
+% 0.21/0.52         (~ (r2_hidden @ X1 @ X0)
+% 0.21/0.52          | (r2_hidden @ (k4_tarski @ X1 @ sk_C) @ (k2_zfmisc_1 @ X0 @ sk_D)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['2', '3'])).
+% 0.21/0.52  thf('5', plain,
+% 0.21/0.52      ((r2_hidden @ (k4_tarski @ sk_A @ sk_C) @ (k2_zfmisc_1 @ sk_B @ sk_D))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['1', '4'])).
+% 0.21/0.52  thf('6', plain,
+% 0.21/0.52      ((r2_hidden @ (k4_tarski @ sk_A @ sk_C) @ (k2_zfmisc_1 @ sk_B @ sk_D))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['1', '4'])).
+% 0.21/0.52  thf(t38_zfmisc_1, axiom,
+% 0.21/0.52    (![A:$i,B:$i,C:$i]:
+% 0.21/0.52     ( ( r1_tarski @ ( k2_tarski @ A @ B ) @ C ) <=>
+% 0.21/0.52       ( ( r2_hidden @ A @ C ) & ( r2_hidden @ B @ C ) ) ))).
+% 0.21/0.52  thf('7', plain,
+% 0.21/0.52      (![X33 : $i, X35 : $i, X36 : $i]:
+% 0.21/0.52         ((r1_tarski @ (k2_tarski @ X33 @ X35) @ X36)
+% 0.21/0.52          | ~ (r2_hidden @ X35 @ X36)
+% 0.21/0.52          | ~ (r2_hidden @ X33 @ X36))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t38_zfmisc_1])).
+% 0.21/0.52  thf('8', plain,
+% 0.21/0.52      (![X0 : $i]:
+% 0.21/0.52         (~ (r2_hidden @ X0 @ (k2_zfmisc_1 @ sk_B @ sk_D))
+% 0.21/0.52          | (r1_tarski @ (k2_tarski @ X0 @ (k4_tarski @ sk_A @ sk_C)) @ 
+% 0.21/0.52             (k2_zfmisc_1 @ sk_B @ sk_D)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['6', '7'])).
+% 0.21/0.52  thf('9', plain,
+% 0.21/0.52      ((r1_tarski @ 
+% 0.21/0.52        (k2_tarski @ (k4_tarski @ sk_A @ sk_C) @ (k4_tarski @ sk_A @ sk_C)) @ 
+% 0.21/0.52        (k2_zfmisc_1 @ sk_B @ sk_D))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['5', '8'])).
+% 0.21/0.52  thf(t69_enumset1, axiom,
+% 0.21/0.52    (![A:$i]: ( ( k2_tarski @ A @ A ) = ( k1_tarski @ A ) ))).
+% 0.21/0.52  thf('10', plain, (![X0 : $i]: ((k2_tarski @ X0 @ X0) = (k1_tarski @ X0))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t69_enumset1])).
+% 0.21/0.52  thf('11', plain,
+% 0.21/0.52      ((r1_tarski @ (k1_tarski @ (k4_tarski @ sk_A @ sk_C)) @ 
+% 0.21/0.52        (k2_zfmisc_1 @ sk_B @ sk_D))),
+% 0.21/0.52      inference('demod', [status(thm)], ['9', '10'])).
+% 0.21/0.52  thf(t3_subset, axiom,
+% 0.21/0.52    (![A:$i,B:$i]:
+% 0.21/0.52     ( ( m1_subset_1 @ A @ ( k1_zfmisc_1 @ B ) ) <=> ( r1_tarski @ A @ B ) ))).
+% 0.21/0.52  thf('12', plain,
+% 0.21/0.52      (![X37 : $i, X39 : $i]:
+% 0.21/0.52         ((m1_subset_1 @ X37 @ (k1_zfmisc_1 @ X39)) | ~ (r1_tarski @ X37 @ X39))),
+% 0.21/0.52      inference('cnf', [status(esa)], [t3_subset])).
+% 0.21/0.52  thf('13', plain,
+% 0.21/0.52      ((m1_subset_1 @ (k1_tarski @ (k4_tarski @ sk_A @ sk_C)) @ 
+% 0.21/0.52        (k1_zfmisc_1 @ (k2_zfmisc_1 @ sk_B @ sk_D)))),
+% 0.21/0.52      inference('sup-', [status(thm)], ['11', '12'])).
+% 0.21/0.52  thf('14', plain, ($false), inference('demod', [status(thm)], ['0', '13'])).
+% 0.21/0.52  
+% 0.21/0.52  % SZS output end Refutation
+% 0.21/0.52  
+% 0.21/0.53  % Zipperpin 1.5 exiting
+%------------------------------------------------------------------------------

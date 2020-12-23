@@ -1,0 +1,197 @@
+%------------------------------------------------------------------------------
+% File       : Vampire---4.5
+% Problem    : MPT0319+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_vampire %s %d
+
+% Computer   : n031.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 08:47:44 EST 2020
+
+% Result     : Theorem 0.22s
+% Output     : Refutation 0.22s
+% Verified   : 
+% Statistics : Number of formulae       :   30 (  45 expanded)
+%              Number of leaves         :    8 (  19 expanded)
+%              Depth                    :    6
+%              Number of atoms          :   67 ( 107 expanded)
+%              Number of equality atoms :   12 (  19 expanded)
+%              Maximal formula depth    :    9 (   4 average)
+%              Maximal term depth       :    3 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f41,plain,(
+    $false ),
+    inference(avatar_sat_refutation,[],[f21,f25,f30,f33,f40])).
+
+fof(f40,plain,
+    ( ~ spl4_4
+    | spl4_2 ),
+    inference(avatar_split_clause,[],[f39,f19,f28])).
+
+fof(f28,plain,
+    ( spl4_4
+  <=> r1_xboole_0(k1_tarski(sK0),k1_tarski(sK1)) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl4_4])])).
+
+fof(f19,plain,
+    ( spl4_2
+  <=> r1_xboole_0(k2_zfmisc_1(sK2,k1_tarski(sK0)),k2_zfmisc_1(sK3,k1_tarski(sK1))) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl4_2])])).
+
+fof(f39,plain,
+    ( ~ r1_xboole_0(k1_tarski(sK0),k1_tarski(sK1))
+    | spl4_2 ),
+    inference(resolution,[],[f14,f20])).
+
+fof(f20,plain,
+    ( ~ r1_xboole_0(k2_zfmisc_1(sK2,k1_tarski(sK0)),k2_zfmisc_1(sK3,k1_tarski(sK1)))
+    | spl4_2 ),
+    inference(avatar_component_clause,[],[f19])).
+
+fof(f14,plain,(
+    ! [X2,X0,X3,X1] :
+      ( r1_xboole_0(k2_zfmisc_1(X0,X2),k2_zfmisc_1(X1,X3))
+      | ~ r1_xboole_0(X2,X3) ) ),
+    inference(cnf_transformation,[],[f7])).
+
+fof(f7,plain,(
+    ! [X0,X1,X2,X3] :
+      ( r1_xboole_0(k2_zfmisc_1(X0,X2),k2_zfmisc_1(X1,X3))
+      | ( ~ r1_xboole_0(X2,X3)
+        & ~ r1_xboole_0(X0,X1) ) ) ),
+    inference(ennf_transformation,[],[f1])).
+
+fof(f1,axiom,(
+    ! [X0,X1,X2,X3] :
+      ( ( r1_xboole_0(X2,X3)
+        | r1_xboole_0(X0,X1) )
+     => r1_xboole_0(k2_zfmisc_1(X0,X2),k2_zfmisc_1(X1,X3)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t127_zfmisc_1)).
+
+fof(f33,plain,
+    ( spl4_3
+    | spl4_4 ),
+    inference(avatar_split_clause,[],[f31,f28,f23])).
+
+fof(f23,plain,
+    ( spl4_3
+  <=> sK0 = sK1 ),
+    introduced(avatar_definition,[new_symbols(naming,[spl4_3])])).
+
+fof(f31,plain,
+    ( sK0 = sK1
+    | spl4_4 ),
+    inference(resolution,[],[f29,f12])).
+
+fof(f12,plain,(
+    ! [X0,X1] :
+      ( r1_xboole_0(k1_tarski(X0),k1_tarski(X1))
+      | X0 = X1 ) ),
+    inference(cnf_transformation,[],[f6])).
+
+fof(f6,plain,(
+    ! [X0,X1] :
+      ( r1_xboole_0(k1_tarski(X0),k1_tarski(X1))
+      | X0 = X1 ) ),
+    inference(ennf_transformation,[],[f2])).
+
+fof(f2,axiom,(
+    ! [X0,X1] :
+      ( X0 != X1
+     => r1_xboole_0(k1_tarski(X0),k1_tarski(X1)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t17_zfmisc_1)).
+
+fof(f29,plain,
+    ( ~ r1_xboole_0(k1_tarski(sK0),k1_tarski(sK1))
+    | spl4_4 ),
+    inference(avatar_component_clause,[],[f28])).
+
+fof(f30,plain,
+    ( ~ spl4_4
+    | spl4_1 ),
+    inference(avatar_split_clause,[],[f26,f16,f28])).
+
+fof(f16,plain,
+    ( spl4_1
+  <=> r1_xboole_0(k2_zfmisc_1(k1_tarski(sK0),sK2),k2_zfmisc_1(k1_tarski(sK1),sK3)) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl4_1])])).
+
+fof(f26,plain,
+    ( ~ r1_xboole_0(k1_tarski(sK0),k1_tarski(sK1))
+    | spl4_1 ),
+    inference(resolution,[],[f13,f17])).
+
+fof(f17,plain,
+    ( ~ r1_xboole_0(k2_zfmisc_1(k1_tarski(sK0),sK2),k2_zfmisc_1(k1_tarski(sK1),sK3))
+    | spl4_1 ),
+    inference(avatar_component_clause,[],[f16])).
+
+fof(f13,plain,(
+    ! [X2,X0,X3,X1] :
+      ( r1_xboole_0(k2_zfmisc_1(X0,X2),k2_zfmisc_1(X1,X3))
+      | ~ r1_xboole_0(X0,X1) ) ),
+    inference(cnf_transformation,[],[f7])).
+
+fof(f25,plain,(
+    ~ spl4_3 ),
+    inference(avatar_split_clause,[],[f10,f23])).
+
+fof(f10,plain,(
+    sK0 != sK1 ),
+    inference(cnf_transformation,[],[f9])).
+
+fof(f9,plain,
+    ( ( ~ r1_xboole_0(k2_zfmisc_1(sK2,k1_tarski(sK0)),k2_zfmisc_1(sK3,k1_tarski(sK1)))
+      | ~ r1_xboole_0(k2_zfmisc_1(k1_tarski(sK0),sK2),k2_zfmisc_1(k1_tarski(sK1),sK3)) )
+    & sK0 != sK1 ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2,sK3])],[f5,f8])).
+
+fof(f8,plain,
+    ( ? [X0,X1,X2,X3] :
+        ( ( ~ r1_xboole_0(k2_zfmisc_1(X2,k1_tarski(X0)),k2_zfmisc_1(X3,k1_tarski(X1)))
+          | ~ r1_xboole_0(k2_zfmisc_1(k1_tarski(X0),X2),k2_zfmisc_1(k1_tarski(X1),X3)) )
+        & X0 != X1 )
+   => ( ( ~ r1_xboole_0(k2_zfmisc_1(sK2,k1_tarski(sK0)),k2_zfmisc_1(sK3,k1_tarski(sK1)))
+        | ~ r1_xboole_0(k2_zfmisc_1(k1_tarski(sK0),sK2),k2_zfmisc_1(k1_tarski(sK1),sK3)) )
+      & sK0 != sK1 ) ),
+    introduced(choice_axiom,[])).
+
+fof(f5,plain,(
+    ? [X0,X1,X2,X3] :
+      ( ( ~ r1_xboole_0(k2_zfmisc_1(X2,k1_tarski(X0)),k2_zfmisc_1(X3,k1_tarski(X1)))
+        | ~ r1_xboole_0(k2_zfmisc_1(k1_tarski(X0),X2),k2_zfmisc_1(k1_tarski(X1),X3)) )
+      & X0 != X1 ) ),
+    inference(ennf_transformation,[],[f4])).
+
+fof(f4,negated_conjecture,(
+    ~ ! [X0,X1,X2,X3] :
+        ( X0 != X1
+       => ( r1_xboole_0(k2_zfmisc_1(X2,k1_tarski(X0)),k2_zfmisc_1(X3,k1_tarski(X1)))
+          & r1_xboole_0(k2_zfmisc_1(k1_tarski(X0),X2),k2_zfmisc_1(k1_tarski(X1),X3)) ) ) ),
+    inference(negated_conjecture,[],[f3])).
+
+fof(f3,conjecture,(
+    ! [X0,X1,X2,X3] :
+      ( X0 != X1
+     => ( r1_xboole_0(k2_zfmisc_1(X2,k1_tarski(X0)),k2_zfmisc_1(X3,k1_tarski(X1)))
+        & r1_xboole_0(k2_zfmisc_1(k1_tarski(X0),X2),k2_zfmisc_1(k1_tarski(X1),X3)) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t131_zfmisc_1)).
+
+fof(f21,plain,
+    ( ~ spl4_1
+    | ~ spl4_2 ),
+    inference(avatar_split_clause,[],[f11,f19,f16])).
+
+fof(f11,plain,
+    ( ~ r1_xboole_0(k2_zfmisc_1(sK2,k1_tarski(sK0)),k2_zfmisc_1(sK3,k1_tarski(sK1)))
+    | ~ r1_xboole_0(k2_zfmisc_1(k1_tarski(sK0),sK2),k2_zfmisc_1(k1_tarski(sK1),sK3)) ),
+    inference(cnf_transformation,[],[f9])).
+
+%------------------------------------------------------------------------------

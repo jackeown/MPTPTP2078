@@ -1,0 +1,140 @@
+%------------------------------------------------------------------------------
+% File     : MPT0962+2 : TPTP v7.4.0. Released v7.4.0.
+% Domain   : Set theory
+% Problem  :
+% Version  : [MPTP] axioms : Especial.
+% English  :
+
+% Refs     : [AH+14] Alma et al. (2014), Premise Selection for Mathematics
+% Source   : [MPTP]
+% Names    : funct_2__t4_funct_2.p [MPTP]
+
+% Status   : Theorem
+% Rating   : ? v7.4.0
+% Syntax   : Number of formulae    : 1478 ( 358 unit)
+%            Number of atoms       : 4943 (1353 equality)
+%            Maximal formula depth :   27 (   6 average)
+%            Number of connectives : 4243 ( 778   ~;  82   |;1429   &)
+%                                         ( 287 <=>;1667  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :   56 (   1 propositional; 0-4 arity)
+%            Number of functors    :  103 (   3 constant; 0-10 arity)
+%            Number of variables   : 4364 (   9 sgn;4190   !; 174   ?)
+%            Maximal term depth    :    6 (   1 average)
+% SPC      : FOF_THM_RFO_SEQ
+
+% Comments : A cleaned up version of the MPTP 2078 benchmarks, available at
+%            https://github.com/JUrban/MPTP2078
+%------------------------------------------------------------------------------
+include('Axioms/MPT001+2.ax').
+include('Axioms/MPT002+2.ax').
+include('Axioms/MPT003+2.ax').
+include('Axioms/MPT004+2.ax').
+include('Axioms/MPT005+2.ax').
+include('Axioms/MPT006+2.ax').
+include('Axioms/MPT007+2.ax').
+include('Axioms/MPT008+2.ax').
+include('Axioms/MPT009+2.ax').
+include('Axioms/MPT010+2.ax').
+include('Axioms/MPT011+2.ax').
+include('Axioms/MPT012+2.ax').
+include('Axioms/MPT013+2.ax').
+%------------------------------------------------------------------------------
+fof(cc1_funct_2,axiom,(
+    ! [A,B,C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+     => ( ( v1_funct_1(C)
+          & v1_partfun1(C,A) )
+       => ( v1_funct_1(C)
+          & v1_funct_2(C,A,B) ) ) ) )).
+
+fof(cc1_partfun1,axiom,(
+    ! [A,B] :
+      ( v1_xboole_0(A)
+     => ! [C] :
+          ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+         => v1_partfun1(C,A) ) ) )).
+
+fof(cc2_partfun1,axiom,(
+    ! [A,B] :
+      ( ( ~ v1_xboole_0(A)
+        & v1_xboole_0(B) )
+     => ! [C] :
+          ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+         => ~ v1_partfun1(C,A) ) ) )).
+
+fof(d1_funct_2,axiom,(
+    ! [A,B,C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+     => ( ( ( B = k1_xboole_0
+           => A = k1_xboole_0 )
+         => ( v1_funct_2(C,A,B)
+          <=> A = k1_relset_1(A,B,C) ) )
+        & ( B = k1_xboole_0
+         => ( A = k1_xboole_0
+            | ( v1_funct_2(C,A,B)
+            <=> C = k1_xboole_0 ) ) ) ) ) )).
+
+fof(fc9_relset_1,axiom,(
+    ! [A,B,C,D] :
+      ( m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(A,k2_zfmisc_1(B,C))))
+     => v1_relat_1(k2_relat_1(D)) ) )).
+
+fof(rc1_funct_2,axiom,(
+    ! [A,B] :
+    ? [C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+      & v1_relat_1(C)
+      & v4_relat_1(C,A)
+      & v5_relat_1(C,B)
+      & v1_funct_1(C)
+      & v1_funct_2(C,A,B) ) )).
+
+fof(rc1_partfun1,axiom,(
+    ! [A,B] :
+    ? [C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+      & v1_relat_1(C)
+      & v4_relat_1(C,A)
+      & v5_relat_1(C,B)
+      & v1_funct_1(C) ) )).
+
+fof(rc1_relset_1,axiom,(
+    ! [A,B] :
+    ? [C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+      & v1_xboole_0(C)
+      & v1_relat_1(C)
+      & v4_relat_1(C,A)
+      & v5_relat_1(C,B) ) )).
+
+fof(rc3_partfun1,axiom,(
+    ! [A,B] :
+      ( ( ~ v1_xboole_0(A)
+        & ~ v1_xboole_0(B) )
+     => ? [C] :
+          ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+          & v1_relat_1(C)
+          & v4_relat_1(C,A)
+          & v5_relat_1(C,B)
+          & v1_funct_1(C)
+          & ~ v1_xboole_0(C) ) ) )).
+
+fof(t3_funct_2,axiom,(
+    ! [A] :
+      ( ( v1_relat_1(A)
+        & v1_funct_1(A) )
+     => ( v1_funct_1(A)
+        & v1_funct_2(A,k1_relat_1(A),k2_relat_1(A))
+        & m1_subset_1(A,k1_zfmisc_1(k2_zfmisc_1(k1_relat_1(A),k2_relat_1(A)))) ) ) )).
+
+fof(t4_funct_2,conjecture,(
+    ! [A,B] :
+      ( ( v1_relat_1(B)
+        & v1_funct_1(B) )
+     => ( r1_tarski(k2_relat_1(B),A)
+       => ( v1_funct_1(B)
+          & v1_funct_2(B,k1_relat_1(B),A)
+          & m1_subset_1(B,k1_zfmisc_1(k2_zfmisc_1(k1_relat_1(B),A))) ) ) ) )).
+
+%------------------------------------------------------------------------------

@@ -1,0 +1,3525 @@
+%------------------------------------------------------------------------------
+% File       : iProver---3.3
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : iproveropt_run.sh %d %s
+
+% Computer   : n021.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 12:03:12 EST 2020
+
+% Result     : Theorem 19.19s
+% Output     : CNFRefutation 19.19s
+% Verified   : 
+% Statistics : Number of formulae       :  220 (2028 expanded)
+%              Number of clauses        :  139 ( 563 expanded)
+%              Number of leaves         :   22 ( 531 expanded)
+%              Depth                    :   26
+%              Number of atoms          :  823 (17748 expanded)
+%              Number of equality atoms :  419 (6436 expanded)
+%              Maximal formula depth    :   16 (   5 average)
+%              Maximal clause size      :   24 (   3 average)
+%              Maximal term depth       :    4 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f15,axiom,(
+    ! [X0,X1,X2] :
+      ( ( m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & v1_funct_2(X2,X0,X1)
+        & v1_funct_1(X2) )
+     => ! [X3] :
+          ( ( m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+            & v1_funct_2(X3,X1,X0)
+            & v1_funct_1(X3) )
+         => ( r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1))
+           => k2_relset_1(X0,X1,X2) = X1 ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f37,plain,(
+    ! [X0,X1,X2] :
+      ( ! [X3] :
+          ( k2_relset_1(X0,X1,X2) = X1
+          | ~ r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1))
+          | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+          | ~ v1_funct_2(X3,X1,X0)
+          | ~ v1_funct_1(X3) )
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X2,X0,X1)
+      | ~ v1_funct_1(X2) ) ),
+    inference(ennf_transformation,[],[f15])).
+
+fof(f38,plain,(
+    ! [X0,X1,X2] :
+      ( ! [X3] :
+          ( k2_relset_1(X0,X1,X2) = X1
+          | ~ r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1))
+          | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+          | ~ v1_funct_2(X3,X1,X0)
+          | ~ v1_funct_1(X3) )
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X2,X0,X1)
+      | ~ v1_funct_1(X2) ) ),
+    inference(flattening,[],[f37])).
+
+fof(f68,plain,(
+    ! [X2,X0,X3,X1] :
+      ( k2_relset_1(X0,X1,X2) = X1
+      | ~ r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1))
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+      | ~ v1_funct_2(X3,X1,X0)
+      | ~ v1_funct_1(X3)
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X2,X0,X1)
+      | ~ v1_funct_1(X2) ) ),
+    inference(cnf_transformation,[],[f38])).
+
+fof(f18,conjecture,(
+    ! [X0,X1,X2] :
+      ( ( m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & v1_funct_2(X2,X0,X1)
+        & v1_funct_1(X2) )
+     => ! [X3] :
+          ( ( m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+            & v1_funct_2(X3,X1,X0)
+            & v1_funct_1(X3) )
+         => ( ( v2_funct_1(X2)
+              & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+              & k2_relset_1(X0,X1,X2) = X1 )
+           => ( k2_funct_1(X2) = X3
+              | k1_xboole_0 = X1
+              | k1_xboole_0 = X0 ) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f19,negated_conjecture,(
+    ~ ! [X0,X1,X2] :
+        ( ( m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+          & v1_funct_2(X2,X0,X1)
+          & v1_funct_1(X2) )
+       => ! [X3] :
+            ( ( m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+              & v1_funct_2(X3,X1,X0)
+              & v1_funct_1(X3) )
+           => ( ( v2_funct_1(X2)
+                & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+                & k2_relset_1(X0,X1,X2) = X1 )
+             => ( k2_funct_1(X2) = X3
+                | k1_xboole_0 = X1
+                | k1_xboole_0 = X0 ) ) ) ) ),
+    inference(negated_conjecture,[],[f18])).
+
+fof(f43,plain,(
+    ? [X0,X1,X2] :
+      ( ? [X3] :
+          ( k2_funct_1(X2) != X3
+          & k1_xboole_0 != X1
+          & k1_xboole_0 != X0
+          & v2_funct_1(X2)
+          & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+          & k2_relset_1(X0,X1,X2) = X1
+          & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+          & v1_funct_2(X3,X1,X0)
+          & v1_funct_1(X3) )
+      & m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      & v1_funct_2(X2,X0,X1)
+      & v1_funct_1(X2) ) ),
+    inference(ennf_transformation,[],[f19])).
+
+fof(f44,plain,(
+    ? [X0,X1,X2] :
+      ( ? [X3] :
+          ( k2_funct_1(X2) != X3
+          & k1_xboole_0 != X1
+          & k1_xboole_0 != X0
+          & v2_funct_1(X2)
+          & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+          & k2_relset_1(X0,X1,X2) = X1
+          & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+          & v1_funct_2(X3,X1,X0)
+          & v1_funct_1(X3) )
+      & m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      & v1_funct_2(X2,X0,X1)
+      & v1_funct_1(X2) ) ),
+    inference(flattening,[],[f43])).
+
+fof(f47,plain,(
+    ! [X2,X0,X1] :
+      ( ? [X3] :
+          ( k2_funct_1(X2) != X3
+          & k1_xboole_0 != X1
+          & k1_xboole_0 != X0
+          & v2_funct_1(X2)
+          & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+          & k2_relset_1(X0,X1,X2) = X1
+          & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+          & v1_funct_2(X3,X1,X0)
+          & v1_funct_1(X3) )
+     => ( k2_funct_1(X2) != sK3
+        & k1_xboole_0 != X1
+        & k1_xboole_0 != X0
+        & v2_funct_1(X2)
+        & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,sK3),k6_partfun1(X0))
+        & k2_relset_1(X0,X1,X2) = X1
+        & m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+        & v1_funct_2(sK3,X1,X0)
+        & v1_funct_1(sK3) ) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f46,plain,
+    ( ? [X0,X1,X2] :
+        ( ? [X3] :
+            ( k2_funct_1(X2) != X3
+            & k1_xboole_0 != X1
+            & k1_xboole_0 != X0
+            & v2_funct_1(X2)
+            & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+            & k2_relset_1(X0,X1,X2) = X1
+            & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+            & v1_funct_2(X3,X1,X0)
+            & v1_funct_1(X3) )
+        & m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & v1_funct_2(X2,X0,X1)
+        & v1_funct_1(X2) )
+   => ( ? [X3] :
+          ( k2_funct_1(sK2) != X3
+          & k1_xboole_0 != sK1
+          & k1_xboole_0 != sK0
+          & v2_funct_1(sK2)
+          & r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,X3),k6_partfun1(sK0))
+          & k2_relset_1(sK0,sK1,sK2) = sK1
+          & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0)))
+          & v1_funct_2(X3,sK1,sK0)
+          & v1_funct_1(X3) )
+      & m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+      & v1_funct_2(sK2,sK0,sK1)
+      & v1_funct_1(sK2) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f48,plain,
+    ( k2_funct_1(sK2) != sK3
+    & k1_xboole_0 != sK1
+    & k1_xboole_0 != sK0
+    & v2_funct_1(sK2)
+    & r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k6_partfun1(sK0))
+    & k2_relset_1(sK0,sK1,sK2) = sK1
+    & m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0)))
+    & v1_funct_2(sK3,sK1,sK0)
+    & v1_funct_1(sK3)
+    & m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+    & v1_funct_2(sK2,sK0,sK1)
+    & v1_funct_1(sK2) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2,sK3])],[f44,f47,f46])).
+
+fof(f82,plain,(
+    r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k6_partfun1(sK0)) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f75,plain,(
+    v1_funct_1(sK2) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f76,plain,(
+    v1_funct_2(sK2,sK0,sK1) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f77,plain,(
+    m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f78,plain,(
+    v1_funct_1(sK3) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f79,plain,(
+    v1_funct_2(sK3,sK1,sK0) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f80,plain,(
+    m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f17,axiom,(
+    ! [X0,X1,X2] :
+      ( ( m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & v1_funct_2(X2,X0,X1)
+        & v1_funct_1(X2) )
+     => ( ( v2_funct_1(X2)
+          & k2_relset_1(X0,X1,X2) = X1 )
+       => ( ( k5_relat_1(k2_funct_1(X2),X2) = k6_partfun1(X1)
+            & k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0) )
+          | k1_xboole_0 = X1 ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f41,plain,(
+    ! [X0,X1,X2] :
+      ( ( k5_relat_1(k2_funct_1(X2),X2) = k6_partfun1(X1)
+        & k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0) )
+      | k1_xboole_0 = X1
+      | ~ v2_funct_1(X2)
+      | k2_relset_1(X0,X1,X2) != X1
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X2,X0,X1)
+      | ~ v1_funct_1(X2) ) ),
+    inference(ennf_transformation,[],[f17])).
+
+fof(f42,plain,(
+    ! [X0,X1,X2] :
+      ( ( k5_relat_1(k2_funct_1(X2),X2) = k6_partfun1(X1)
+        & k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0) )
+      | k1_xboole_0 = X1
+      | ~ v2_funct_1(X2)
+      | k2_relset_1(X0,X1,X2) != X1
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X2,X0,X1)
+      | ~ v1_funct_1(X2) ) ),
+    inference(flattening,[],[f41])).
+
+fof(f73,plain,(
+    ! [X2,X0,X1] :
+      ( k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0)
+      | k1_xboole_0 = X1
+      | ~ v2_funct_1(X2)
+      | k2_relset_1(X0,X1,X2) != X1
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X2,X0,X1)
+      | ~ v1_funct_1(X2) ) ),
+    inference(cnf_transformation,[],[f42])).
+
+fof(f84,plain,(
+    k1_xboole_0 != sK0 ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f5,axiom,(
+    ! [X0] :
+      ( v2_funct_1(k6_relat_1(X0))
+      & v1_relat_1(k6_relat_1(X0)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f56,plain,(
+    ! [X0] : v2_funct_1(k6_relat_1(X0)) ),
+    inference(cnf_transformation,[],[f5])).
+
+fof(f14,axiom,(
+    ! [X0] : k6_relat_1(X0) = k6_partfun1(X0) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f67,plain,(
+    ! [X0] : k6_relat_1(X0) = k6_partfun1(X0) ),
+    inference(cnf_transformation,[],[f14])).
+
+fof(f89,plain,(
+    ! [X0] : v2_funct_1(k6_partfun1(X0)) ),
+    inference(definition_unfolding,[],[f56,f67])).
+
+fof(f10,axiom,(
+    ! [X0,X1,X2,X3] :
+      ( ( m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) )
+     => ( r2_relset_1(X0,X1,X2,X3)
+      <=> X2 = X3 ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f31,plain,(
+    ! [X0,X1,X2,X3] :
+      ( ( r2_relset_1(X0,X1,X2,X3)
+      <=> X2 = X3 )
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(ennf_transformation,[],[f10])).
+
+fof(f32,plain,(
+    ! [X0,X1,X2,X3] :
+      ( ( r2_relset_1(X0,X1,X2,X3)
+      <=> X2 = X3 )
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(flattening,[],[f31])).
+
+fof(f45,plain,(
+    ! [X0,X1,X2,X3] :
+      ( ( ( r2_relset_1(X0,X1,X2,X3)
+          | X2 != X3 )
+        & ( X2 = X3
+          | ~ r2_relset_1(X0,X1,X2,X3) ) )
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(nnf_transformation,[],[f32])).
+
+fof(f61,plain,(
+    ! [X2,X0,X3,X1] :
+      ( X2 = X3
+      | ~ r2_relset_1(X0,X1,X2,X3)
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(cnf_transformation,[],[f45])).
+
+fof(f12,axiom,(
+    ! [X0] :
+      ( m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0)))
+      & v1_partfun1(k6_partfun1(X0),X0) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f20,plain,(
+    ! [X0] : m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0))) ),
+    inference(pure_predicate_removal,[],[f12])).
+
+fof(f65,plain,(
+    ! [X0] : m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0))) ),
+    inference(cnf_transformation,[],[f20])).
+
+fof(f11,axiom,(
+    ! [X0,X1,X2,X3,X4,X5] :
+      ( ( m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+        & v1_funct_1(X5)
+        & m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & v1_funct_1(X4) )
+     => ( m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3)))
+        & v1_funct_1(k1_partfun1(X0,X1,X2,X3,X4,X5)) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f33,plain,(
+    ! [X0,X1,X2,X3,X4,X5] :
+      ( ( m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3)))
+        & v1_funct_1(k1_partfun1(X0,X1,X2,X3,X4,X5)) )
+      | ~ m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+      | ~ v1_funct_1(X5)
+      | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_1(X4) ) ),
+    inference(ennf_transformation,[],[f11])).
+
+fof(f34,plain,(
+    ! [X0,X1,X2,X3,X4,X5] :
+      ( ( m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3)))
+        & v1_funct_1(k1_partfun1(X0,X1,X2,X3,X4,X5)) )
+      | ~ m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+      | ~ v1_funct_1(X5)
+      | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_1(X4) ) ),
+    inference(flattening,[],[f33])).
+
+fof(f64,plain,(
+    ! [X4,X2,X0,X5,X3,X1] :
+      ( m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3)))
+      | ~ m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+      | ~ v1_funct_1(X5)
+      | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_1(X4) ) ),
+    inference(cnf_transformation,[],[f34])).
+
+fof(f81,plain,(
+    k2_relset_1(sK0,sK1,sK2) = sK1 ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f16,axiom,(
+    ! [X0,X1,X2,X3] :
+      ( ( m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & v1_funct_2(X3,X0,X1)
+        & v1_funct_1(X3) )
+     => ! [X4] :
+          ( ( m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+            & v1_funct_2(X4,X1,X2)
+            & v1_funct_1(X4) )
+         => ( ( k2_relset_1(X0,X1,X3) = X1
+              & v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4)) )
+           => ( ( v2_funct_1(X4)
+                & v2_funct_1(X3) )
+              | ( k1_xboole_0 != X1
+                & k1_xboole_0 = X2 ) ) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f39,plain,(
+    ! [X0,X1,X2,X3] :
+      ( ! [X4] :
+          ( ( v2_funct_1(X4)
+            & v2_funct_1(X3) )
+          | ( k1_xboole_0 != X1
+            & k1_xboole_0 = X2 )
+          | k2_relset_1(X0,X1,X3) != X1
+          | ~ v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4))
+          | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+          | ~ v1_funct_2(X4,X1,X2)
+          | ~ v1_funct_1(X4) )
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X3,X0,X1)
+      | ~ v1_funct_1(X3) ) ),
+    inference(ennf_transformation,[],[f16])).
+
+fof(f40,plain,(
+    ! [X0,X1,X2,X3] :
+      ( ! [X4] :
+          ( ( v2_funct_1(X4)
+            & v2_funct_1(X3) )
+          | ( k1_xboole_0 != X1
+            & k1_xboole_0 = X2 )
+          | k2_relset_1(X0,X1,X3) != X1
+          | ~ v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4))
+          | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+          | ~ v1_funct_2(X4,X1,X2)
+          | ~ v1_funct_1(X4) )
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X3,X0,X1)
+      | ~ v1_funct_1(X3) ) ),
+    inference(flattening,[],[f39])).
+
+fof(f71,plain,(
+    ! [X4,X2,X0,X3,X1] :
+      ( v2_funct_1(X4)
+      | k1_xboole_0 = X2
+      | k2_relset_1(X0,X1,X3) != X1
+      | ~ v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4))
+      | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+      | ~ v1_funct_2(X4,X1,X2)
+      | ~ v1_funct_1(X4)
+      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_2(X3,X0,X1)
+      | ~ v1_funct_1(X3) ) ),
+    inference(cnf_transformation,[],[f40])).
+
+fof(f7,axiom,(
+    ! [X0] :
+      ( ( v1_funct_1(X0)
+        & v1_relat_1(X0) )
+     => ! [X1] :
+          ( ( v1_funct_1(X1)
+            & v1_relat_1(X1) )
+         => ( ( k5_relat_1(X1,X0) = k6_relat_1(k2_relat_1(X0))
+              & k2_relat_1(X1) = k1_relat_1(X0)
+              & v2_funct_1(X0) )
+           => k2_funct_1(X0) = X1 ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f27,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( k2_funct_1(X0) = X1
+          | k5_relat_1(X1,X0) != k6_relat_1(k2_relat_1(X0))
+          | k2_relat_1(X1) != k1_relat_1(X0)
+          | ~ v2_funct_1(X0)
+          | ~ v1_funct_1(X1)
+          | ~ v1_relat_1(X1) )
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(ennf_transformation,[],[f7])).
+
+fof(f28,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( k2_funct_1(X0) = X1
+          | k5_relat_1(X1,X0) != k6_relat_1(k2_relat_1(X0))
+          | k2_relat_1(X1) != k1_relat_1(X0)
+          | ~ v2_funct_1(X0)
+          | ~ v1_funct_1(X1)
+          | ~ v1_relat_1(X1) )
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(flattening,[],[f27])).
+
+fof(f58,plain,(
+    ! [X0,X1] :
+      ( k2_funct_1(X0) = X1
+      | k5_relat_1(X1,X0) != k6_relat_1(k2_relat_1(X0))
+      | k2_relat_1(X1) != k1_relat_1(X0)
+      | ~ v2_funct_1(X0)
+      | ~ v1_funct_1(X1)
+      | ~ v1_relat_1(X1)
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(cnf_transformation,[],[f28])).
+
+fof(f91,plain,(
+    ! [X0,X1] :
+      ( k2_funct_1(X0) = X1
+      | k5_relat_1(X1,X0) != k6_partfun1(k2_relat_1(X0))
+      | k2_relat_1(X1) != k1_relat_1(X0)
+      | ~ v2_funct_1(X0)
+      | ~ v1_funct_1(X1)
+      | ~ v1_relat_1(X1)
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(definition_unfolding,[],[f58,f67])).
+
+fof(f9,axiom,(
+    ! [X0,X1,X2] :
+      ( m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+     => k2_relat_1(X2) = k2_relset_1(X0,X1,X2) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f30,plain,(
+    ! [X0,X1,X2] :
+      ( k2_relat_1(X2) = k2_relset_1(X0,X1,X2)
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(ennf_transformation,[],[f9])).
+
+fof(f60,plain,(
+    ! [X2,X0,X1] :
+      ( k2_relat_1(X2) = k2_relset_1(X0,X1,X2)
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(cnf_transformation,[],[f30])).
+
+fof(f8,axiom,(
+    ! [X0,X1,X2] :
+      ( m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+     => v1_relat_1(X2) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f29,plain,(
+    ! [X0,X1,X2] :
+      ( v1_relat_1(X2)
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(ennf_transformation,[],[f8])).
+
+fof(f59,plain,(
+    ! [X2,X0,X1] :
+      ( v1_relat_1(X2)
+      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) ) ),
+    inference(cnf_transformation,[],[f29])).
+
+fof(f4,axiom,(
+    ! [X0] :
+      ( ( v1_funct_1(X0)
+        & v1_relat_1(X0) )
+     => ( v1_funct_1(k2_funct_1(X0))
+        & v1_relat_1(k2_funct_1(X0)) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f23,plain,(
+    ! [X0] :
+      ( ( v1_funct_1(k2_funct_1(X0))
+        & v1_relat_1(k2_funct_1(X0)) )
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(ennf_transformation,[],[f4])).
+
+fof(f24,plain,(
+    ! [X0] :
+      ( ( v1_funct_1(k2_funct_1(X0))
+        & v1_relat_1(k2_funct_1(X0)) )
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(flattening,[],[f23])).
+
+fof(f54,plain,(
+    ! [X0] :
+      ( v1_funct_1(k2_funct_1(X0))
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(cnf_transformation,[],[f24])).
+
+fof(f53,plain,(
+    ! [X0] :
+      ( v1_relat_1(k2_funct_1(X0))
+      | ~ v1_funct_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(cnf_transformation,[],[f24])).
+
+fof(f1,axiom,(
+    ! [X0] :
+      ( v1_relat_1(X0)
+     => ! [X1] :
+          ( v1_relat_1(X1)
+         => k2_relat_1(k5_relat_1(X0,X1)) = k9_relat_1(X1,k2_relat_1(X0)) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f21,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( k2_relat_1(k5_relat_1(X0,X1)) = k9_relat_1(X1,k2_relat_1(X0))
+          | ~ v1_relat_1(X1) )
+      | ~ v1_relat_1(X0) ) ),
+    inference(ennf_transformation,[],[f1])).
+
+fof(f49,plain,(
+    ! [X0,X1] :
+      ( k2_relat_1(k5_relat_1(X0,X1)) = k9_relat_1(X1,k2_relat_1(X0))
+      | ~ v1_relat_1(X1)
+      | ~ v1_relat_1(X0) ) ),
+    inference(cnf_transformation,[],[f21])).
+
+fof(f83,plain,(
+    v2_funct_1(sK2) ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f6,axiom,(
+    ! [X0,X1] :
+      ( ( v1_funct_1(X1)
+        & v1_relat_1(X1) )
+     => ( v2_funct_1(X1)
+       => k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f25,plain,(
+    ! [X0,X1] :
+      ( k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0)
+      | ~ v2_funct_1(X1)
+      | ~ v1_funct_1(X1)
+      | ~ v1_relat_1(X1) ) ),
+    inference(ennf_transformation,[],[f6])).
+
+fof(f26,plain,(
+    ! [X0,X1] :
+      ( k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0)
+      | ~ v2_funct_1(X1)
+      | ~ v1_funct_1(X1)
+      | ~ v1_relat_1(X1) ) ),
+    inference(flattening,[],[f25])).
+
+fof(f57,plain,(
+    ! [X0,X1] :
+      ( k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0)
+      | ~ v2_funct_1(X1)
+      | ~ v1_funct_1(X1)
+      | ~ v1_relat_1(X1) ) ),
+    inference(cnf_transformation,[],[f26])).
+
+fof(f2,axiom,(
+    ! [X0] :
+      ( v1_relat_1(X0)
+     => k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f22,plain,(
+    ! [X0] :
+      ( k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(ennf_transformation,[],[f2])).
+
+fof(f50,plain,(
+    ! [X0] :
+      ( k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0)
+      | ~ v1_relat_1(X0) ) ),
+    inference(cnf_transformation,[],[f22])).
+
+fof(f85,plain,(
+    k1_xboole_0 != sK1 ),
+    inference(cnf_transformation,[],[f48])).
+
+fof(f3,axiom,(
+    ! [X0] :
+      ( k2_relat_1(k6_relat_1(X0)) = X0
+      & k1_relat_1(k6_relat_1(X0)) = X0 ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f52,plain,(
+    ! [X0] : k2_relat_1(k6_relat_1(X0)) = X0 ),
+    inference(cnf_transformation,[],[f3])).
+
+fof(f87,plain,(
+    ! [X0] : k2_relat_1(k6_partfun1(X0)) = X0 ),
+    inference(definition_unfolding,[],[f52,f67])).
+
+fof(f13,axiom,(
+    ! [X0,X1,X2,X3,X4,X5] :
+      ( ( m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+        & v1_funct_1(X5)
+        & m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+        & v1_funct_1(X4) )
+     => k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f35,plain,(
+    ! [X0,X1,X2,X3,X4,X5] :
+      ( k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5)
+      | ~ m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+      | ~ v1_funct_1(X5)
+      | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_1(X4) ) ),
+    inference(ennf_transformation,[],[f13])).
+
+fof(f36,plain,(
+    ! [X0,X1,X2,X3,X4,X5] :
+      ( k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5)
+      | ~ m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+      | ~ v1_funct_1(X5)
+      | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_1(X4) ) ),
+    inference(flattening,[],[f35])).
+
+fof(f66,plain,(
+    ! [X4,X2,X0,X5,X3,X1] :
+      ( k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5)
+      | ~ m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3)))
+      | ~ v1_funct_1(X5)
+      | ~ m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+      | ~ v1_funct_1(X4) ) ),
+    inference(cnf_transformation,[],[f36])).
+
+fof(f86,plain,(
+    k2_funct_1(sK2) != sK3 ),
+    inference(cnf_transformation,[],[f48])).
+
+cnf(c_18,plain,
+    ( ~ r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+    | ~ v1_funct_2(X2,X0,X1)
+    | ~ v1_funct_2(X3,X1,X0)
+    | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+    | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+    | ~ v1_funct_1(X2)
+    | ~ v1_funct_1(X3)
+    | k2_relset_1(X1,X0,X3) = X0 ),
+    inference(cnf_transformation,[],[f68])).
+
+cnf(c_29,negated_conjecture,
+    ( r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k6_partfun1(sK0)) ),
+    inference(cnf_transformation,[],[f82])).
+
+cnf(c_403,plain,
+    ( ~ v1_funct_2(X0,X1,X2)
+    | ~ v1_funct_2(X3,X2,X1)
+    | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X2,X1)))
+    | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | ~ v1_funct_1(X0)
+    | ~ v1_funct_1(X3)
+    | k1_partfun1(X2,X1,X1,X2,X3,X0) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+    | k2_relset_1(X1,X2,X0) = X2
+    | k6_partfun1(X2) != k6_partfun1(sK0)
+    | sK0 != X2 ),
+    inference(resolution_lifted,[status(thm)],[c_18,c_29])).
+
+cnf(c_404,plain,
+    ( ~ v1_funct_2(X0,X1,sK0)
+    | ~ v1_funct_2(X2,sK0,X1)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,sK0)))
+    | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(sK0,X1)))
+    | ~ v1_funct_1(X0)
+    | ~ v1_funct_1(X2)
+    | k1_partfun1(sK0,X1,X1,sK0,X2,X0) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+    | k2_relset_1(X1,sK0,X0) = sK0
+    | k6_partfun1(sK0) != k6_partfun1(sK0) ),
+    inference(unflattening,[status(thm)],[c_403])).
+
+cnf(c_488,plain,
+    ( ~ v1_funct_2(X0,X1,sK0)
+    | ~ v1_funct_2(X2,sK0,X1)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,sK0)))
+    | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(sK0,X1)))
+    | ~ v1_funct_1(X0)
+    | ~ v1_funct_1(X2)
+    | k1_partfun1(sK0,X1,X1,sK0,X2,X0) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+    | k2_relset_1(X1,sK0,X0) = sK0 ),
+    inference(equality_resolution_simp,[status(thm)],[c_404])).
+
+cnf(c_1168,plain,
+    ( k1_partfun1(sK0,X0,X0,sK0,X1,X2) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+    | k2_relset_1(X0,sK0,X2) = sK0
+    | v1_funct_2(X2,X0,sK0) != iProver_top
+    | v1_funct_2(X1,sK0,X0) != iProver_top
+    | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,sK0))) != iProver_top
+    | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK0,X0))) != iProver_top
+    | v1_funct_1(X2) != iProver_top
+    | v1_funct_1(X1) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_488])).
+
+cnf(c_1726,plain,
+    ( k2_relset_1(sK1,sK0,sK3) = sK0
+    | v1_funct_2(sK3,sK1,sK0) != iProver_top
+    | v1_funct_2(sK2,sK0,sK1) != iProver_top
+    | m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+    | m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+    | v1_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK2) != iProver_top ),
+    inference(equality_resolution,[status(thm)],[c_1168])).
+
+cnf(c_36,negated_conjecture,
+    ( v1_funct_1(sK2) ),
+    inference(cnf_transformation,[],[f75])).
+
+cnf(c_37,plain,
+    ( v1_funct_1(sK2) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_36])).
+
+cnf(c_35,negated_conjecture,
+    ( v1_funct_2(sK2,sK0,sK1) ),
+    inference(cnf_transformation,[],[f76])).
+
+cnf(c_38,plain,
+    ( v1_funct_2(sK2,sK0,sK1) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_35])).
+
+cnf(c_34,negated_conjecture,
+    ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) ),
+    inference(cnf_transformation,[],[f77])).
+
+cnf(c_39,plain,
+    ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_34])).
+
+cnf(c_33,negated_conjecture,
+    ( v1_funct_1(sK3) ),
+    inference(cnf_transformation,[],[f78])).
+
+cnf(c_40,plain,
+    ( v1_funct_1(sK3) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_33])).
+
+cnf(c_32,negated_conjecture,
+    ( v1_funct_2(sK3,sK1,sK0) ),
+    inference(cnf_transformation,[],[f79])).
+
+cnf(c_41,plain,
+    ( v1_funct_2(sK3,sK1,sK0) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_32])).
+
+cnf(c_31,negated_conjecture,
+    ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) ),
+    inference(cnf_transformation,[],[f80])).
+
+cnf(c_42,plain,
+    ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_31])).
+
+cnf(c_2052,plain,
+    ( k2_relset_1(sK1,sK0,sK3) = sK0 ),
+    inference(global_propositional_subsumption,[status(thm)],[c_1726,c_37,c_38,c_39,c_40,c_41,c_42])).
+
+cnf(c_24,plain,
+    ( ~ v1_funct_2(X0,X1,X2)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | ~ v2_funct_1(X0)
+    | ~ v1_funct_1(X0)
+    | k2_relset_1(X1,X2,X0) != X2
+    | k5_relat_1(X0,k2_funct_1(X0)) = k6_partfun1(X1)
+    | k1_xboole_0 = X2 ),
+    inference(cnf_transformation,[],[f73])).
+
+cnf(c_1178,plain,
+    ( k2_relset_1(X0,X1,X2) != X1
+    | k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0)
+    | k1_xboole_0 = X1
+    | v1_funct_2(X2,X0,X1) != iProver_top
+    | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+    | v2_funct_1(X2) != iProver_top
+    | v1_funct_1(X2) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_24])).
+
+cnf(c_3047,plain,
+    ( k5_relat_1(sK3,k2_funct_1(sK3)) = k6_partfun1(sK1)
+    | sK0 = k1_xboole_0
+    | v1_funct_2(sK3,sK1,sK0) != iProver_top
+    | m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+    | v2_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK3) != iProver_top ),
+    inference(superposition,[status(thm)],[c_2052,c_1178])).
+
+cnf(c_27,negated_conjecture,
+    ( k1_xboole_0 != sK0 ),
+    inference(cnf_transformation,[],[f84])).
+
+cnf(c_665,plain,
+    ( X0 = X0 ),
+    theory(equality)).
+
+cnf(c_700,plain,
+    ( k1_xboole_0 = k1_xboole_0 ),
+    inference(instantiation,[status(thm)],[c_665])).
+
+cnf(c_666,plain,
+    ( X0 != X1
+    | X2 != X1
+    | X2 = X0 ),
+    theory(equality)).
+
+cnf(c_1280,plain,
+    ( sK0 != X0
+    | k1_xboole_0 != X0
+    | k1_xboole_0 = sK0 ),
+    inference(instantiation,[status(thm)],[c_666])).
+
+cnf(c_1281,plain,
+    ( sK0 != k1_xboole_0
+    | k1_xboole_0 = sK0
+    | k1_xboole_0 != k1_xboole_0 ),
+    inference(instantiation,[status(thm)],[c_1280])).
+
+cnf(c_6,plain,
+    ( v2_funct_1(k6_partfun1(X0)) ),
+    inference(cnf_transformation,[],[f89])).
+
+cnf(c_2963,plain,
+    ( v2_funct_1(k6_partfun1(sK0)) ),
+    inference(instantiation,[status(thm)],[c_6])).
+
+cnf(c_2964,plain,
+    ( v2_funct_1(k6_partfun1(sK0)) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_2963])).
+
+cnf(c_13,plain,
+    ( ~ r2_relset_1(X0,X1,X2,X3)
+    | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+    | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+    | X3 = X2 ),
+    inference(cnf_transformation,[],[f61])).
+
+cnf(c_390,plain,
+    ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | X3 = X0
+    | k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) != X0
+    | k6_partfun1(sK0) != X3
+    | sK0 != X2
+    | sK0 != X1 ),
+    inference(resolution_lifted,[status(thm)],[c_13,c_29])).
+
+cnf(c_391,plain,
+    ( ~ m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+    | ~ m1_subset_1(k6_partfun1(sK0),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+    | k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) ),
+    inference(unflattening,[status(thm)],[c_390])).
+
+cnf(c_16,plain,
+    ( m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0))) ),
+    inference(cnf_transformation,[],[f65])).
+
+cnf(c_399,plain,
+    ( ~ m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+    | k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) ),
+    inference(forward_subsumption_resolution,[status(thm)],[c_391,c_16])).
+
+cnf(c_1169,plain,
+    ( k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+    | m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0))) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_399])).
+
+cnf(c_14,plain,
+    ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X4,X5)))
+    | m1_subset_1(k1_partfun1(X4,X5,X1,X2,X3,X0),k1_zfmisc_1(k2_zfmisc_1(X4,X2)))
+    | ~ v1_funct_1(X0)
+    | ~ v1_funct_1(X3) ),
+    inference(cnf_transformation,[],[f64])).
+
+cnf(c_1282,plain,
+    ( m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+    | ~ m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0)))
+    | ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+    | ~ v1_funct_1(sK3)
+    | ~ v1_funct_1(sK2) ),
+    inference(instantiation,[status(thm)],[c_14])).
+
+cnf(c_2045,plain,
+    ( k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_1169,c_36,c_34,c_33,c_31,c_399,c_1282])).
+
+cnf(c_30,negated_conjecture,
+    ( k2_relset_1(sK0,sK1,sK2) = sK1 ),
+    inference(cnf_transformation,[],[f81])).
+
+cnf(c_20,plain,
+    ( ~ v1_funct_2(X0,X1,X2)
+    | ~ v1_funct_2(X3,X4,X1)
+    | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X4,X1)))
+    | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | v2_funct_1(X0)
+    | ~ v2_funct_1(k1_partfun1(X4,X1,X1,X2,X3,X0))
+    | ~ v1_funct_1(X0)
+    | ~ v1_funct_1(X3)
+    | k2_relset_1(X4,X1,X3) != X1
+    | k1_xboole_0 = X2 ),
+    inference(cnf_transformation,[],[f71])).
+
+cnf(c_1182,plain,
+    ( k2_relset_1(X0,X1,X2) != X1
+    | k1_xboole_0 = X3
+    | v1_funct_2(X4,X1,X3) != iProver_top
+    | v1_funct_2(X2,X0,X1) != iProver_top
+    | m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X3))) != iProver_top
+    | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+    | v2_funct_1(X4) = iProver_top
+    | v2_funct_1(k1_partfun1(X0,X1,X1,X3,X2,X4)) != iProver_top
+    | v1_funct_1(X4) != iProver_top
+    | v1_funct_1(X2) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_20])).
+
+cnf(c_5377,plain,
+    ( k1_xboole_0 = X0
+    | v1_funct_2(X1,sK1,X0) != iProver_top
+    | v1_funct_2(sK2,sK0,sK1) != iProver_top
+    | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK1,X0))) != iProver_top
+    | m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+    | v2_funct_1(X1) = iProver_top
+    | v2_funct_1(k1_partfun1(sK0,sK1,sK1,X0,sK2,X1)) != iProver_top
+    | v1_funct_1(X1) != iProver_top
+    | v1_funct_1(sK2) != iProver_top ),
+    inference(superposition,[status(thm)],[c_30,c_1182])).
+
+cnf(c_5408,plain,
+    ( v1_funct_1(X1) != iProver_top
+    | v2_funct_1(k1_partfun1(sK0,sK1,sK1,X0,sK2,X1)) != iProver_top
+    | v2_funct_1(X1) = iProver_top
+    | v1_funct_2(X1,sK1,X0) != iProver_top
+    | k1_xboole_0 = X0
+    | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK1,X0))) != iProver_top ),
+    inference(global_propositional_subsumption,[status(thm)],[c_5377,c_37,c_38,c_39])).
+
+cnf(c_5409,plain,
+    ( k1_xboole_0 = X0
+    | v1_funct_2(X1,sK1,X0) != iProver_top
+    | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK1,X0))) != iProver_top
+    | v2_funct_1(X1) = iProver_top
+    | v2_funct_1(k1_partfun1(sK0,sK1,sK1,X0,sK2,X1)) != iProver_top
+    | v1_funct_1(X1) != iProver_top ),
+    inference(renaming,[status(thm)],[c_5408])).
+
+cnf(c_5412,plain,
+    ( sK0 = k1_xboole_0
+    | v1_funct_2(sK3,sK1,sK0) != iProver_top
+    | m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+    | v2_funct_1(k6_partfun1(sK0)) != iProver_top
+    | v2_funct_1(sK3) = iProver_top
+    | v1_funct_1(sK3) != iProver_top ),
+    inference(superposition,[status(thm)],[c_2045,c_5409])).
+
+cnf(c_8063,plain,
+    ( k5_relat_1(sK3,k2_funct_1(sK3)) = k6_partfun1(sK1) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_3047,c_40,c_41,c_42,c_27,c_700,c_1281,c_2964,c_5412])).
+
+cnf(c_9,plain,
+    ( ~ v2_funct_1(X0)
+    | ~ v1_funct_1(X0)
+    | ~ v1_funct_1(X1)
+    | ~ v1_relat_1(X1)
+    | ~ v1_relat_1(X0)
+    | k5_relat_1(X1,X0) != k6_partfun1(k2_relat_1(X0))
+    | k2_funct_1(X0) = X1
+    | k1_relat_1(X0) != k2_relat_1(X1) ),
+    inference(cnf_transformation,[],[f91])).
+
+cnf(c_1190,plain,
+    ( k5_relat_1(X0,X1) != k6_partfun1(k2_relat_1(X1))
+    | k2_funct_1(X1) = X0
+    | k1_relat_1(X1) != k2_relat_1(X0)
+    | v2_funct_1(X1) != iProver_top
+    | v1_funct_1(X1) != iProver_top
+    | v1_funct_1(X0) != iProver_top
+    | v1_relat_1(X1) != iProver_top
+    | v1_relat_1(X0) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_9])).
+
+cnf(c_8065,plain,
+    ( k2_funct_1(k2_funct_1(sK3)) = sK3
+    | k6_partfun1(k2_relat_1(k2_funct_1(sK3))) != k6_partfun1(sK1)
+    | k1_relat_1(k2_funct_1(sK3)) != k2_relat_1(sK3)
+    | v2_funct_1(k2_funct_1(sK3)) != iProver_top
+    | v1_funct_1(k2_funct_1(sK3)) != iProver_top
+    | v1_funct_1(sK3) != iProver_top
+    | v1_relat_1(k2_funct_1(sK3)) != iProver_top
+    | v1_relat_1(sK3) != iProver_top ),
+    inference(superposition,[status(thm)],[c_8063,c_1190])).
+
+cnf(c_1176,plain,
+    ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_31])).
+
+cnf(c_11,plain,
+    ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | k2_relset_1(X1,X2,X0) = k2_relat_1(X0) ),
+    inference(cnf_transformation,[],[f60])).
+
+cnf(c_1188,plain,
+    ( k2_relset_1(X0,X1,X2) = k2_relat_1(X2)
+    | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_11])).
+
+cnf(c_2295,plain,
+    ( k2_relset_1(sK1,sK0,sK3) = k2_relat_1(sK3) ),
+    inference(superposition,[status(thm)],[c_1176,c_1188])).
+
+cnf(c_2298,plain,
+    ( k2_relat_1(sK3) = sK0 ),
+    inference(light_normalisation,[status(thm)],[c_2295,c_2052])).
+
+cnf(c_8066,plain,
+    ( k2_funct_1(k2_funct_1(sK3)) = sK3
+    | k6_partfun1(k2_relat_1(k2_funct_1(sK3))) != k6_partfun1(sK1)
+    | k1_relat_1(k2_funct_1(sK3)) != sK0
+    | v2_funct_1(k2_funct_1(sK3)) != iProver_top
+    | v1_funct_1(k2_funct_1(sK3)) != iProver_top
+    | v1_funct_1(sK3) != iProver_top
+    | v1_relat_1(k2_funct_1(sK3)) != iProver_top
+    | v1_relat_1(sK3) != iProver_top ),
+    inference(light_normalisation,[status(thm)],[c_8065,c_2298])).
+
+cnf(c_10,plain,
+    ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | v1_relat_1(X0) ),
+    inference(cnf_transformation,[],[f59])).
+
+cnf(c_1333,plain,
+    ( ~ m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+    | v1_relat_1(sK3) ),
+    inference(instantiation,[status(thm)],[c_10])).
+
+cnf(c_1710,plain,
+    ( ~ m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0)))
+    | v1_relat_1(sK3) ),
+    inference(instantiation,[status(thm)],[c_1333])).
+
+cnf(c_1711,plain,
+    ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+    | v1_relat_1(sK3) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_1710])).
+
+cnf(c_4,plain,
+    ( ~ v1_funct_1(X0)
+    | v1_funct_1(k2_funct_1(X0))
+    | ~ v1_relat_1(X0) ),
+    inference(cnf_transformation,[],[f54])).
+
+cnf(c_1960,plain,
+    ( v1_funct_1(k2_funct_1(sK3))
+    | ~ v1_funct_1(sK3)
+    | ~ v1_relat_1(sK3) ),
+    inference(instantiation,[status(thm)],[c_4])).
+
+cnf(c_1961,plain,
+    ( v1_funct_1(k2_funct_1(sK3)) = iProver_top
+    | v1_funct_1(sK3) != iProver_top
+    | v1_relat_1(sK3) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_1960])).
+
+cnf(c_5,plain,
+    ( ~ v1_funct_1(X0)
+    | ~ v1_relat_1(X0)
+    | v1_relat_1(k2_funct_1(X0)) ),
+    inference(cnf_transformation,[],[f53])).
+
+cnf(c_2966,plain,
+    ( ~ v1_funct_1(sK3)
+    | v1_relat_1(k2_funct_1(sK3))
+    | ~ v1_relat_1(sK3) ),
+    inference(instantiation,[status(thm)],[c_5])).
+
+cnf(c_2967,plain,
+    ( v1_funct_1(sK3) != iProver_top
+    | v1_relat_1(k2_funct_1(sK3)) = iProver_top
+    | v1_relat_1(sK3) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_2966])).
+
+cnf(c_42554,plain,
+    ( k2_funct_1(k2_funct_1(sK3)) = sK3
+    | k6_partfun1(k2_relat_1(k2_funct_1(sK3))) != k6_partfun1(sK1)
+    | k1_relat_1(k2_funct_1(sK3)) != sK0
+    | v2_funct_1(k2_funct_1(sK3)) != iProver_top ),
+    inference(global_propositional_subsumption,[status(thm)],[c_8066,c_40,c_42,c_1711,c_1961,c_2967])).
+
+cnf(c_1173,plain,
+    ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_34])).
+
+cnf(c_2296,plain,
+    ( k2_relset_1(sK0,sK1,sK2) = k2_relat_1(sK2) ),
+    inference(superposition,[status(thm)],[c_1173,c_1188])).
+
+cnf(c_2297,plain,
+    ( k2_relat_1(sK2) = sK1 ),
+    inference(light_normalisation,[status(thm)],[c_2296,c_30])).
+
+cnf(c_1189,plain,
+    ( m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2))) != iProver_top
+    | v1_relat_1(X0) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_10])).
+
+cnf(c_2254,plain,
+    ( v1_relat_1(sK2) = iProver_top ),
+    inference(superposition,[status(thm)],[c_1173,c_1189])).
+
+cnf(c_1171,plain,
+    ( v1_funct_1(sK2) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_36])).
+
+cnf(c_1194,plain,
+    ( v1_funct_1(X0) != iProver_top
+    | v1_relat_1(X0) != iProver_top
+    | v1_relat_1(k2_funct_1(X0)) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_5])).
+
+cnf(c_0,plain,
+    ( ~ v1_relat_1(X0)
+    | ~ v1_relat_1(X1)
+    | k9_relat_1(X0,k2_relat_1(X1)) = k2_relat_1(k5_relat_1(X1,X0)) ),
+    inference(cnf_transformation,[],[f49])).
+
+cnf(c_1197,plain,
+    ( k9_relat_1(X0,k2_relat_1(X1)) = k2_relat_1(k5_relat_1(X1,X0))
+    | v1_relat_1(X0) != iProver_top
+    | v1_relat_1(X1) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_0])).
+
+cnf(c_3053,plain,
+    ( k9_relat_1(k2_funct_1(X0),k2_relat_1(X1)) = k2_relat_1(k5_relat_1(X1,k2_funct_1(X0)))
+    | v1_funct_1(X0) != iProver_top
+    | v1_relat_1(X0) != iProver_top
+    | v1_relat_1(X1) != iProver_top ),
+    inference(superposition,[status(thm)],[c_1194,c_1197])).
+
+cnf(c_9566,plain,
+    ( k9_relat_1(k2_funct_1(sK2),k2_relat_1(X0)) = k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2)))
+    | v1_relat_1(X0) != iProver_top
+    | v1_relat_1(sK2) != iProver_top ),
+    inference(superposition,[status(thm)],[c_1171,c_3053])).
+
+cnf(c_28,negated_conjecture,
+    ( v2_funct_1(sK2) ),
+    inference(cnf_transformation,[],[f83])).
+
+cnf(c_1177,plain,
+    ( v2_funct_1(sK2) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_28])).
+
+cnf(c_8,plain,
+    ( ~ v2_funct_1(X0)
+    | ~ v1_funct_1(X0)
+    | ~ v1_relat_1(X0)
+    | k9_relat_1(k2_funct_1(X0),X1) = k10_relat_1(X0,X1) ),
+    inference(cnf_transformation,[],[f57])).
+
+cnf(c_1191,plain,
+    ( k9_relat_1(k2_funct_1(X0),X1) = k10_relat_1(X0,X1)
+    | v2_funct_1(X0) != iProver_top
+    | v1_funct_1(X0) != iProver_top
+    | v1_relat_1(X0) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_8])).
+
+cnf(c_3089,plain,
+    ( k9_relat_1(k2_funct_1(sK2),X0) = k10_relat_1(sK2,X0)
+    | v1_funct_1(sK2) != iProver_top
+    | v1_relat_1(sK2) != iProver_top ),
+    inference(superposition,[status(thm)],[c_1177,c_1191])).
+
+cnf(c_1974,plain,
+    ( ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+    | v1_relat_1(sK2) ),
+    inference(instantiation,[status(thm)],[c_10])).
+
+cnf(c_1975,plain,
+    ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+    | v1_relat_1(sK2) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_1974])).
+
+cnf(c_3140,plain,
+    ( k9_relat_1(k2_funct_1(sK2),X0) = k10_relat_1(sK2,X0) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_3089,c_37,c_39,c_1975])).
+
+cnf(c_9570,plain,
+    ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(X0))
+    | v1_relat_1(X0) != iProver_top
+    | v1_relat_1(sK2) != iProver_top ),
+    inference(demodulation,[status(thm)],[c_9566,c_3140])).
+
+cnf(c_9673,plain,
+    ( v1_relat_1(X0) != iProver_top
+    | k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(X0)) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_9570,c_39,c_1975])).
+
+cnf(c_9674,plain,
+    ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(X0))
+    | v1_relat_1(X0) != iProver_top ),
+    inference(renaming,[status(thm)],[c_9673])).
+
+cnf(c_9682,plain,
+    ( k2_relat_1(k5_relat_1(sK2,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(sK2)) ),
+    inference(superposition,[status(thm)],[c_2254,c_9674])).
+
+cnf(c_1,plain,
+    ( ~ v1_relat_1(X0)
+    | k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0) ),
+    inference(cnf_transformation,[],[f50])).
+
+cnf(c_1196,plain,
+    ( k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0)
+    | v1_relat_1(X0) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_1])).
+
+cnf(c_2358,plain,
+    ( k10_relat_1(sK2,k2_relat_1(sK2)) = k1_relat_1(sK2) ),
+    inference(superposition,[status(thm)],[c_2254,c_1196])).
+
+cnf(c_2359,plain,
+    ( k10_relat_1(sK2,sK1) = k1_relat_1(sK2) ),
+    inference(light_normalisation,[status(thm)],[c_2358,c_2297])).
+
+cnf(c_3046,plain,
+    ( k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(sK0)
+    | sK1 = k1_xboole_0
+    | v1_funct_2(sK2,sK0,sK1) != iProver_top
+    | m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+    | v2_funct_1(sK2) != iProver_top
+    | v1_funct_1(sK2) != iProver_top ),
+    inference(superposition,[status(thm)],[c_30,c_1178])).
+
+cnf(c_26,negated_conjecture,
+    ( k1_xboole_0 != sK1 ),
+    inference(cnf_transformation,[],[f85])).
+
+cnf(c_1245,plain,
+    ( ~ v1_funct_2(X0,X1,sK1)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,sK1)))
+    | ~ v2_funct_1(X0)
+    | ~ v1_funct_1(X0)
+    | k2_relset_1(X1,sK1,X0) != sK1
+    | k5_relat_1(X0,k2_funct_1(X0)) = k6_partfun1(X1)
+    | k1_xboole_0 = sK1 ),
+    inference(instantiation,[status(thm)],[c_24])).
+
+cnf(c_1370,plain,
+    ( ~ v1_funct_2(sK2,X0,sK1)
+    | ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(X0,sK1)))
+    | ~ v2_funct_1(sK2)
+    | ~ v1_funct_1(sK2)
+    | k2_relset_1(X0,sK1,sK2) != sK1
+    | k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(X0)
+    | k1_xboole_0 = sK1 ),
+    inference(instantiation,[status(thm)],[c_1245])).
+
+cnf(c_1587,plain,
+    ( ~ v1_funct_2(sK2,sK0,sK1)
+    | ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+    | ~ v2_funct_1(sK2)
+    | ~ v1_funct_1(sK2)
+    | k2_relset_1(sK0,sK1,sK2) != sK1
+    | k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(sK0)
+    | k1_xboole_0 = sK1 ),
+    inference(instantiation,[status(thm)],[c_1370])).
+
+cnf(c_3097,plain,
+    ( k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(sK0) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_3046,c_36,c_35,c_34,c_30,c_28,c_26,c_1587])).
+
+cnf(c_9689,plain,
+    ( k2_relat_1(k6_partfun1(sK0)) = k1_relat_1(sK2) ),
+    inference(light_normalisation,[status(thm)],[c_9682,c_2297,c_2359,c_3097])).
+
+cnf(c_2,plain,
+    ( k2_relat_1(k6_partfun1(X0)) = X0 ),
+    inference(cnf_transformation,[],[f87])).
+
+cnf(c_9690,plain,
+    ( k1_relat_1(sK2) = sK0 ),
+    inference(demodulation,[status(thm)],[c_9689,c_2])).
+
+cnf(c_2253,plain,
+    ( v1_relat_1(sK3) = iProver_top ),
+    inference(superposition,[status(thm)],[c_1176,c_1189])).
+
+cnf(c_1174,plain,
+    ( v1_funct_1(sK3) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_33])).
+
+cnf(c_9565,plain,
+    ( k9_relat_1(k2_funct_1(sK3),k2_relat_1(X0)) = k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3)))
+    | v1_relat_1(X0) != iProver_top
+    | v1_relat_1(sK3) != iProver_top ),
+    inference(superposition,[status(thm)],[c_1174,c_3053])).
+
+cnf(c_5518,plain,
+    ( v2_funct_1(sK3) = iProver_top ),
+    inference(global_propositional_subsumption,[status(thm)],[c_5412,c_40,c_41,c_42,c_27,c_700,c_1281,c_2964])).
+
+cnf(c_5522,plain,
+    ( k9_relat_1(k2_funct_1(sK3),X0) = k10_relat_1(sK3,X0)
+    | v1_funct_1(sK3) != iProver_top
+    | v1_relat_1(sK3) != iProver_top ),
+    inference(superposition,[status(thm)],[c_5518,c_1191])).
+
+cnf(c_5609,plain,
+    ( k9_relat_1(k2_funct_1(sK3),X0) = k10_relat_1(sK3,X0) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_5522,c_40,c_42,c_1711])).
+
+cnf(c_9571,plain,
+    ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(X0))
+    | v1_relat_1(X0) != iProver_top
+    | v1_relat_1(sK3) != iProver_top ),
+    inference(demodulation,[status(thm)],[c_9565,c_5609])).
+
+cnf(c_9760,plain,
+    ( v1_relat_1(X0) != iProver_top
+    | k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(X0)) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_9571,c_42,c_1711])).
+
+cnf(c_9761,plain,
+    ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(X0))
+    | v1_relat_1(X0) != iProver_top ),
+    inference(renaming,[status(thm)],[c_9760])).
+
+cnf(c_9768,plain,
+    ( k2_relat_1(k5_relat_1(sK3,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(sK3)) ),
+    inference(superposition,[status(thm)],[c_2253,c_9761])).
+
+cnf(c_2355,plain,
+    ( k10_relat_1(sK3,k2_relat_1(sK3)) = k1_relat_1(sK3) ),
+    inference(superposition,[status(thm)],[c_2253,c_1196])).
+
+cnf(c_2356,plain,
+    ( k10_relat_1(sK3,sK0) = k1_relat_1(sK3) ),
+    inference(light_normalisation,[status(thm)],[c_2355,c_2298])).
+
+cnf(c_9777,plain,
+    ( k2_relat_1(k6_partfun1(sK1)) = k1_relat_1(sK3) ),
+    inference(light_normalisation,[status(thm)],[c_9768,c_2298,c_2356,c_8063])).
+
+cnf(c_9778,plain,
+    ( k1_relat_1(sK3) = sK1 ),
+    inference(demodulation,[status(thm)],[c_9777,c_2])).
+
+cnf(c_17,plain,
+    ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+    | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X4,X5)))
+    | ~ v1_funct_1(X0)
+    | ~ v1_funct_1(X3)
+    | k1_partfun1(X4,X5,X1,X2,X3,X0) = k5_relat_1(X3,X0) ),
+    inference(cnf_transformation,[],[f66])).
+
+cnf(c_1184,plain,
+    ( k1_partfun1(X0,X1,X2,X3,X4,X5) = k5_relat_1(X4,X5)
+    | m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) != iProver_top
+    | m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+    | v1_funct_1(X5) != iProver_top
+    | v1_funct_1(X4) != iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_17])).
+
+cnf(c_3511,plain,
+    ( k1_partfun1(X0,X1,sK1,sK0,X2,sK3) = k5_relat_1(X2,sK3)
+    | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+    | v1_funct_1(X2) != iProver_top
+    | v1_funct_1(sK3) != iProver_top ),
+    inference(superposition,[status(thm)],[c_1176,c_1184])).
+
+cnf(c_4385,plain,
+    ( v1_funct_1(X2) != iProver_top
+    | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+    | k1_partfun1(X0,X1,sK1,sK0,X2,sK3) = k5_relat_1(X2,sK3) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_3511,c_40])).
+
+cnf(c_4386,plain,
+    ( k1_partfun1(X0,X1,sK1,sK0,X2,sK3) = k5_relat_1(X2,sK3)
+    | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+    | v1_funct_1(X2) != iProver_top ),
+    inference(renaming,[status(thm)],[c_4385])).
+
+cnf(c_4393,plain,
+    ( k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) = k5_relat_1(sK2,sK3)
+    | v1_funct_1(sK2) != iProver_top ),
+    inference(superposition,[status(thm)],[c_1173,c_4386])).
+
+cnf(c_4394,plain,
+    ( k5_relat_1(sK2,sK3) = k6_partfun1(sK0)
+    | v1_funct_1(sK2) != iProver_top ),
+    inference(light_normalisation,[status(thm)],[c_4393,c_2045])).
+
+cnf(c_4831,plain,
+    ( k5_relat_1(sK2,sK3) = k6_partfun1(sK0) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_4394,c_37])).
+
+cnf(c_5053,plain,
+    ( k2_funct_1(sK3) = sK2
+    | k6_partfun1(k2_relat_1(sK3)) != k6_partfun1(sK0)
+    | k1_relat_1(sK3) != k2_relat_1(sK2)
+    | v2_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK2) != iProver_top
+    | v1_relat_1(sK3) != iProver_top
+    | v1_relat_1(sK2) != iProver_top ),
+    inference(superposition,[status(thm)],[c_4831,c_1190])).
+
+cnf(c_5054,plain,
+    ( k2_funct_1(sK3) = sK2
+    | k6_partfun1(sK0) != k6_partfun1(sK0)
+    | k1_relat_1(sK3) != sK1
+    | v2_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK2) != iProver_top
+    | v1_relat_1(sK3) != iProver_top
+    | v1_relat_1(sK2) != iProver_top ),
+    inference(light_normalisation,[status(thm)],[c_5053,c_2297,c_2298])).
+
+cnf(c_5055,plain,
+    ( k2_funct_1(sK3) = sK2
+    | k1_relat_1(sK3) != sK1
+    | v2_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK3) != iProver_top
+    | v1_funct_1(sK2) != iProver_top
+    | v1_relat_1(sK3) != iProver_top
+    | v1_relat_1(sK2) != iProver_top ),
+    inference(equality_resolution_simp,[status(thm)],[c_5054])).
+
+cnf(c_7423,plain,
+    ( k1_relat_1(sK3) != sK1
+    | k2_funct_1(sK3) = sK2 ),
+    inference(global_propositional_subsumption,[status(thm)],[c_5055,c_37,c_39,c_40,c_41,c_42,c_27,c_700,c_1281,c_1711,c_1975,c_2964,c_5412])).
+
+cnf(c_7424,plain,
+    ( k2_funct_1(sK3) = sK2
+    | k1_relat_1(sK3) != sK1 ),
+    inference(renaming,[status(thm)],[c_7423])).
+
+cnf(c_9904,plain,
+    ( k2_funct_1(sK3) = sK2
+    | sK1 != sK1 ),
+    inference(demodulation,[status(thm)],[c_9778,c_7424])).
+
+cnf(c_9906,plain,
+    ( k2_funct_1(sK3) = sK2 ),
+    inference(equality_resolution_simp,[status(thm)],[c_9904])).
+
+cnf(c_42558,plain,
+    ( k2_funct_1(sK2) = sK3
+    | k6_partfun1(sK1) != k6_partfun1(sK1)
+    | sK0 != sK0
+    | v2_funct_1(sK2) != iProver_top ),
+    inference(light_normalisation,[status(thm)],[c_42554,c_2297,c_9690,c_9906])).
+
+cnf(c_42559,plain,
+    ( k2_funct_1(sK2) = sK3
+    | v2_funct_1(sK2) != iProver_top ),
+    inference(equality_resolution_simp,[status(thm)],[c_42558])).
+
+cnf(c_25,negated_conjecture,
+    ( k2_funct_1(sK2) != sK3 ),
+    inference(cnf_transformation,[],[f86])).
+
+cnf(c_44,plain,
+    ( v2_funct_1(sK2) = iProver_top ),
+    inference(predicate_to_equality,[status(thm)],[c_28])).
+
+cnf(contradiction,plain,
+    ( $false ),
+    inference(minisat,[status(thm)],[c_42559,c_25,c_44])).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.03/0.11  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.03/0.12  % Command    : iproveropt_run.sh %d %s
+% 0.12/0.32  % Computer   : n021.cluster.edu
+% 0.12/0.32  % Model      : x86_64 x86_64
+% 0.12/0.32  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.12/0.32  % Memory     : 8042.1875MB
+% 0.12/0.32  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.12/0.32  % CPULimit   : 60
+% 0.12/0.32  % WCLimit    : 600
+% 0.12/0.32  % DateTime   : Tue Dec  1 18:10:04 EST 2020
+% 0.12/0.33  % CPUTime    : 
+% 0.12/0.33  % Running in FOF mode
+% 19.19/2.99  % SZS status Started for /export/starexec/sandbox2/benchmark/theBenchmark.p
+% 19.19/2.99  
+% 19.19/2.99  %---------------- iProver v3.3 (CASC-J10 2020) ----------------%
+% 19.19/2.99  
+% 19.19/2.99  ------  iProver source info
+% 19.19/2.99  
+% 19.19/2.99  git: date: 2020-06-30 10:37:57 +0100
+% 19.19/2.99  git: sha1: e3013b43002810b07ddde22341e87fe21d0d6388
+% 19.19/2.99  git: non_committed_changes: false
+% 19.19/2.99  git: last_make_outside_of_git: false
+% 19.19/2.99  
+% 19.19/2.99  ------ 
+% 19.19/2.99  
+% 19.19/2.99  ------ Input Options
+% 19.19/2.99  
+% 19.19/2.99  --out_options                           all
+% 19.19/2.99  --tptp_safe_out                         true
+% 19.19/2.99  --problem_path                          ""
+% 19.19/2.99  --include_path                          ""
+% 19.19/2.99  --clausifier                            res/vclausify_rel
+% 19.19/2.99  --clausifier_options                    ""
+% 19.19/2.99  --stdin                                 false
+% 19.19/2.99  --stats_out                             all
+% 19.19/2.99  
+% 19.19/2.99  ------ General Options
+% 19.19/2.99  
+% 19.19/2.99  --fof                                   false
+% 19.19/2.99  --time_out_real                         305.
+% 19.19/2.99  --time_out_virtual                      -1.
+% 19.19/2.99  --symbol_type_check                     false
+% 19.19/2.99  --clausify_out                          false
+% 19.19/2.99  --sig_cnt_out                           false
+% 19.19/2.99  --trig_cnt_out                          false
+% 19.19/2.99  --trig_cnt_out_tolerance                1.
+% 19.19/2.99  --trig_cnt_out_sk_spl                   false
+% 19.19/2.99  --abstr_cl_out                          false
+% 19.19/2.99  
+% 19.19/2.99  ------ Global Options
+% 19.19/2.99  
+% 19.19/2.99  --schedule                              default
+% 19.19/2.99  --add_important_lit                     false
+% 19.19/2.99  --prop_solver_per_cl                    1000
+% 19.19/2.99  --min_unsat_core                        false
+% 19.19/2.99  --soft_assumptions                      false
+% 19.19/2.99  --soft_lemma_size                       3
+% 19.19/2.99  --prop_impl_unit_size                   0
+% 19.19/2.99  --prop_impl_unit                        []
+% 19.19/2.99  --share_sel_clauses                     true
+% 19.19/2.99  --reset_solvers                         false
+% 19.19/2.99  --bc_imp_inh                            [conj_cone]
+% 19.19/2.99  --conj_cone_tolerance                   3.
+% 19.19/2.99  --extra_neg_conj                        none
+% 19.19/2.99  --large_theory_mode                     true
+% 19.19/2.99  --prolific_symb_bound                   200
+% 19.19/2.99  --lt_threshold                          2000
+% 19.19/2.99  --clause_weak_htbl                      true
+% 19.19/2.99  --gc_record_bc_elim                     false
+% 19.19/2.99  
+% 19.19/2.99  ------ Preprocessing Options
+% 19.19/2.99  
+% 19.19/2.99  --preprocessing_flag                    true
+% 19.19/2.99  --time_out_prep_mult                    0.1
+% 19.19/2.99  --splitting_mode                        input
+% 19.19/2.99  --splitting_grd                         true
+% 19.19/2.99  --splitting_cvd                         false
+% 19.19/2.99  --splitting_cvd_svl                     false
+% 19.19/2.99  --splitting_nvd                         32
+% 19.19/2.99  --sub_typing                            true
+% 19.19/2.99  --prep_gs_sim                           true
+% 19.19/2.99  --prep_unflatten                        true
+% 19.19/2.99  --prep_res_sim                          true
+% 19.19/2.99  --prep_upred                            true
+% 19.19/2.99  --prep_sem_filter                       exhaustive
+% 19.19/2.99  --prep_sem_filter_out                   false
+% 19.19/2.99  --pred_elim                             true
+% 19.19/2.99  --res_sim_input                         true
+% 19.19/2.99  --eq_ax_congr_red                       true
+% 19.19/2.99  --pure_diseq_elim                       true
+% 19.19/2.99  --brand_transform                       false
+% 19.19/2.99  --non_eq_to_eq                          false
+% 19.19/2.99  --prep_def_merge                        true
+% 19.19/2.99  --prep_def_merge_prop_impl              false
+% 19.19/2.99  --prep_def_merge_mbd                    true
+% 19.19/2.99  --prep_def_merge_tr_red                 false
+% 19.19/2.99  --prep_def_merge_tr_cl                  false
+% 19.19/2.99  --smt_preprocessing                     true
+% 19.19/2.99  --smt_ac_axioms                         fast
+% 19.19/2.99  --preprocessed_out                      false
+% 19.19/2.99  --preprocessed_stats                    false
+% 19.19/2.99  
+% 19.19/2.99  ------ Abstraction refinement Options
+% 19.19/2.99  
+% 19.19/2.99  --abstr_ref                             []
+% 19.19/2.99  --abstr_ref_prep                        false
+% 19.19/2.99  --abstr_ref_until_sat                   false
+% 19.19/2.99  --abstr_ref_sig_restrict                funpre
+% 19.19/2.99  --abstr_ref_af_restrict_to_split_sk     false
+% 19.19/2.99  --abstr_ref_under                       []
+% 19.19/2.99  
+% 19.19/2.99  ------ SAT Options
+% 19.19/2.99  
+% 19.19/2.99  --sat_mode                              false
+% 19.19/2.99  --sat_fm_restart_options                ""
+% 19.19/2.99  --sat_gr_def                            false
+% 19.19/2.99  --sat_epr_types                         true
+% 19.19/2.99  --sat_non_cyclic_types                  false
+% 19.19/2.99  --sat_finite_models                     false
+% 19.19/2.99  --sat_fm_lemmas                         false
+% 19.19/2.99  --sat_fm_prep                           false
+% 19.19/2.99  --sat_fm_uc_incr                        true
+% 19.19/2.99  --sat_out_model                         small
+% 19.19/2.99  --sat_out_clauses                       false
+% 19.19/2.99  
+% 19.19/2.99  ------ QBF Options
+% 19.19/2.99  
+% 19.19/2.99  --qbf_mode                              false
+% 19.19/2.99  --qbf_elim_univ                         false
+% 19.19/2.99  --qbf_dom_inst                          none
+% 19.19/2.99  --qbf_dom_pre_inst                      false
+% 19.19/2.99  --qbf_sk_in                             false
+% 19.19/2.99  --qbf_pred_elim                         true
+% 19.19/2.99  --qbf_split                             512
+% 19.19/2.99  
+% 19.19/2.99  ------ BMC1 Options
+% 19.19/2.99  
+% 19.19/2.99  --bmc1_incremental                      false
+% 19.19/2.99  --bmc1_axioms                           reachable_all
+% 19.19/2.99  --bmc1_min_bound                        0
+% 19.19/2.99  --bmc1_max_bound                        -1
+% 19.19/2.99  --bmc1_max_bound_default                -1
+% 19.19/2.99  --bmc1_symbol_reachability              true
+% 19.19/2.99  --bmc1_property_lemmas                  false
+% 19.19/2.99  --bmc1_k_induction                      false
+% 19.19/2.99  --bmc1_non_equiv_states                 false
+% 19.19/2.99  --bmc1_deadlock                         false
+% 19.19/2.99  --bmc1_ucm                              false
+% 19.19/2.99  --bmc1_add_unsat_core                   none
+% 19.19/2.99  --bmc1_unsat_core_children              false
+% 19.19/2.99  --bmc1_unsat_core_extrapolate_axioms    false
+% 19.19/2.99  --bmc1_out_stat                         full
+% 19.19/2.99  --bmc1_ground_init                      false
+% 19.19/2.99  --bmc1_pre_inst_next_state              false
+% 19.19/2.99  --bmc1_pre_inst_state                   false
+% 19.19/2.99  --bmc1_pre_inst_reach_state             false
+% 19.19/2.99  --bmc1_out_unsat_core                   false
+% 19.19/2.99  --bmc1_aig_witness_out                  false
+% 19.19/2.99  --bmc1_verbose                          false
+% 19.19/2.99  --bmc1_dump_clauses_tptp                false
+% 19.19/2.99  --bmc1_dump_unsat_core_tptp             false
+% 19.19/2.99  --bmc1_dump_file                        -
+% 19.19/2.99  --bmc1_ucm_expand_uc_limit              128
+% 19.19/2.99  --bmc1_ucm_n_expand_iterations          6
+% 19.19/2.99  --bmc1_ucm_extend_mode                  1
+% 19.19/2.99  --bmc1_ucm_init_mode                    2
+% 19.19/2.99  --bmc1_ucm_cone_mode                    none
+% 19.19/2.99  --bmc1_ucm_reduced_relation_type        0
+% 19.19/2.99  --bmc1_ucm_relax_model                  4
+% 19.19/2.99  --bmc1_ucm_full_tr_after_sat            true
+% 19.19/2.99  --bmc1_ucm_expand_neg_assumptions       false
+% 19.19/2.99  --bmc1_ucm_layered_model                none
+% 19.19/2.99  --bmc1_ucm_max_lemma_size               10
+% 19.19/2.99  
+% 19.19/2.99  ------ AIG Options
+% 19.19/2.99  
+% 19.19/2.99  --aig_mode                              false
+% 19.19/2.99  
+% 19.19/2.99  ------ Instantiation Options
+% 19.19/2.99  
+% 19.19/2.99  --instantiation_flag                    true
+% 19.19/2.99  --inst_sos_flag                         true
+% 19.19/2.99  --inst_sos_phase                        true
+% 19.19/2.99  --inst_sos_sth_lit_sel                  [+prop;+non_prol_conj_symb;-eq;+ground;-num_var;-num_symb]
+% 19.19/2.99  --inst_lit_sel                          [+prop;+sign;+ground;-num_var;-num_symb]
+% 19.19/2.99  --inst_lit_sel_side                     num_symb
+% 19.19/2.99  --inst_solver_per_active                1400
+% 19.19/2.99  --inst_solver_calls_frac                1.
+% 19.19/2.99  --inst_passive_queue_type               priority_queues
+% 19.19/2.99  --inst_passive_queues                   [[-conj_dist;+conj_symb;-num_var];[+age;-num_symb]]
+% 19.19/2.99  --inst_passive_queues_freq              [25;2]
+% 19.19/2.99  --inst_dismatching                      true
+% 19.19/2.99  --inst_eager_unprocessed_to_passive     true
+% 19.19/2.99  --inst_prop_sim_given                   true
+% 19.19/2.99  --inst_prop_sim_new                     false
+% 19.19/2.99  --inst_subs_new                         false
+% 19.19/2.99  --inst_eq_res_simp                      false
+% 19.19/2.99  --inst_subs_given                       false
+% 19.19/2.99  --inst_orphan_elimination               true
+% 19.19/2.99  --inst_learning_loop_flag               true
+% 19.19/2.99  --inst_learning_start                   3000
+% 19.19/2.99  --inst_learning_factor                  2
+% 19.19/2.99  --inst_start_prop_sim_after_learn       3
+% 19.19/2.99  --inst_sel_renew                        solver
+% 19.19/2.99  --inst_lit_activity_flag                true
+% 19.19/2.99  --inst_restr_to_given                   false
+% 19.19/2.99  --inst_activity_threshold               500
+% 19.19/2.99  --inst_out_proof                        true
+% 19.19/2.99  
+% 19.19/2.99  ------ Resolution Options
+% 19.19/2.99  
+% 19.19/2.99  --resolution_flag                       true
+% 19.19/2.99  --res_lit_sel                           adaptive
+% 19.19/2.99  --res_lit_sel_side                      none
+% 19.19/2.99  --res_ordering                          kbo
+% 19.19/2.99  --res_to_prop_solver                    active
+% 19.19/2.99  --res_prop_simpl_new                    false
+% 19.19/2.99  --res_prop_simpl_given                  true
+% 19.19/2.99  --res_passive_queue_type                priority_queues
+% 19.19/2.99  --res_passive_queues                    [[-conj_dist;+conj_symb;-num_symb];[+age;-num_symb]]
+% 19.19/2.99  --res_passive_queues_freq               [15;5]
+% 19.19/2.99  --res_forward_subs                      full
+% 19.19/2.99  --res_backward_subs                     full
+% 19.19/2.99  --res_forward_subs_resolution           true
+% 19.19/2.99  --res_backward_subs_resolution          true
+% 19.19/2.99  --res_orphan_elimination                true
+% 19.19/2.99  --res_time_limit                        2.
+% 19.19/2.99  --res_out_proof                         true
+% 19.19/2.99  
+% 19.19/2.99  ------ Superposition Options
+% 19.19/2.99  
+% 19.19/2.99  --superposition_flag                    true
+% 19.19/2.99  --sup_passive_queue_type                priority_queues
+% 19.19/2.99  --sup_passive_queues                    [[-conj_dist;+horn;-num_symb];[+min_def_symb;-max_atom_input_occur;+conj_non_prolific_symb];[+age;-num_symb]]
+% 19.19/2.99  --sup_passive_queues_freq               [8;1;4]
+% 19.19/2.99  --demod_completeness_check              fast
+% 19.19/2.99  --demod_use_ground                      true
+% 19.19/2.99  --sup_to_prop_solver                    passive
+% 19.19/2.99  --sup_prop_simpl_new                    true
+% 19.19/2.99  --sup_prop_simpl_given                  true
+% 19.19/2.99  --sup_fun_splitting                     true
+% 19.19/2.99  --sup_smt_interval                      50000
+% 19.19/2.99  
+% 19.19/2.99  ------ Superposition Simplification Setup
+% 19.19/2.99  
+% 19.19/2.99  --sup_indices_passive                   [LightNormIndex;FwDemodIndex]
+% 19.19/2.99  --sup_indices_active                    [SubsumptionIndex;BwDemodIndex]
+% 19.19/2.99  --sup_indices_immed                     [SubsumptionIndex;FwDemodIndex;BwDemodIndex]
+% 19.19/2.99  --sup_indices_input                     [SubsumptionIndex;LightNormIndex;FwDemodIndex]
+% 19.19/2.99  --sup_full_triv                         [TrivRules;PropSubs]
+% 19.19/2.99  --sup_full_fw                           [FwDemodLightNormLoopTriv;FwSubsumption;Joinability]
+% 19.19/2.99  --sup_full_bw                           [BwDemod;BwSubsumption]
+% 19.19/2.99  --sup_immed_triv                        [TrivRules]
+% 19.19/2.99  --sup_immed_fw_main                     [Joinability;FwDemodLightNormLoopTriv;FwSubsumption]
+% 19.19/2.99  --sup_immed_fw_immed                    [FwDemodLightNormLoopTriv;FwSubsumption]
+% 19.19/2.99  --sup_immed_bw_main                     []
+% 19.19/2.99  --sup_immed_bw_immed                    [BwDemod;BwSubsumption]
+% 19.19/2.99  --sup_input_triv                        [Unflattening;TrivRules]
+% 19.19/2.99  --sup_input_fw                          [FwDemodLightNormLoopTriv;FwSubsumption]
+% 19.19/2.99  --sup_input_bw                          []
+% 19.19/2.99  
+% 19.19/2.99  ------ Combination Options
+% 19.19/2.99  
+% 19.19/2.99  --comb_res_mult                         3
+% 19.19/2.99  --comb_sup_mult                         2
+% 19.19/2.99  --comb_inst_mult                        10
+% 19.19/2.99  
+% 19.19/2.99  ------ Debug Options
+% 19.19/2.99  
+% 19.19/2.99  --dbg_backtrace                         false
+% 19.19/2.99  --dbg_dump_prop_clauses                 false
+% 19.19/2.99  --dbg_dump_prop_clauses_file            -
+% 19.19/2.99  --dbg_out_stat                          false
+% 19.19/2.99  ------ Parsing...
+% 19.19/2.99  ------ Clausification by vclausify_rel  & Parsing by iProver...
+% 19.19/2.99  
+% 19.19/2.99  ------ Preprocessing... sf_s  rm: 1 0s  sf_e  pe_s  pe:1:0s pe_e  sf_s  rm: 2 0s  sf_e  pe_s  pe_e 
+% 19.19/2.99  
+% 19.19/2.99  ------ Preprocessing... gs_s  sp: 0 0s  gs_e  snvd_s sp: 0 0s snvd_e 
+% 19.19/2.99  
+% 19.19/2.99  ------ Preprocessing... sf_s  rm: 1 0s  sf_e  sf_s  rm: 0 0s  sf_e 
+% 19.19/2.99  ------ Proving...
+% 19.19/2.99  ------ Problem Properties 
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  clauses                                 36
+% 19.19/2.99  conjectures                             11
+% 19.19/2.99  EPR                                     7
+% 19.19/2.99  Horn                                    32
+% 19.19/2.99  unary                                   16
+% 19.19/2.99  binary                                  4
+% 19.19/2.99  lits                                    128
+% 19.19/2.99  lits eq                                 31
+% 19.19/2.99  fd_pure                                 0
+% 19.19/2.99  fd_pseudo                               0
+% 19.19/2.99  fd_cond                                 4
+% 19.19/2.99  fd_pseudo_cond                          1
+% 19.19/2.99  AC symbols                              0
+% 19.19/2.99  
+% 19.19/2.99  ------ Schedule dynamic 5 is on 
+% 19.19/2.99  
+% 19.19/2.99  ------ Input Options "--resolution_flag false --inst_lit_sel_side none" Time Limit: 10.
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  ------ 
+% 19.19/2.99  Current options:
+% 19.19/2.99  ------ 
+% 19.19/2.99  
+% 19.19/2.99  ------ Input Options
+% 19.19/2.99  
+% 19.19/2.99  --out_options                           all
+% 19.19/2.99  --tptp_safe_out                         true
+% 19.19/2.99  --problem_path                          ""
+% 19.19/2.99  --include_path                          ""
+% 19.19/2.99  --clausifier                            res/vclausify_rel
+% 19.19/2.99  --clausifier_options                    ""
+% 19.19/2.99  --stdin                                 false
+% 19.19/2.99  --stats_out                             all
+% 19.19/2.99  
+% 19.19/2.99  ------ General Options
+% 19.19/2.99  
+% 19.19/2.99  --fof                                   false
+% 19.19/2.99  --time_out_real                         305.
+% 19.19/2.99  --time_out_virtual                      -1.
+% 19.19/2.99  --symbol_type_check                     false
+% 19.19/2.99  --clausify_out                          false
+% 19.19/2.99  --sig_cnt_out                           false
+% 19.19/2.99  --trig_cnt_out                          false
+% 19.19/2.99  --trig_cnt_out_tolerance                1.
+% 19.19/2.99  --trig_cnt_out_sk_spl                   false
+% 19.19/2.99  --abstr_cl_out                          false
+% 19.19/2.99  
+% 19.19/2.99  ------ Global Options
+% 19.19/2.99  
+% 19.19/2.99  --schedule                              default
+% 19.19/2.99  --add_important_lit                     false
+% 19.19/2.99  --prop_solver_per_cl                    1000
+% 19.19/2.99  --min_unsat_core                        false
+% 19.19/2.99  --soft_assumptions                      false
+% 19.19/2.99  --soft_lemma_size                       3
+% 19.19/2.99  --prop_impl_unit_size                   0
+% 19.19/2.99  --prop_impl_unit                        []
+% 19.19/2.99  --share_sel_clauses                     true
+% 19.19/2.99  --reset_solvers                         false
+% 19.19/2.99  --bc_imp_inh                            [conj_cone]
+% 19.19/2.99  --conj_cone_tolerance                   3.
+% 19.19/2.99  --extra_neg_conj                        none
+% 19.19/2.99  --large_theory_mode                     true
+% 19.19/2.99  --prolific_symb_bound                   200
+% 19.19/2.99  --lt_threshold                          2000
+% 19.19/2.99  --clause_weak_htbl                      true
+% 19.19/2.99  --gc_record_bc_elim                     false
+% 19.19/2.99  
+% 19.19/2.99  ------ Preprocessing Options
+% 19.19/2.99  
+% 19.19/2.99  --preprocessing_flag                    true
+% 19.19/2.99  --time_out_prep_mult                    0.1
+% 19.19/2.99  --splitting_mode                        input
+% 19.19/2.99  --splitting_grd                         true
+% 19.19/2.99  --splitting_cvd                         false
+% 19.19/2.99  --splitting_cvd_svl                     false
+% 19.19/2.99  --splitting_nvd                         32
+% 19.19/2.99  --sub_typing                            true
+% 19.19/2.99  --prep_gs_sim                           true
+% 19.19/2.99  --prep_unflatten                        true
+% 19.19/2.99  --prep_res_sim                          true
+% 19.19/2.99  --prep_upred                            true
+% 19.19/2.99  --prep_sem_filter                       exhaustive
+% 19.19/2.99  --prep_sem_filter_out                   false
+% 19.19/2.99  --pred_elim                             true
+% 19.19/2.99  --res_sim_input                         true
+% 19.19/2.99  --eq_ax_congr_red                       true
+% 19.19/2.99  --pure_diseq_elim                       true
+% 19.19/2.99  --brand_transform                       false
+% 19.19/2.99  --non_eq_to_eq                          false
+% 19.19/2.99  --prep_def_merge                        true
+% 19.19/2.99  --prep_def_merge_prop_impl              false
+% 19.19/2.99  --prep_def_merge_mbd                    true
+% 19.19/2.99  --prep_def_merge_tr_red                 false
+% 19.19/2.99  --prep_def_merge_tr_cl                  false
+% 19.19/2.99  --smt_preprocessing                     true
+% 19.19/2.99  --smt_ac_axioms                         fast
+% 19.19/2.99  --preprocessed_out                      false
+% 19.19/2.99  --preprocessed_stats                    false
+% 19.19/2.99  
+% 19.19/2.99  ------ Abstraction refinement Options
+% 19.19/2.99  
+% 19.19/2.99  --abstr_ref                             []
+% 19.19/2.99  --abstr_ref_prep                        false
+% 19.19/2.99  --abstr_ref_until_sat                   false
+% 19.19/2.99  --abstr_ref_sig_restrict                funpre
+% 19.19/2.99  --abstr_ref_af_restrict_to_split_sk     false
+% 19.19/2.99  --abstr_ref_under                       []
+% 19.19/2.99  
+% 19.19/2.99  ------ SAT Options
+% 19.19/2.99  
+% 19.19/2.99  --sat_mode                              false
+% 19.19/2.99  --sat_fm_restart_options                ""
+% 19.19/2.99  --sat_gr_def                            false
+% 19.19/2.99  --sat_epr_types                         true
+% 19.19/2.99  --sat_non_cyclic_types                  false
+% 19.19/2.99  --sat_finite_models                     false
+% 19.19/2.99  --sat_fm_lemmas                         false
+% 19.19/2.99  --sat_fm_prep                           false
+% 19.19/2.99  --sat_fm_uc_incr                        true
+% 19.19/2.99  --sat_out_model                         small
+% 19.19/2.99  --sat_out_clauses                       false
+% 19.19/2.99  
+% 19.19/2.99  ------ QBF Options
+% 19.19/2.99  
+% 19.19/2.99  --qbf_mode                              false
+% 19.19/2.99  --qbf_elim_univ                         false
+% 19.19/2.99  --qbf_dom_inst                          none
+% 19.19/2.99  --qbf_dom_pre_inst                      false
+% 19.19/2.99  --qbf_sk_in                             false
+% 19.19/2.99  --qbf_pred_elim                         true
+% 19.19/2.99  --qbf_split                             512
+% 19.19/2.99  
+% 19.19/2.99  ------ BMC1 Options
+% 19.19/2.99  
+% 19.19/2.99  --bmc1_incremental                      false
+% 19.19/2.99  --bmc1_axioms                           reachable_all
+% 19.19/2.99  --bmc1_min_bound                        0
+% 19.19/2.99  --bmc1_max_bound                        -1
+% 19.19/2.99  --bmc1_max_bound_default                -1
+% 19.19/2.99  --bmc1_symbol_reachability              true
+% 19.19/2.99  --bmc1_property_lemmas                  false
+% 19.19/2.99  --bmc1_k_induction                      false
+% 19.19/2.99  --bmc1_non_equiv_states                 false
+% 19.19/2.99  --bmc1_deadlock                         false
+% 19.19/2.99  --bmc1_ucm                              false
+% 19.19/2.99  --bmc1_add_unsat_core                   none
+% 19.19/2.99  --bmc1_unsat_core_children              false
+% 19.19/2.99  --bmc1_unsat_core_extrapolate_axioms    false
+% 19.19/2.99  --bmc1_out_stat                         full
+% 19.19/2.99  --bmc1_ground_init                      false
+% 19.19/2.99  --bmc1_pre_inst_next_state              false
+% 19.19/2.99  --bmc1_pre_inst_state                   false
+% 19.19/2.99  --bmc1_pre_inst_reach_state             false
+% 19.19/2.99  --bmc1_out_unsat_core                   false
+% 19.19/2.99  --bmc1_aig_witness_out                  false
+% 19.19/2.99  --bmc1_verbose                          false
+% 19.19/2.99  --bmc1_dump_clauses_tptp                false
+% 19.19/2.99  --bmc1_dump_unsat_core_tptp             false
+% 19.19/2.99  --bmc1_dump_file                        -
+% 19.19/2.99  --bmc1_ucm_expand_uc_limit              128
+% 19.19/2.99  --bmc1_ucm_n_expand_iterations          6
+% 19.19/2.99  --bmc1_ucm_extend_mode                  1
+% 19.19/2.99  --bmc1_ucm_init_mode                    2
+% 19.19/2.99  --bmc1_ucm_cone_mode                    none
+% 19.19/2.99  --bmc1_ucm_reduced_relation_type        0
+% 19.19/2.99  --bmc1_ucm_relax_model                  4
+% 19.19/2.99  --bmc1_ucm_full_tr_after_sat            true
+% 19.19/2.99  --bmc1_ucm_expand_neg_assumptions       false
+% 19.19/2.99  --bmc1_ucm_layered_model                none
+% 19.19/2.99  --bmc1_ucm_max_lemma_size               10
+% 19.19/2.99  
+% 19.19/2.99  ------ AIG Options
+% 19.19/2.99  
+% 19.19/2.99  --aig_mode                              false
+% 19.19/2.99  
+% 19.19/2.99  ------ Instantiation Options
+% 19.19/2.99  
+% 19.19/2.99  --instantiation_flag                    true
+% 19.19/2.99  --inst_sos_flag                         true
+% 19.19/2.99  --inst_sos_phase                        true
+% 19.19/2.99  --inst_sos_sth_lit_sel                  [+prop;+non_prol_conj_symb;-eq;+ground;-num_var;-num_symb]
+% 19.19/2.99  --inst_lit_sel                          [+prop;+sign;+ground;-num_var;-num_symb]
+% 19.19/2.99  --inst_lit_sel_side                     none
+% 19.19/2.99  --inst_solver_per_active                1400
+% 19.19/2.99  --inst_solver_calls_frac                1.
+% 19.19/2.99  --inst_passive_queue_type               priority_queues
+% 19.19/2.99  --inst_passive_queues                   [[-conj_dist;+conj_symb;-num_var];[+age;-num_symb]]
+% 19.19/2.99  --inst_passive_queues_freq              [25;2]
+% 19.19/2.99  --inst_dismatching                      true
+% 19.19/2.99  --inst_eager_unprocessed_to_passive     true
+% 19.19/2.99  --inst_prop_sim_given                   true
+% 19.19/2.99  --inst_prop_sim_new                     false
+% 19.19/2.99  --inst_subs_new                         false
+% 19.19/2.99  --inst_eq_res_simp                      false
+% 19.19/2.99  --inst_subs_given                       false
+% 19.19/2.99  --inst_orphan_elimination               true
+% 19.19/2.99  --inst_learning_loop_flag               true
+% 19.19/2.99  --inst_learning_start                   3000
+% 19.19/2.99  --inst_learning_factor                  2
+% 19.19/2.99  --inst_start_prop_sim_after_learn       3
+% 19.19/2.99  --inst_sel_renew                        solver
+% 19.19/2.99  --inst_lit_activity_flag                true
+% 19.19/2.99  --inst_restr_to_given                   false
+% 19.19/2.99  --inst_activity_threshold               500
+% 19.19/2.99  --inst_out_proof                        true
+% 19.19/2.99  
+% 19.19/2.99  ------ Resolution Options
+% 19.19/2.99  
+% 19.19/2.99  --resolution_flag                       false
+% 19.19/2.99  --res_lit_sel                           adaptive
+% 19.19/2.99  --res_lit_sel_side                      none
+% 19.19/2.99  --res_ordering                          kbo
+% 19.19/2.99  --res_to_prop_solver                    active
+% 19.19/2.99  --res_prop_simpl_new                    false
+% 19.19/2.99  --res_prop_simpl_given                  true
+% 19.19/2.99  --res_passive_queue_type                priority_queues
+% 19.19/2.99  --res_passive_queues                    [[-conj_dist;+conj_symb;-num_symb];[+age;-num_symb]]
+% 19.19/2.99  --res_passive_queues_freq               [15;5]
+% 19.19/2.99  --res_forward_subs                      full
+% 19.19/2.99  --res_backward_subs                     full
+% 19.19/2.99  --res_forward_subs_resolution           true
+% 19.19/2.99  --res_backward_subs_resolution          true
+% 19.19/2.99  --res_orphan_elimination                true
+% 19.19/2.99  --res_time_limit                        2.
+% 19.19/2.99  --res_out_proof                         true
+% 19.19/2.99  
+% 19.19/2.99  ------ Superposition Options
+% 19.19/2.99  
+% 19.19/2.99  --superposition_flag                    true
+% 19.19/2.99  --sup_passive_queue_type                priority_queues
+% 19.19/2.99  --sup_passive_queues                    [[-conj_dist;+horn;-num_symb];[+min_def_symb;-max_atom_input_occur;+conj_non_prolific_symb];[+age;-num_symb]]
+% 19.19/2.99  --sup_passive_queues_freq               [8;1;4]
+% 19.19/2.99  --demod_completeness_check              fast
+% 19.19/2.99  --demod_use_ground                      true
+% 19.19/2.99  --sup_to_prop_solver                    passive
+% 19.19/2.99  --sup_prop_simpl_new                    true
+% 19.19/2.99  --sup_prop_simpl_given                  true
+% 19.19/2.99  --sup_fun_splitting                     true
+% 19.19/2.99  --sup_smt_interval                      50000
+% 19.19/2.99  
+% 19.19/2.99  ------ Superposition Simplification Setup
+% 19.19/2.99  
+% 19.19/2.99  --sup_indices_passive                   [LightNormIndex;FwDemodIndex]
+% 19.19/2.99  --sup_indices_active                    [SubsumptionIndex;BwDemodIndex]
+% 19.19/2.99  --sup_indices_immed                     [SubsumptionIndex;FwDemodIndex;BwDemodIndex]
+% 19.19/2.99  --sup_indices_input                     [SubsumptionIndex;LightNormIndex;FwDemodIndex]
+% 19.19/2.99  --sup_full_triv                         [TrivRules;PropSubs]
+% 19.19/2.99  --sup_full_fw                           [FwDemodLightNormLoopTriv;FwSubsumption;Joinability]
+% 19.19/2.99  --sup_full_bw                           [BwDemod;BwSubsumption]
+% 19.19/2.99  --sup_immed_triv                        [TrivRules]
+% 19.19/2.99  --sup_immed_fw_main                     [Joinability;FwDemodLightNormLoopTriv;FwSubsumption]
+% 19.19/2.99  --sup_immed_fw_immed                    [FwDemodLightNormLoopTriv;FwSubsumption]
+% 19.19/2.99  --sup_immed_bw_main                     []
+% 19.19/2.99  --sup_immed_bw_immed                    [BwDemod;BwSubsumption]
+% 19.19/2.99  --sup_input_triv                        [Unflattening;TrivRules]
+% 19.19/2.99  --sup_input_fw                          [FwDemodLightNormLoopTriv;FwSubsumption]
+% 19.19/2.99  --sup_input_bw                          []
+% 19.19/2.99  
+% 19.19/2.99  ------ Combination Options
+% 19.19/2.99  
+% 19.19/2.99  --comb_res_mult                         3
+% 19.19/2.99  --comb_sup_mult                         2
+% 19.19/2.99  --comb_inst_mult                        10
+% 19.19/2.99  
+% 19.19/2.99  ------ Debug Options
+% 19.19/2.99  
+% 19.19/2.99  --dbg_backtrace                         false
+% 19.19/2.99  --dbg_dump_prop_clauses                 false
+% 19.19/2.99  --dbg_dump_prop_clauses_file            -
+% 19.19/2.99  --dbg_out_stat                          false
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  ------ Proving...
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  % SZS status Theorem for theBenchmark.p
+% 19.19/2.99  
+% 19.19/2.99  % SZS output start CNFRefutation for theBenchmark.p
+% 19.19/2.99  
+% 19.19/2.99  fof(f15,axiom,(
+% 19.19/2.99    ! [X0,X1,X2] : ((m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X2,X0,X1) & v1_funct_1(X2)) => ! [X3] : ((m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(X3,X1,X0) & v1_funct_1(X3)) => (r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1)) => k2_relset_1(X0,X1,X2) = X1)))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f37,plain,(
+% 19.19/2.99    ! [X0,X1,X2] : (! [X3] : ((k2_relset_1(X0,X1,X2) = X1 | ~r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1))) | (~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) | ~v1_funct_2(X3,X1,X0) | ~v1_funct_1(X3))) | (~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X2,X0,X1) | ~v1_funct_1(X2)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f15])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f38,plain,(
+% 19.19/2.99    ! [X0,X1,X2] : (! [X3] : (k2_relset_1(X0,X1,X2) = X1 | ~r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1)) | ~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) | ~v1_funct_2(X3,X1,X0) | ~v1_funct_1(X3)) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X2,X0,X1) | ~v1_funct_1(X2))),
+% 19.19/2.99    inference(flattening,[],[f37])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f68,plain,(
+% 19.19/2.99    ( ! [X2,X0,X3,X1] : (k2_relset_1(X0,X1,X2) = X1 | ~r2_relset_1(X1,X1,k1_partfun1(X1,X0,X0,X1,X3,X2),k6_partfun1(X1)) | ~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) | ~v1_funct_2(X3,X1,X0) | ~v1_funct_1(X3) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X2,X0,X1) | ~v1_funct_1(X2)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f38])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f18,conjecture,(
+% 19.19/2.99    ! [X0,X1,X2] : ((m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X2,X0,X1) & v1_funct_1(X2)) => ! [X3] : ((m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(X3,X1,X0) & v1_funct_1(X3)) => ((v2_funct_1(X2) & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0)) & k2_relset_1(X0,X1,X2) = X1) => (k2_funct_1(X2) = X3 | k1_xboole_0 = X1 | k1_xboole_0 = X0))))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f19,negated_conjecture,(
+% 19.19/2.99    ~! [X0,X1,X2] : ((m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X2,X0,X1) & v1_funct_1(X2)) => ! [X3] : ((m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(X3,X1,X0) & v1_funct_1(X3)) => ((v2_funct_1(X2) & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0)) & k2_relset_1(X0,X1,X2) = X1) => (k2_funct_1(X2) = X3 | k1_xboole_0 = X1 | k1_xboole_0 = X0))))),
+% 19.19/2.99    inference(negated_conjecture,[],[f18])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f43,plain,(
+% 19.19/2.99    ? [X0,X1,X2] : (? [X3] : (((k2_funct_1(X2) != X3 & k1_xboole_0 != X1 & k1_xboole_0 != X0) & (v2_funct_1(X2) & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0)) & k2_relset_1(X0,X1,X2) = X1)) & (m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(X3,X1,X0) & v1_funct_1(X3))) & (m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X2,X0,X1) & v1_funct_1(X2)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f19])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f44,plain,(
+% 19.19/2.99    ? [X0,X1,X2] : (? [X3] : (k2_funct_1(X2) != X3 & k1_xboole_0 != X1 & k1_xboole_0 != X0 & v2_funct_1(X2) & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0)) & k2_relset_1(X0,X1,X2) = X1 & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(X3,X1,X0) & v1_funct_1(X3)) & m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X2,X0,X1) & v1_funct_1(X2))),
+% 19.19/2.99    inference(flattening,[],[f43])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f47,plain,(
+% 19.19/2.99    ( ! [X2,X0,X1] : (? [X3] : (k2_funct_1(X2) != X3 & k1_xboole_0 != X1 & k1_xboole_0 != X0 & v2_funct_1(X2) & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0)) & k2_relset_1(X0,X1,X2) = X1 & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(X3,X1,X0) & v1_funct_1(X3)) => (k2_funct_1(X2) != sK3 & k1_xboole_0 != X1 & k1_xboole_0 != X0 & v2_funct_1(X2) & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,sK3),k6_partfun1(X0)) & k2_relset_1(X0,X1,X2) = X1 & m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(sK3,X1,X0) & v1_funct_1(sK3))) )),
+% 19.19/2.99    introduced(choice_axiom,[])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f46,plain,(
+% 19.19/2.99    ? [X0,X1,X2] : (? [X3] : (k2_funct_1(X2) != X3 & k1_xboole_0 != X1 & k1_xboole_0 != X0 & v2_funct_1(X2) & r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0)) & k2_relset_1(X0,X1,X2) = X1 & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0))) & v1_funct_2(X3,X1,X0) & v1_funct_1(X3)) & m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X2,X0,X1) & v1_funct_1(X2)) => (? [X3] : (k2_funct_1(sK2) != X3 & k1_xboole_0 != sK1 & k1_xboole_0 != sK0 & v2_funct_1(sK2) & r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,X3),k6_partfun1(sK0)) & k2_relset_1(sK0,sK1,sK2) = sK1 & m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) & v1_funct_2(X3,sK1,sK0) & v1_funct_1(X3)) & m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) & v1_funct_2(sK2,sK0,sK1) & v1_funct_1(sK2))),
+% 19.19/2.99    introduced(choice_axiom,[])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f48,plain,(
+% 19.19/2.99    (k2_funct_1(sK2) != sK3 & k1_xboole_0 != sK1 & k1_xboole_0 != sK0 & v2_funct_1(sK2) & r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k6_partfun1(sK0)) & k2_relset_1(sK0,sK1,sK2) = sK1 & m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) & v1_funct_2(sK3,sK1,sK0) & v1_funct_1(sK3)) & m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) & v1_funct_2(sK2,sK0,sK1) & v1_funct_1(sK2)),
+% 19.19/2.99    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2,sK3])],[f44,f47,f46])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f82,plain,(
+% 19.19/2.99    r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k6_partfun1(sK0))),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f75,plain,(
+% 19.19/2.99    v1_funct_1(sK2)),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f76,plain,(
+% 19.19/2.99    v1_funct_2(sK2,sK0,sK1)),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f77,plain,(
+% 19.19/2.99    m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f78,plain,(
+% 19.19/2.99    v1_funct_1(sK3)),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f79,plain,(
+% 19.19/2.99    v1_funct_2(sK3,sK1,sK0)),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f80,plain,(
+% 19.19/2.99    m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0)))),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f17,axiom,(
+% 19.19/2.99    ! [X0,X1,X2] : ((m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X2,X0,X1) & v1_funct_1(X2)) => ((v2_funct_1(X2) & k2_relset_1(X0,X1,X2) = X1) => ((k5_relat_1(k2_funct_1(X2),X2) = k6_partfun1(X1) & k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0)) | k1_xboole_0 = X1)))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f41,plain,(
+% 19.19/2.99    ! [X0,X1,X2] : ((((k5_relat_1(k2_funct_1(X2),X2) = k6_partfun1(X1) & k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0)) | k1_xboole_0 = X1) | (~v2_funct_1(X2) | k2_relset_1(X0,X1,X2) != X1)) | (~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X2,X0,X1) | ~v1_funct_1(X2)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f17])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f42,plain,(
+% 19.19/2.99    ! [X0,X1,X2] : ((k5_relat_1(k2_funct_1(X2),X2) = k6_partfun1(X1) & k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0)) | k1_xboole_0 = X1 | ~v2_funct_1(X2) | k2_relset_1(X0,X1,X2) != X1 | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X2,X0,X1) | ~v1_funct_1(X2))),
+% 19.19/2.99    inference(flattening,[],[f41])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f73,plain,(
+% 19.19/2.99    ( ! [X2,X0,X1] : (k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0) | k1_xboole_0 = X1 | ~v2_funct_1(X2) | k2_relset_1(X0,X1,X2) != X1 | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X2,X0,X1) | ~v1_funct_1(X2)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f42])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f84,plain,(
+% 19.19/2.99    k1_xboole_0 != sK0),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f5,axiom,(
+% 19.19/2.99    ! [X0] : (v2_funct_1(k6_relat_1(X0)) & v1_relat_1(k6_relat_1(X0)))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f56,plain,(
+% 19.19/2.99    ( ! [X0] : (v2_funct_1(k6_relat_1(X0))) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f5])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f14,axiom,(
+% 19.19/2.99    ! [X0] : k6_relat_1(X0) = k6_partfun1(X0)),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f67,plain,(
+% 19.19/2.99    ( ! [X0] : (k6_relat_1(X0) = k6_partfun1(X0)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f14])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f89,plain,(
+% 19.19/2.99    ( ! [X0] : (v2_funct_1(k6_partfun1(X0))) )),
+% 19.19/2.99    inference(definition_unfolding,[],[f56,f67])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f10,axiom,(
+% 19.19/2.99    ! [X0,X1,X2,X3] : ((m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))) => (r2_relset_1(X0,X1,X2,X3) <=> X2 = X3))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f31,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3] : ((r2_relset_1(X0,X1,X2,X3) <=> X2 = X3) | (~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))))),
+% 19.19/2.99    inference(ennf_transformation,[],[f10])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f32,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3] : ((r2_relset_1(X0,X1,X2,X3) <=> X2 = X3) | ~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))))),
+% 19.19/2.99    inference(flattening,[],[f31])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f45,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3] : (((r2_relset_1(X0,X1,X2,X3) | X2 != X3) & (X2 = X3 | ~r2_relset_1(X0,X1,X2,X3))) | ~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))))),
+% 19.19/2.99    inference(nnf_transformation,[],[f32])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f61,plain,(
+% 19.19/2.99    ( ! [X2,X0,X3,X1] : (X2 = X3 | ~r2_relset_1(X0,X1,X2,X3) | ~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f45])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f12,axiom,(
+% 19.19/2.99    ! [X0] : (m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0))) & v1_partfun1(k6_partfun1(X0),X0))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f20,plain,(
+% 19.19/2.99    ! [X0] : m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0)))),
+% 19.19/2.99    inference(pure_predicate_removal,[],[f12])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f65,plain,(
+% 19.19/2.99    ( ! [X0] : (m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0)))) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f20])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f11,axiom,(
+% 19.19/2.99    ! [X0,X1,X2,X3,X4,X5] : ((m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) & v1_funct_1(X5) & m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_1(X4)) => (m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3))) & v1_funct_1(k1_partfun1(X0,X1,X2,X3,X4,X5))))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f33,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3,X4,X5] : ((m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3))) & v1_funct_1(k1_partfun1(X0,X1,X2,X3,X4,X5))) | (~m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) | ~v1_funct_1(X5) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_1(X4)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f11])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f34,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3,X4,X5] : ((m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3))) & v1_funct_1(k1_partfun1(X0,X1,X2,X3,X4,X5))) | ~m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) | ~v1_funct_1(X5) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_1(X4))),
+% 19.19/2.99    inference(flattening,[],[f33])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f64,plain,(
+% 19.19/2.99    ( ! [X4,X2,X0,X5,X3,X1] : (m1_subset_1(k1_partfun1(X0,X1,X2,X3,X4,X5),k1_zfmisc_1(k2_zfmisc_1(X0,X3))) | ~m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) | ~v1_funct_1(X5) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_1(X4)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f34])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f81,plain,(
+% 19.19/2.99    k2_relset_1(sK0,sK1,sK2) = sK1),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f16,axiom,(
+% 19.19/2.99    ! [X0,X1,X2,X3] : ((m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_2(X3,X0,X1) & v1_funct_1(X3)) => ! [X4] : ((m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2))) & v1_funct_2(X4,X1,X2) & v1_funct_1(X4)) => ((k2_relset_1(X0,X1,X3) = X1 & v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4))) => ((v2_funct_1(X4) & v2_funct_1(X3)) | (k1_xboole_0 != X1 & k1_xboole_0 = X2)))))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f39,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3] : (! [X4] : ((((v2_funct_1(X4) & v2_funct_1(X3)) | (k1_xboole_0 != X1 & k1_xboole_0 = X2)) | (k2_relset_1(X0,X1,X3) != X1 | ~v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4)))) | (~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2))) | ~v1_funct_2(X4,X1,X2) | ~v1_funct_1(X4))) | (~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X3,X0,X1) | ~v1_funct_1(X3)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f16])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f40,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3] : (! [X4] : ((v2_funct_1(X4) & v2_funct_1(X3)) | (k1_xboole_0 != X1 & k1_xboole_0 = X2) | k2_relset_1(X0,X1,X3) != X1 | ~v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4)) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2))) | ~v1_funct_2(X4,X1,X2) | ~v1_funct_1(X4)) | ~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X3,X0,X1) | ~v1_funct_1(X3))),
+% 19.19/2.99    inference(flattening,[],[f39])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f71,plain,(
+% 19.19/2.99    ( ! [X4,X2,X0,X3,X1] : (v2_funct_1(X4) | k1_xboole_0 = X2 | k2_relset_1(X0,X1,X3) != X1 | ~v2_funct_1(k1_partfun1(X0,X1,X1,X2,X3,X4)) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X2))) | ~v1_funct_2(X4,X1,X2) | ~v1_funct_1(X4) | ~m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_2(X3,X0,X1) | ~v1_funct_1(X3)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f40])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f7,axiom,(
+% 19.19/2.99    ! [X0] : ((v1_funct_1(X0) & v1_relat_1(X0)) => ! [X1] : ((v1_funct_1(X1) & v1_relat_1(X1)) => ((k5_relat_1(X1,X0) = k6_relat_1(k2_relat_1(X0)) & k2_relat_1(X1) = k1_relat_1(X0) & v2_funct_1(X0)) => k2_funct_1(X0) = X1)))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f27,plain,(
+% 19.19/2.99    ! [X0] : (! [X1] : ((k2_funct_1(X0) = X1 | (k5_relat_1(X1,X0) != k6_relat_1(k2_relat_1(X0)) | k2_relat_1(X1) != k1_relat_1(X0) | ~v2_funct_1(X0))) | (~v1_funct_1(X1) | ~v1_relat_1(X1))) | (~v1_funct_1(X0) | ~v1_relat_1(X0)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f7])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f28,plain,(
+% 19.19/2.99    ! [X0] : (! [X1] : (k2_funct_1(X0) = X1 | k5_relat_1(X1,X0) != k6_relat_1(k2_relat_1(X0)) | k2_relat_1(X1) != k1_relat_1(X0) | ~v2_funct_1(X0) | ~v1_funct_1(X1) | ~v1_relat_1(X1)) | ~v1_funct_1(X0) | ~v1_relat_1(X0))),
+% 19.19/2.99    inference(flattening,[],[f27])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f58,plain,(
+% 19.19/2.99    ( ! [X0,X1] : (k2_funct_1(X0) = X1 | k5_relat_1(X1,X0) != k6_relat_1(k2_relat_1(X0)) | k2_relat_1(X1) != k1_relat_1(X0) | ~v2_funct_1(X0) | ~v1_funct_1(X1) | ~v1_relat_1(X1) | ~v1_funct_1(X0) | ~v1_relat_1(X0)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f28])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f91,plain,(
+% 19.19/2.99    ( ! [X0,X1] : (k2_funct_1(X0) = X1 | k5_relat_1(X1,X0) != k6_partfun1(k2_relat_1(X0)) | k2_relat_1(X1) != k1_relat_1(X0) | ~v2_funct_1(X0) | ~v1_funct_1(X1) | ~v1_relat_1(X1) | ~v1_funct_1(X0) | ~v1_relat_1(X0)) )),
+% 19.19/2.99    inference(definition_unfolding,[],[f58,f67])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f9,axiom,(
+% 19.19/2.99    ! [X0,X1,X2] : (m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) => k2_relat_1(X2) = k2_relset_1(X0,X1,X2))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f30,plain,(
+% 19.19/2.99    ! [X0,X1,X2] : (k2_relat_1(X2) = k2_relset_1(X0,X1,X2) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))))),
+% 19.19/2.99    inference(ennf_transformation,[],[f9])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f60,plain,(
+% 19.19/2.99    ( ! [X2,X0,X1] : (k2_relat_1(X2) = k2_relset_1(X0,X1,X2) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f30])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f8,axiom,(
+% 19.19/2.99    ! [X0,X1,X2] : (m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) => v1_relat_1(X2))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f29,plain,(
+% 19.19/2.99    ! [X0,X1,X2] : (v1_relat_1(X2) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))))),
+% 19.19/2.99    inference(ennf_transformation,[],[f8])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f59,plain,(
+% 19.19/2.99    ( ! [X2,X0,X1] : (v1_relat_1(X2) | ~m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f29])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f4,axiom,(
+% 19.19/2.99    ! [X0] : ((v1_funct_1(X0) & v1_relat_1(X0)) => (v1_funct_1(k2_funct_1(X0)) & v1_relat_1(k2_funct_1(X0))))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f23,plain,(
+% 19.19/2.99    ! [X0] : ((v1_funct_1(k2_funct_1(X0)) & v1_relat_1(k2_funct_1(X0))) | (~v1_funct_1(X0) | ~v1_relat_1(X0)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f4])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f24,plain,(
+% 19.19/2.99    ! [X0] : ((v1_funct_1(k2_funct_1(X0)) & v1_relat_1(k2_funct_1(X0))) | ~v1_funct_1(X0) | ~v1_relat_1(X0))),
+% 19.19/2.99    inference(flattening,[],[f23])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f54,plain,(
+% 19.19/2.99    ( ! [X0] : (v1_funct_1(k2_funct_1(X0)) | ~v1_funct_1(X0) | ~v1_relat_1(X0)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f24])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f53,plain,(
+% 19.19/2.99    ( ! [X0] : (v1_relat_1(k2_funct_1(X0)) | ~v1_funct_1(X0) | ~v1_relat_1(X0)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f24])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f1,axiom,(
+% 19.19/2.99    ! [X0] : (v1_relat_1(X0) => ! [X1] : (v1_relat_1(X1) => k2_relat_1(k5_relat_1(X0,X1)) = k9_relat_1(X1,k2_relat_1(X0))))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f21,plain,(
+% 19.19/2.99    ! [X0] : (! [X1] : (k2_relat_1(k5_relat_1(X0,X1)) = k9_relat_1(X1,k2_relat_1(X0)) | ~v1_relat_1(X1)) | ~v1_relat_1(X0))),
+% 19.19/2.99    inference(ennf_transformation,[],[f1])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f49,plain,(
+% 19.19/2.99    ( ! [X0,X1] : (k2_relat_1(k5_relat_1(X0,X1)) = k9_relat_1(X1,k2_relat_1(X0)) | ~v1_relat_1(X1) | ~v1_relat_1(X0)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f21])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f83,plain,(
+% 19.19/2.99    v2_funct_1(sK2)),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f6,axiom,(
+% 19.19/2.99    ! [X0,X1] : ((v1_funct_1(X1) & v1_relat_1(X1)) => (v2_funct_1(X1) => k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0)))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f25,plain,(
+% 19.19/2.99    ! [X0,X1] : ((k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0) | ~v2_funct_1(X1)) | (~v1_funct_1(X1) | ~v1_relat_1(X1)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f6])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f26,plain,(
+% 19.19/2.99    ! [X0,X1] : (k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0) | ~v2_funct_1(X1) | ~v1_funct_1(X1) | ~v1_relat_1(X1))),
+% 19.19/2.99    inference(flattening,[],[f25])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f57,plain,(
+% 19.19/2.99    ( ! [X0,X1] : (k9_relat_1(k2_funct_1(X1),X0) = k10_relat_1(X1,X0) | ~v2_funct_1(X1) | ~v1_funct_1(X1) | ~v1_relat_1(X1)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f26])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f2,axiom,(
+% 19.19/2.99    ! [X0] : (v1_relat_1(X0) => k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f22,plain,(
+% 19.19/2.99    ! [X0] : (k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0) | ~v1_relat_1(X0))),
+% 19.19/2.99    inference(ennf_transformation,[],[f2])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f50,plain,(
+% 19.19/2.99    ( ! [X0] : (k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0) | ~v1_relat_1(X0)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f22])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f85,plain,(
+% 19.19/2.99    k1_xboole_0 != sK1),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f3,axiom,(
+% 19.19/2.99    ! [X0] : (k2_relat_1(k6_relat_1(X0)) = X0 & k1_relat_1(k6_relat_1(X0)) = X0)),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f52,plain,(
+% 19.19/2.99    ( ! [X0] : (k2_relat_1(k6_relat_1(X0)) = X0) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f3])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f87,plain,(
+% 19.19/2.99    ( ! [X0] : (k2_relat_1(k6_partfun1(X0)) = X0) )),
+% 19.19/2.99    inference(definition_unfolding,[],[f52,f67])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f13,axiom,(
+% 19.19/2.99    ! [X0,X1,X2,X3,X4,X5] : ((m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) & v1_funct_1(X5) & m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) & v1_funct_1(X4)) => k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5))),
+% 19.19/2.99    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+% 19.19/2.99  
+% 19.19/2.99  fof(f35,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3,X4,X5] : (k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5) | (~m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) | ~v1_funct_1(X5) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_1(X4)))),
+% 19.19/2.99    inference(ennf_transformation,[],[f13])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f36,plain,(
+% 19.19/2.99    ! [X0,X1,X2,X3,X4,X5] : (k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5) | ~m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) | ~v1_funct_1(X5) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_1(X4))),
+% 19.19/2.99    inference(flattening,[],[f35])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f66,plain,(
+% 19.19/2.99    ( ! [X4,X2,X0,X5,X3,X1] : (k5_relat_1(X4,X5) = k1_partfun1(X0,X1,X2,X3,X4,X5) | ~m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) | ~v1_funct_1(X5) | ~m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) | ~v1_funct_1(X4)) )),
+% 19.19/2.99    inference(cnf_transformation,[],[f36])).
+% 19.19/2.99  
+% 19.19/2.99  fof(f86,plain,(
+% 19.19/2.99    k2_funct_1(sK2) != sK3),
+% 19.19/2.99    inference(cnf_transformation,[],[f48])).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_18,plain,
+% 19.19/2.99      ( ~ r2_relset_1(X0,X0,k1_partfun1(X0,X1,X1,X0,X2,X3),k6_partfun1(X0))
+% 19.19/2.99      | ~ v1_funct_2(X2,X0,X1)
+% 19.19/2.99      | ~ v1_funct_2(X3,X1,X0)
+% 19.19/2.99      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X0)))
+% 19.19/2.99      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+% 19.19/2.99      | ~ v1_funct_1(X2)
+% 19.19/2.99      | ~ v1_funct_1(X3)
+% 19.19/2.99      | k2_relset_1(X1,X0,X3) = X0 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f68]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_29,negated_conjecture,
+% 19.19/2.99      ( r2_relset_1(sK0,sK0,k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k6_partfun1(sK0)) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f82]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_403,plain,
+% 19.19/2.99      ( ~ v1_funct_2(X0,X1,X2)
+% 19.19/2.99      | ~ v1_funct_2(X3,X2,X1)
+% 19.19/2.99      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X2,X1)))
+% 19.19/2.99      | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X3)
+% 19.19/2.99      | k1_partfun1(X2,X1,X1,X2,X3,X0) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+% 19.19/2.99      | k2_relset_1(X1,X2,X0) = X2
+% 19.19/2.99      | k6_partfun1(X2) != k6_partfun1(sK0)
+% 19.19/2.99      | sK0 != X2 ),
+% 19.19/2.99      inference(resolution_lifted,[status(thm)],[c_18,c_29]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_404,plain,
+% 19.19/2.99      ( ~ v1_funct_2(X0,X1,sK0)
+% 19.19/2.99      | ~ v1_funct_2(X2,sK0,X1)
+% 19.19/2.99      | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,sK0)))
+% 19.19/2.99      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(sK0,X1)))
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X2)
+% 19.19/2.99      | k1_partfun1(sK0,X1,X1,sK0,X2,X0) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+% 19.19/2.99      | k2_relset_1(X1,sK0,X0) = sK0
+% 19.19/2.99      | k6_partfun1(sK0) != k6_partfun1(sK0) ),
+% 19.19/2.99      inference(unflattening,[status(thm)],[c_403]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_488,plain,
+% 19.19/2.99      ( ~ v1_funct_2(X0,X1,sK0)
+% 19.19/2.99      | ~ v1_funct_2(X2,sK0,X1)
+% 19.19/2.99      | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,sK0)))
+% 19.19/2.99      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(sK0,X1)))
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X2)
+% 19.19/2.99      | k1_partfun1(sK0,X1,X1,sK0,X2,X0) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+% 19.19/2.99      | k2_relset_1(X1,sK0,X0) = sK0 ),
+% 19.19/2.99      inference(equality_resolution_simp,[status(thm)],[c_404]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1168,plain,
+% 19.19/2.99      ( k1_partfun1(sK0,X0,X0,sK0,X1,X2) != k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+% 19.19/2.99      | k2_relset_1(X0,sK0,X2) = sK0
+% 19.19/2.99      | v1_funct_2(X2,X0,sK0) != iProver_top
+% 19.19/2.99      | v1_funct_2(X1,sK0,X0) != iProver_top
+% 19.19/2.99      | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,sK0))) != iProver_top
+% 19.19/2.99      | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK0,X0))) != iProver_top
+% 19.19/2.99      | v1_funct_1(X2) != iProver_top
+% 19.19/2.99      | v1_funct_1(X1) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_488]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1726,plain,
+% 19.19/2.99      ( k2_relset_1(sK1,sK0,sK3) = sK0
+% 19.19/2.99      | v1_funct_2(sK3,sK1,sK0) != iProver_top
+% 19.19/2.99      | v1_funct_2(sK2,sK0,sK1) != iProver_top
+% 19.19/2.99      | m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+% 19.19/2.99      | m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(equality_resolution,[status(thm)],[c_1168]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_36,negated_conjecture,
+% 19.19/2.99      ( v1_funct_1(sK2) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f75]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_37,plain,
+% 19.19/2.99      ( v1_funct_1(sK2) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_36]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_35,negated_conjecture,
+% 19.19/2.99      ( v1_funct_2(sK2,sK0,sK1) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f76]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_38,plain,
+% 19.19/2.99      ( v1_funct_2(sK2,sK0,sK1) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_35]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_34,negated_conjecture,
+% 19.19/2.99      ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f77]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_39,plain,
+% 19.19/2.99      ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_34]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_33,negated_conjecture,
+% 19.19/2.99      ( v1_funct_1(sK3) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f78]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_40,plain,
+% 19.19/2.99      ( v1_funct_1(sK3) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_33]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_32,negated_conjecture,
+% 19.19/2.99      ( v1_funct_2(sK3,sK1,sK0) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f79]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_41,plain,
+% 19.19/2.99      ( v1_funct_2(sK3,sK1,sK0) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_32]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_31,negated_conjecture,
+% 19.19/2.99      ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f80]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_42,plain,
+% 19.19/2.99      ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_31]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2052,plain,
+% 19.19/2.99      ( k2_relset_1(sK1,sK0,sK3) = sK0 ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_1726,c_37,c_38,c_39,c_40,c_41,c_42]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_24,plain,
+% 19.19/2.99      ( ~ v1_funct_2(X0,X1,X2)
+% 19.19/2.99      | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | ~ v2_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | k2_relset_1(X1,X2,X0) != X2
+% 19.19/2.99      | k5_relat_1(X0,k2_funct_1(X0)) = k6_partfun1(X1)
+% 19.19/2.99      | k1_xboole_0 = X2 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f73]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1178,plain,
+% 19.19/2.99      ( k2_relset_1(X0,X1,X2) != X1
+% 19.19/2.99      | k5_relat_1(X2,k2_funct_1(X2)) = k6_partfun1(X0)
+% 19.19/2.99      | k1_xboole_0 = X1
+% 19.19/2.99      | v1_funct_2(X2,X0,X1) != iProver_top
+% 19.19/2.99      | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+% 19.19/2.99      | v2_funct_1(X2) != iProver_top
+% 19.19/2.99      | v1_funct_1(X2) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_24]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_3047,plain,
+% 19.19/2.99      ( k5_relat_1(sK3,k2_funct_1(sK3)) = k6_partfun1(sK1)
+% 19.19/2.99      | sK0 = k1_xboole_0
+% 19.19/2.99      | v1_funct_2(sK3,sK1,sK0) != iProver_top
+% 19.19/2.99      | m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+% 19.19/2.99      | v2_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_2052,c_1178]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_27,negated_conjecture,
+% 19.19/2.99      ( k1_xboole_0 != sK0 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f84]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_665,plain,( X0 = X0 ),theory(equality) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_700,plain,
+% 19.19/2.99      ( k1_xboole_0 = k1_xboole_0 ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_665]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_666,plain,( X0 != X1 | X2 != X1 | X2 = X0 ),theory(equality) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1280,plain,
+% 19.19/2.99      ( sK0 != X0 | k1_xboole_0 != X0 | k1_xboole_0 = sK0 ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_666]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1281,plain,
+% 19.19/2.99      ( sK0 != k1_xboole_0
+% 19.19/2.99      | k1_xboole_0 = sK0
+% 19.19/2.99      | k1_xboole_0 != k1_xboole_0 ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_1280]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_6,plain,
+% 19.19/2.99      ( v2_funct_1(k6_partfun1(X0)) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f89]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2963,plain,
+% 19.19/2.99      ( v2_funct_1(k6_partfun1(sK0)) ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_6]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2964,plain,
+% 19.19/2.99      ( v2_funct_1(k6_partfun1(sK0)) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_2963]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_13,plain,
+% 19.19/2.99      ( ~ r2_relset_1(X0,X1,X2,X3)
+% 19.19/2.99      | ~ m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+% 19.19/2.99      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+% 19.19/2.99      | X3 = X2 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f61]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_390,plain,
+% 19.19/2.99      ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | X3 = X0
+% 19.19/2.99      | k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) != X0
+% 19.19/2.99      | k6_partfun1(sK0) != X3
+% 19.19/2.99      | sK0 != X2
+% 19.19/2.99      | sK0 != X1 ),
+% 19.19/2.99      inference(resolution_lifted,[status(thm)],[c_13,c_29]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_391,plain,
+% 19.19/2.99      ( ~ m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+% 19.19/2.99      | ~ m1_subset_1(k6_partfun1(sK0),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+% 19.19/2.99      | k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) ),
+% 19.19/2.99      inference(unflattening,[status(thm)],[c_390]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_16,plain,
+% 19.19/2.99      ( m1_subset_1(k6_partfun1(X0),k1_zfmisc_1(k2_zfmisc_1(X0,X0))) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f65]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_399,plain,
+% 19.19/2.99      ( ~ m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+% 19.19/2.99      | k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) ),
+% 19.19/2.99      inference(forward_subsumption_resolution,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_391,c_16]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1169,plain,
+% 19.19/2.99      ( k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3)
+% 19.19/2.99      | m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0))) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_399]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_14,plain,
+% 19.19/2.99      ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X4,X5)))
+% 19.19/2.99      | m1_subset_1(k1_partfun1(X4,X5,X1,X2,X3,X0),k1_zfmisc_1(k2_zfmisc_1(X4,X2)))
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X3) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f64]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1282,plain,
+% 19.19/2.99      ( m1_subset_1(k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3),k1_zfmisc_1(k2_zfmisc_1(sK0,sK0)))
+% 19.19/2.99      | ~ m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0)))
+% 19.19/2.99      | ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+% 19.19/2.99      | ~ v1_funct_1(sK3)
+% 19.19/2.99      | ~ v1_funct_1(sK2) ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_14]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2045,plain,
+% 19.19/2.99      ( k6_partfun1(sK0) = k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_1169,c_36,c_34,c_33,c_31,c_399,c_1282]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_30,negated_conjecture,
+% 19.19/2.99      ( k2_relset_1(sK0,sK1,sK2) = sK1 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f81]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_20,plain,
+% 19.19/2.99      ( ~ v1_funct_2(X0,X1,X2)
+% 19.19/2.99      | ~ v1_funct_2(X3,X4,X1)
+% 19.19/2.99      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X4,X1)))
+% 19.19/2.99      | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | v2_funct_1(X0)
+% 19.19/2.99      | ~ v2_funct_1(k1_partfun1(X4,X1,X1,X2,X3,X0))
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X3)
+% 19.19/2.99      | k2_relset_1(X4,X1,X3) != X1
+% 19.19/2.99      | k1_xboole_0 = X2 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f71]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1182,plain,
+% 19.19/2.99      ( k2_relset_1(X0,X1,X2) != X1
+% 19.19/2.99      | k1_xboole_0 = X3
+% 19.19/2.99      | v1_funct_2(X4,X1,X3) != iProver_top
+% 19.19/2.99      | v1_funct_2(X2,X0,X1) != iProver_top
+% 19.19/2.99      | m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X1,X3))) != iProver_top
+% 19.19/2.99      | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+% 19.19/2.99      | v2_funct_1(X4) = iProver_top
+% 19.19/2.99      | v2_funct_1(k1_partfun1(X0,X1,X1,X3,X2,X4)) != iProver_top
+% 19.19/2.99      | v1_funct_1(X4) != iProver_top
+% 19.19/2.99      | v1_funct_1(X2) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_20]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5377,plain,
+% 19.19/2.99      ( k1_xboole_0 = X0
+% 19.19/2.99      | v1_funct_2(X1,sK1,X0) != iProver_top
+% 19.19/2.99      | v1_funct_2(sK2,sK0,sK1) != iProver_top
+% 19.19/2.99      | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK1,X0))) != iProver_top
+% 19.19/2.99      | m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+% 19.19/2.99      | v2_funct_1(X1) = iProver_top
+% 19.19/2.99      | v2_funct_1(k1_partfun1(sK0,sK1,sK1,X0,sK2,X1)) != iProver_top
+% 19.19/2.99      | v1_funct_1(X1) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_30,c_1182]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5408,plain,
+% 19.19/2.99      ( v1_funct_1(X1) != iProver_top
+% 19.19/2.99      | v2_funct_1(k1_partfun1(sK0,sK1,sK1,X0,sK2,X1)) != iProver_top
+% 19.19/2.99      | v2_funct_1(X1) = iProver_top
+% 19.19/2.99      | v1_funct_2(X1,sK1,X0) != iProver_top
+% 19.19/2.99      | k1_xboole_0 = X0
+% 19.19/2.99      | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK1,X0))) != iProver_top ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_5377,c_37,c_38,c_39]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5409,plain,
+% 19.19/2.99      ( k1_xboole_0 = X0
+% 19.19/2.99      | v1_funct_2(X1,sK1,X0) != iProver_top
+% 19.19/2.99      | m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(sK1,X0))) != iProver_top
+% 19.19/2.99      | v2_funct_1(X1) = iProver_top
+% 19.19/2.99      | v2_funct_1(k1_partfun1(sK0,sK1,sK1,X0,sK2,X1)) != iProver_top
+% 19.19/2.99      | v1_funct_1(X1) != iProver_top ),
+% 19.19/2.99      inference(renaming,[status(thm)],[c_5408]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5412,plain,
+% 19.19/2.99      ( sK0 = k1_xboole_0
+% 19.19/2.99      | v1_funct_2(sK3,sK1,sK0) != iProver_top
+% 19.19/2.99      | m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+% 19.19/2.99      | v2_funct_1(k6_partfun1(sK0)) != iProver_top
+% 19.19/2.99      | v2_funct_1(sK3) = iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_2045,c_5409]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_8063,plain,
+% 19.19/2.99      ( k5_relat_1(sK3,k2_funct_1(sK3)) = k6_partfun1(sK1) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_3047,c_40,c_41,c_42,c_27,c_700,c_1281,c_2964,c_5412]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9,plain,
+% 19.19/2.99      ( ~ v2_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X1)
+% 19.19/2.99      | ~ v1_relat_1(X1)
+% 19.19/2.99      | ~ v1_relat_1(X0)
+% 19.19/2.99      | k5_relat_1(X1,X0) != k6_partfun1(k2_relat_1(X0))
+% 19.19/2.99      | k2_funct_1(X0) = X1
+% 19.19/2.99      | k1_relat_1(X0) != k2_relat_1(X1) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f91]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1190,plain,
+% 19.19/2.99      ( k5_relat_1(X0,X1) != k6_partfun1(k2_relat_1(X1))
+% 19.19/2.99      | k2_funct_1(X1) = X0
+% 19.19/2.99      | k1_relat_1(X1) != k2_relat_1(X0)
+% 19.19/2.99      | v2_funct_1(X1) != iProver_top
+% 19.19/2.99      | v1_funct_1(X1) != iProver_top
+% 19.19/2.99      | v1_funct_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(X1) != iProver_top
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_9]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_8065,plain,
+% 19.19/2.99      ( k2_funct_1(k2_funct_1(sK3)) = sK3
+% 19.19/2.99      | k6_partfun1(k2_relat_1(k2_funct_1(sK3))) != k6_partfun1(sK1)
+% 19.19/2.99      | k1_relat_1(k2_funct_1(sK3)) != k2_relat_1(sK3)
+% 19.19/2.99      | v2_funct_1(k2_funct_1(sK3)) != iProver_top
+% 19.19/2.99      | v1_funct_1(k2_funct_1(sK3)) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(k2_funct_1(sK3)) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_8063,c_1190]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1176,plain,
+% 19.19/2.99      ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_31]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_11,plain,
+% 19.19/2.99      ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | k2_relset_1(X1,X2,X0) = k2_relat_1(X0) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f60]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1188,plain,
+% 19.19/2.99      ( k2_relset_1(X0,X1,X2) = k2_relat_1(X2)
+% 19.19/2.99      | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_11]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2295,plain,
+% 19.19/2.99      ( k2_relset_1(sK1,sK0,sK3) = k2_relat_1(sK3) ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1176,c_1188]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2298,plain,
+% 19.19/2.99      ( k2_relat_1(sK3) = sK0 ),
+% 19.19/2.99      inference(light_normalisation,[status(thm)],[c_2295,c_2052]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_8066,plain,
+% 19.19/2.99      ( k2_funct_1(k2_funct_1(sK3)) = sK3
+% 19.19/2.99      | k6_partfun1(k2_relat_1(k2_funct_1(sK3))) != k6_partfun1(sK1)
+% 19.19/2.99      | k1_relat_1(k2_funct_1(sK3)) != sK0
+% 19.19/2.99      | v2_funct_1(k2_funct_1(sK3)) != iProver_top
+% 19.19/2.99      | v1_funct_1(k2_funct_1(sK3)) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(k2_funct_1(sK3)) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(light_normalisation,[status(thm)],[c_8065,c_2298]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_10,plain,
+% 19.19/2.99      ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | v1_relat_1(X0) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f59]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1333,plain,
+% 19.19/2.99      ( ~ m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(X0,X1)))
+% 19.19/2.99      | v1_relat_1(sK3) ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_10]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1710,plain,
+% 19.19/2.99      ( ~ m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0)))
+% 19.19/2.99      | v1_relat_1(sK3) ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_1333]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1711,plain,
+% 19.19/2.99      ( m1_subset_1(sK3,k1_zfmisc_1(k2_zfmisc_1(sK1,sK0))) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_1710]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_4,plain,
+% 19.19/2.99      ( ~ v1_funct_1(X0)
+% 19.19/2.99      | v1_funct_1(k2_funct_1(X0))
+% 19.19/2.99      | ~ v1_relat_1(X0) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f54]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1960,plain,
+% 19.19/2.99      ( v1_funct_1(k2_funct_1(sK3))
+% 19.19/2.99      | ~ v1_funct_1(sK3)
+% 19.19/2.99      | ~ v1_relat_1(sK3) ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_4]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1961,plain,
+% 19.19/2.99      ( v1_funct_1(k2_funct_1(sK3)) = iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_1960]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5,plain,
+% 19.19/2.99      ( ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_relat_1(X0)
+% 19.19/2.99      | v1_relat_1(k2_funct_1(X0)) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f53]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2966,plain,
+% 19.19/2.99      ( ~ v1_funct_1(sK3)
+% 19.19/2.99      | v1_relat_1(k2_funct_1(sK3))
+% 19.19/2.99      | ~ v1_relat_1(sK3) ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_5]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2967,plain,
+% 19.19/2.99      ( v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(k2_funct_1(sK3)) = iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_2966]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_42554,plain,
+% 19.19/2.99      ( k2_funct_1(k2_funct_1(sK3)) = sK3
+% 19.19/2.99      | k6_partfun1(k2_relat_1(k2_funct_1(sK3))) != k6_partfun1(sK1)
+% 19.19/2.99      | k1_relat_1(k2_funct_1(sK3)) != sK0
+% 19.19/2.99      | v2_funct_1(k2_funct_1(sK3)) != iProver_top ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_8066,c_40,c_42,c_1711,c_1961,c_2967]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1173,plain,
+% 19.19/2.99      ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_34]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2296,plain,
+% 19.19/2.99      ( k2_relset_1(sK0,sK1,sK2) = k2_relat_1(sK2) ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1173,c_1188]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2297,plain,
+% 19.19/2.99      ( k2_relat_1(sK2) = sK1 ),
+% 19.19/2.99      inference(light_normalisation,[status(thm)],[c_2296,c_30]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1189,plain,
+% 19.19/2.99      ( m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2))) != iProver_top
+% 19.19/2.99      | v1_relat_1(X0) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_10]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2254,plain,
+% 19.19/2.99      ( v1_relat_1(sK2) = iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1173,c_1189]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1171,plain,
+% 19.19/2.99      ( v1_funct_1(sK2) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_36]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1194,plain,
+% 19.19/2.99      ( v1_funct_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(k2_funct_1(X0)) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_5]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_0,plain,
+% 19.19/2.99      ( ~ v1_relat_1(X0)
+% 19.19/2.99      | ~ v1_relat_1(X1)
+% 19.19/2.99      | k9_relat_1(X0,k2_relat_1(X1)) = k2_relat_1(k5_relat_1(X1,X0)) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f49]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1197,plain,
+% 19.19/2.99      ( k9_relat_1(X0,k2_relat_1(X1)) = k2_relat_1(k5_relat_1(X1,X0))
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(X1) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_0]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_3053,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(X0),k2_relat_1(X1)) = k2_relat_1(k5_relat_1(X1,k2_funct_1(X0)))
+% 19.19/2.99      | v1_funct_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(X1) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1194,c_1197]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9566,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(sK2),k2_relat_1(X0)) = k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2)))
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1171,c_3053]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_28,negated_conjecture,
+% 19.19/2.99      ( v2_funct_1(sK2) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f83]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1177,plain,
+% 19.19/2.99      ( v2_funct_1(sK2) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_28]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_8,plain,
+% 19.19/2.99      ( ~ v2_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_relat_1(X0)
+% 19.19/2.99      | k9_relat_1(k2_funct_1(X0),X1) = k10_relat_1(X0,X1) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f57]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1191,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(X0),X1) = k10_relat_1(X0,X1)
+% 19.19/2.99      | v2_funct_1(X0) != iProver_top
+% 19.19/2.99      | v1_funct_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_8]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_3089,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(sK2),X0) = k10_relat_1(sK2,X0)
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1177,c_1191]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1974,plain,
+% 19.19/2.99      ( ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+% 19.19/2.99      | v1_relat_1(sK2) ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_10]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1975,plain,
+% 19.19/2.99      ( m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK2) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_1974]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_3140,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(sK2),X0) = k10_relat_1(sK2,X0) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_3089,c_37,c_39,c_1975]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9570,plain,
+% 19.19/2.99      ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(X0))
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(demodulation,[status(thm)],[c_9566,c_3140]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9673,plain,
+% 19.19/2.99      ( v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(X0)) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_9570,c_39,c_1975]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9674,plain,
+% 19.19/2.99      ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(X0))
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top ),
+% 19.19/2.99      inference(renaming,[status(thm)],[c_9673]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9682,plain,
+% 19.19/2.99      ( k2_relat_1(k5_relat_1(sK2,k2_funct_1(sK2))) = k10_relat_1(sK2,k2_relat_1(sK2)) ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_2254,c_9674]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1,plain,
+% 19.19/2.99      ( ~ v1_relat_1(X0)
+% 19.19/2.99      | k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f50]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1196,plain,
+% 19.19/2.99      ( k10_relat_1(X0,k2_relat_1(X0)) = k1_relat_1(X0)
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_1]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2358,plain,
+% 19.19/2.99      ( k10_relat_1(sK2,k2_relat_1(sK2)) = k1_relat_1(sK2) ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_2254,c_1196]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2359,plain,
+% 19.19/2.99      ( k10_relat_1(sK2,sK1) = k1_relat_1(sK2) ),
+% 19.19/2.99      inference(light_normalisation,[status(thm)],[c_2358,c_2297]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_3046,plain,
+% 19.19/2.99      ( k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(sK0)
+% 19.19/2.99      | sK1 = k1_xboole_0
+% 19.19/2.99      | v1_funct_2(sK2,sK0,sK1) != iProver_top
+% 19.19/2.99      | m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1))) != iProver_top
+% 19.19/2.99      | v2_funct_1(sK2) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_30,c_1178]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_26,negated_conjecture,
+% 19.19/2.99      ( k1_xboole_0 != sK1 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f85]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1245,plain,
+% 19.19/2.99      ( ~ v1_funct_2(X0,X1,sK1)
+% 19.19/2.99      | ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,sK1)))
+% 19.19/2.99      | ~ v2_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | k2_relset_1(X1,sK1,X0) != sK1
+% 19.19/2.99      | k5_relat_1(X0,k2_funct_1(X0)) = k6_partfun1(X1)
+% 19.19/2.99      | k1_xboole_0 = sK1 ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_24]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1370,plain,
+% 19.19/2.99      ( ~ v1_funct_2(sK2,X0,sK1)
+% 19.19/2.99      | ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(X0,sK1)))
+% 19.19/2.99      | ~ v2_funct_1(sK2)
+% 19.19/2.99      | ~ v1_funct_1(sK2)
+% 19.19/2.99      | k2_relset_1(X0,sK1,sK2) != sK1
+% 19.19/2.99      | k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(X0)
+% 19.19/2.99      | k1_xboole_0 = sK1 ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_1245]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1587,plain,
+% 19.19/2.99      ( ~ v1_funct_2(sK2,sK0,sK1)
+% 19.19/2.99      | ~ m1_subset_1(sK2,k1_zfmisc_1(k2_zfmisc_1(sK0,sK1)))
+% 19.19/2.99      | ~ v2_funct_1(sK2)
+% 19.19/2.99      | ~ v1_funct_1(sK2)
+% 19.19/2.99      | k2_relset_1(sK0,sK1,sK2) != sK1
+% 19.19/2.99      | k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(sK0)
+% 19.19/2.99      | k1_xboole_0 = sK1 ),
+% 19.19/2.99      inference(instantiation,[status(thm)],[c_1370]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_3097,plain,
+% 19.19/2.99      ( k5_relat_1(sK2,k2_funct_1(sK2)) = k6_partfun1(sK0) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_3046,c_36,c_35,c_34,c_30,c_28,c_26,c_1587]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9689,plain,
+% 19.19/2.99      ( k2_relat_1(k6_partfun1(sK0)) = k1_relat_1(sK2) ),
+% 19.19/2.99      inference(light_normalisation,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_9682,c_2297,c_2359,c_3097]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2,plain,
+% 19.19/2.99      ( k2_relat_1(k6_partfun1(X0)) = X0 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f87]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9690,plain,
+% 19.19/2.99      ( k1_relat_1(sK2) = sK0 ),
+% 19.19/2.99      inference(demodulation,[status(thm)],[c_9689,c_2]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2253,plain,
+% 19.19/2.99      ( v1_relat_1(sK3) = iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1176,c_1189]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1174,plain,
+% 19.19/2.99      ( v1_funct_1(sK3) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_33]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9565,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(sK3),k2_relat_1(X0)) = k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3)))
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1174,c_3053]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5518,plain,
+% 19.19/2.99      ( v2_funct_1(sK3) = iProver_top ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_5412,c_40,c_41,c_42,c_27,c_700,c_1281,c_2964]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5522,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(sK3),X0) = k10_relat_1(sK3,X0)
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_5518,c_1191]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5609,plain,
+% 19.19/2.99      ( k9_relat_1(k2_funct_1(sK3),X0) = k10_relat_1(sK3,X0) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_5522,c_40,c_42,c_1711]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9571,plain,
+% 19.19/2.99      ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(X0))
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(demodulation,[status(thm)],[c_9565,c_5609]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9760,plain,
+% 19.19/2.99      ( v1_relat_1(X0) != iProver_top
+% 19.19/2.99      | k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(X0)) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_9571,c_42,c_1711]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9761,plain,
+% 19.19/2.99      ( k2_relat_1(k5_relat_1(X0,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(X0))
+% 19.19/2.99      | v1_relat_1(X0) != iProver_top ),
+% 19.19/2.99      inference(renaming,[status(thm)],[c_9760]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9768,plain,
+% 19.19/2.99      ( k2_relat_1(k5_relat_1(sK3,k2_funct_1(sK3))) = k10_relat_1(sK3,k2_relat_1(sK3)) ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_2253,c_9761]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2355,plain,
+% 19.19/2.99      ( k10_relat_1(sK3,k2_relat_1(sK3)) = k1_relat_1(sK3) ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_2253,c_1196]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_2356,plain,
+% 19.19/2.99      ( k10_relat_1(sK3,sK0) = k1_relat_1(sK3) ),
+% 19.19/2.99      inference(light_normalisation,[status(thm)],[c_2355,c_2298]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9777,plain,
+% 19.19/2.99      ( k2_relat_1(k6_partfun1(sK1)) = k1_relat_1(sK3) ),
+% 19.19/2.99      inference(light_normalisation,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_9768,c_2298,c_2356,c_8063]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9778,plain,
+% 19.19/2.99      ( k1_relat_1(sK3) = sK1 ),
+% 19.19/2.99      inference(demodulation,[status(thm)],[c_9777,c_2]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_17,plain,
+% 19.19/2.99      ( ~ m1_subset_1(X0,k1_zfmisc_1(k2_zfmisc_1(X1,X2)))
+% 19.19/2.99      | ~ m1_subset_1(X3,k1_zfmisc_1(k2_zfmisc_1(X4,X5)))
+% 19.19/2.99      | ~ v1_funct_1(X0)
+% 19.19/2.99      | ~ v1_funct_1(X3)
+% 19.19/2.99      | k1_partfun1(X4,X5,X1,X2,X3,X0) = k5_relat_1(X3,X0) ),
+% 19.19/2.99      inference(cnf_transformation,[],[f66]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_1184,plain,
+% 19.19/2.99      ( k1_partfun1(X0,X1,X2,X3,X4,X5) = k5_relat_1(X4,X5)
+% 19.19/2.99      | m1_subset_1(X5,k1_zfmisc_1(k2_zfmisc_1(X2,X3))) != iProver_top
+% 19.19/2.99      | m1_subset_1(X4,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+% 19.19/2.99      | v1_funct_1(X5) != iProver_top
+% 19.19/2.99      | v1_funct_1(X4) != iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_17]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_3511,plain,
+% 19.19/2.99      ( k1_partfun1(X0,X1,sK1,sK0,X2,sK3) = k5_relat_1(X2,sK3)
+% 19.19/2.99      | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+% 19.19/2.99      | v1_funct_1(X2) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1176,c_1184]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_4385,plain,
+% 19.19/2.99      ( v1_funct_1(X2) != iProver_top
+% 19.19/2.99      | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+% 19.19/2.99      | k1_partfun1(X0,X1,sK1,sK0,X2,sK3) = k5_relat_1(X2,sK3) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_3511,c_40]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_4386,plain,
+% 19.19/2.99      ( k1_partfun1(X0,X1,sK1,sK0,X2,sK3) = k5_relat_1(X2,sK3)
+% 19.19/2.99      | m1_subset_1(X2,k1_zfmisc_1(k2_zfmisc_1(X0,X1))) != iProver_top
+% 19.19/2.99      | v1_funct_1(X2) != iProver_top ),
+% 19.19/2.99      inference(renaming,[status(thm)],[c_4385]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_4393,plain,
+% 19.19/2.99      ( k1_partfun1(sK0,sK1,sK1,sK0,sK2,sK3) = k5_relat_1(sK2,sK3)
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_1173,c_4386]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_4394,plain,
+% 19.19/2.99      ( k5_relat_1(sK2,sK3) = k6_partfun1(sK0)
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(light_normalisation,[status(thm)],[c_4393,c_2045]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_4831,plain,
+% 19.19/2.99      ( k5_relat_1(sK2,sK3) = k6_partfun1(sK0) ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_4394,c_37]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5053,plain,
+% 19.19/2.99      ( k2_funct_1(sK3) = sK2
+% 19.19/2.99      | k6_partfun1(k2_relat_1(sK3)) != k6_partfun1(sK0)
+% 19.19/2.99      | k1_relat_1(sK3) != k2_relat_1(sK2)
+% 19.19/2.99      | v2_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(superposition,[status(thm)],[c_4831,c_1190]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5054,plain,
+% 19.19/2.99      ( k2_funct_1(sK3) = sK2
+% 19.19/2.99      | k6_partfun1(sK0) != k6_partfun1(sK0)
+% 19.19/2.99      | k1_relat_1(sK3) != sK1
+% 19.19/2.99      | v2_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(light_normalisation,[status(thm)],[c_5053,c_2297,c_2298]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_5055,plain,
+% 19.19/2.99      ( k2_funct_1(sK3) = sK2
+% 19.19/2.99      | k1_relat_1(sK3) != sK1
+% 19.19/2.99      | v2_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK3) != iProver_top
+% 19.19/2.99      | v1_funct_1(sK2) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK3) != iProver_top
+% 19.19/2.99      | v1_relat_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(equality_resolution_simp,[status(thm)],[c_5054]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_7423,plain,
+% 19.19/2.99      ( k1_relat_1(sK3) != sK1 | k2_funct_1(sK3) = sK2 ),
+% 19.19/2.99      inference(global_propositional_subsumption,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_5055,c_37,c_39,c_40,c_41,c_42,c_27,c_700,c_1281,
+% 19.19/2.99                 c_1711,c_1975,c_2964,c_5412]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_7424,plain,
+% 19.19/2.99      ( k2_funct_1(sK3) = sK2 | k1_relat_1(sK3) != sK1 ),
+% 19.19/2.99      inference(renaming,[status(thm)],[c_7423]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9904,plain,
+% 19.19/2.99      ( k2_funct_1(sK3) = sK2 | sK1 != sK1 ),
+% 19.19/2.99      inference(demodulation,[status(thm)],[c_9778,c_7424]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_9906,plain,
+% 19.19/2.99      ( k2_funct_1(sK3) = sK2 ),
+% 19.19/2.99      inference(equality_resolution_simp,[status(thm)],[c_9904]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_42558,plain,
+% 19.19/2.99      ( k2_funct_1(sK2) = sK3
+% 19.19/2.99      | k6_partfun1(sK1) != k6_partfun1(sK1)
+% 19.19/2.99      | sK0 != sK0
+% 19.19/2.99      | v2_funct_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(light_normalisation,
+% 19.19/2.99                [status(thm)],
+% 19.19/2.99                [c_42554,c_2297,c_9690,c_9906]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_42559,plain,
+% 19.19/2.99      ( k2_funct_1(sK2) = sK3 | v2_funct_1(sK2) != iProver_top ),
+% 19.19/2.99      inference(equality_resolution_simp,[status(thm)],[c_42558]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_25,negated_conjecture,
+% 19.19/2.99      ( k2_funct_1(sK2) != sK3 ),
+% 19.19/2.99      inference(cnf_transformation,[],[f86]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(c_44,plain,
+% 19.19/2.99      ( v2_funct_1(sK2) = iProver_top ),
+% 19.19/2.99      inference(predicate_to_equality,[status(thm)],[c_28]) ).
+% 19.19/2.99  
+% 19.19/2.99  cnf(contradiction,plain,
+% 19.19/2.99      ( $false ),
+% 19.19/2.99      inference(minisat,[status(thm)],[c_42559,c_25,c_44]) ).
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  % SZS output end CNFRefutation for theBenchmark.p
+% 19.19/2.99  
+% 19.19/2.99  ------                               Statistics
+% 19.19/2.99  
+% 19.19/2.99  ------ General
+% 19.19/2.99  
+% 19.19/2.99  abstr_ref_over_cycles:                  0
+% 19.19/2.99  abstr_ref_under_cycles:                 0
+% 19.19/2.99  gc_basic_clause_elim:                   0
+% 19.19/2.99  forced_gc_time:                         0
+% 19.19/2.99  parsing_time:                           0.015
+% 19.19/2.99  unif_index_cands_time:                  0.
+% 19.19/2.99  unif_index_add_time:                    0.
+% 19.19/2.99  orderings_time:                         0.
+% 19.19/2.99  out_proof_time:                         0.022
+% 19.19/2.99  total_time:                             2.226
+% 19.19/2.99  num_of_symbols:                         53
+% 19.19/2.99  num_of_terms:                           66212
+% 19.19/2.99  
+% 19.19/2.99  ------ Preprocessing
+% 19.19/2.99  
+% 19.19/2.99  num_of_splits:                          0
+% 19.19/2.99  num_of_split_atoms:                     0
+% 19.19/2.99  num_of_reused_defs:                     0
+% 19.19/2.99  num_eq_ax_congr_red:                    3
+% 19.19/2.99  num_of_sem_filtered_clauses:            1
+% 19.19/2.99  num_of_subtypes:                        0
+% 19.19/2.99  monotx_restored_types:                  0
+% 19.19/2.99  sat_num_of_epr_types:                   0
+% 19.19/2.99  sat_num_of_non_cyclic_types:            0
+% 19.19/2.99  sat_guarded_non_collapsed_types:        0
+% 19.19/2.99  num_pure_diseq_elim:                    0
+% 19.19/2.99  simp_replaced_by:                       0
+% 19.19/2.99  res_preprocessed:                       182
+% 19.19/2.99  prep_upred:                             0
+% 19.19/2.99  prep_unflattend:                        12
+% 19.19/2.99  smt_new_axioms:                         0
+% 19.19/2.99  pred_elim_cands:                        5
+% 19.19/2.99  pred_elim:                              1
+% 19.19/2.99  pred_elim_cl:                           1
+% 19.19/2.99  pred_elim_cycles:                       3
+% 19.19/2.99  merged_defs:                            0
+% 19.19/2.99  merged_defs_ncl:                        0
+% 19.19/2.99  bin_hyper_res:                          0
+% 19.19/2.99  prep_cycles:                            4
+% 19.19/2.99  pred_elim_time:                         0.004
+% 19.19/2.99  splitting_time:                         0.
+% 19.19/2.99  sem_filter_time:                        0.
+% 19.19/2.99  monotx_time:                            0.
+% 19.19/2.99  subtype_inf_time:                       0.
+% 19.19/2.99  
+% 19.19/2.99  ------ Problem properties
+% 19.19/2.99  
+% 19.19/2.99  clauses:                                36
+% 19.19/2.99  conjectures:                            11
+% 19.19/2.99  epr:                                    7
+% 19.19/2.99  horn:                                   32
+% 19.19/2.99  ground:                                 12
+% 19.19/2.99  unary:                                  16
+% 19.19/2.99  binary:                                 4
+% 19.19/2.99  lits:                                   128
+% 19.19/2.99  lits_eq:                                31
+% 19.19/2.99  fd_pure:                                0
+% 19.19/2.99  fd_pseudo:                              0
+% 19.19/2.99  fd_cond:                                4
+% 19.19/2.99  fd_pseudo_cond:                         1
+% 19.19/2.99  ac_symbols:                             0
+% 19.19/2.99  
+% 19.19/2.99  ------ Propositional Solver
+% 19.19/2.99  
+% 19.19/2.99  prop_solver_calls:                      42
+% 19.19/2.99  prop_fast_solver_calls:                 3324
+% 19.19/2.99  smt_solver_calls:                       0
+% 19.19/2.99  smt_fast_solver_calls:                  0
+% 19.19/2.99  prop_num_of_clauses:                    22184
+% 19.19/2.99  prop_preprocess_simplified:             34583
+% 19.19/2.99  prop_fo_subsumed:                       557
+% 19.19/2.99  prop_solver_time:                       0.
+% 19.19/2.99  smt_solver_time:                        0.
+% 19.19/2.99  smt_fast_solver_time:                   0.
+% 19.19/2.99  prop_fast_solver_time:                  0.
+% 19.19/2.99  prop_unsat_core_time:                   0.003
+% 19.19/2.99  
+% 19.19/2.99  ------ QBF
+% 19.19/2.99  
+% 19.19/2.99  qbf_q_res:                              0
+% 19.19/2.99  qbf_num_tautologies:                    0
+% 19.19/2.99  qbf_prep_cycles:                        0
+% 19.19/2.99  
+% 19.19/2.99  ------ BMC1
+% 19.19/2.99  
+% 19.19/2.99  bmc1_current_bound:                     -1
+% 19.19/2.99  bmc1_last_solved_bound:                 -1
+% 19.19/2.99  bmc1_unsat_core_size:                   -1
+% 19.19/2.99  bmc1_unsat_core_parents_size:           -1
+% 19.19/2.99  bmc1_merge_next_fun:                    0
+% 19.19/2.99  bmc1_unsat_core_clauses_time:           0.
+% 19.19/2.99  
+% 19.19/2.99  ------ Instantiation
+% 19.19/2.99  
+% 19.19/2.99  inst_num_of_clauses:                    410
+% 19.19/2.99  inst_num_in_passive:                    79
+% 19.19/2.99  inst_num_in_active:                     2892
+% 19.19/2.99  inst_num_in_unprocessed:                155
+% 19.19/2.99  inst_num_of_loops:                      3179
+% 19.19/2.99  inst_num_of_learning_restarts:          1
+% 19.19/2.99  inst_num_moves_active_passive:          281
+% 19.19/2.99  inst_lit_activity:                      0
+% 19.19/2.99  inst_lit_activity_moves:                4
+% 19.19/2.99  inst_num_tautologies:                   0
+% 19.19/2.99  inst_num_prop_implied:                  0
+% 19.19/2.99  inst_num_existing_simplified:           0
+% 19.19/2.99  inst_num_eq_res_simplified:             0
+% 19.19/2.99  inst_num_child_elim:                    0
+% 19.19/2.99  inst_num_of_dismatching_blockings:      1250
+% 19.19/2.99  inst_num_of_non_proper_insts:           4269
+% 19.19/2.99  inst_num_of_duplicates:                 0
+% 19.19/2.99  inst_inst_num_from_inst_to_res:         0
+% 19.19/2.99  inst_dismatching_checking_time:         0.
+% 19.19/2.99  
+% 19.19/2.99  ------ Resolution
+% 19.19/2.99  
+% 19.19/2.99  res_num_of_clauses:                     54
+% 19.19/2.99  res_num_in_passive:                     54
+% 19.19/2.99  res_num_in_active:                      0
+% 19.19/2.99  res_num_of_loops:                       186
+% 19.19/2.99  res_forward_subset_subsumed:            273
+% 19.19/2.99  res_backward_subset_subsumed:           0
+% 19.19/2.99  res_forward_subsumed:                   0
+% 19.19/2.99  res_backward_subsumed:                  0
+% 19.19/2.99  res_forward_subsumption_resolution:     2
+% 19.19/2.99  res_backward_subsumption_resolution:    0
+% 19.19/2.99  res_clause_to_clause_subsumption:       5941
+% 19.19/2.99  res_orphan_elimination:                 0
+% 19.19/2.99  res_tautology_del:                      186
+% 19.19/2.99  res_num_eq_res_simplified:              1
+% 19.19/2.99  res_num_sel_changes:                    0
+% 19.19/2.99  res_moves_from_active_to_pass:          0
+% 19.19/2.99  
+% 19.19/2.99  ------ Superposition
+% 19.19/2.99  
+% 19.19/2.99  sup_time_total:                         0.
+% 19.19/2.99  sup_time_generating:                    0.
+% 19.19/2.99  sup_time_sim_full:                      0.
+% 19.19/2.99  sup_time_sim_immed:                     0.
+% 19.19/2.99  
+% 19.19/2.99  sup_num_of_clauses:                     2223
+% 19.19/2.99  sup_num_in_active:                      614
+% 19.19/2.99  sup_num_in_passive:                     1609
+% 19.19/2.99  sup_num_of_loops:                       635
+% 19.19/2.99  sup_fw_superposition:                   1292
+% 19.19/2.99  sup_bw_superposition:                   1081
+% 19.19/2.99  sup_immediate_simplified:               760
+% 19.19/2.99  sup_given_eliminated:                   0
+% 19.19/2.99  comparisons_done:                       0
+% 19.19/2.99  comparisons_avoided:                    4
+% 19.19/2.99  
+% 19.19/2.99  ------ Simplifications
+% 19.19/2.99  
+% 19.19/2.99  
+% 19.19/2.99  sim_fw_subset_subsumed:                 15
+% 19.19/2.99  sim_bw_subset_subsumed:                 67
+% 19.19/2.99  sim_fw_subsumed:                        9
+% 19.19/2.99  sim_bw_subsumed:                        0
+% 19.19/2.99  sim_fw_subsumption_res:                 0
+% 19.19/2.99  sim_bw_subsumption_res:                 0
+% 19.19/2.99  sim_tautology_del:                      0
+% 19.19/2.99  sim_eq_tautology_del:                   88
+% 19.19/2.99  sim_eq_res_simp:                        3
+% 19.19/2.99  sim_fw_demodulated:                     94
+% 19.19/2.99  sim_bw_demodulated:                     9
+% 19.19/2.99  sim_light_normalised:                   761
+% 19.19/2.99  sim_joinable_taut:                      0
+% 19.19/2.99  sim_joinable_simp:                      0
+% 19.19/2.99  sim_ac_normalised:                      0
+% 19.19/2.99  sim_smt_subsumption:                    0
+% 19.19/2.99  
+%------------------------------------------------------------------------------

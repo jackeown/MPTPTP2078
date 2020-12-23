@@ -1,0 +1,275 @@
+%------------------------------------------------------------------------------
+% File       : Vampire---4.5
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_vampire %s %d
+
+% Computer   : n005.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 12:32:58 EST 2020
+
+% Result     : Theorem 0.21s
+% Output     : Refutation 0.21s
+% Verified   : 
+% Statistics : Number of formulae       :   29 (  44 expanded)
+%              Number of leaves         :    8 (  17 expanded)
+%              Depth                    :    7
+%              Number of atoms          :   46 (  64 expanded)
+%              Number of equality atoms :   24 (  39 expanded)
+%              Maximal formula depth    :    6 (   4 average)
+%              Maximal term depth       :    5 (   3 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f57,plain,(
+    $false ),
+    inference(avatar_sat_refutation,[],[f19,f26,f52,f56])).
+
+fof(f56,plain,
+    ( ~ spl3_1
+    | ~ spl3_2
+    | spl3_4 ),
+    inference(avatar_contradiction_clause,[],[f55])).
+
+fof(f55,plain,
+    ( $false
+    | ~ spl3_1
+    | ~ spl3_2
+    | spl3_4 ),
+    inference(trivial_inequality_removal,[],[f54])).
+
+fof(f54,plain,
+    ( k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2))))
+    | ~ spl3_1
+    | ~ spl3_2
+    | spl3_4 ),
+    inference(forward_demodulation,[],[f53,f18])).
+
+fof(f18,plain,
+    ( ! [X2,X0,X1] : k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) = k4_xboole_0(X0,k4_xboole_0(X1,k4_xboole_0(X1,X2)))
+    | ~ spl3_1 ),
+    inference(avatar_component_clause,[],[f17])).
+
+fof(f17,plain,
+    ( spl3_1
+  <=> ! [X1,X0,X2] : k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) = k4_xboole_0(X0,k4_xboole_0(X1,k4_xboole_0(X1,X2))) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl3_1])])).
+
+fof(f53,plain,
+    ( k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(sK0,k2_xboole_0(k4_xboole_0(sK0,sK1),k4_xboole_0(sK0,sK2)))
+    | ~ spl3_2
+    | spl3_4 ),
+    inference(superposition,[],[f51,f25])).
+
+fof(f25,plain,
+    ( ! [X2,X0,X1] : k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)))
+    | ~ spl3_2 ),
+    inference(avatar_component_clause,[],[f24])).
+
+fof(f24,plain,
+    ( spl3_2
+  <=> ! [X1,X0,X2] : k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2))) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl3_2])])).
+
+fof(f51,plain,
+    ( k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(sK0,k4_xboole_0(sK0,sK2))))
+    | spl3_4 ),
+    inference(avatar_component_clause,[],[f49])).
+
+fof(f49,plain,
+    ( spl3_4
+  <=> k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) = k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(sK0,k4_xboole_0(sK0,sK2)))) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl3_4])])).
+
+fof(f52,plain,(
+    ~ spl3_4 ),
+    inference(avatar_split_clause,[],[f13,f49])).
+
+fof(f13,plain,(
+    k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(sK0,k4_xboole_0(sK0,sK2)))) ),
+    inference(definition_unfolding,[],[f9,f10,f10,f10,f10,f10])).
+
+fof(f10,plain,(
+    ! [X0,X1] : k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1) ),
+    inference(cnf_transformation,[],[f1])).
+
+fof(f1,axiom,(
+    ! [X0,X1] : k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t48_xboole_1)).
+
+fof(f9,plain,(
+    k3_xboole_0(sK0,k3_xboole_0(sK1,sK2)) != k3_xboole_0(k3_xboole_0(sK0,sK1),k3_xboole_0(sK0,sK2)) ),
+    inference(cnf_transformation,[],[f8])).
+
+fof(f8,plain,(
+    k3_xboole_0(sK0,k3_xboole_0(sK1,sK2)) != k3_xboole_0(k3_xboole_0(sK0,sK1),k3_xboole_0(sK0,sK2)) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f6,f7])).
+
+fof(f7,plain,
+    ( ? [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) != k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2))
+   => k3_xboole_0(sK0,k3_xboole_0(sK1,sK2)) != k3_xboole_0(k3_xboole_0(sK0,sK1),k3_xboole_0(sK0,sK2)) ),
+    introduced(choice_axiom,[])).
+
+fof(f6,plain,(
+    ? [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) != k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2)) ),
+    inference(ennf_transformation,[],[f5])).
+
+fof(f5,negated_conjecture,(
+    ~ ! [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) = k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2)) ),
+    inference(negated_conjecture,[],[f4])).
+
+fof(f4,conjecture,(
+    ! [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) = k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2)) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t116_xboole_1)).
+
+fof(f26,plain,(
+    spl3_2 ),
+    inference(avatar_split_clause,[],[f14,f24])).
+
+fof(f14,plain,(
+    ! [X2,X0,X1] : k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2))) ),
+    inference(definition_unfolding,[],[f11,f10])).
+
+fof(f11,plain,(
+    ! [X2,X0,X1] : k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k3_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) ),
+    inference(cnf_transformation,[],[f2])).
+
+fof(f2,axiom,(
+    ! [X0,X1,X2] : k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k3_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t53_xboole_1)).
+
+fof(f19,plain,(
+    spl3_1 ),
+    inference(avatar_split_clause,[],[f15,f17])).
+
+fof(f15,plain,(
+    ! [X2,X0,X1] : k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) = k4_xboole_0(X0,k4_xboole_0(X1,k4_xboole_0(X1,X2))) ),
+    inference(definition_unfolding,[],[f12,f10])).
+
+fof(f12,plain,(
+    ! [X2,X0,X1] : k4_xboole_0(X0,k3_xboole_0(X1,X2)) = k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) ),
+    inference(cnf_transformation,[],[f3])).
+
+fof(f3,axiom,(
+    ! [X0,X1,X2] : k4_xboole_0(X0,k3_xboole_0(X1,X2)) = k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t54_xboole_1)).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.07/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.07/0.13  % Command    : run_vampire %s %d
+% 0.13/0.34  % Computer   : n005.cluster.edu
+% 0.13/0.34  % Model      : x86_64 x86_64
+% 0.13/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.34  % Memory     : 8042.1875MB
+% 0.13/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.34  % CPULimit   : 60
+% 0.13/0.34  % WCLimit    : 600
+% 0.13/0.34  % DateTime   : Tue Dec  1 11:44:48 EST 2020
+% 0.13/0.34  % CPUTime    : 
+% 0.21/0.43  % (27373)ott+11_20_afr=on:afp=100000:afq=1.0:amm=sco:anc=all:bsr=on:irw=on:lma=on:nm=4:nwc=1.2:sac=on:sp=occurrence_294 on theBenchmark
+% 0.21/0.44  % (27373)Refutation found. Thanks to Tanya!
+% 0.21/0.44  % SZS status Theorem for theBenchmark
+% 0.21/0.44  % SZS output start Proof for theBenchmark
+% 0.21/0.44  fof(f57,plain,(
+% 0.21/0.44    $false),
+% 0.21/0.44    inference(avatar_sat_refutation,[],[f19,f26,f52,f56])).
+% 0.21/0.44  fof(f56,plain,(
+% 0.21/0.44    ~spl3_1 | ~spl3_2 | spl3_4),
+% 0.21/0.44    inference(avatar_contradiction_clause,[],[f55])).
+% 0.21/0.44  fof(f55,plain,(
+% 0.21/0.44    $false | (~spl3_1 | ~spl3_2 | spl3_4)),
+% 0.21/0.44    inference(trivial_inequality_removal,[],[f54])).
+% 0.21/0.44  fof(f54,plain,(
+% 0.21/0.44    k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) | (~spl3_1 | ~spl3_2 | spl3_4)),
+% 0.21/0.44    inference(forward_demodulation,[],[f53,f18])).
+% 0.21/0.44  fof(f18,plain,(
+% 0.21/0.44    ( ! [X2,X0,X1] : (k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) = k4_xboole_0(X0,k4_xboole_0(X1,k4_xboole_0(X1,X2)))) ) | ~spl3_1),
+% 0.21/0.44    inference(avatar_component_clause,[],[f17])).
+% 0.21/0.44  fof(f17,plain,(
+% 0.21/0.44    spl3_1 <=> ! [X1,X0,X2] : k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) = k4_xboole_0(X0,k4_xboole_0(X1,k4_xboole_0(X1,X2)))),
+% 0.21/0.44    introduced(avatar_definition,[new_symbols(naming,[spl3_1])])).
+% 0.21/0.44  fof(f53,plain,(
+% 0.21/0.44    k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(sK0,k2_xboole_0(k4_xboole_0(sK0,sK1),k4_xboole_0(sK0,sK2))) | (~spl3_2 | spl3_4)),
+% 0.21/0.44    inference(superposition,[],[f51,f25])).
+% 0.21/0.44  fof(f25,plain,(
+% 0.21/0.44    ( ! [X2,X0,X1] : (k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)))) ) | ~spl3_2),
+% 0.21/0.44    inference(avatar_component_clause,[],[f24])).
+% 0.21/0.44  fof(f24,plain,(
+% 0.21/0.44    spl3_2 <=> ! [X1,X0,X2] : k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)))),
+% 0.21/0.44    introduced(avatar_definition,[new_symbols(naming,[spl3_2])])).
+% 0.21/0.44  fof(f51,plain,(
+% 0.21/0.44    k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(sK0,k4_xboole_0(sK0,sK2)))) | spl3_4),
+% 0.21/0.44    inference(avatar_component_clause,[],[f49])).
+% 0.21/0.44  fof(f49,plain,(
+% 0.21/0.44    spl3_4 <=> k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) = k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(sK0,k4_xboole_0(sK0,sK2))))),
+% 0.21/0.44    introduced(avatar_definition,[new_symbols(naming,[spl3_4])])).
+% 0.21/0.44  fof(f52,plain,(
+% 0.21/0.44    ~spl3_4),
+% 0.21/0.44    inference(avatar_split_clause,[],[f13,f49])).
+% 0.21/0.44  fof(f13,plain,(
+% 0.21/0.44    k4_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK1,k4_xboole_0(sK1,sK2)))) != k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)),k4_xboole_0(sK0,k4_xboole_0(sK0,sK2))))),
+% 0.21/0.44    inference(definition_unfolding,[],[f9,f10,f10,f10,f10,f10])).
+% 0.21/0.44  fof(f10,plain,(
+% 0.21/0.44    ( ! [X0,X1] : (k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1)) )),
+% 0.21/0.44    inference(cnf_transformation,[],[f1])).
+% 0.21/0.44  fof(f1,axiom,(
+% 0.21/0.44    ! [X0,X1] : k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1)),
+% 0.21/0.44    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t48_xboole_1)).
+% 0.21/0.44  fof(f9,plain,(
+% 0.21/0.44    k3_xboole_0(sK0,k3_xboole_0(sK1,sK2)) != k3_xboole_0(k3_xboole_0(sK0,sK1),k3_xboole_0(sK0,sK2))),
+% 0.21/0.44    inference(cnf_transformation,[],[f8])).
+% 0.21/0.44  fof(f8,plain,(
+% 0.21/0.44    k3_xboole_0(sK0,k3_xboole_0(sK1,sK2)) != k3_xboole_0(k3_xboole_0(sK0,sK1),k3_xboole_0(sK0,sK2))),
+% 0.21/0.44    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f6,f7])).
+% 0.21/0.44  fof(f7,plain,(
+% 0.21/0.44    ? [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) != k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2)) => k3_xboole_0(sK0,k3_xboole_0(sK1,sK2)) != k3_xboole_0(k3_xboole_0(sK0,sK1),k3_xboole_0(sK0,sK2))),
+% 0.21/0.44    introduced(choice_axiom,[])).
+% 0.21/0.44  fof(f6,plain,(
+% 0.21/0.44    ? [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) != k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2))),
+% 0.21/0.44    inference(ennf_transformation,[],[f5])).
+% 0.21/0.44  fof(f5,negated_conjecture,(
+% 0.21/0.44    ~! [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) = k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2))),
+% 0.21/0.44    inference(negated_conjecture,[],[f4])).
+% 0.21/0.44  fof(f4,conjecture,(
+% 0.21/0.44    ! [X0,X1,X2] : k3_xboole_0(X0,k3_xboole_0(X1,X2)) = k3_xboole_0(k3_xboole_0(X0,X1),k3_xboole_0(X0,X2))),
+% 0.21/0.44    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t116_xboole_1)).
+% 0.21/0.44  fof(f26,plain,(
+% 0.21/0.44    spl3_2),
+% 0.21/0.44    inference(avatar_split_clause,[],[f14,f24])).
+% 0.21/0.44  fof(f14,plain,(
+% 0.21/0.44    ( ! [X2,X0,X1] : (k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)))) )),
+% 0.21/0.44    inference(definition_unfolding,[],[f11,f10])).
+% 0.21/0.44  fof(f11,plain,(
+% 0.21/0.44    ( ! [X2,X0,X1] : (k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k3_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2))) )),
+% 0.21/0.44    inference(cnf_transformation,[],[f2])).
+% 0.21/0.44  fof(f2,axiom,(
+% 0.21/0.44    ! [X0,X1,X2] : k4_xboole_0(X0,k2_xboole_0(X1,X2)) = k3_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2))),
+% 0.21/0.44    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t53_xboole_1)).
+% 0.21/0.44  fof(f19,plain,(
+% 0.21/0.44    spl3_1),
+% 0.21/0.44    inference(avatar_split_clause,[],[f15,f17])).
+% 0.21/0.44  fof(f15,plain,(
+% 0.21/0.44    ( ! [X2,X0,X1] : (k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2)) = k4_xboole_0(X0,k4_xboole_0(X1,k4_xboole_0(X1,X2)))) )),
+% 0.21/0.44    inference(definition_unfolding,[],[f12,f10])).
+% 0.21/0.44  fof(f12,plain,(
+% 0.21/0.44    ( ! [X2,X0,X1] : (k4_xboole_0(X0,k3_xboole_0(X1,X2)) = k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2))) )),
+% 0.21/0.44    inference(cnf_transformation,[],[f3])).
+% 0.21/0.44  fof(f3,axiom,(
+% 0.21/0.44    ! [X0,X1,X2] : k4_xboole_0(X0,k3_xboole_0(X1,X2)) = k2_xboole_0(k4_xboole_0(X0,X1),k4_xboole_0(X0,X2))),
+% 0.21/0.44    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t54_xboole_1)).
+% 0.21/0.44  % SZS output end Proof for theBenchmark
+% 0.21/0.44  % (27373)------------------------------
+% 0.21/0.44  % (27373)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 0.21/0.44  % (27373)Termination reason: Refutation
+% 0.21/0.44  
+% 0.21/0.44  % (27373)Memory used [KB]: 6140
+% 0.21/0.44  % (27373)Time elapsed: 0.043 s
+% 0.21/0.44  % (27373)------------------------------
+% 0.21/0.44  % (27373)------------------------------
+% 0.21/0.44  % (27365)Success in time 0.078 s
+%------------------------------------------------------------------------------

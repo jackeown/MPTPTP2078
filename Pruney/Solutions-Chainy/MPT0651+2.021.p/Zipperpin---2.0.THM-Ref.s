@@ -1,0 +1,1110 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.AFND1QqTzT
+
+% Computer   : n022.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 13:45:25 EST 2020
+
+% Result     : Theorem 0.22s
+% Output     : Refutation 0.22s
+% Verified   : 
+% Statistics : Number of formulae       :   98 ( 146 expanded)
+%              Number of leaves         :   22 (  52 expanded)
+%              Depth                    :   21
+%              Number of atoms          :  858 (1728 expanded)
+%              Number of equality atoms :   77 ( 161 expanded)
+%              Maximal formula depth    :   11 (   6 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(k2_funct_1_type,type,(
+    k2_funct_1: $i > $i )).
+
+thf(k9_relat_1_type,type,(
+    k9_relat_1: $i > $i > $i )).
+
+thf(v1_relat_1_type,type,(
+    v1_relat_1: $i > $o )).
+
+thf(k4_relat_1_type,type,(
+    k4_relat_1: $i > $i )).
+
+thf(v1_funct_1_type,type,(
+    v1_funct_1: $i > $o )).
+
+thf(k6_relat_1_type,type,(
+    k6_relat_1: $i > $i )).
+
+thf(k5_relat_1_type,type,(
+    k5_relat_1: $i > $i > $i )).
+
+thf(k2_relat_1_type,type,(
+    k2_relat_1: $i > $i )).
+
+thf(v2_funct_1_type,type,(
+    v2_funct_1: $i > $o )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(r1_tarski_type,type,(
+    r1_tarski: $i > $i > $o )).
+
+thf(k1_relat_1_type,type,(
+    k1_relat_1: $i > $i )).
+
+thf(t71_relat_1,axiom,(
+    ! [A: $i] :
+      ( ( ( k2_relat_1 @ ( k6_relat_1 @ A ) )
+        = A )
+      & ( ( k1_relat_1 @ ( k6_relat_1 @ A ) )
+        = A ) ) )).
+
+thf('0',plain,(
+    ! [X10: $i] :
+      ( ( k2_relat_1 @ ( k6_relat_1 @ X10 ) )
+      = X10 ) ),
+    inference(cnf,[status(esa)],[t71_relat_1])).
+
+thf('1',plain,(
+    ! [X9: $i] :
+      ( ( k1_relat_1 @ ( k6_relat_1 @ X9 ) )
+      = X9 ) ),
+    inference(cnf,[status(esa)],[t71_relat_1])).
+
+thf(t146_relat_1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ( ( k9_relat_1 @ A @ ( k1_relat_1 @ A ) )
+        = ( k2_relat_1 @ A ) ) ) )).
+
+thf('2',plain,(
+    ! [X1: $i] :
+      ( ( ( k9_relat_1 @ X1 @ ( k1_relat_1 @ X1 ) )
+        = ( k2_relat_1 @ X1 ) )
+      | ~ ( v1_relat_1 @ X1 ) ) ),
+    inference(cnf,[status(esa)],[t146_relat_1])).
+
+thf('3',plain,(
+    ! [X0: $i] :
+      ( ( ( k9_relat_1 @ ( k6_relat_1 @ X0 ) @ X0 )
+        = ( k2_relat_1 @ ( k6_relat_1 @ X0 ) ) )
+      | ~ ( v1_relat_1 @ ( k6_relat_1 @ X0 ) ) ) ),
+    inference('sup+',[status(thm)],['1','2'])).
+
+thf('4',plain,(
+    ! [X10: $i] :
+      ( ( k2_relat_1 @ ( k6_relat_1 @ X10 ) )
+      = X10 ) ),
+    inference(cnf,[status(esa)],[t71_relat_1])).
+
+thf(fc3_funct_1,axiom,(
+    ! [A: $i] :
+      ( ( v1_funct_1 @ ( k6_relat_1 @ A ) )
+      & ( v1_relat_1 @ ( k6_relat_1 @ A ) ) ) )).
+
+thf('5',plain,(
+    ! [X12: $i] :
+      ( v1_relat_1 @ ( k6_relat_1 @ X12 ) ) ),
+    inference(cnf,[status(esa)],[fc3_funct_1])).
+
+thf('6',plain,(
+    ! [X0: $i] :
+      ( ( k9_relat_1 @ ( k6_relat_1 @ X0 ) @ X0 )
+      = X0 ) ),
+    inference(demod,[status(thm)],['3','4','5'])).
+
+thf(t160_relat_1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ! [B: $i] :
+          ( ( v1_relat_1 @ B )
+         => ( ( k2_relat_1 @ ( k5_relat_1 @ A @ B ) )
+            = ( k9_relat_1 @ B @ ( k2_relat_1 @ A ) ) ) ) ) )).
+
+thf('7',plain,(
+    ! [X2: $i,X3: $i] :
+      ( ~ ( v1_relat_1 @ X2 )
+      | ( ( k2_relat_1 @ ( k5_relat_1 @ X3 @ X2 ) )
+        = ( k9_relat_1 @ X2 @ ( k2_relat_1 @ X3 ) ) )
+      | ~ ( v1_relat_1 @ X3 ) ) ),
+    inference(cnf,[status(esa)],[t160_relat_1])).
+
+thf(t45_relat_1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ! [B: $i] :
+          ( ( v1_relat_1 @ B )
+         => ( r1_tarski @ ( k2_relat_1 @ ( k5_relat_1 @ A @ B ) ) @ ( k2_relat_1 @ B ) ) ) ) )).
+
+thf('8',plain,(
+    ! [X5: $i,X6: $i] :
+      ( ~ ( v1_relat_1 @ X5 )
+      | ( r1_tarski @ ( k2_relat_1 @ ( k5_relat_1 @ X6 @ X5 ) ) @ ( k2_relat_1 @ X5 ) )
+      | ~ ( v1_relat_1 @ X6 ) ) ),
+    inference(cnf,[status(esa)],[t45_relat_1])).
+
+thf('9',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( r1_tarski @ ( k9_relat_1 @ X1 @ ( k2_relat_1 @ X0 ) ) @ ( k2_relat_1 @ X1 ) )
+      | ~ ( v1_relat_1 @ X0 )
+      | ~ ( v1_relat_1 @ X1 )
+      | ~ ( v1_relat_1 @ X0 )
+      | ~ ( v1_relat_1 @ X1 ) ) ),
+    inference('sup+',[status(thm)],['7','8'])).
+
+thf('10',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v1_relat_1 @ X1 )
+      | ~ ( v1_relat_1 @ X0 )
+      | ( r1_tarski @ ( k9_relat_1 @ X1 @ ( k2_relat_1 @ X0 ) ) @ ( k2_relat_1 @ X1 ) ) ) ),
+    inference(simplify,[status(thm)],['9'])).
+
+thf('11',plain,(
+    ! [X0: $i] :
+      ( ( r1_tarski @ ( k2_relat_1 @ X0 ) @ ( k2_relat_1 @ ( k6_relat_1 @ ( k2_relat_1 @ X0 ) ) ) )
+      | ~ ( v1_relat_1 @ X0 )
+      | ~ ( v1_relat_1 @ ( k6_relat_1 @ ( k2_relat_1 @ X0 ) ) ) ) ),
+    inference('sup+',[status(thm)],['6','10'])).
+
+thf('12',plain,(
+    ! [X10: $i] :
+      ( ( k2_relat_1 @ ( k6_relat_1 @ X10 ) )
+      = X10 ) ),
+    inference(cnf,[status(esa)],[t71_relat_1])).
+
+thf('13',plain,(
+    ! [X12: $i] :
+      ( v1_relat_1 @ ( k6_relat_1 @ X12 ) ) ),
+    inference(cnf,[status(esa)],[fc3_funct_1])).
+
+thf('14',plain,(
+    ! [X0: $i] :
+      ( ( r1_tarski @ ( k2_relat_1 @ X0 ) @ ( k2_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ X0 ) ) ),
+    inference(demod,[status(thm)],['11','12','13'])).
+
+thf('15',plain,(
+    ! [X0: $i] :
+      ( ( r1_tarski @ X0 @ ( k2_relat_1 @ ( k6_relat_1 @ X0 ) ) )
+      | ~ ( v1_relat_1 @ ( k6_relat_1 @ X0 ) ) ) ),
+    inference('sup+',[status(thm)],['0','14'])).
+
+thf('16',plain,(
+    ! [X10: $i] :
+      ( ( k2_relat_1 @ ( k6_relat_1 @ X10 ) )
+      = X10 ) ),
+    inference(cnf,[status(esa)],[t71_relat_1])).
+
+thf('17',plain,(
+    ! [X12: $i] :
+      ( v1_relat_1 @ ( k6_relat_1 @ X12 ) ) ),
+    inference(cnf,[status(esa)],[fc3_funct_1])).
+
+thf('18',plain,(
+    ! [X0: $i] :
+      ( r1_tarski @ X0 @ X0 ) ),
+    inference(demod,[status(thm)],['15','16','17'])).
+
+thf(t37_relat_1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ( ( ( k2_relat_1 @ A )
+          = ( k1_relat_1 @ ( k4_relat_1 @ A ) ) )
+        & ( ( k1_relat_1 @ A )
+          = ( k2_relat_1 @ ( k4_relat_1 @ A ) ) ) ) ) )).
+
+thf('19',plain,(
+    ! [X4: $i] :
+      ( ( ( k2_relat_1 @ X4 )
+        = ( k1_relat_1 @ ( k4_relat_1 @ X4 ) ) )
+      | ~ ( v1_relat_1 @ X4 ) ) ),
+    inference(cnf,[status(esa)],[t37_relat_1])).
+
+thf(t46_relat_1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ! [B: $i] :
+          ( ( v1_relat_1 @ B )
+         => ( ( r1_tarski @ ( k2_relat_1 @ A ) @ ( k1_relat_1 @ B ) )
+           => ( ( k1_relat_1 @ ( k5_relat_1 @ A @ B ) )
+              = ( k1_relat_1 @ A ) ) ) ) ) )).
+
+thf('20',plain,(
+    ! [X7: $i,X8: $i] :
+      ( ~ ( v1_relat_1 @ X7 )
+      | ( ( k1_relat_1 @ ( k5_relat_1 @ X8 @ X7 ) )
+        = ( k1_relat_1 @ X8 ) )
+      | ~ ( r1_tarski @ ( k2_relat_1 @ X8 ) @ ( k1_relat_1 @ X7 ) )
+      | ~ ( v1_relat_1 @ X8 ) ) ),
+    inference(cnf,[status(esa)],[t46_relat_1])).
+
+thf('21',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r1_tarski @ ( k2_relat_1 @ X1 ) @ ( k2_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ X0 )
+      | ~ ( v1_relat_1 @ X1 )
+      | ( ( k1_relat_1 @ ( k5_relat_1 @ X1 @ ( k4_relat_1 @ X0 ) ) )
+        = ( k1_relat_1 @ X1 ) )
+      | ~ ( v1_relat_1 @ ( k4_relat_1 @ X0 ) ) ) ),
+    inference('sup-',[status(thm)],['19','20'])).
+
+thf('22',plain,(
+    ! [X0: $i] :
+      ( ~ ( v1_relat_1 @ ( k4_relat_1 @ X0 ) )
+      | ( ( k1_relat_1 @ ( k5_relat_1 @ X0 @ ( k4_relat_1 @ X0 ) ) )
+        = ( k1_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ X0 )
+      | ~ ( v1_relat_1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['18','21'])).
+
+thf('23',plain,(
+    ! [X0: $i] :
+      ( ~ ( v1_relat_1 @ X0 )
+      | ( ( k1_relat_1 @ ( k5_relat_1 @ X0 @ ( k4_relat_1 @ X0 ) ) )
+        = ( k1_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ ( k4_relat_1 @ X0 ) ) ) ),
+    inference(simplify,[status(thm)],['22'])).
+
+thf(dt_k4_relat_1,axiom,(
+    ! [A: $i] :
+      ( ( v1_relat_1 @ A )
+     => ( v1_relat_1 @ ( k4_relat_1 @ A ) ) ) )).
+
+thf('24',plain,(
+    ! [X0: $i] :
+      ( ( v1_relat_1 @ ( k4_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ X0 ) ) ),
+    inference(cnf,[status(esa)],[dt_k4_relat_1])).
+
+thf('25',plain,(
+    ! [X0: $i] :
+      ( ( ( k1_relat_1 @ ( k5_relat_1 @ X0 @ ( k4_relat_1 @ X0 ) ) )
+        = ( k1_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ X0 ) ) ),
+    inference(clc,[status(thm)],['23','24'])).
+
+thf(d9_funct_1,axiom,(
+    ! [A: $i] :
+      ( ( ( v1_relat_1 @ A )
+        & ( v1_funct_1 @ A ) )
+     => ( ( v2_funct_1 @ A )
+       => ( ( k2_funct_1 @ A )
+          = ( k4_relat_1 @ A ) ) ) ) )).
+
+thf('26',plain,(
+    ! [X11: $i] :
+      ( ~ ( v2_funct_1 @ X11 )
+      | ( ( k2_funct_1 @ X11 )
+        = ( k4_relat_1 @ X11 ) )
+      | ~ ( v1_funct_1 @ X11 )
+      | ~ ( v1_relat_1 @ X11 ) ) ),
+    inference(cnf,[status(esa)],[d9_funct_1])).
+
+thf(t58_funct_1,conjecture,(
+    ! [A: $i] :
+      ( ( ( v1_relat_1 @ A )
+        & ( v1_funct_1 @ A ) )
+     => ( ( v2_funct_1 @ A )
+       => ( ( ( k1_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) )
+            = ( k1_relat_1 @ A ) )
+          & ( ( k2_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) )
+            = ( k1_relat_1 @ A ) ) ) ) ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i] :
+        ( ( ( v1_relat_1 @ A )
+          & ( v1_funct_1 @ A ) )
+       => ( ( v2_funct_1 @ A )
+         => ( ( ( k1_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) )
+              = ( k1_relat_1 @ A ) )
+            & ( ( k2_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) )
+              = ( k1_relat_1 @ A ) ) ) ) ) ),
+    inference('cnf.neg',[status(esa)],[t58_funct_1])).
+
+thf('27',plain,
+    ( ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) )
+    | ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('28',plain,
+    ( ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) )
+   <= ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(split,[status(esa)],['27'])).
+
+thf('29',plain,
+    ( ( ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k4_relat_1 @ sk_A ) ) )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ sk_A )
+      | ~ ( v1_funct_1 @ sk_A )
+      | ~ ( v2_funct_1 @ sk_A ) )
+   <= ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['26','28'])).
+
+thf('30',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('31',plain,(
+    v1_funct_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('32',plain,(
+    v2_funct_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('33',plain,
+    ( ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k4_relat_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) )
+   <= ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['29','30','31','32'])).
+
+thf('34',plain,(
+    ! [X4: $i] :
+      ( ( ( k1_relat_1 @ X4 )
+        = ( k2_relat_1 @ ( k4_relat_1 @ X4 ) ) )
+      | ~ ( v1_relat_1 @ X4 ) ) ),
+    inference(cnf,[status(esa)],[t37_relat_1])).
+
+thf('35',plain,(
+    ! [X0: $i] :
+      ( ( v1_relat_1 @ ( k4_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ X0 ) ) ),
+    inference(cnf,[status(esa)],[dt_k4_relat_1])).
+
+thf('36',plain,(
+    ! [X11: $i] :
+      ( ~ ( v2_funct_1 @ X11 )
+      | ( ( k2_funct_1 @ X11 )
+        = ( k4_relat_1 @ X11 ) )
+      | ~ ( v1_funct_1 @ X11 )
+      | ~ ( v1_relat_1 @ X11 ) ) ),
+    inference(cnf,[status(esa)],[d9_funct_1])).
+
+thf('37',plain,(
+    ! [X4: $i] :
+      ( ( ( k2_relat_1 @ X4 )
+        = ( k1_relat_1 @ ( k4_relat_1 @ X4 ) ) )
+      | ~ ( v1_relat_1 @ X4 ) ) ),
+    inference(cnf,[status(esa)],[t37_relat_1])).
+
+thf('38',plain,(
+    ! [X1: $i] :
+      ( ( ( k9_relat_1 @ X1 @ ( k1_relat_1 @ X1 ) )
+        = ( k2_relat_1 @ X1 ) )
+      | ~ ( v1_relat_1 @ X1 ) ) ),
+    inference(cnf,[status(esa)],[t146_relat_1])).
+
+thf('39',plain,(
+    ! [X0: $i] :
+      ( ( ( k9_relat_1 @ ( k4_relat_1 @ X0 ) @ ( k2_relat_1 @ X0 ) )
+        = ( k2_relat_1 @ ( k4_relat_1 @ X0 ) ) )
+      | ~ ( v1_relat_1 @ X0 )
+      | ~ ( v1_relat_1 @ ( k4_relat_1 @ X0 ) ) ) ),
+    inference('sup+',[status(thm)],['37','38'])).
+
+thf('40',plain,(
+    ! [X0: $i] :
+      ( ( v1_relat_1 @ ( k4_relat_1 @ X0 ) )
+      | ~ ( v1_relat_1 @ X0 ) ) ),
+    inference(cnf,[status(esa)],[dt_k4_relat_1])).
+
+thf('41',plain,(
+    ! [X0: $i] :
+      ( ~ ( v1_relat_1 @ X0 )
+      | ( ( k9_relat_1 @ ( k4_relat_1 @ X0 ) @ ( k2_relat_1 @ X0 ) )
+        = ( k2_relat_1 @ ( k4_relat_1 @ X0 ) ) ) ) ),
+    inference(clc,[status(thm)],['39','40'])).
+
+thf('42',plain,(
+    ! [X11: $i] :
+      ( ~ ( v2_funct_1 @ X11 )
+      | ( ( k2_funct_1 @ X11 )
+        = ( k4_relat_1 @ X11 ) )
+      | ~ ( v1_funct_1 @ X11 )
+      | ~ ( v1_relat_1 @ X11 ) ) ),
+    inference(cnf,[status(esa)],[d9_funct_1])).
+
+thf('43',plain,(
+    ! [X2: $i,X3: $i] :
+      ( ~ ( v1_relat_1 @ X2 )
+      | ( ( k2_relat_1 @ ( k5_relat_1 @ X3 @ X2 ) )
+        = ( k9_relat_1 @ X2 @ ( k2_relat_1 @ X3 ) ) )
+      | ~ ( v1_relat_1 @ X3 ) ) ),
+    inference(cnf,[status(esa)],[t160_relat_1])).
+
+thf('44',plain,
+    ( ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(split,[status(esa)],['27'])).
+
+thf('45',plain,
+    ( ( ( ( k9_relat_1 @ ( k2_funct_1 @ sk_A ) @ ( k2_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ sk_A )
+      | ~ ( v1_relat_1 @ ( k2_funct_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['43','44'])).
+
+thf('46',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('47',plain,
+    ( ( ( ( k9_relat_1 @ ( k2_funct_1 @ sk_A ) @ ( k2_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ ( k2_funct_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['45','46'])).
+
+thf('48',plain,
+    ( ( ( ( k9_relat_1 @ ( k4_relat_1 @ sk_A ) @ ( k2_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ sk_A )
+      | ~ ( v1_funct_1 @ sk_A )
+      | ~ ( v2_funct_1 @ sk_A )
+      | ~ ( v1_relat_1 @ ( k2_funct_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['42','47'])).
+
+thf('49',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('50',plain,(
+    v1_funct_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('51',plain,(
+    v2_funct_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('52',plain,
+    ( ( ( ( k9_relat_1 @ ( k4_relat_1 @ sk_A ) @ ( k2_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ ( k2_funct_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['48','49','50','51'])).
+
+thf('53',plain,
+    ( ( ( ( k2_relat_1 @ ( k4_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ sk_A )
+      | ~ ( v1_relat_1 @ ( k2_funct_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['41','52'])).
+
+thf('54',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('55',plain,
+    ( ( ( ( k2_relat_1 @ ( k4_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ ( k2_funct_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['53','54'])).
+
+thf('56',plain,
+    ( ( ~ ( v1_relat_1 @ ( k4_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ sk_A )
+      | ~ ( v1_funct_1 @ sk_A )
+      | ~ ( v2_funct_1 @ sk_A )
+      | ( ( k2_relat_1 @ ( k4_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['36','55'])).
+
+thf('57',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('58',plain,(
+    v1_funct_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('59',plain,(
+    v2_funct_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('60',plain,
+    ( ( ~ ( v1_relat_1 @ ( k4_relat_1 @ sk_A ) )
+      | ( ( k2_relat_1 @ ( k4_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['56','57','58','59'])).
+
+thf('61',plain,
+    ( ( ~ ( v1_relat_1 @ sk_A )
+      | ( ( k2_relat_1 @ ( k4_relat_1 @ sk_A ) )
+       != ( k1_relat_1 @ sk_A ) ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['35','60'])).
+
+thf('62',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('63',plain,
+    ( ( ( k2_relat_1 @ ( k4_relat_1 @ sk_A ) )
+     != ( k1_relat_1 @ sk_A ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['61','62'])).
+
+thf('64',plain,
+    ( ( ( ( k1_relat_1 @ sk_A )
+       != ( k1_relat_1 @ sk_A ) )
+      | ~ ( v1_relat_1 @ sk_A ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference('sup-',[status(thm)],['34','63'])).
+
+thf('65',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('66',plain,
+    ( ( ( k1_relat_1 @ sk_A )
+     != ( k1_relat_1 @ sk_A ) )
+   <= ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(demod,[status(thm)],['64','65'])).
+
+thf('67',plain,
+    ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+    = ( k1_relat_1 @ sk_A ) ),
+    inference(simplify,[status(thm)],['66'])).
+
+thf('68',plain,
+    ( ( ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) )
+    | ( ( k2_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+     != ( k1_relat_1 @ sk_A ) ) ),
+    inference(split,[status(esa)],['27'])).
+
+thf('69',plain,(
+    ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k2_funct_1 @ sk_A ) ) )
+ != ( k1_relat_1 @ sk_A ) ),
+    inference('sat_resolution*',[status(thm)],['67','68'])).
+
+thf('70',plain,(
+    ( k1_relat_1 @ ( k5_relat_1 @ sk_A @ ( k4_relat_1 @ sk_A ) ) )
+ != ( k1_relat_1 @ sk_A ) ),
+    inference(simpl_trail,[status(thm)],['33','69'])).
+
+thf('71',plain,
+    ( ( ( k1_relat_1 @ sk_A )
+     != ( k1_relat_1 @ sk_A ) )
+    | ~ ( v1_relat_1 @ sk_A ) ),
+    inference('sup-',[status(thm)],['25','70'])).
+
+thf('72',plain,(
+    v1_relat_1 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('73',plain,(
+    ( k1_relat_1 @ sk_A )
+ != ( k1_relat_1 @ sk_A ) ),
+    inference(demod,[status(thm)],['71','72'])).
+
+thf('74',plain,(
+    $false ),
+    inference(simplify,[status(thm)],['73'])).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.04/0.13  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.14/0.15  % Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.AFND1QqTzT
+% 0.15/0.36  % Computer   : n022.cluster.edu
+% 0.15/0.36  % Model      : x86_64 x86_64
+% 0.15/0.36  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.15/0.36  % Memory     : 8042.1875MB
+% 0.15/0.36  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.15/0.36  % CPULimit   : 60
+% 0.15/0.36  % DateTime   : Tue Dec  1 14:46:11 EST 2020
+% 0.15/0.36  % CPUTime    : 
+% 0.15/0.36  % Running portfolio for 600 s
+% 0.15/0.36  % File         : /export/starexec/sandbox/benchmark/theBenchmark.p
+% 0.15/0.36  % Number of cores: 8
+% 0.15/0.37  % Python version: Python 3.6.8
+% 0.15/0.37  % Running in FO mode
+% 0.22/0.54  % Running /export/starexec/sandbox/solver/bin/fo/fo7.sh for 78
+% 0.22/0.54  % Solved by: fo/fo7.sh
+% 0.22/0.54  To remain in the chosen logic fragment, unification with booleans has been disabled.
+% 0.22/0.54  % done 76 iterations in 0.058s
+% 0.22/0.54  % SZS status Theorem for '/export/starexec/sandbox/benchmark/theBenchmark.p'
+% 0.22/0.54  % SZS output start Refutation
+% 0.22/0.54  thf(k2_funct_1_type, type, k2_funct_1: $i > $i).
+% 0.22/0.54  thf(k9_relat_1_type, type, k9_relat_1: $i > $i > $i).
+% 0.22/0.54  thf(v1_relat_1_type, type, v1_relat_1: $i > $o).
+% 0.22/0.54  thf(k4_relat_1_type, type, k4_relat_1: $i > $i).
+% 0.22/0.54  thf(v1_funct_1_type, type, v1_funct_1: $i > $o).
+% 0.22/0.54  thf(k6_relat_1_type, type, k6_relat_1: $i > $i).
+% 0.22/0.54  thf(k5_relat_1_type, type, k5_relat_1: $i > $i > $i).
+% 0.22/0.54  thf(k2_relat_1_type, type, k2_relat_1: $i > $i).
+% 0.22/0.54  thf(v2_funct_1_type, type, v2_funct_1: $i > $o).
+% 0.22/0.54  thf(sk_A_type, type, sk_A: $i).
+% 0.22/0.54  thf(r1_tarski_type, type, r1_tarski: $i > $i > $o).
+% 0.22/0.54  thf(k1_relat_1_type, type, k1_relat_1: $i > $i).
+% 0.22/0.54  thf(t71_relat_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( ( k2_relat_1 @ ( k6_relat_1 @ A ) ) = ( A ) ) & 
+% 0.22/0.54       ( ( k1_relat_1 @ ( k6_relat_1 @ A ) ) = ( A ) ) ))).
+% 0.22/0.54  thf('0', plain, (![X10 : $i]: ((k2_relat_1 @ (k6_relat_1 @ X10)) = (X10))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t71_relat_1])).
+% 0.22/0.54  thf('1', plain, (![X9 : $i]: ((k1_relat_1 @ (k6_relat_1 @ X9)) = (X9))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t71_relat_1])).
+% 0.22/0.54  thf(t146_relat_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( v1_relat_1 @ A ) =>
+% 0.22/0.54       ( ( k9_relat_1 @ A @ ( k1_relat_1 @ A ) ) = ( k2_relat_1 @ A ) ) ))).
+% 0.22/0.54  thf('2', plain,
+% 0.22/0.54      (![X1 : $i]:
+% 0.22/0.54         (((k9_relat_1 @ X1 @ (k1_relat_1 @ X1)) = (k2_relat_1 @ X1))
+% 0.22/0.54          | ~ (v1_relat_1 @ X1))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t146_relat_1])).
+% 0.22/0.54  thf('3', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         (((k9_relat_1 @ (k6_relat_1 @ X0) @ X0)
+% 0.22/0.54            = (k2_relat_1 @ (k6_relat_1 @ X0)))
+% 0.22/0.54          | ~ (v1_relat_1 @ (k6_relat_1 @ X0)))),
+% 0.22/0.54      inference('sup+', [status(thm)], ['1', '2'])).
+% 0.22/0.54  thf('4', plain, (![X10 : $i]: ((k2_relat_1 @ (k6_relat_1 @ X10)) = (X10))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t71_relat_1])).
+% 0.22/0.54  thf(fc3_funct_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( v1_funct_1 @ ( k6_relat_1 @ A ) ) & 
+% 0.22/0.54       ( v1_relat_1 @ ( k6_relat_1 @ A ) ) ))).
+% 0.22/0.54  thf('5', plain, (![X12 : $i]: (v1_relat_1 @ (k6_relat_1 @ X12))),
+% 0.22/0.54      inference('cnf', [status(esa)], [fc3_funct_1])).
+% 0.22/0.54  thf('6', plain, (![X0 : $i]: ((k9_relat_1 @ (k6_relat_1 @ X0) @ X0) = (X0))),
+% 0.22/0.54      inference('demod', [status(thm)], ['3', '4', '5'])).
+% 0.22/0.54  thf(t160_relat_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( v1_relat_1 @ A ) =>
+% 0.22/0.54       ( ![B:$i]:
+% 0.22/0.54         ( ( v1_relat_1 @ B ) =>
+% 0.22/0.54           ( ( k2_relat_1 @ ( k5_relat_1 @ A @ B ) ) =
+% 0.22/0.54             ( k9_relat_1 @ B @ ( k2_relat_1 @ A ) ) ) ) ) ))).
+% 0.22/0.54  thf('7', plain,
+% 0.22/0.54      (![X2 : $i, X3 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ X2)
+% 0.22/0.54          | ((k2_relat_1 @ (k5_relat_1 @ X3 @ X2))
+% 0.22/0.54              = (k9_relat_1 @ X2 @ (k2_relat_1 @ X3)))
+% 0.22/0.54          | ~ (v1_relat_1 @ X3))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t160_relat_1])).
+% 0.22/0.54  thf(t45_relat_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( v1_relat_1 @ A ) =>
+% 0.22/0.54       ( ![B:$i]:
+% 0.22/0.54         ( ( v1_relat_1 @ B ) =>
+% 0.22/0.54           ( r1_tarski @
+% 0.22/0.54             ( k2_relat_1 @ ( k5_relat_1 @ A @ B ) ) @ ( k2_relat_1 @ B ) ) ) ) ))).
+% 0.22/0.54  thf('8', plain,
+% 0.22/0.54      (![X5 : $i, X6 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ X5)
+% 0.22/0.54          | (r1_tarski @ (k2_relat_1 @ (k5_relat_1 @ X6 @ X5)) @ 
+% 0.22/0.54             (k2_relat_1 @ X5))
+% 0.22/0.54          | ~ (v1_relat_1 @ X6))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t45_relat_1])).
+% 0.22/0.54  thf('9', plain,
+% 0.22/0.54      (![X0 : $i, X1 : $i]:
+% 0.22/0.54         ((r1_tarski @ (k9_relat_1 @ X1 @ (k2_relat_1 @ X0)) @ 
+% 0.22/0.54           (k2_relat_1 @ X1))
+% 0.22/0.54          | ~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ~ (v1_relat_1 @ X1)
+% 0.22/0.54          | ~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ~ (v1_relat_1 @ X1))),
+% 0.22/0.54      inference('sup+', [status(thm)], ['7', '8'])).
+% 0.22/0.54  thf('10', plain,
+% 0.22/0.54      (![X0 : $i, X1 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ X1)
+% 0.22/0.54          | ~ (v1_relat_1 @ X0)
+% 0.22/0.54          | (r1_tarski @ (k9_relat_1 @ X1 @ (k2_relat_1 @ X0)) @ 
+% 0.22/0.54             (k2_relat_1 @ X1)))),
+% 0.22/0.54      inference('simplify', [status(thm)], ['9'])).
+% 0.22/0.54  thf('11', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         ((r1_tarski @ (k2_relat_1 @ X0) @ 
+% 0.22/0.54           (k2_relat_1 @ (k6_relat_1 @ (k2_relat_1 @ X0))))
+% 0.22/0.54          | ~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ~ (v1_relat_1 @ (k6_relat_1 @ (k2_relat_1 @ X0))))),
+% 0.22/0.54      inference('sup+', [status(thm)], ['6', '10'])).
+% 0.22/0.54  thf('12', plain, (![X10 : $i]: ((k2_relat_1 @ (k6_relat_1 @ X10)) = (X10))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t71_relat_1])).
+% 0.22/0.54  thf('13', plain, (![X12 : $i]: (v1_relat_1 @ (k6_relat_1 @ X12))),
+% 0.22/0.54      inference('cnf', [status(esa)], [fc3_funct_1])).
+% 0.22/0.54  thf('14', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         ((r1_tarski @ (k2_relat_1 @ X0) @ (k2_relat_1 @ X0))
+% 0.22/0.54          | ~ (v1_relat_1 @ X0))),
+% 0.22/0.54      inference('demod', [status(thm)], ['11', '12', '13'])).
+% 0.22/0.54  thf('15', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         ((r1_tarski @ X0 @ (k2_relat_1 @ (k6_relat_1 @ X0)))
+% 0.22/0.54          | ~ (v1_relat_1 @ (k6_relat_1 @ X0)))),
+% 0.22/0.54      inference('sup+', [status(thm)], ['0', '14'])).
+% 0.22/0.54  thf('16', plain, (![X10 : $i]: ((k2_relat_1 @ (k6_relat_1 @ X10)) = (X10))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t71_relat_1])).
+% 0.22/0.54  thf('17', plain, (![X12 : $i]: (v1_relat_1 @ (k6_relat_1 @ X12))),
+% 0.22/0.54      inference('cnf', [status(esa)], [fc3_funct_1])).
+% 0.22/0.54  thf('18', plain, (![X0 : $i]: (r1_tarski @ X0 @ X0)),
+% 0.22/0.54      inference('demod', [status(thm)], ['15', '16', '17'])).
+% 0.22/0.54  thf(t37_relat_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( v1_relat_1 @ A ) =>
+% 0.22/0.54       ( ( ( k2_relat_1 @ A ) = ( k1_relat_1 @ ( k4_relat_1 @ A ) ) ) & 
+% 0.22/0.54         ( ( k1_relat_1 @ A ) = ( k2_relat_1 @ ( k4_relat_1 @ A ) ) ) ) ))).
+% 0.22/0.54  thf('19', plain,
+% 0.22/0.54      (![X4 : $i]:
+% 0.22/0.54         (((k2_relat_1 @ X4) = (k1_relat_1 @ (k4_relat_1 @ X4)))
+% 0.22/0.54          | ~ (v1_relat_1 @ X4))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t37_relat_1])).
+% 0.22/0.54  thf(t46_relat_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( v1_relat_1 @ A ) =>
+% 0.22/0.54       ( ![B:$i]:
+% 0.22/0.54         ( ( v1_relat_1 @ B ) =>
+% 0.22/0.54           ( ( r1_tarski @ ( k2_relat_1 @ A ) @ ( k1_relat_1 @ B ) ) =>
+% 0.22/0.54             ( ( k1_relat_1 @ ( k5_relat_1 @ A @ B ) ) = ( k1_relat_1 @ A ) ) ) ) ) ))).
+% 0.22/0.54  thf('20', plain,
+% 0.22/0.54      (![X7 : $i, X8 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ X7)
+% 0.22/0.54          | ((k1_relat_1 @ (k5_relat_1 @ X8 @ X7)) = (k1_relat_1 @ X8))
+% 0.22/0.54          | ~ (r1_tarski @ (k2_relat_1 @ X8) @ (k1_relat_1 @ X7))
+% 0.22/0.54          | ~ (v1_relat_1 @ X8))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t46_relat_1])).
+% 0.22/0.54  thf('21', plain,
+% 0.22/0.54      (![X0 : $i, X1 : $i]:
+% 0.22/0.54         (~ (r1_tarski @ (k2_relat_1 @ X1) @ (k2_relat_1 @ X0))
+% 0.22/0.54          | ~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ~ (v1_relat_1 @ X1)
+% 0.22/0.54          | ((k1_relat_1 @ (k5_relat_1 @ X1 @ (k4_relat_1 @ X0)))
+% 0.22/0.54              = (k1_relat_1 @ X1))
+% 0.22/0.54          | ~ (v1_relat_1 @ (k4_relat_1 @ X0)))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['19', '20'])).
+% 0.22/0.54  thf('22', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ (k4_relat_1 @ X0))
+% 0.22/0.54          | ((k1_relat_1 @ (k5_relat_1 @ X0 @ (k4_relat_1 @ X0)))
+% 0.22/0.54              = (k1_relat_1 @ X0))
+% 0.22/0.54          | ~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ~ (v1_relat_1 @ X0))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['18', '21'])).
+% 0.22/0.54  thf('23', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ((k1_relat_1 @ (k5_relat_1 @ X0 @ (k4_relat_1 @ X0)))
+% 0.22/0.54              = (k1_relat_1 @ X0))
+% 0.22/0.54          | ~ (v1_relat_1 @ (k4_relat_1 @ X0)))),
+% 0.22/0.54      inference('simplify', [status(thm)], ['22'])).
+% 0.22/0.54  thf(dt_k4_relat_1, axiom,
+% 0.22/0.54    (![A:$i]: ( ( v1_relat_1 @ A ) => ( v1_relat_1 @ ( k4_relat_1 @ A ) ) ))).
+% 0.22/0.54  thf('24', plain,
+% 0.22/0.54      (![X0 : $i]: ((v1_relat_1 @ (k4_relat_1 @ X0)) | ~ (v1_relat_1 @ X0))),
+% 0.22/0.54      inference('cnf', [status(esa)], [dt_k4_relat_1])).
+% 0.22/0.54  thf('25', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         (((k1_relat_1 @ (k5_relat_1 @ X0 @ (k4_relat_1 @ X0)))
+% 0.22/0.54            = (k1_relat_1 @ X0))
+% 0.22/0.54          | ~ (v1_relat_1 @ X0))),
+% 0.22/0.54      inference('clc', [status(thm)], ['23', '24'])).
+% 0.22/0.54  thf(d9_funct_1, axiom,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( ( v1_relat_1 @ A ) & ( v1_funct_1 @ A ) ) =>
+% 0.22/0.54       ( ( v2_funct_1 @ A ) => ( ( k2_funct_1 @ A ) = ( k4_relat_1 @ A ) ) ) ))).
+% 0.22/0.54  thf('26', plain,
+% 0.22/0.54      (![X11 : $i]:
+% 0.22/0.54         (~ (v2_funct_1 @ X11)
+% 0.22/0.54          | ((k2_funct_1 @ X11) = (k4_relat_1 @ X11))
+% 0.22/0.54          | ~ (v1_funct_1 @ X11)
+% 0.22/0.54          | ~ (v1_relat_1 @ X11))),
+% 0.22/0.54      inference('cnf', [status(esa)], [d9_funct_1])).
+% 0.22/0.54  thf(t58_funct_1, conjecture,
+% 0.22/0.54    (![A:$i]:
+% 0.22/0.54     ( ( ( v1_relat_1 @ A ) & ( v1_funct_1 @ A ) ) =>
+% 0.22/0.54       ( ( v2_funct_1 @ A ) =>
+% 0.22/0.54         ( ( ( k1_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) ) =
+% 0.22/0.54             ( k1_relat_1 @ A ) ) & 
+% 0.22/0.54           ( ( k2_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) ) =
+% 0.22/0.54             ( k1_relat_1 @ A ) ) ) ) ))).
+% 0.22/0.54  thf(zf_stmt_0, negated_conjecture,
+% 0.22/0.54    (~( ![A:$i]:
+% 0.22/0.54        ( ( ( v1_relat_1 @ A ) & ( v1_funct_1 @ A ) ) =>
+% 0.22/0.54          ( ( v2_funct_1 @ A ) =>
+% 0.22/0.54            ( ( ( k1_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) ) =
+% 0.22/0.54                ( k1_relat_1 @ A ) ) & 
+% 0.22/0.54              ( ( k2_relat_1 @ ( k5_relat_1 @ A @ ( k2_funct_1 @ A ) ) ) =
+% 0.22/0.54                ( k1_relat_1 @ A ) ) ) ) ) )),
+% 0.22/0.54    inference('cnf.neg', [status(esa)], [t58_funct_1])).
+% 0.22/0.54  thf('27', plain,
+% 0.22/0.54      ((((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54          != (k1_relat_1 @ sk_A))
+% 0.22/0.54        | ((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54            != (k1_relat_1 @ sk_A)))),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('28', plain,
+% 0.22/0.54      ((((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54          != (k1_relat_1 @ sk_A)))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('split', [status(esa)], ['27'])).
+% 0.22/0.54  thf('29', plain,
+% 0.22/0.54      (((((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k4_relat_1 @ sk_A)))
+% 0.22/0.54           != (k1_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ sk_A)
+% 0.22/0.54         | ~ (v1_funct_1 @ sk_A)
+% 0.22/0.54         | ~ (v2_funct_1 @ sk_A)))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['26', '28'])).
+% 0.22/0.54  thf('30', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('31', plain, ((v1_funct_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('32', plain, ((v2_funct_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('33', plain,
+% 0.22/0.54      ((((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k4_relat_1 @ sk_A)))
+% 0.22/0.54          != (k1_relat_1 @ sk_A)))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('demod', [status(thm)], ['29', '30', '31', '32'])).
+% 0.22/0.54  thf('34', plain,
+% 0.22/0.54      (![X4 : $i]:
+% 0.22/0.54         (((k1_relat_1 @ X4) = (k2_relat_1 @ (k4_relat_1 @ X4)))
+% 0.22/0.54          | ~ (v1_relat_1 @ X4))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t37_relat_1])).
+% 0.22/0.54  thf('35', plain,
+% 0.22/0.54      (![X0 : $i]: ((v1_relat_1 @ (k4_relat_1 @ X0)) | ~ (v1_relat_1 @ X0))),
+% 0.22/0.54      inference('cnf', [status(esa)], [dt_k4_relat_1])).
+% 0.22/0.54  thf('36', plain,
+% 0.22/0.54      (![X11 : $i]:
+% 0.22/0.54         (~ (v2_funct_1 @ X11)
+% 0.22/0.54          | ((k2_funct_1 @ X11) = (k4_relat_1 @ X11))
+% 0.22/0.54          | ~ (v1_funct_1 @ X11)
+% 0.22/0.54          | ~ (v1_relat_1 @ X11))),
+% 0.22/0.54      inference('cnf', [status(esa)], [d9_funct_1])).
+% 0.22/0.54  thf('37', plain,
+% 0.22/0.54      (![X4 : $i]:
+% 0.22/0.54         (((k2_relat_1 @ X4) = (k1_relat_1 @ (k4_relat_1 @ X4)))
+% 0.22/0.54          | ~ (v1_relat_1 @ X4))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t37_relat_1])).
+% 0.22/0.54  thf('38', plain,
+% 0.22/0.54      (![X1 : $i]:
+% 0.22/0.54         (((k9_relat_1 @ X1 @ (k1_relat_1 @ X1)) = (k2_relat_1 @ X1))
+% 0.22/0.54          | ~ (v1_relat_1 @ X1))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t146_relat_1])).
+% 0.22/0.54  thf('39', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         (((k9_relat_1 @ (k4_relat_1 @ X0) @ (k2_relat_1 @ X0))
+% 0.22/0.54            = (k2_relat_1 @ (k4_relat_1 @ X0)))
+% 0.22/0.54          | ~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ~ (v1_relat_1 @ (k4_relat_1 @ X0)))),
+% 0.22/0.54      inference('sup+', [status(thm)], ['37', '38'])).
+% 0.22/0.54  thf('40', plain,
+% 0.22/0.54      (![X0 : $i]: ((v1_relat_1 @ (k4_relat_1 @ X0)) | ~ (v1_relat_1 @ X0))),
+% 0.22/0.54      inference('cnf', [status(esa)], [dt_k4_relat_1])).
+% 0.22/0.54  thf('41', plain,
+% 0.22/0.54      (![X0 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ X0)
+% 0.22/0.54          | ((k9_relat_1 @ (k4_relat_1 @ X0) @ (k2_relat_1 @ X0))
+% 0.22/0.54              = (k2_relat_1 @ (k4_relat_1 @ X0))))),
+% 0.22/0.54      inference('clc', [status(thm)], ['39', '40'])).
+% 0.22/0.54  thf('42', plain,
+% 0.22/0.54      (![X11 : $i]:
+% 0.22/0.54         (~ (v2_funct_1 @ X11)
+% 0.22/0.54          | ((k2_funct_1 @ X11) = (k4_relat_1 @ X11))
+% 0.22/0.54          | ~ (v1_funct_1 @ X11)
+% 0.22/0.54          | ~ (v1_relat_1 @ X11))),
+% 0.22/0.54      inference('cnf', [status(esa)], [d9_funct_1])).
+% 0.22/0.54  thf('43', plain,
+% 0.22/0.54      (![X2 : $i, X3 : $i]:
+% 0.22/0.54         (~ (v1_relat_1 @ X2)
+% 0.22/0.54          | ((k2_relat_1 @ (k5_relat_1 @ X3 @ X2))
+% 0.22/0.54              = (k9_relat_1 @ X2 @ (k2_relat_1 @ X3)))
+% 0.22/0.54          | ~ (v1_relat_1 @ X3))),
+% 0.22/0.54      inference('cnf', [status(esa)], [t160_relat_1])).
+% 0.22/0.54  thf('44', plain,
+% 0.22/0.54      ((((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54          != (k1_relat_1 @ sk_A)))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('split', [status(esa)], ['27'])).
+% 0.22/0.54  thf('45', plain,
+% 0.22/0.54      (((((k9_relat_1 @ (k2_funct_1 @ sk_A) @ (k2_relat_1 @ sk_A))
+% 0.22/0.54           != (k1_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ sk_A)
+% 0.22/0.54         | ~ (v1_relat_1 @ (k2_funct_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['43', '44'])).
+% 0.22/0.54  thf('46', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('47', plain,
+% 0.22/0.54      (((((k9_relat_1 @ (k2_funct_1 @ sk_A) @ (k2_relat_1 @ sk_A))
+% 0.22/0.54           != (k1_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ (k2_funct_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('demod', [status(thm)], ['45', '46'])).
+% 0.22/0.54  thf('48', plain,
+% 0.22/0.54      (((((k9_relat_1 @ (k4_relat_1 @ sk_A) @ (k2_relat_1 @ sk_A))
+% 0.22/0.54           != (k1_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ sk_A)
+% 0.22/0.54         | ~ (v1_funct_1 @ sk_A)
+% 0.22/0.54         | ~ (v2_funct_1 @ sk_A)
+% 0.22/0.54         | ~ (v1_relat_1 @ (k2_funct_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['42', '47'])).
+% 0.22/0.54  thf('49', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('50', plain, ((v1_funct_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('51', plain, ((v2_funct_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('52', plain,
+% 0.22/0.54      (((((k9_relat_1 @ (k4_relat_1 @ sk_A) @ (k2_relat_1 @ sk_A))
+% 0.22/0.54           != (k1_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ (k2_funct_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('demod', [status(thm)], ['48', '49', '50', '51'])).
+% 0.22/0.54  thf('53', plain,
+% 0.22/0.54      (((((k2_relat_1 @ (k4_relat_1 @ sk_A)) != (k1_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ sk_A)
+% 0.22/0.54         | ~ (v1_relat_1 @ (k2_funct_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['41', '52'])).
+% 0.22/0.54  thf('54', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('55', plain,
+% 0.22/0.54      (((((k2_relat_1 @ (k4_relat_1 @ sk_A)) != (k1_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ (k2_funct_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('demod', [status(thm)], ['53', '54'])).
+% 0.22/0.54  thf('56', plain,
+% 0.22/0.54      (((~ (v1_relat_1 @ (k4_relat_1 @ sk_A))
+% 0.22/0.54         | ~ (v1_relat_1 @ sk_A)
+% 0.22/0.54         | ~ (v1_funct_1 @ sk_A)
+% 0.22/0.54         | ~ (v2_funct_1 @ sk_A)
+% 0.22/0.54         | ((k2_relat_1 @ (k4_relat_1 @ sk_A)) != (k1_relat_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['36', '55'])).
+% 0.22/0.54  thf('57', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('58', plain, ((v1_funct_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('59', plain, ((v2_funct_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('60', plain,
+% 0.22/0.54      (((~ (v1_relat_1 @ (k4_relat_1 @ sk_A))
+% 0.22/0.54         | ((k2_relat_1 @ (k4_relat_1 @ sk_A)) != (k1_relat_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('demod', [status(thm)], ['56', '57', '58', '59'])).
+% 0.22/0.54  thf('61', plain,
+% 0.22/0.54      (((~ (v1_relat_1 @ sk_A)
+% 0.22/0.54         | ((k2_relat_1 @ (k4_relat_1 @ sk_A)) != (k1_relat_1 @ sk_A))))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['35', '60'])).
+% 0.22/0.54  thf('62', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('63', plain,
+% 0.22/0.54      ((((k2_relat_1 @ (k4_relat_1 @ sk_A)) != (k1_relat_1 @ sk_A)))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('demod', [status(thm)], ['61', '62'])).
+% 0.22/0.54  thf('64', plain,
+% 0.22/0.54      (((((k1_relat_1 @ sk_A) != (k1_relat_1 @ sk_A)) | ~ (v1_relat_1 @ sk_A)))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['34', '63'])).
+% 0.22/0.54  thf('65', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('66', plain,
+% 0.22/0.54      ((((k1_relat_1 @ sk_A) != (k1_relat_1 @ sk_A)))
+% 0.22/0.54         <= (~
+% 0.22/0.54             (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54                = (k1_relat_1 @ sk_A))))),
+% 0.22/0.54      inference('demod', [status(thm)], ['64', '65'])).
+% 0.22/0.54  thf('67', plain,
+% 0.22/0.54      ((((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54          = (k1_relat_1 @ sk_A)))),
+% 0.22/0.54      inference('simplify', [status(thm)], ['66'])).
+% 0.22/0.54  thf('68', plain,
+% 0.22/0.54      (~
+% 0.22/0.54       (((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54          = (k1_relat_1 @ sk_A))) | 
+% 0.22/0.54       ~
+% 0.22/0.54       (((k2_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54          = (k1_relat_1 @ sk_A)))),
+% 0.22/0.54      inference('split', [status(esa)], ['27'])).
+% 0.22/0.54  thf('69', plain,
+% 0.22/0.54      (~
+% 0.22/0.54       (((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k2_funct_1 @ sk_A)))
+% 0.22/0.54          = (k1_relat_1 @ sk_A)))),
+% 0.22/0.54      inference('sat_resolution*', [status(thm)], ['67', '68'])).
+% 0.22/0.54  thf('70', plain,
+% 0.22/0.54      (((k1_relat_1 @ (k5_relat_1 @ sk_A @ (k4_relat_1 @ sk_A)))
+% 0.22/0.54         != (k1_relat_1 @ sk_A))),
+% 0.22/0.54      inference('simpl_trail', [status(thm)], ['33', '69'])).
+% 0.22/0.54  thf('71', plain,
+% 0.22/0.54      ((((k1_relat_1 @ sk_A) != (k1_relat_1 @ sk_A)) | ~ (v1_relat_1 @ sk_A))),
+% 0.22/0.54      inference('sup-', [status(thm)], ['25', '70'])).
+% 0.22/0.54  thf('72', plain, ((v1_relat_1 @ sk_A)),
+% 0.22/0.54      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.22/0.54  thf('73', plain, (((k1_relat_1 @ sk_A) != (k1_relat_1 @ sk_A))),
+% 0.22/0.54      inference('demod', [status(thm)], ['71', '72'])).
+% 0.22/0.54  thf('74', plain, ($false), inference('simplify', [status(thm)], ['73'])).
+% 0.22/0.54  
+% 0.22/0.54  % SZS output end Refutation
+% 0.22/0.54  
+% 0.22/0.55  % Zipperpin 1.5 exiting
+%------------------------------------------------------------------------------

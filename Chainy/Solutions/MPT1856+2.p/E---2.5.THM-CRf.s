@@ -1,0 +1,257 @@
+%------------------------------------------------------------------------------
+% File       : E---2.5
+% Problem    : MPT1856+2 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : eprover --delete-bad-limit=2000000000 --definitional-cnf=24 -s --print-statistics -R --print-version --proof-object --auto-schedule --cpu-limit=%d %s
+
+% Computer   : n018.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Wed Dec 16 12:08:09 EST 2020
+
+% Result     : Theorem 10.51s
+% Output     : CNFRefutation 10.51s
+% Verified   : 
+% Statistics : Number of formulae       :   29 ( 133 expanded)
+%              Number of clauses        :   18 (  44 expanded)
+%              Number of leaves         :    5 (  33 expanded)
+%              Depth                    :    8
+%              Number of atoms          :  126 ( 665 expanded)
+%              Number of equality atoms :    0 (   0 expanded)
+%              Maximal formula depth    :   10 (   4 average)
+%              Maximal clause size      :   20 (   2 average)
+%              Maximal term depth       :    2 (   1 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(t24_tex_2,conjecture,(
+    ! [X1] :
+      ( ( ~ v2_struct_0(X1)
+        & l1_pre_topc(X1) )
+     => ! [X2] :
+          ( m1_subset_1(X2,u1_struct_0(X1))
+         => ( v2_pre_topc(k1_tex_2(X1,X2))
+           => ( v1_tdlat_3(k1_tex_2(X1,X2))
+              & v2_tdlat_3(k1_tex_2(X1,X2)) ) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t24_tex_2)).
+
+fof(dt_k1_tex_2,axiom,(
+    ! [X1,X2] :
+      ( ( ~ v2_struct_0(X1)
+        & l1_pre_topc(X1)
+        & m1_subset_1(X2,u1_struct_0(X1)) )
+     => ( ~ v2_struct_0(k1_tex_2(X1,X2))
+        & v1_pre_topc(k1_tex_2(X1,X2))
+        & m1_pre_topc(k1_tex_2(X1,X2),X1) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',dt_k1_tex_2)).
+
+fof(dt_m1_pre_topc,axiom,(
+    ! [X1] :
+      ( l1_pre_topc(X1)
+     => ! [X2] :
+          ( m1_pre_topc(X2,X1)
+         => l1_pre_topc(X2) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/Axioms/MPT016+2.ax',dt_m1_pre_topc)).
+
+fof(fc2_tex_2,axiom,(
+    ! [X1,X2] :
+      ( ( ~ v2_struct_0(X1)
+        & l1_pre_topc(X1)
+        & m1_subset_1(X2,u1_struct_0(X1)) )
+     => ( ~ v2_struct_0(k1_tex_2(X1,X2))
+        & v7_struct_0(k1_tex_2(X1,X2))
+        & v1_pre_topc(k1_tex_2(X1,X2)) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',fc2_tex_2)).
+
+fof(cc1_tex_1,axiom,(
+    ! [X1] :
+      ( l1_pre_topc(X1)
+     => ( ( ~ v2_struct_0(X1)
+          & v7_struct_0(X1)
+          & v2_pre_topc(X1) )
+       => ( ~ v2_struct_0(X1)
+          & v2_pre_topc(X1)
+          & v1_tdlat_3(X1)
+          & v2_tdlat_3(X1) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',cc1_tex_1)).
+
+fof(c_0_5,negated_conjecture,(
+    ~ ! [X1] :
+        ( ( ~ v2_struct_0(X1)
+          & l1_pre_topc(X1) )
+       => ! [X2] :
+            ( m1_subset_1(X2,u1_struct_0(X1))
+           => ( v2_pre_topc(k1_tex_2(X1,X2))
+             => ( v1_tdlat_3(k1_tex_2(X1,X2))
+                & v2_tdlat_3(k1_tex_2(X1,X2)) ) ) ) ) ),
+    inference(assume_negation,[status(cth)],[t24_tex_2])).
+
+fof(c_0_6,plain,(
+    ! [X11665,X11666] :
+      ( ( ~ v2_struct_0(k1_tex_2(X11665,X11666))
+        | v2_struct_0(X11665)
+        | ~ l1_pre_topc(X11665)
+        | ~ m1_subset_1(X11666,u1_struct_0(X11665)) )
+      & ( v1_pre_topc(k1_tex_2(X11665,X11666))
+        | v2_struct_0(X11665)
+        | ~ l1_pre_topc(X11665)
+        | ~ m1_subset_1(X11666,u1_struct_0(X11665)) )
+      & ( m1_pre_topc(k1_tex_2(X11665,X11666),X11665)
+        | v2_struct_0(X11665)
+        | ~ l1_pre_topc(X11665)
+        | ~ m1_subset_1(X11666,u1_struct_0(X11665)) ) ) ),
+    inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[inference(fof_simplification,[status(thm)],[dt_k1_tex_2])])])])).
+
+fof(c_0_7,negated_conjecture,
+    ( ~ v2_struct_0(esk1338_0)
+    & l1_pre_topc(esk1338_0)
+    & m1_subset_1(esk1339_0,u1_struct_0(esk1338_0))
+    & v2_pre_topc(k1_tex_2(esk1338_0,esk1339_0))
+    & ( ~ v1_tdlat_3(k1_tex_2(esk1338_0,esk1339_0))
+      | ~ v2_tdlat_3(k1_tex_2(esk1338_0,esk1339_0)) ) ),
+    inference(skolemize,[status(esa)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[inference(fof_simplification,[status(thm)],[c_0_5])])])])).
+
+fof(c_0_8,plain,(
+    ! [X5918,X5919] :
+      ( ~ l1_pre_topc(X5918)
+      | ~ m1_pre_topc(X5919,X5918)
+      | l1_pre_topc(X5919) ) ),
+    inference(shift_quantors,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[dt_m1_pre_topc])])])).
+
+cnf(c_0_9,plain,
+    ( m1_pre_topc(k1_tex_2(X1,X2),X1)
+    | v2_struct_0(X1)
+    | ~ l1_pre_topc(X1)
+    | ~ m1_subset_1(X2,u1_struct_0(X1)) ),
+    inference(split_conjunct,[status(thm)],[c_0_6])).
+
+cnf(c_0_10,negated_conjecture,
+    ( m1_subset_1(esk1339_0,u1_struct_0(esk1338_0)) ),
+    inference(split_conjunct,[status(thm)],[c_0_7])).
+
+cnf(c_0_11,negated_conjecture,
+    ( l1_pre_topc(esk1338_0) ),
+    inference(split_conjunct,[status(thm)],[c_0_7])).
+
+cnf(c_0_12,negated_conjecture,
+    ( ~ v2_struct_0(esk1338_0) ),
+    inference(split_conjunct,[status(thm)],[c_0_7])).
+
+fof(c_0_13,plain,(
+    ! [X11669,X11670] :
+      ( ( ~ v2_struct_0(k1_tex_2(X11669,X11670))
+        | v2_struct_0(X11669)
+        | ~ l1_pre_topc(X11669)
+        | ~ m1_subset_1(X11670,u1_struct_0(X11669)) )
+      & ( v7_struct_0(k1_tex_2(X11669,X11670))
+        | v2_struct_0(X11669)
+        | ~ l1_pre_topc(X11669)
+        | ~ m1_subset_1(X11670,u1_struct_0(X11669)) )
+      & ( v1_pre_topc(k1_tex_2(X11669,X11670))
+        | v2_struct_0(X11669)
+        | ~ l1_pre_topc(X11669)
+        | ~ m1_subset_1(X11670,u1_struct_0(X11669)) ) ) ),
+    inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[inference(fof_simplification,[status(thm)],[fc2_tex_2])])])])).
+
+fof(c_0_14,plain,(
+    ! [X11598] :
+      ( ( ~ v2_struct_0(X11598)
+        | v2_struct_0(X11598)
+        | ~ v7_struct_0(X11598)
+        | ~ v2_pre_topc(X11598)
+        | ~ l1_pre_topc(X11598) )
+      & ( v2_pre_topc(X11598)
+        | v2_struct_0(X11598)
+        | ~ v7_struct_0(X11598)
+        | ~ v2_pre_topc(X11598)
+        | ~ l1_pre_topc(X11598) )
+      & ( v1_tdlat_3(X11598)
+        | v2_struct_0(X11598)
+        | ~ v7_struct_0(X11598)
+        | ~ v2_pre_topc(X11598)
+        | ~ l1_pre_topc(X11598) )
+      & ( v2_tdlat_3(X11598)
+        | v2_struct_0(X11598)
+        | ~ v7_struct_0(X11598)
+        | ~ v2_pre_topc(X11598)
+        | ~ l1_pre_topc(X11598) ) ) ),
+    inference(distribute,[status(thm)],[inference(variable_rename,[status(thm)],[inference(fof_nnf,[status(thm)],[inference(fof_simplification,[status(thm)],[cc1_tex_1])])])])).
+
+cnf(c_0_15,plain,
+    ( l1_pre_topc(X2)
+    | ~ l1_pre_topc(X1)
+    | ~ m1_pre_topc(X2,X1) ),
+    inference(split_conjunct,[status(thm)],[c_0_8])).
+
+cnf(c_0_16,negated_conjecture,
+    ( m1_pre_topc(k1_tex_2(esk1338_0,esk1339_0),esk1338_0) ),
+    inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_9,c_0_10]),c_0_11])]),c_0_12])).
+
+cnf(c_0_17,plain,
+    ( v7_struct_0(k1_tex_2(X1,X2))
+    | v2_struct_0(X1)
+    | ~ l1_pre_topc(X1)
+    | ~ m1_subset_1(X2,u1_struct_0(X1)) ),
+    inference(split_conjunct,[status(thm)],[c_0_13])).
+
+cnf(c_0_18,plain,
+    ( v2_struct_0(X1)
+    | ~ v2_struct_0(k1_tex_2(X1,X2))
+    | ~ l1_pre_topc(X1)
+    | ~ m1_subset_1(X2,u1_struct_0(X1)) ),
+    inference(split_conjunct,[status(thm)],[c_0_6])).
+
+cnf(c_0_19,plain,
+    ( v1_tdlat_3(X1)
+    | v2_struct_0(X1)
+    | ~ v7_struct_0(X1)
+    | ~ v2_pre_topc(X1)
+    | ~ l1_pre_topc(X1) ),
+    inference(split_conjunct,[status(thm)],[c_0_14])).
+
+cnf(c_0_20,negated_conjecture,
+    ( l1_pre_topc(k1_tex_2(esk1338_0,esk1339_0)) ),
+    inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_15,c_0_16]),c_0_11])])).
+
+cnf(c_0_21,negated_conjecture,
+    ( v7_struct_0(k1_tex_2(esk1338_0,esk1339_0)) ),
+    inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_17,c_0_10]),c_0_11])]),c_0_12])).
+
+cnf(c_0_22,negated_conjecture,
+    ( v2_pre_topc(k1_tex_2(esk1338_0,esk1339_0)) ),
+    inference(split_conjunct,[status(thm)],[c_0_7])).
+
+cnf(c_0_23,negated_conjecture,
+    ( ~ v2_struct_0(k1_tex_2(esk1338_0,esk1339_0)) ),
+    inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_18,c_0_10]),c_0_11])]),c_0_12])).
+
+cnf(c_0_24,negated_conjecture,
+    ( ~ v1_tdlat_3(k1_tex_2(esk1338_0,esk1339_0))
+    | ~ v2_tdlat_3(k1_tex_2(esk1338_0,esk1339_0)) ),
+    inference(split_conjunct,[status(thm)],[c_0_7])).
+
+cnf(c_0_25,negated_conjecture,
+    ( v1_tdlat_3(k1_tex_2(esk1338_0,esk1339_0)) ),
+    inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_19,c_0_20]),c_0_21]),c_0_22])]),c_0_23])).
+
+cnf(c_0_26,plain,
+    ( v2_tdlat_3(X1)
+    | v2_struct_0(X1)
+    | ~ v7_struct_0(X1)
+    | ~ v2_pre_topc(X1)
+    | ~ l1_pre_topc(X1) ),
+    inference(split_conjunct,[status(thm)],[c_0_14])).
+
+cnf(c_0_27,negated_conjecture,
+    ( ~ v2_tdlat_3(k1_tex_2(esk1338_0,esk1339_0)) ),
+    inference(cn,[status(thm)],[inference(rw,[status(thm)],[c_0_24,c_0_25])])).
+
+cnf(c_0_28,negated_conjecture,
+    ( $false ),
+    inference(sr,[status(thm)],[inference(sr,[status(thm)],[inference(cn,[status(thm)],[inference(rw,[status(thm)],[inference(rw,[status(thm)],[inference(spm,[status(thm)],[c_0_26,c_0_20]),c_0_21]),c_0_22])]),c_0_23]),c_0_27]),
+    [proof]).
+%------------------------------------------------------------------------------

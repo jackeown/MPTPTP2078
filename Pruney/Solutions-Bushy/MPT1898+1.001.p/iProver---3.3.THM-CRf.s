@@ -1,0 +1,420 @@
+%------------------------------------------------------------------------------
+% File       : iProver---3.3
+% Problem    : MPT1898+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : iproveropt_run.sh %d %s
+
+% Computer   : n029.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 08:46:50 EST 2020
+
+% Result     : Theorem 0.36s
+% Output     : CNFRefutation 0.36s
+% Verified   : 
+% Statistics : Number of formulae       :   48 ( 142 expanded)
+%              Number of clauses        :   20 (  28 expanded)
+%              Number of leaves         :    7 (  35 expanded)
+%              Depth                    :   11
+%              Number of atoms          :  201 ( 740 expanded)
+%              Number of equality atoms :    0 (   0 expanded)
+%              Maximal formula depth    :   11 (   5 average)
+%              Maximal clause size      :   12 (   3 average)
+%              Maximal term depth       :    3 (   1 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f1,axiom,(
+    ! [X0] :
+    ? [X1] :
+      ( v1_xboole_0(X1)
+      & m1_subset_1(X1,k1_zfmisc_1(X0)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f13,plain,(
+    ! [X0] :
+      ( ? [X1] :
+          ( v1_xboole_0(X1)
+          & m1_subset_1(X1,k1_zfmisc_1(X0)) )
+     => ( v1_xboole_0(sK0(X0))
+        & m1_subset_1(sK0(X0),k1_zfmisc_1(X0)) ) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f14,plain,(
+    ! [X0] :
+      ( v1_xboole_0(sK0(X0))
+      & m1_subset_1(sK0(X0),k1_zfmisc_1(X0)) ) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f1,f13])).
+
+fof(f19,plain,(
+    ! [X0] : m1_subset_1(sK0(X0),k1_zfmisc_1(X0)) ),
+    inference(cnf_transformation,[],[f14])).
+
+fof(f20,plain,(
+    ! [X0] : v1_xboole_0(sK0(X0)) ),
+    inference(cnf_transformation,[],[f14])).
+
+fof(f2,axiom,(
+    ! [X0] :
+      ( ( l1_pre_topc(X0)
+        & v2_pre_topc(X0)
+        & ~ v2_struct_0(X0) )
+     => ! [X1] :
+          ( ( m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+            & v1_xboole_0(X1) )
+         => v2_tex_2(X1,X0) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f7,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( v2_tex_2(X1,X0)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+          | ~ v1_xboole_0(X1) )
+      | ~ l1_pre_topc(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(ennf_transformation,[],[f2])).
+
+fof(f8,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( v2_tex_2(X1,X0)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+          | ~ v1_xboole_0(X1) )
+      | ~ l1_pre_topc(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(flattening,[],[f7])).
+
+fof(f21,plain,(
+    ! [X0,X1] :
+      ( v2_tex_2(X1,X0)
+      | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+      | ~ v1_xboole_0(X1)
+      | ~ l1_pre_topc(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(cnf_transformation,[],[f8])).
+
+fof(f4,conjecture,(
+    ! [X0] :
+      ( ( l1_pre_topc(X0)
+        & v3_tdlat_3(X0)
+        & v2_pre_topc(X0)
+        & ~ v2_struct_0(X0) )
+     => ? [X1] :
+          ( v3_tex_2(X1,X0)
+          & m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f5,negated_conjecture,(
+    ~ ! [X0] :
+        ( ( l1_pre_topc(X0)
+          & v3_tdlat_3(X0)
+          & v2_pre_topc(X0)
+          & ~ v2_struct_0(X0) )
+       => ? [X1] :
+            ( v3_tex_2(X1,X0)
+            & m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) ) ) ),
+    inference(negated_conjecture,[],[f4])).
+
+fof(f11,plain,(
+    ? [X0] :
+      ( ! [X1] :
+          ( ~ v3_tex_2(X1,X0)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) )
+      & l1_pre_topc(X0)
+      & v3_tdlat_3(X0)
+      & v2_pre_topc(X0)
+      & ~ v2_struct_0(X0) ) ),
+    inference(ennf_transformation,[],[f5])).
+
+fof(f12,plain,(
+    ? [X0] :
+      ( ! [X1] :
+          ( ~ v3_tex_2(X1,X0)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) )
+      & l1_pre_topc(X0)
+      & v3_tdlat_3(X0)
+      & v2_pre_topc(X0)
+      & ~ v2_struct_0(X0) ) ),
+    inference(flattening,[],[f11])).
+
+fof(f17,plain,
+    ( ? [X0] :
+        ( ! [X1] :
+            ( ~ v3_tex_2(X1,X0)
+            | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) )
+        & l1_pre_topc(X0)
+        & v3_tdlat_3(X0)
+        & v2_pre_topc(X0)
+        & ~ v2_struct_0(X0) )
+   => ( ! [X1] :
+          ( ~ v3_tex_2(X1,sK2)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(sK2))) )
+      & l1_pre_topc(sK2)
+      & v3_tdlat_3(sK2)
+      & v2_pre_topc(sK2)
+      & ~ v2_struct_0(sK2) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f18,plain,
+    ( ! [X1] :
+        ( ~ v3_tex_2(X1,sK2)
+        | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(sK2))) )
+    & l1_pre_topc(sK2)
+    & v3_tdlat_3(sK2)
+    & v2_pre_topc(sK2)
+    & ~ v2_struct_0(sK2) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK2])],[f12,f17])).
+
+fof(f27,plain,(
+    l1_pre_topc(sK2) ),
+    inference(cnf_transformation,[],[f18])).
+
+fof(f24,plain,(
+    ~ v2_struct_0(sK2) ),
+    inference(cnf_transformation,[],[f18])).
+
+fof(f25,plain,(
+    v2_pre_topc(sK2) ),
+    inference(cnf_transformation,[],[f18])).
+
+fof(f3,axiom,(
+    ! [X0] :
+      ( ( l1_pre_topc(X0)
+        & v3_tdlat_3(X0)
+        & v2_pre_topc(X0)
+        & ~ v2_struct_0(X0) )
+     => ! [X1] :
+          ( m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+         => ~ ( ! [X2] :
+                  ( m1_subset_1(X2,k1_zfmisc_1(u1_struct_0(X0)))
+                 => ~ ( v3_tex_2(X2,X0)
+                      & r1_tarski(X1,X2) ) )
+              & v2_tex_2(X1,X0) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f6,plain,(
+    ! [X0] :
+      ( ( l1_pre_topc(X0)
+        & v3_tdlat_3(X0)
+        & v2_pre_topc(X0)
+        & ~ v2_struct_0(X0) )
+     => ! [X1] :
+          ( m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+         => ~ ( ! [X2] :
+                  ( m1_subset_1(X2,k1_zfmisc_1(u1_struct_0(X0)))
+                 => ~ v3_tex_2(X2,X0) )
+              & v2_tex_2(X1,X0) ) ) ) ),
+    inference(pure_predicate_removal,[],[f3])).
+
+fof(f9,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( ? [X2] :
+              ( v3_tex_2(X2,X0)
+              & m1_subset_1(X2,k1_zfmisc_1(u1_struct_0(X0))) )
+          | ~ v2_tex_2(X1,X0)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) )
+      | ~ l1_pre_topc(X0)
+      | ~ v3_tdlat_3(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(ennf_transformation,[],[f6])).
+
+fof(f10,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( ? [X2] :
+              ( v3_tex_2(X2,X0)
+              & m1_subset_1(X2,k1_zfmisc_1(u1_struct_0(X0))) )
+          | ~ v2_tex_2(X1,X0)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) )
+      | ~ l1_pre_topc(X0)
+      | ~ v3_tdlat_3(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(flattening,[],[f9])).
+
+fof(f15,plain,(
+    ! [X0] :
+      ( ? [X2] :
+          ( v3_tex_2(X2,X0)
+          & m1_subset_1(X2,k1_zfmisc_1(u1_struct_0(X0))) )
+     => ( v3_tex_2(sK1(X0),X0)
+        & m1_subset_1(sK1(X0),k1_zfmisc_1(u1_struct_0(X0))) ) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f16,plain,(
+    ! [X0] :
+      ( ! [X1] :
+          ( ( v3_tex_2(sK1(X0),X0)
+            & m1_subset_1(sK1(X0),k1_zfmisc_1(u1_struct_0(X0))) )
+          | ~ v2_tex_2(X1,X0)
+          | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0))) )
+      | ~ l1_pre_topc(X0)
+      | ~ v3_tdlat_3(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK1])],[f10,f15])).
+
+fof(f22,plain,(
+    ! [X0,X1] :
+      ( m1_subset_1(sK1(X0),k1_zfmisc_1(u1_struct_0(X0)))
+      | ~ v2_tex_2(X1,X0)
+      | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+      | ~ l1_pre_topc(X0)
+      | ~ v3_tdlat_3(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(cnf_transformation,[],[f16])).
+
+fof(f26,plain,(
+    v3_tdlat_3(sK2) ),
+    inference(cnf_transformation,[],[f18])).
+
+fof(f23,plain,(
+    ! [X0,X1] :
+      ( v3_tex_2(sK1(X0),X0)
+      | ~ v2_tex_2(X1,X0)
+      | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+      | ~ l1_pre_topc(X0)
+      | ~ v3_tdlat_3(X0)
+      | ~ v2_pre_topc(X0)
+      | v2_struct_0(X0) ) ),
+    inference(cnf_transformation,[],[f16])).
+
+fof(f28,plain,(
+    ! [X1] :
+      ( ~ v3_tex_2(X1,sK2)
+      | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(sK2))) ) ),
+    inference(cnf_transformation,[],[f18])).
+
+cnf(c_1,plain,
+    ( m1_subset_1(sK0(X0),k1_zfmisc_1(X0)) ),
+    inference(cnf_transformation,[],[f19])).
+
+cnf(c_0,plain,
+    ( v1_xboole_0(sK0(X0)) ),
+    inference(cnf_transformation,[],[f20])).
+
+cnf(c_2,plain,
+    ( v2_tex_2(X0,X1)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(u1_struct_0(X1)))
+    | v2_struct_0(X1)
+    | ~ v2_pre_topc(X1)
+    | ~ l1_pre_topc(X1)
+    | ~ v1_xboole_0(X0) ),
+    inference(cnf_transformation,[],[f21])).
+
+cnf(c_103,plain,
+    ( v2_tex_2(sK0(X0),X1)
+    | ~ m1_subset_1(sK0(X0),k1_zfmisc_1(u1_struct_0(X1)))
+    | v2_struct_0(X1)
+    | ~ v2_pre_topc(X1)
+    | ~ l1_pre_topc(X1) ),
+    inference(resolution,[status(thm)],[c_0,c_2])).
+
+cnf(c_6,negated_conjecture,
+    ( l1_pre_topc(sK2) ),
+    inference(cnf_transformation,[],[f27])).
+
+cnf(c_173,plain,
+    ( v2_tex_2(sK0(X0),sK2)
+    | ~ m1_subset_1(sK0(X0),k1_zfmisc_1(u1_struct_0(sK2)))
+    | v2_struct_0(sK2)
+    | ~ v2_pre_topc(sK2) ),
+    inference(resolution,[status(thm)],[c_103,c_6])).
+
+cnf(c_9,negated_conjecture,
+    ( ~ v2_struct_0(sK2) ),
+    inference(cnf_transformation,[],[f24])).
+
+cnf(c_8,negated_conjecture,
+    ( v2_pre_topc(sK2) ),
+    inference(cnf_transformation,[],[f25])).
+
+cnf(c_177,plain,
+    ( v2_tex_2(sK0(X0),sK2)
+    | ~ m1_subset_1(sK0(X0),k1_zfmisc_1(u1_struct_0(sK2))) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_173,c_9,c_8])).
+
+cnf(c_199,plain,
+    ( v2_tex_2(sK0(u1_struct_0(sK2)),sK2) ),
+    inference(resolution,[status(thm)],[c_1,c_177])).
+
+cnf(c_4,plain,
+    ( ~ v2_tex_2(X0,X1)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(u1_struct_0(X1)))
+    | m1_subset_1(sK1(X1),k1_zfmisc_1(u1_struct_0(X1)))
+    | ~ v3_tdlat_3(X1)
+    | v2_struct_0(X1)
+    | ~ v2_pre_topc(X1)
+    | ~ l1_pre_topc(X1) ),
+    inference(cnf_transformation,[],[f22])).
+
+cnf(c_7,negated_conjecture,
+    ( v3_tdlat_3(sK2) ),
+    inference(cnf_transformation,[],[f26])).
+
+cnf(c_153,plain,
+    ( ~ v2_tex_2(X0,sK2)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(u1_struct_0(sK2)))
+    | m1_subset_1(sK1(sK2),k1_zfmisc_1(u1_struct_0(sK2)))
+    | v2_struct_0(sK2)
+    | ~ v2_pre_topc(sK2)
+    | ~ l1_pre_topc(sK2) ),
+    inference(resolution,[status(thm)],[c_4,c_7])).
+
+cnf(c_3,plain,
+    ( v3_tex_2(sK1(X0),X0)
+    | ~ v2_tex_2(X1,X0)
+    | ~ m1_subset_1(X1,k1_zfmisc_1(u1_struct_0(X0)))
+    | ~ v3_tdlat_3(X0)
+    | v2_struct_0(X0)
+    | ~ v2_pre_topc(X0)
+    | ~ l1_pre_topc(X0) ),
+    inference(cnf_transformation,[],[f23])).
+
+cnf(c_5,negated_conjecture,
+    ( ~ v3_tex_2(X0,sK2)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(u1_struct_0(sK2))) ),
+    inference(cnf_transformation,[],[f28])).
+
+cnf(c_129,plain,
+    ( ~ v2_tex_2(X0,sK2)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(u1_struct_0(sK2)))
+    | ~ m1_subset_1(sK1(sK2),k1_zfmisc_1(u1_struct_0(sK2)))
+    | ~ v3_tdlat_3(sK2)
+    | v2_struct_0(sK2)
+    | ~ v2_pre_topc(sK2)
+    | ~ l1_pre_topc(sK2) ),
+    inference(resolution,[status(thm)],[c_3,c_5])).
+
+cnf(c_133,plain,
+    ( ~ v2_tex_2(X0,sK2)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(u1_struct_0(sK2)))
+    | ~ m1_subset_1(sK1(sK2),k1_zfmisc_1(u1_struct_0(sK2))) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_129,c_9,c_8,c_7,c_6])).
+
+cnf(c_157,plain,
+    ( ~ v2_tex_2(X0,sK2)
+    | ~ m1_subset_1(X0,k1_zfmisc_1(u1_struct_0(sK2))) ),
+    inference(global_propositional_subsumption,[status(thm)],[c_153,c_9,c_8,c_6,c_133])).
+
+cnf(c_193,plain,
+    ( ~ v2_tex_2(sK0(u1_struct_0(sK2)),sK2) ),
+    inference(resolution,[status(thm)],[c_1,c_157])).
+
+cnf(contradiction,plain,
+    ( $false ),
+    inference(minisat,[status(thm)],[c_199,c_193])).
+
+
+%------------------------------------------------------------------------------

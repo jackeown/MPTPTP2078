@@ -1,0 +1,361 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT0393+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox/benchmark/theBenchmark.p /export/starexec/sandbox/tmp/tmp.Tgr6owCGSP
+
+% Computer   : n028.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 08:51:50 EST 2020
+
+% Result     : Theorem 0.58s
+% Output     : Refutation 0.58s
+% Verified   : 
+% Statistics : Number of formulae       :   55 (  67 expanded)
+%              Number of leaves         :   20 (  27 expanded)
+%              Depth                    :   14
+%              Number of atoms          :  400 ( 575 expanded)
+%              Number of equality atoms :   52 (  81 expanded)
+%              Maximal formula depth    :   12 (   6 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(k1_tarski_type,type,(
+    k1_tarski: $i > $i )).
+
+thf(k1_xboole_0_type,type,(
+    k1_xboole_0: $i )).
+
+thf(k1_zfmisc_1_type,type,(
+    k1_zfmisc_1: $i > $i )).
+
+thf(m1_subset_1_type,type,(
+    m1_subset_1: $i > $i > $o )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(r1_tarski_type,type,(
+    r1_tarski: $i > $i > $o )).
+
+thf(v1_xboole_0_type,type,(
+    v1_xboole_0: $i > $o )).
+
+thf(r2_hidden_type,type,(
+    r2_hidden: $i > $i > $o )).
+
+thf(sk_D_type,type,(
+    sk_D: $i > $i > $i )).
+
+thf(o_0_0_xboole_0_type,type,(
+    o_0_0_xboole_0: $i )).
+
+thf(sk_C_type,type,(
+    sk_C: $i > $i > $i )).
+
+thf(k1_setfam_1_type,type,(
+    k1_setfam_1: $i > $i )).
+
+thf(d1_tarski,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( B
+        = ( k1_tarski @ A ) )
+    <=> ! [C: $i] :
+          ( ( r2_hidden @ C @ B )
+        <=> ( C = A ) ) ) )).
+
+thf('0',plain,(
+    ! [X10: $i,X11: $i,X12: $i] :
+      ( ( X11 != X10 )
+      | ( r2_hidden @ X11 @ X12 )
+      | ( X12
+       != ( k1_tarski @ X10 ) ) ) ),
+    inference(cnf,[status(esa)],[d1_tarski])).
+
+thf('1',plain,(
+    ! [X10: $i] :
+      ( r2_hidden @ X10 @ ( k1_tarski @ X10 ) ) ),
+    inference(simplify,[status(thm)],['0'])).
+
+thf(d1_setfam_1,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( ( A = k1_xboole_0 )
+       => ( ( B
+            = ( k1_setfam_1 @ A ) )
+        <=> ( B = k1_xboole_0 ) ) )
+      & ( ( A != k1_xboole_0 )
+       => ( ( B
+            = ( k1_setfam_1 @ A ) )
+        <=> ! [C: $i] :
+              ( ( r2_hidden @ C @ B )
+            <=> ! [D: $i] :
+                  ( ( r2_hidden @ D @ A )
+                 => ( r2_hidden @ C @ D ) ) ) ) ) ) )).
+
+thf('2',plain,(
+    ! [X3: $i,X4: $i,X5: $i] :
+      ( ( r2_hidden @ ( sk_C @ X3 @ X4 ) @ X3 )
+      | ( r2_hidden @ ( sk_C @ X3 @ X4 ) @ X5 )
+      | ~ ( r2_hidden @ X5 @ X4 )
+      | ( X3
+        = ( k1_setfam_1 @ X4 ) )
+      | ( X4 = k1_xboole_0 ) ) ),
+    inference(cnf,[status(esa)],[d1_setfam_1])).
+
+thf('3',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( X1
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( r2_hidden @ ( sk_C @ X1 @ ( k1_tarski @ X0 ) ) @ X0 )
+      | ( r2_hidden @ ( sk_C @ X1 @ ( k1_tarski @ X0 ) ) @ X1 ) ) ),
+    inference('sup-',[status(thm)],['1','2'])).
+
+thf('4',plain,(
+    ! [X0: $i] :
+      ( ( r2_hidden @ ( sk_C @ X0 @ ( k1_tarski @ X0 ) ) @ X0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( ( k1_tarski @ X0 )
+        = k1_xboole_0 ) ) ),
+    inference(eq_fact,[status(thm)],['3'])).
+
+thf('5',plain,(
+    ! [X3: $i,X4: $i] :
+      ( ~ ( r2_hidden @ ( sk_C @ X3 @ X4 ) @ X3 )
+      | ( r2_hidden @ ( sk_D @ X3 @ X4 ) @ X4 )
+      | ( X3
+        = ( k1_setfam_1 @ X4 ) )
+      | ( X4 = k1_xboole_0 ) ) ),
+    inference(cnf,[status(esa)],[d1_setfam_1])).
+
+thf('6',plain,(
+    ! [X0: $i] :
+      ( ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( r2_hidden @ ( sk_D @ X0 @ ( k1_tarski @ X0 ) ) @ ( k1_tarski @ X0 ) ) ) ),
+    inference('sup-',[status(thm)],['4','5'])).
+
+thf('7',plain,(
+    ! [X0: $i] :
+      ( ( r2_hidden @ ( sk_D @ X0 @ ( k1_tarski @ X0 ) ) @ ( k1_tarski @ X0 ) )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( ( k1_tarski @ X0 )
+        = k1_xboole_0 ) ) ),
+    inference(simplify,[status(thm)],['6'])).
+
+thf('8',plain,(
+    ! [X10: $i,X12: $i,X13: $i] :
+      ( ~ ( r2_hidden @ X13 @ X12 )
+      | ( X13 = X10 )
+      | ( X12
+       != ( k1_tarski @ X10 ) ) ) ),
+    inference(cnf,[status(esa)],[d1_tarski])).
+
+thf('9',plain,(
+    ! [X10: $i,X13: $i] :
+      ( ( X13 = X10 )
+      | ~ ( r2_hidden @ X13 @ ( k1_tarski @ X10 ) ) ) ),
+    inference(simplify,[status(thm)],['8'])).
+
+thf('10',plain,(
+    ! [X0: $i] :
+      ( ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( ( sk_D @ X0 @ ( k1_tarski @ X0 ) )
+        = X0 ) ) ),
+    inference('sup-',[status(thm)],['7','9'])).
+
+thf('11',plain,(
+    ! [X3: $i,X4: $i] :
+      ( ~ ( r2_hidden @ ( sk_C @ X3 @ X4 ) @ X3 )
+      | ~ ( r2_hidden @ ( sk_C @ X3 @ X4 ) @ ( sk_D @ X3 @ X4 ) )
+      | ( X3
+        = ( k1_setfam_1 @ X4 ) )
+      | ( X4 = k1_xboole_0 ) ) ),
+    inference(cnf,[status(esa)],[d1_setfam_1])).
+
+thf('12',plain,(
+    ! [X0: $i] :
+      ( ~ ( r2_hidden @ ( sk_C @ X0 @ ( k1_tarski @ X0 ) ) @ X0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ~ ( r2_hidden @ ( sk_C @ X0 @ ( k1_tarski @ X0 ) ) @ X0 ) ) ),
+    inference('sup-',[status(thm)],['10','11'])).
+
+thf('13',plain,(
+    ! [X0: $i] :
+      ( ( ( k1_tarski @ X0 )
+        = k1_xboole_0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ~ ( r2_hidden @ ( sk_C @ X0 @ ( k1_tarski @ X0 ) ) @ X0 ) ) ),
+    inference(simplify,[status(thm)],['12'])).
+
+thf('14',plain,(
+    ! [X0: $i] :
+      ( ( r2_hidden @ ( sk_C @ X0 @ ( k1_tarski @ X0 ) ) @ X0 )
+      | ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( ( k1_tarski @ X0 )
+        = k1_xboole_0 ) ) ),
+    inference(eq_fact,[status(thm)],['3'])).
+
+thf('15',plain,(
+    ! [X0: $i] :
+      ( ( X0
+        = ( k1_setfam_1 @ ( k1_tarski @ X0 ) ) )
+      | ( ( k1_tarski @ X0 )
+        = k1_xboole_0 ) ) ),
+    inference(clc,[status(thm)],['13','14'])).
+
+thf(t11_setfam_1,conjecture,(
+    ! [A: $i] :
+      ( ( k1_setfam_1 @ ( k1_tarski @ A ) )
+      = A ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i] :
+        ( ( k1_setfam_1 @ ( k1_tarski @ A ) )
+        = A ) ),
+    inference('cnf.neg',[status(esa)],[t11_setfam_1])).
+
+thf('16',plain,(
+    ( k1_setfam_1 @ ( k1_tarski @ sk_A ) )
+ != sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('17',plain,
+    ( ( sk_A != sk_A )
+    | ( ( k1_tarski @ sk_A )
+      = k1_xboole_0 ) ),
+    inference('sup-',[status(thm)],['15','16'])).
+
+thf('18',plain,
+    ( ( k1_tarski @ sk_A )
+    = k1_xboole_0 ),
+    inference(simplify,[status(thm)],['17'])).
+
+thf('19',plain,(
+    ! [X10: $i] :
+      ( r2_hidden @ X10 @ ( k1_tarski @ X10 ) ) ),
+    inference(simplify,[status(thm)],['0'])).
+
+thf(d10_xboole_0,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( A = B )
+    <=> ( ( r1_tarski @ A @ B )
+        & ( r1_tarski @ B @ A ) ) ) )).
+
+thf('20',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( r1_tarski @ X0 @ X1 )
+      | ( X0 != X1 ) ) ),
+    inference(cnf,[status(esa)],[d10_xboole_0])).
+
+thf('21',plain,(
+    ! [X1: $i] :
+      ( r1_tarski @ X1 @ X1 ) ),
+    inference(simplify,[status(thm)],['20'])).
+
+thf(t3_subset,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( m1_subset_1 @ A @ ( k1_zfmisc_1 @ B ) )
+    <=> ( r1_tarski @ A @ B ) ) )).
+
+thf('22',plain,(
+    ! [X19: $i,X21: $i] :
+      ( ( m1_subset_1 @ X19 @ ( k1_zfmisc_1 @ X21 ) )
+      | ~ ( r1_tarski @ X19 @ X21 ) ) ),
+    inference(cnf,[status(esa)],[t3_subset])).
+
+thf('23',plain,(
+    ! [X0: $i] :
+      ( m1_subset_1 @ X0 @ ( k1_zfmisc_1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['21','22'])).
+
+thf(t5_subset,axiom,(
+    ! [A: $i,B: $i,C: $i] :
+      ~ ( ( r2_hidden @ A @ B )
+        & ( m1_subset_1 @ B @ ( k1_zfmisc_1 @ C ) )
+        & ( v1_xboole_0 @ C ) ) )).
+
+thf('24',plain,(
+    ! [X24: $i,X25: $i,X26: $i] :
+      ( ~ ( r2_hidden @ X24 @ X25 )
+      | ~ ( v1_xboole_0 @ X26 )
+      | ~ ( m1_subset_1 @ X25 @ ( k1_zfmisc_1 @ X26 ) ) ) ),
+    inference(cnf,[status(esa)],[t5_subset])).
+
+thf('25',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( v1_xboole_0 @ X0 )
+      | ~ ( r2_hidden @ X1 @ X0 ) ) ),
+    inference('sup-',[status(thm)],['23','24'])).
+
+thf('26',plain,(
+    ! [X0: $i] :
+      ~ ( v1_xboole_0 @ ( k1_tarski @ X0 ) ) ),
+    inference('sup-',[status(thm)],['19','25'])).
+
+thf('27',plain,(
+    ~ ( v1_xboole_0 @ k1_xboole_0 ) ),
+    inference('sup-',[status(thm)],['18','26'])).
+
+thf(dt_o_0_0_xboole_0,axiom,(
+    v1_xboole_0 @ o_0_0_xboole_0 )).
+
+thf('28',plain,(
+    v1_xboole_0 @ o_0_0_xboole_0 ),
+    inference(cnf,[status(esa)],[dt_o_0_0_xboole_0])).
+
+thf('29',plain,(
+    v1_xboole_0 @ o_0_0_xboole_0 ),
+    inference(cnf,[status(esa)],[dt_o_0_0_xboole_0])).
+
+thf(t6_boole,axiom,(
+    ! [A: $i] :
+      ( ( v1_xboole_0 @ A )
+     => ( A = k1_xboole_0 ) ) )).
+
+thf('30',plain,(
+    ! [X27: $i] :
+      ( ( X27 = k1_xboole_0 )
+      | ~ ( v1_xboole_0 @ X27 ) ) ),
+    inference(cnf,[status(esa)],[t6_boole])).
+
+thf('31',plain,(
+    o_0_0_xboole_0 = k1_xboole_0 ),
+    inference('sup-',[status(thm)],['29','30'])).
+
+thf('32',plain,(
+    v1_xboole_0 @ k1_xboole_0 ),
+    inference(demod,[status(thm)],['28','31'])).
+
+thf('33',plain,(
+    $false ),
+    inference(demod,[status(thm)],['27','32'])).
+
+
+%------------------------------------------------------------------------------

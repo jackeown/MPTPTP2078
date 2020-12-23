@@ -1,0 +1,921 @@
+%------------------------------------------------------------------------------
+% File       : Vampire---4.5
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_vampire %s %d
+
+% Computer   : n024.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 12:55:54 EST 2020
+
+% Result     : Theorem 1.96s
+% Output     : Refutation 1.96s
+% Verified   : 
+% Statistics : Number of formulae       :  107 ( 789 expanded)
+%              Number of leaves         :   17 ( 231 expanded)
+%              Depth                    :   23
+%              Number of atoms          :  174 (1351 expanded)
+%              Number of equality atoms :   86 ( 711 expanded)
+%              Maximal formula depth    :    7 (   4 average)
+%              Maximal term depth       :    6 (   3 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f7052,plain,(
+    $false ),
+    inference(avatar_sat_refutation,[],[f59,f61,f74,f7051])).
+
+fof(f7051,plain,
+    ( ~ spl3_2
+    | ~ spl3_3 ),
+    inference(avatar_contradiction_clause,[],[f7050])).
+
+fof(f7050,plain,
+    ( $false
+    | ~ spl3_2
+    | ~ spl3_3 ),
+    inference(trivial_inequality_removal,[],[f7046])).
+
+fof(f7046,plain,
+    ( k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(k2_wellord1(sK2,sK0),sK1)
+    | ~ spl3_2
+    | ~ spl3_3 ),
+    inference(superposition,[],[f6884,f1918])).
+
+fof(f1918,plain,
+    ( ! [X2,X3] : k2_wellord1(k2_wellord1(sK2,X2),X3) = k2_wellord1(k2_wellord1(sK2,X3),X2)
+    | ~ spl3_2
+    | ~ spl3_3 ),
+    inference(superposition,[],[f1917,f58])).
+
+fof(f58,plain,
+    ( ! [X0,X1] : k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1)
+    | ~ spl3_2 ),
+    inference(avatar_component_clause,[],[f57])).
+
+fof(f57,plain,
+    ( spl3_2
+  <=> ! [X1,X0] : k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl3_2])])).
+
+fof(f1917,plain,
+    ( ! [X0,X1] : k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1) = k2_wellord1(k2_wellord1(sK2,X1),X0)
+    | ~ spl3_2
+    | ~ spl3_3 ),
+    inference(forward_demodulation,[],[f1912,f58])).
+
+fof(f1912,plain,
+    ( ! [X0,X1] : k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1) = k7_relat_1(k8_relat_1(X0,k2_wellord1(sK2,X1)),X0)
+    | ~ spl3_3 ),
+    inference(superposition,[],[f1807,f1853])).
+
+fof(f1853,plain,(
+    ! [X72,X71] : k7_relat_1(k8_relat_1(X72,k8_relat_1(X71,sK2)),X72) = k8_relat_1(X71,k2_wellord1(sK2,X72)) ),
+    inference(backward_demodulation,[],[f162,f1813])).
+
+fof(f1813,plain,(
+    ! [X0,X1] : k8_relat_1(X1,k2_wellord1(sK2,X0)) = k2_wellord1(k8_relat_1(X1,sK2),X0) ),
+    inference(backward_demodulation,[],[f544,f1810])).
+
+fof(f1810,plain,(
+    ! [X0,X1] : k8_relat_1(X1,k2_wellord1(sK2,X0)) = k7_relat_1(k8_relat_1(X1,k8_relat_1(X0,sK2)),X0) ),
+    inference(superposition,[],[f1788,f46])).
+
+fof(f46,plain,(
+    ! [X0] : k2_wellord1(sK2,X0) = k7_relat_1(k8_relat_1(X0,sK2),X0) ),
+    inference(resolution,[],[f31,f24])).
+
+fof(f24,plain,(
+    v1_relat_1(sK2) ),
+    inference(cnf_transformation,[],[f23])).
+
+fof(f23,plain,
+    ( k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k3_xboole_0(sK0,sK1))
+    & v1_relat_1(sK2) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f15,f22])).
+
+fof(f22,plain,
+    ( ? [X0,X1,X2] :
+        ( k2_wellord1(k2_wellord1(X2,X0),X1) != k2_wellord1(X2,k3_xboole_0(X0,X1))
+        & v1_relat_1(X2) )
+   => ( k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k3_xboole_0(sK0,sK1))
+      & v1_relat_1(sK2) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f15,plain,(
+    ? [X0,X1,X2] :
+      ( k2_wellord1(k2_wellord1(X2,X0),X1) != k2_wellord1(X2,k3_xboole_0(X0,X1))
+      & v1_relat_1(X2) ) ),
+    inference(ennf_transformation,[],[f14])).
+
+fof(f14,negated_conjecture,(
+    ~ ! [X0,X1,X2] :
+        ( v1_relat_1(X2)
+       => k2_wellord1(k2_wellord1(X2,X0),X1) = k2_wellord1(X2,k3_xboole_0(X0,X1)) ) ),
+    inference(negated_conjecture,[],[f13])).
+
+fof(f13,conjecture,(
+    ! [X0,X1,X2] :
+      ( v1_relat_1(X2)
+     => k2_wellord1(k2_wellord1(X2,X0),X1) = k2_wellord1(X2,k3_xboole_0(X0,X1)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t26_wellord1)).
+
+fof(f31,plain,(
+    ! [X0,X1] :
+      ( ~ v1_relat_1(X1)
+      | k2_wellord1(X1,X0) = k7_relat_1(k8_relat_1(X0,X1),X0) ) ),
+    inference(cnf_transformation,[],[f18])).
+
+fof(f18,plain,(
+    ! [X0,X1] :
+      ( k2_wellord1(X1,X0) = k7_relat_1(k8_relat_1(X0,X1),X0)
+      | ~ v1_relat_1(X1) ) ),
+    inference(ennf_transformation,[],[f12])).
+
+fof(f12,axiom,(
+    ! [X0,X1] :
+      ( v1_relat_1(X1)
+     => k2_wellord1(X1,X0) = k7_relat_1(k8_relat_1(X0,X1),X0) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t17_wellord1)).
+
+fof(f1788,plain,(
+    ! [X845,X846,X844] : k7_relat_1(k8_relat_1(X844,k8_relat_1(X845,sK2)),X846) = k8_relat_1(X844,k7_relat_1(k8_relat_1(X845,sK2),X846)) ),
+    inference(resolution,[],[f65,f24])).
+
+fof(f65,plain,(
+    ! [X6,X4,X7,X5] :
+      ( ~ v1_relat_1(X6)
+      | k7_relat_1(k8_relat_1(X4,k8_relat_1(X5,X6)),X7) = k8_relat_1(X4,k7_relat_1(k8_relat_1(X5,X6),X7)) ) ),
+    inference(resolution,[],[f35,f29])).
+
+fof(f29,plain,(
+    ! [X0,X1] :
+      ( v1_relat_1(k8_relat_1(X0,X1))
+      | ~ v1_relat_1(X1) ) ),
+    inference(cnf_transformation,[],[f16])).
+
+fof(f16,plain,(
+    ! [X0,X1] :
+      ( v1_relat_1(k8_relat_1(X0,X1))
+      | ~ v1_relat_1(X1) ) ),
+    inference(ennf_transformation,[],[f8])).
+
+fof(f8,axiom,(
+    ! [X0,X1] :
+      ( v1_relat_1(X1)
+     => v1_relat_1(k8_relat_1(X0,X1)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',dt_k8_relat_1)).
+
+fof(f35,plain,(
+    ! [X2,X0,X1] :
+      ( ~ v1_relat_1(X2)
+      | k7_relat_1(k8_relat_1(X0,X2),X1) = k8_relat_1(X0,k7_relat_1(X2,X1)) ) ),
+    inference(cnf_transformation,[],[f21])).
+
+fof(f21,plain,(
+    ! [X0,X1,X2] :
+      ( k7_relat_1(k8_relat_1(X0,X2),X1) = k8_relat_1(X0,k7_relat_1(X2,X1))
+      | ~ v1_relat_1(X2) ) ),
+    inference(ennf_transformation,[],[f11])).
+
+fof(f11,axiom,(
+    ! [X0,X1,X2] :
+      ( v1_relat_1(X2)
+     => k7_relat_1(k8_relat_1(X0,X2),X1) = k8_relat_1(X0,k7_relat_1(X2,X1)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t140_relat_1)).
+
+fof(f544,plain,(
+    ! [X0,X1] : k2_wellord1(k8_relat_1(X1,sK2),X0) = k7_relat_1(k8_relat_1(X1,k8_relat_1(X0,sK2)),X0) ),
+    inference(superposition,[],[f162,f467])).
+
+fof(f467,plain,(
+    ! [X2,X3] : k8_relat_1(X2,k8_relat_1(X3,sK2)) = k8_relat_1(X3,k8_relat_1(X2,sK2)) ),
+    inference(superposition,[],[f254,f253])).
+
+fof(f253,plain,(
+    ! [X116,X115] : k8_relat_1(X115,k8_relat_1(X116,sK2)) = k8_relat_1(k1_setfam_1(k4_enumset1(X115,X115,X115,X115,X115,X116)),sK2) ),
+    inference(resolution,[],[f44,f24])).
+
+fof(f44,plain,(
+    ! [X2,X0,X1] :
+      ( ~ v1_relat_1(X2)
+      | k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k1_setfam_1(k4_enumset1(X0,X0,X0,X0,X0,X1)),X2) ) ),
+    inference(definition_unfolding,[],[f33,f41])).
+
+fof(f41,plain,(
+    ! [X0,X1] : k3_xboole_0(X0,X1) = k1_setfam_1(k4_enumset1(X0,X0,X0,X0,X0,X1)) ),
+    inference(definition_unfolding,[],[f28,f40])).
+
+fof(f40,plain,(
+    ! [X0,X1] : k2_tarski(X0,X1) = k4_enumset1(X0,X0,X0,X0,X0,X1) ),
+    inference(definition_unfolding,[],[f27,f39])).
+
+fof(f39,plain,(
+    ! [X2,X0,X1] : k1_enumset1(X0,X1,X2) = k4_enumset1(X0,X0,X0,X0,X1,X2) ),
+    inference(definition_unfolding,[],[f32,f38])).
+
+fof(f38,plain,(
+    ! [X2,X0,X3,X1] : k2_enumset1(X0,X1,X2,X3) = k4_enumset1(X0,X0,X0,X1,X2,X3) ),
+    inference(definition_unfolding,[],[f36,f37])).
+
+fof(f37,plain,(
+    ! [X4,X2,X0,X3,X1] : k4_enumset1(X0,X0,X1,X2,X3,X4) = k3_enumset1(X0,X1,X2,X3,X4) ),
+    inference(cnf_transformation,[],[f5])).
+
+fof(f5,axiom,(
+    ! [X0,X1,X2,X3,X4] : k4_enumset1(X0,X0,X1,X2,X3,X4) = k3_enumset1(X0,X1,X2,X3,X4) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t73_enumset1)).
+
+fof(f36,plain,(
+    ! [X2,X0,X3,X1] : k3_enumset1(X0,X0,X1,X2,X3) = k2_enumset1(X0,X1,X2,X3) ),
+    inference(cnf_transformation,[],[f4])).
+
+fof(f4,axiom,(
+    ! [X0,X1,X2,X3] : k3_enumset1(X0,X0,X1,X2,X3) = k2_enumset1(X0,X1,X2,X3) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t72_enumset1)).
+
+fof(f32,plain,(
+    ! [X2,X0,X1] : k2_enumset1(X0,X0,X1,X2) = k1_enumset1(X0,X1,X2) ),
+    inference(cnf_transformation,[],[f3])).
+
+fof(f3,axiom,(
+    ! [X0,X1,X2] : k2_enumset1(X0,X0,X1,X2) = k1_enumset1(X0,X1,X2) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t71_enumset1)).
+
+fof(f27,plain,(
+    ! [X0,X1] : k2_tarski(X0,X1) = k1_enumset1(X0,X0,X1) ),
+    inference(cnf_transformation,[],[f2])).
+
+fof(f2,axiom,(
+    ! [X0,X1] : k2_tarski(X0,X1) = k1_enumset1(X0,X0,X1) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t70_enumset1)).
+
+fof(f28,plain,(
+    ! [X0,X1] : k1_setfam_1(k2_tarski(X0,X1)) = k3_xboole_0(X0,X1) ),
+    inference(cnf_transformation,[],[f6])).
+
+fof(f6,axiom,(
+    ! [X0,X1] : k1_setfam_1(k2_tarski(X0,X1)) = k3_xboole_0(X0,X1) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t12_setfam_1)).
+
+fof(f33,plain,(
+    ! [X2,X0,X1] :
+      ( k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k3_xboole_0(X0,X1),X2)
+      | ~ v1_relat_1(X2) ) ),
+    inference(cnf_transformation,[],[f19])).
+
+fof(f19,plain,(
+    ! [X0,X1,X2] :
+      ( k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k3_xboole_0(X0,X1),X2)
+      | ~ v1_relat_1(X2) ) ),
+    inference(ennf_transformation,[],[f10])).
+
+fof(f10,axiom,(
+    ! [X0,X1,X2] :
+      ( v1_relat_1(X2)
+     => k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k3_xboole_0(X0,X1),X2) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t127_relat_1)).
+
+fof(f254,plain,(
+    ! [X0,X1] : k8_relat_1(X0,k8_relat_1(X1,sK2)) = k8_relat_1(k1_setfam_1(k4_enumset1(X1,X1,X1,X1,X1,X0)),sK2) ),
+    inference(superposition,[],[f253,f43])).
+
+fof(f43,plain,(
+    ! [X0,X1] : k4_enumset1(X0,X0,X0,X0,X0,X1) = k4_enumset1(X1,X1,X1,X1,X1,X0) ),
+    inference(definition_unfolding,[],[f26,f40,f40])).
+
+fof(f26,plain,(
+    ! [X0,X1] : k2_tarski(X0,X1) = k2_tarski(X1,X0) ),
+    inference(cnf_transformation,[],[f1])).
+
+fof(f1,axiom,(
+    ! [X0,X1] : k2_tarski(X0,X1) = k2_tarski(X1,X0) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',commutativity_k2_tarski)).
+
+fof(f162,plain,(
+    ! [X72,X71] : k2_wellord1(k8_relat_1(X71,sK2),X72) = k7_relat_1(k8_relat_1(X72,k8_relat_1(X71,sK2)),X72) ),
+    inference(resolution,[],[f47,f24])).
+
+fof(f47,plain,(
+    ! [X2,X3,X1] :
+      ( ~ v1_relat_1(X2)
+      | k2_wellord1(k8_relat_1(X1,X2),X3) = k7_relat_1(k8_relat_1(X3,k8_relat_1(X1,X2)),X3) ) ),
+    inference(resolution,[],[f31,f29])).
+
+fof(f1807,plain,
+    ( ! [X4,X5,X3] : k7_relat_1(k8_relat_1(X5,k2_wellord1(sK2,X3)),X4) = k7_relat_1(k7_relat_1(k8_relat_1(X5,k8_relat_1(X3,sK2)),X4),X3)
+    | ~ spl3_3 ),
+    inference(backward_demodulation,[],[f1546,f1788])).
+
+fof(f1546,plain,
+    ( ! [X4,X5,X3] : k7_relat_1(k8_relat_1(X5,k7_relat_1(k8_relat_1(X3,sK2),X4)),X3) = k7_relat_1(k8_relat_1(X5,k2_wellord1(sK2,X3)),X4)
+    | ~ spl3_3 ),
+    inference(forward_demodulation,[],[f1535,f78])).
+
+fof(f78,plain,
+    ( ! [X2,X0,X1] : k7_relat_1(k8_relat_1(X0,k2_wellord1(sK2,X1)),X2) = k8_relat_1(X0,k7_relat_1(k2_wellord1(sK2,X1),X2))
+    | ~ spl3_3 ),
+    inference(resolution,[],[f77,f35])).
+
+fof(f77,plain,
+    ( ! [X0] : v1_relat_1(k2_wellord1(sK2,X0))
+    | ~ spl3_3 ),
+    inference(superposition,[],[f73,f46])).
+
+fof(f73,plain,
+    ( ! [X0,X1] : v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1))
+    | ~ spl3_3 ),
+    inference(avatar_component_clause,[],[f72])).
+
+fof(f72,plain,
+    ( spl3_3
+  <=> ! [X1,X0] : v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1)) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl3_3])])).
+
+fof(f1535,plain,
+    ( ! [X4,X5,X3] : k7_relat_1(k8_relat_1(X5,k7_relat_1(k8_relat_1(X3,sK2),X4)),X3) = k8_relat_1(X5,k7_relat_1(k2_wellord1(sK2,X3),X4))
+    | ~ spl3_3 ),
+    inference(backward_demodulation,[],[f1033,f1530])).
+
+fof(f1530,plain,(
+    ! [X0,X1] : k7_relat_1(k2_wellord1(sK2,X0),X1) = k2_wellord1(k7_relat_1(sK2,X1),X0) ),
+    inference(forward_demodulation,[],[f1515,f46])).
+
+fof(f1515,plain,(
+    ! [X0,X1] : k7_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X0),X1) = k2_wellord1(k7_relat_1(sK2,X1),X0) ),
+    inference(superposition,[],[f1511,f1028])).
+
+fof(f1028,plain,(
+    ! [X528,X529] : k2_wellord1(k7_relat_1(sK2,X528),X529) = k7_relat_1(k7_relat_1(k8_relat_1(X529,sK2),X528),X529) ),
+    inference(forward_demodulation,[],[f1021,f68])).
+
+fof(f68,plain,(
+    ! [X15,X16] : k7_relat_1(k8_relat_1(X15,sK2),X16) = k8_relat_1(X15,k7_relat_1(sK2,X16)) ),
+    inference(resolution,[],[f35,f24])).
+
+fof(f1021,plain,(
+    ! [X528,X529] : k2_wellord1(k7_relat_1(sK2,X528),X529) = k7_relat_1(k8_relat_1(X529,k7_relat_1(sK2,X528)),X529) ),
+    inference(resolution,[],[f48,f24])).
+
+fof(f48,plain,(
+    ! [X6,X4,X5] :
+      ( ~ v1_relat_1(X4)
+      | k2_wellord1(k7_relat_1(X4,X5),X6) = k7_relat_1(k8_relat_1(X6,k7_relat_1(X4,X5)),X6) ) ),
+    inference(resolution,[],[f31,f30])).
+
+fof(f30,plain,(
+    ! [X0,X1] :
+      ( v1_relat_1(k7_relat_1(X0,X1))
+      | ~ v1_relat_1(X0) ) ),
+    inference(cnf_transformation,[],[f17])).
+
+fof(f17,plain,(
+    ! [X0,X1] :
+      ( v1_relat_1(k7_relat_1(X0,X1))
+      | ~ v1_relat_1(X0) ) ),
+    inference(ennf_transformation,[],[f7])).
+
+fof(f7,axiom,(
+    ! [X0,X1] :
+      ( v1_relat_1(X0)
+     => v1_relat_1(k7_relat_1(X0,X1)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',dt_k7_relat_1)).
+
+fof(f1511,plain,(
+    ! [X4,X5,X3] : k7_relat_1(k7_relat_1(k8_relat_1(X3,sK2),X4),X5) = k7_relat_1(k7_relat_1(k8_relat_1(X3,sK2),X5),X4) ),
+    inference(superposition,[],[f1387,f1382])).
+
+fof(f1382,plain,(
+    ! [X761,X759,X760] : k8_relat_1(X759,k7_relat_1(k7_relat_1(sK2,X760),X761)) = k7_relat_1(k7_relat_1(k8_relat_1(X759,sK2),X760),X761) ),
+    inference(forward_demodulation,[],[f1375,f68])).
+
+fof(f1375,plain,(
+    ! [X761,X759,X760] : k7_relat_1(k8_relat_1(X759,k7_relat_1(sK2,X760)),X761) = k8_relat_1(X759,k7_relat_1(k7_relat_1(sK2,X760),X761)) ),
+    inference(resolution,[],[f64,f24])).
+
+fof(f64,plain,(
+    ! [X2,X0,X3,X1] :
+      ( ~ v1_relat_1(X1)
+      | k7_relat_1(k8_relat_1(X0,k7_relat_1(X1,X2)),X3) = k8_relat_1(X0,k7_relat_1(k7_relat_1(X1,X2),X3)) ) ),
+    inference(resolution,[],[f35,f30])).
+
+fof(f1387,plain,(
+    ! [X2,X0,X1] : k8_relat_1(X2,k7_relat_1(k7_relat_1(sK2,X1),X0)) = k7_relat_1(k7_relat_1(k8_relat_1(X2,sK2),X0),X1) ),
+    inference(superposition,[],[f1382,f755])).
+
+fof(f755,plain,(
+    ! [X2,X3] : k7_relat_1(k7_relat_1(sK2,X2),X3) = k7_relat_1(k7_relat_1(sK2,X3),X2) ),
+    inference(superposition,[],[f714,f713])).
+
+fof(f713,plain,(
+    ! [X372,X371] : k7_relat_1(k7_relat_1(sK2,X371),X372) = k7_relat_1(sK2,k1_setfam_1(k4_enumset1(X371,X371,X371,X371,X371,X372))) ),
+    inference(resolution,[],[f45,f24])).
+
+fof(f45,plain,(
+    ! [X2,X0,X1] :
+      ( ~ v1_relat_1(X2)
+      | k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k1_setfam_1(k4_enumset1(X0,X0,X0,X0,X0,X1))) ) ),
+    inference(definition_unfolding,[],[f34,f41])).
+
+fof(f34,plain,(
+    ! [X2,X0,X1] :
+      ( k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k3_xboole_0(X0,X1))
+      | ~ v1_relat_1(X2) ) ),
+    inference(cnf_transformation,[],[f20])).
+
+fof(f20,plain,(
+    ! [X0,X1,X2] :
+      ( k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k3_xboole_0(X0,X1))
+      | ~ v1_relat_1(X2) ) ),
+    inference(ennf_transformation,[],[f9])).
+
+fof(f9,axiom,(
+    ! [X0,X1,X2] :
+      ( v1_relat_1(X2)
+     => k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k3_xboole_0(X0,X1)) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t100_relat_1)).
+
+fof(f714,plain,(
+    ! [X0,X1] : k7_relat_1(k7_relat_1(sK2,X0),X1) = k7_relat_1(sK2,k1_setfam_1(k4_enumset1(X1,X1,X1,X1,X1,X0))) ),
+    inference(superposition,[],[f713,f43])).
+
+fof(f1033,plain,
+    ( ! [X4,X5,X3] : k7_relat_1(k8_relat_1(X5,k7_relat_1(k8_relat_1(X3,sK2),X4)),X3) = k8_relat_1(X5,k2_wellord1(k7_relat_1(sK2,X4),X3))
+    | ~ spl3_3 ),
+    inference(superposition,[],[f75,f1028])).
+
+fof(f75,plain,
+    ( ! [X2,X0,X3,X1] : k7_relat_1(k8_relat_1(X0,k7_relat_1(k8_relat_1(X1,sK2),X2)),X3) = k8_relat_1(X0,k7_relat_1(k7_relat_1(k8_relat_1(X1,sK2),X2),X3))
+    | ~ spl3_3 ),
+    inference(resolution,[],[f73,f35])).
+
+fof(f6884,plain,
+    ( k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(k2_wellord1(sK2,sK1),sK0)
+    | ~ spl3_2
+    | ~ spl3_3 ),
+    inference(superposition,[],[f42,f6615])).
+
+fof(f6615,plain,
+    ( ! [X4,X3] : k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k2_wellord1(k2_wellord1(sK2,X4),X3)
+    | ~ spl3_2
+    | ~ spl3_3 ),
+    inference(forward_demodulation,[],[f6614,f58])).
+
+fof(f6614,plain,
+    ( ! [X4,X3] : k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k8_relat_1(X3,k2_wellord1(sK2,X4)),X3)
+    | ~ spl3_3 ),
+    inference(forward_demodulation,[],[f6613,f1807])).
+
+fof(f6613,plain,(
+    ! [X4,X3] : k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k7_relat_1(k8_relat_1(X3,k8_relat_1(X4,sK2)),X3),X4) ),
+    inference(forward_demodulation,[],[f6594,f253])).
+
+fof(f6594,plain,(
+    ! [X4,X3] : k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k7_relat_1(k8_relat_1(k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4)),sK2),X3),X4) ),
+    inference(superposition,[],[f3091,f46])).
+
+fof(f3091,plain,(
+    ! [X4,X5,X3] : k7_relat_1(k8_relat_1(X5,sK2),k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k7_relat_1(k8_relat_1(X5,sK2),X3),X4) ),
+    inference(forward_demodulation,[],[f717,f1382])).
+
+fof(f717,plain,(
+    ! [X4,X5,X3] : k7_relat_1(k8_relat_1(X5,sK2),k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k8_relat_1(X5,k7_relat_1(k7_relat_1(sK2,X3),X4)) ),
+    inference(superposition,[],[f68,f713])).
+
+fof(f42,plain,(
+    k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k1_setfam_1(k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK1))) ),
+    inference(definition_unfolding,[],[f25,f41])).
+
+fof(f25,plain,(
+    k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k3_xboole_0(sK0,sK1)) ),
+    inference(cnf_transformation,[],[f23])).
+
+fof(f74,plain,
+    ( ~ spl3_1
+    | spl3_3 ),
+    inference(avatar_split_clause,[],[f70,f72,f53])).
+
+fof(f53,plain,
+    ( spl3_1
+  <=> v1_relat_1(sK2) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl3_1])])).
+
+fof(f70,plain,(
+    ! [X0,X1] :
+      ( v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1))
+      | ~ v1_relat_1(sK2) ) ),
+    inference(resolution,[],[f69,f30])).
+
+fof(f69,plain,(
+    ! [X0,X1] :
+      ( ~ v1_relat_1(k7_relat_1(sK2,X1))
+      | v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1)) ) ),
+    inference(superposition,[],[f29,f68])).
+
+fof(f61,plain,(
+    spl3_1 ),
+    inference(avatar_contradiction_clause,[],[f60])).
+
+fof(f60,plain,
+    ( $false
+    | spl3_1 ),
+    inference(resolution,[],[f55,f24])).
+
+fof(f55,plain,
+    ( ~ v1_relat_1(sK2)
+    | spl3_1 ),
+    inference(avatar_component_clause,[],[f53])).
+
+fof(f59,plain,
+    ( ~ spl3_1
+    | spl3_2 ),
+    inference(avatar_split_clause,[],[f51,f57,f53])).
+
+fof(f51,plain,(
+    ! [X0,X1] :
+      ( k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1)
+      | ~ v1_relat_1(sK2) ) ),
+    inference(resolution,[],[f50,f29])).
+
+fof(f50,plain,(
+    ! [X0,X1] :
+      ( ~ v1_relat_1(k8_relat_1(X0,sK2))
+      | k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1) ) ),
+    inference(resolution,[],[f49,f31])).
+
+fof(f49,plain,(
+    ! [X0] :
+      ( v1_relat_1(k2_wellord1(sK2,X0))
+      | ~ v1_relat_1(k8_relat_1(X0,sK2)) ) ),
+    inference(superposition,[],[f30,f46])).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.07/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.07/0.14  % Command    : run_vampire %s %d
+% 0.14/0.35  % Computer   : n024.cluster.edu
+% 0.14/0.35  % Model      : x86_64 x86_64
+% 0.14/0.35  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.14/0.35  % Memory     : 8042.1875MB
+% 0.14/0.35  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.14/0.35  % CPULimit   : 60
+% 0.14/0.35  % WCLimit    : 600
+% 0.14/0.35  % DateTime   : Tue Dec  1 13:02:36 EST 2020
+% 0.14/0.35  % CPUTime    : 
+% 0.21/0.43  % (5371)dis+11_50_add=large:afp=1000:afq=1.0:amm=sco:anc=none:fsr=off:nm=16:nwc=1.5:sac=on_13 on theBenchmark
+% 0.21/0.47  % (5373)dis+1002_2_add=off:afr=on:afp=10000:afq=2.0:amm=off:anc=none:cond=on:er=filter:fsr=off:nm=0:nwc=1.3:sp=occurrence_3 on theBenchmark
+% 0.21/0.47  % (5368)lrs+11_24_add=large:afr=on:afp=40000:afq=1.0:amm=sco:anc=none:bd=off:cond=fast:fde=unused:gs=on:irw=on:lma=on:nm=4:nwc=1.3:nicw=on:sas=z3:stl=30:sac=on:sp=reverse_arity:uhcvi=on_136 on theBenchmark
+% 0.21/0.48  % (5385)ott-1_50_afr=on:afp=1000:afq=1.2:amm=sco:anc=none:bsr=on:cond=fast:fsr=off:fde=none:irw=on:nm=16:nwc=1.5:updr=off:uhcvi=on_1883 on theBenchmark
+% 0.21/0.48  % (5374)ott+1010_8:1_add=off:afp=4000:afq=1.4:amm=off:anc=all:bd=off:bsr=on:fsr=off:fde=unused:irw=on:lma=on:nwc=4:nicw=on:sac=on:sp=reverse_arity:urr=on:updr=off:uhcvi=on_10 on theBenchmark
+% 0.21/0.48  % (5381)dis+1_24_av=off:cond=on:irw=on:lma=on:nm=2:nwc=1.5:sp=occurrence:updr=off_16 on theBenchmark
+% 0.21/0.48  % (5370)lrs+11_5_av=off:cond=on:fsr=off:lma=on:lwlo=on:nwc=1.2:sas=z3:stl=30:sp=reverse_arity:updr=off_123 on theBenchmark
+% 0.21/0.48  % (5372)lrs+1002_1_av=off:fde=unused:lwlo=on:nm=16:nwc=4:stl=30:sp=occurrence_75 on theBenchmark
+% 0.21/0.49  % (5378)lrs+10_24_add=off:afr=on:afp=1000:afq=1.4:anc=none:bs=unit_only:gs=on:gsaa=from_current:gsem=on:lma=on:nm=2:nwc=1.1:stl=60:sac=on:uhcvi=on_461 on theBenchmark
+% 0.21/0.50  % (5383)lrs+11_128_add=large:afr=on:afp=10000:afq=1.2:amm=sco:anc=none:bs=unit_only:cond=on:nwc=1.3:stl=30:sac=on:uhcvi=on_236 on theBenchmark
+% 0.21/0.50  % (5386)lrs+11_64_acc=model:afp=100000:afq=1.2:anc=all_dependent:bd=off:bs=unit_only:cond=fast:fsr=off:gs=on:gsaa=full_model:gsem=off:irw=on:lma=on:nwc=1:stl=150:sac=on:sp=reverse_arity:urr=on:updr=off_893 on theBenchmark
+% 0.21/0.50  % (5377)lrs+1_128_add=off:afr=on:afp=10000:afq=2.0:amm=sco:anc=none:bs=unit_only:gs=on:gsem=off:lwlo=on:nm=2:nwc=1:sas=z3:stl=90:sac=on:sp=occurrence:urr=on:updr=off:uhcvi=on_520 on theBenchmark
+% 0.21/0.50  % (5382)ott+1_28_av=off:bs=unit_only:cond=on:irw=on:nm=64:nwc=2:sp=occurrence:updr=off:uhcvi=on_1052 on theBenchmark
+% 0.21/0.51  % (5379)ott+11_20_afp=10000:afq=1.1:anc=none:bs=unit_only:bsr=on:bce=on:fsr=off:gs=on:gsem=on:nwc=2.5:sas=z3:sp=occurrence:updr=off:uhcvi=on_385 on theBenchmark
+% 0.21/0.51  % (5380)dis+10_128_acc=on:add=off:afp=4000:afq=1.4:amm=off:bd=preordered:bce=on:cond=on:fsr=off:fde=unused:gs=on:gsem=on:irw=on:lma=on:nm=64:nwc=1.2:nicw=on:sos=on:sp=occurrence:updr=off:uhcvi=on_122 on theBenchmark
+% 0.21/0.51  % (5384)ott+4_4:1_acc=model:add=large:afr=on:afp=10000:afq=1.4:amm=off:anc=none:bd=preordered:bs=unit_only:ccuc=first:cond=on:gs=on:nm=32:nwc=1.5:sac=on:urr=on:updr=off_355 on theBenchmark
+% 0.21/0.51  % (5375)dis+11_5:4_acc=on:add=large:afr=on:afp=4000:afq=2.0:amm=off:anc=none:ccuc=small_ones:fsr=off:irw=on:nm=32:nwc=2.5:nicw=on:urr=on:updr=off_10 on theBenchmark
+% 0.21/0.52  % (5376)ott+11_20_afr=on:afp=100000:afq=1.0:amm=sco:anc=all:bsr=on:irw=on:lma=on:nm=4:nwc=1.2:sac=on:sp=occurrence_294 on theBenchmark
+% 1.96/0.62  % (5371)Refutation found. Thanks to Tanya!
+% 1.96/0.62  % SZS status Theorem for theBenchmark
+% 1.96/0.62  % SZS output start Proof for theBenchmark
+% 1.96/0.62  fof(f7052,plain,(
+% 1.96/0.62    $false),
+% 1.96/0.62    inference(avatar_sat_refutation,[],[f59,f61,f74,f7051])).
+% 1.96/0.62  fof(f7051,plain,(
+% 1.96/0.62    ~spl3_2 | ~spl3_3),
+% 1.96/0.62    inference(avatar_contradiction_clause,[],[f7050])).
+% 1.96/0.62  fof(f7050,plain,(
+% 1.96/0.62    $false | (~spl3_2 | ~spl3_3)),
+% 1.96/0.62    inference(trivial_inequality_removal,[],[f7046])).
+% 1.96/0.62  fof(f7046,plain,(
+% 1.96/0.62    k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(k2_wellord1(sK2,sK0),sK1) | (~spl3_2 | ~spl3_3)),
+% 1.96/0.62    inference(superposition,[],[f6884,f1918])).
+% 1.96/0.62  fof(f1918,plain,(
+% 1.96/0.62    ( ! [X2,X3] : (k2_wellord1(k2_wellord1(sK2,X2),X3) = k2_wellord1(k2_wellord1(sK2,X3),X2)) ) | (~spl3_2 | ~spl3_3)),
+% 1.96/0.62    inference(superposition,[],[f1917,f58])).
+% 1.96/0.62  fof(f58,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1)) ) | ~spl3_2),
+% 1.96/0.62    inference(avatar_component_clause,[],[f57])).
+% 1.96/0.62  fof(f57,plain,(
+% 1.96/0.62    spl3_2 <=> ! [X1,X0] : k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1)),
+% 1.96/0.62    introduced(avatar_definition,[new_symbols(naming,[spl3_2])])).
+% 1.96/0.62  fof(f1917,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1) = k2_wellord1(k2_wellord1(sK2,X1),X0)) ) | (~spl3_2 | ~spl3_3)),
+% 1.96/0.62    inference(forward_demodulation,[],[f1912,f58])).
+% 1.96/0.62  fof(f1912,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1) = k7_relat_1(k8_relat_1(X0,k2_wellord1(sK2,X1)),X0)) ) | ~spl3_3),
+% 1.96/0.62    inference(superposition,[],[f1807,f1853])).
+% 1.96/0.62  fof(f1853,plain,(
+% 1.96/0.62    ( ! [X72,X71] : (k7_relat_1(k8_relat_1(X72,k8_relat_1(X71,sK2)),X72) = k8_relat_1(X71,k2_wellord1(sK2,X72))) )),
+% 1.96/0.62    inference(backward_demodulation,[],[f162,f1813])).
+% 1.96/0.62  fof(f1813,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k8_relat_1(X1,k2_wellord1(sK2,X0)) = k2_wellord1(k8_relat_1(X1,sK2),X0)) )),
+% 1.96/0.62    inference(backward_demodulation,[],[f544,f1810])).
+% 1.96/0.62  fof(f1810,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k8_relat_1(X1,k2_wellord1(sK2,X0)) = k7_relat_1(k8_relat_1(X1,k8_relat_1(X0,sK2)),X0)) )),
+% 1.96/0.62    inference(superposition,[],[f1788,f46])).
+% 1.96/0.62  fof(f46,plain,(
+% 1.96/0.62    ( ! [X0] : (k2_wellord1(sK2,X0) = k7_relat_1(k8_relat_1(X0,sK2),X0)) )),
+% 1.96/0.62    inference(resolution,[],[f31,f24])).
+% 1.96/0.62  fof(f24,plain,(
+% 1.96/0.62    v1_relat_1(sK2)),
+% 1.96/0.62    inference(cnf_transformation,[],[f23])).
+% 1.96/0.62  fof(f23,plain,(
+% 1.96/0.62    k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k3_xboole_0(sK0,sK1)) & v1_relat_1(sK2)),
+% 1.96/0.62    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1,sK2])],[f15,f22])).
+% 1.96/0.62  fof(f22,plain,(
+% 1.96/0.62    ? [X0,X1,X2] : (k2_wellord1(k2_wellord1(X2,X0),X1) != k2_wellord1(X2,k3_xboole_0(X0,X1)) & v1_relat_1(X2)) => (k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k3_xboole_0(sK0,sK1)) & v1_relat_1(sK2))),
+% 1.96/0.62    introduced(choice_axiom,[])).
+% 1.96/0.62  fof(f15,plain,(
+% 1.96/0.62    ? [X0,X1,X2] : (k2_wellord1(k2_wellord1(X2,X0),X1) != k2_wellord1(X2,k3_xboole_0(X0,X1)) & v1_relat_1(X2))),
+% 1.96/0.62    inference(ennf_transformation,[],[f14])).
+% 1.96/0.62  fof(f14,negated_conjecture,(
+% 1.96/0.62    ~! [X0,X1,X2] : (v1_relat_1(X2) => k2_wellord1(k2_wellord1(X2,X0),X1) = k2_wellord1(X2,k3_xboole_0(X0,X1)))),
+% 1.96/0.62    inference(negated_conjecture,[],[f13])).
+% 1.96/0.62  fof(f13,conjecture,(
+% 1.96/0.62    ! [X0,X1,X2] : (v1_relat_1(X2) => k2_wellord1(k2_wellord1(X2,X0),X1) = k2_wellord1(X2,k3_xboole_0(X0,X1)))),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t26_wellord1)).
+% 1.96/0.62  fof(f31,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (~v1_relat_1(X1) | k2_wellord1(X1,X0) = k7_relat_1(k8_relat_1(X0,X1),X0)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f18])).
+% 1.96/0.62  fof(f18,plain,(
+% 1.96/0.62    ! [X0,X1] : (k2_wellord1(X1,X0) = k7_relat_1(k8_relat_1(X0,X1),X0) | ~v1_relat_1(X1))),
+% 1.96/0.62    inference(ennf_transformation,[],[f12])).
+% 1.96/0.62  fof(f12,axiom,(
+% 1.96/0.62    ! [X0,X1] : (v1_relat_1(X1) => k2_wellord1(X1,X0) = k7_relat_1(k8_relat_1(X0,X1),X0))),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t17_wellord1)).
+% 1.96/0.62  fof(f1788,plain,(
+% 1.96/0.62    ( ! [X845,X846,X844] : (k7_relat_1(k8_relat_1(X844,k8_relat_1(X845,sK2)),X846) = k8_relat_1(X844,k7_relat_1(k8_relat_1(X845,sK2),X846))) )),
+% 1.96/0.62    inference(resolution,[],[f65,f24])).
+% 1.96/0.62  fof(f65,plain,(
+% 1.96/0.62    ( ! [X6,X4,X7,X5] : (~v1_relat_1(X6) | k7_relat_1(k8_relat_1(X4,k8_relat_1(X5,X6)),X7) = k8_relat_1(X4,k7_relat_1(k8_relat_1(X5,X6),X7))) )),
+% 1.96/0.62    inference(resolution,[],[f35,f29])).
+% 1.96/0.62  fof(f29,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (v1_relat_1(k8_relat_1(X0,X1)) | ~v1_relat_1(X1)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f16])).
+% 1.96/0.62  fof(f16,plain,(
+% 1.96/0.62    ! [X0,X1] : (v1_relat_1(k8_relat_1(X0,X1)) | ~v1_relat_1(X1))),
+% 1.96/0.62    inference(ennf_transformation,[],[f8])).
+% 1.96/0.62  fof(f8,axiom,(
+% 1.96/0.62    ! [X0,X1] : (v1_relat_1(X1) => v1_relat_1(k8_relat_1(X0,X1)))),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',dt_k8_relat_1)).
+% 1.96/0.62  fof(f35,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (~v1_relat_1(X2) | k7_relat_1(k8_relat_1(X0,X2),X1) = k8_relat_1(X0,k7_relat_1(X2,X1))) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f21])).
+% 1.96/0.62  fof(f21,plain,(
+% 1.96/0.62    ! [X0,X1,X2] : (k7_relat_1(k8_relat_1(X0,X2),X1) = k8_relat_1(X0,k7_relat_1(X2,X1)) | ~v1_relat_1(X2))),
+% 1.96/0.62    inference(ennf_transformation,[],[f11])).
+% 1.96/0.62  fof(f11,axiom,(
+% 1.96/0.62    ! [X0,X1,X2] : (v1_relat_1(X2) => k7_relat_1(k8_relat_1(X0,X2),X1) = k8_relat_1(X0,k7_relat_1(X2,X1)))),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t140_relat_1)).
+% 1.96/0.62  fof(f544,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k2_wellord1(k8_relat_1(X1,sK2),X0) = k7_relat_1(k8_relat_1(X1,k8_relat_1(X0,sK2)),X0)) )),
+% 1.96/0.62    inference(superposition,[],[f162,f467])).
+% 1.96/0.62  fof(f467,plain,(
+% 1.96/0.62    ( ! [X2,X3] : (k8_relat_1(X2,k8_relat_1(X3,sK2)) = k8_relat_1(X3,k8_relat_1(X2,sK2))) )),
+% 1.96/0.62    inference(superposition,[],[f254,f253])).
+% 1.96/0.62  fof(f253,plain,(
+% 1.96/0.62    ( ! [X116,X115] : (k8_relat_1(X115,k8_relat_1(X116,sK2)) = k8_relat_1(k1_setfam_1(k4_enumset1(X115,X115,X115,X115,X115,X116)),sK2)) )),
+% 1.96/0.62    inference(resolution,[],[f44,f24])).
+% 1.96/0.62  fof(f44,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (~v1_relat_1(X2) | k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k1_setfam_1(k4_enumset1(X0,X0,X0,X0,X0,X1)),X2)) )),
+% 1.96/0.62    inference(definition_unfolding,[],[f33,f41])).
+% 1.96/0.62  fof(f41,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k3_xboole_0(X0,X1) = k1_setfam_1(k4_enumset1(X0,X0,X0,X0,X0,X1))) )),
+% 1.96/0.62    inference(definition_unfolding,[],[f28,f40])).
+% 1.96/0.62  fof(f40,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k2_tarski(X0,X1) = k4_enumset1(X0,X0,X0,X0,X0,X1)) )),
+% 1.96/0.62    inference(definition_unfolding,[],[f27,f39])).
+% 1.96/0.62  fof(f39,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (k1_enumset1(X0,X1,X2) = k4_enumset1(X0,X0,X0,X0,X1,X2)) )),
+% 1.96/0.62    inference(definition_unfolding,[],[f32,f38])).
+% 1.96/0.62  fof(f38,plain,(
+% 1.96/0.62    ( ! [X2,X0,X3,X1] : (k2_enumset1(X0,X1,X2,X3) = k4_enumset1(X0,X0,X0,X1,X2,X3)) )),
+% 1.96/0.62    inference(definition_unfolding,[],[f36,f37])).
+% 1.96/0.62  fof(f37,plain,(
+% 1.96/0.62    ( ! [X4,X2,X0,X3,X1] : (k4_enumset1(X0,X0,X1,X2,X3,X4) = k3_enumset1(X0,X1,X2,X3,X4)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f5])).
+% 1.96/0.62  fof(f5,axiom,(
+% 1.96/0.62    ! [X0,X1,X2,X3,X4] : k4_enumset1(X0,X0,X1,X2,X3,X4) = k3_enumset1(X0,X1,X2,X3,X4)),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t73_enumset1)).
+% 1.96/0.62  fof(f36,plain,(
+% 1.96/0.62    ( ! [X2,X0,X3,X1] : (k3_enumset1(X0,X0,X1,X2,X3) = k2_enumset1(X0,X1,X2,X3)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f4])).
+% 1.96/0.62  fof(f4,axiom,(
+% 1.96/0.62    ! [X0,X1,X2,X3] : k3_enumset1(X0,X0,X1,X2,X3) = k2_enumset1(X0,X1,X2,X3)),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t72_enumset1)).
+% 1.96/0.62  fof(f32,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (k2_enumset1(X0,X0,X1,X2) = k1_enumset1(X0,X1,X2)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f3])).
+% 1.96/0.62  fof(f3,axiom,(
+% 1.96/0.62    ! [X0,X1,X2] : k2_enumset1(X0,X0,X1,X2) = k1_enumset1(X0,X1,X2)),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t71_enumset1)).
+% 1.96/0.62  fof(f27,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k2_tarski(X0,X1) = k1_enumset1(X0,X0,X1)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f2])).
+% 1.96/0.62  fof(f2,axiom,(
+% 1.96/0.62    ! [X0,X1] : k2_tarski(X0,X1) = k1_enumset1(X0,X0,X1)),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t70_enumset1)).
+% 1.96/0.62  fof(f28,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k1_setfam_1(k2_tarski(X0,X1)) = k3_xboole_0(X0,X1)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f6])).
+% 1.96/0.62  fof(f6,axiom,(
+% 1.96/0.62    ! [X0,X1] : k1_setfam_1(k2_tarski(X0,X1)) = k3_xboole_0(X0,X1)),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t12_setfam_1)).
+% 1.96/0.62  fof(f33,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k3_xboole_0(X0,X1),X2) | ~v1_relat_1(X2)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f19])).
+% 1.96/0.62  fof(f19,plain,(
+% 1.96/0.62    ! [X0,X1,X2] : (k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k3_xboole_0(X0,X1),X2) | ~v1_relat_1(X2))),
+% 1.96/0.62    inference(ennf_transformation,[],[f10])).
+% 1.96/0.62  fof(f10,axiom,(
+% 1.96/0.62    ! [X0,X1,X2] : (v1_relat_1(X2) => k8_relat_1(X0,k8_relat_1(X1,X2)) = k8_relat_1(k3_xboole_0(X0,X1),X2))),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t127_relat_1)).
+% 1.96/0.62  fof(f254,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k8_relat_1(X0,k8_relat_1(X1,sK2)) = k8_relat_1(k1_setfam_1(k4_enumset1(X1,X1,X1,X1,X1,X0)),sK2)) )),
+% 1.96/0.62    inference(superposition,[],[f253,f43])).
+% 1.96/0.62  fof(f43,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k4_enumset1(X0,X0,X0,X0,X0,X1) = k4_enumset1(X1,X1,X1,X1,X1,X0)) )),
+% 1.96/0.62    inference(definition_unfolding,[],[f26,f40,f40])).
+% 1.96/0.62  fof(f26,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k2_tarski(X0,X1) = k2_tarski(X1,X0)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f1])).
+% 1.96/0.62  fof(f1,axiom,(
+% 1.96/0.62    ! [X0,X1] : k2_tarski(X0,X1) = k2_tarski(X1,X0)),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',commutativity_k2_tarski)).
+% 1.96/0.62  fof(f162,plain,(
+% 1.96/0.62    ( ! [X72,X71] : (k2_wellord1(k8_relat_1(X71,sK2),X72) = k7_relat_1(k8_relat_1(X72,k8_relat_1(X71,sK2)),X72)) )),
+% 1.96/0.62    inference(resolution,[],[f47,f24])).
+% 1.96/0.62  fof(f47,plain,(
+% 1.96/0.62    ( ! [X2,X3,X1] : (~v1_relat_1(X2) | k2_wellord1(k8_relat_1(X1,X2),X3) = k7_relat_1(k8_relat_1(X3,k8_relat_1(X1,X2)),X3)) )),
+% 1.96/0.62    inference(resolution,[],[f31,f29])).
+% 1.96/0.62  fof(f1807,plain,(
+% 1.96/0.62    ( ! [X4,X5,X3] : (k7_relat_1(k8_relat_1(X5,k2_wellord1(sK2,X3)),X4) = k7_relat_1(k7_relat_1(k8_relat_1(X5,k8_relat_1(X3,sK2)),X4),X3)) ) | ~spl3_3),
+% 1.96/0.62    inference(backward_demodulation,[],[f1546,f1788])).
+% 1.96/0.62  fof(f1546,plain,(
+% 1.96/0.62    ( ! [X4,X5,X3] : (k7_relat_1(k8_relat_1(X5,k7_relat_1(k8_relat_1(X3,sK2),X4)),X3) = k7_relat_1(k8_relat_1(X5,k2_wellord1(sK2,X3)),X4)) ) | ~spl3_3),
+% 1.96/0.62    inference(forward_demodulation,[],[f1535,f78])).
+% 1.96/0.62  fof(f78,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (k7_relat_1(k8_relat_1(X0,k2_wellord1(sK2,X1)),X2) = k8_relat_1(X0,k7_relat_1(k2_wellord1(sK2,X1),X2))) ) | ~spl3_3),
+% 1.96/0.62    inference(resolution,[],[f77,f35])).
+% 1.96/0.62  fof(f77,plain,(
+% 1.96/0.62    ( ! [X0] : (v1_relat_1(k2_wellord1(sK2,X0))) ) | ~spl3_3),
+% 1.96/0.62    inference(superposition,[],[f73,f46])).
+% 1.96/0.62  fof(f73,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1))) ) | ~spl3_3),
+% 1.96/0.62    inference(avatar_component_clause,[],[f72])).
+% 1.96/0.62  fof(f72,plain,(
+% 1.96/0.62    spl3_3 <=> ! [X1,X0] : v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1))),
+% 1.96/0.62    introduced(avatar_definition,[new_symbols(naming,[spl3_3])])).
+% 1.96/0.62  fof(f1535,plain,(
+% 1.96/0.62    ( ! [X4,X5,X3] : (k7_relat_1(k8_relat_1(X5,k7_relat_1(k8_relat_1(X3,sK2),X4)),X3) = k8_relat_1(X5,k7_relat_1(k2_wellord1(sK2,X3),X4))) ) | ~spl3_3),
+% 1.96/0.62    inference(backward_demodulation,[],[f1033,f1530])).
+% 1.96/0.62  fof(f1530,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k7_relat_1(k2_wellord1(sK2,X0),X1) = k2_wellord1(k7_relat_1(sK2,X1),X0)) )),
+% 1.96/0.62    inference(forward_demodulation,[],[f1515,f46])).
+% 1.96/0.62  fof(f1515,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k7_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X0),X1) = k2_wellord1(k7_relat_1(sK2,X1),X0)) )),
+% 1.96/0.62    inference(superposition,[],[f1511,f1028])).
+% 1.96/0.62  fof(f1028,plain,(
+% 1.96/0.62    ( ! [X528,X529] : (k2_wellord1(k7_relat_1(sK2,X528),X529) = k7_relat_1(k7_relat_1(k8_relat_1(X529,sK2),X528),X529)) )),
+% 1.96/0.62    inference(forward_demodulation,[],[f1021,f68])).
+% 1.96/0.62  fof(f68,plain,(
+% 1.96/0.62    ( ! [X15,X16] : (k7_relat_1(k8_relat_1(X15,sK2),X16) = k8_relat_1(X15,k7_relat_1(sK2,X16))) )),
+% 1.96/0.62    inference(resolution,[],[f35,f24])).
+% 1.96/0.62  fof(f1021,plain,(
+% 1.96/0.62    ( ! [X528,X529] : (k2_wellord1(k7_relat_1(sK2,X528),X529) = k7_relat_1(k8_relat_1(X529,k7_relat_1(sK2,X528)),X529)) )),
+% 1.96/0.62    inference(resolution,[],[f48,f24])).
+% 1.96/0.62  fof(f48,plain,(
+% 1.96/0.62    ( ! [X6,X4,X5] : (~v1_relat_1(X4) | k2_wellord1(k7_relat_1(X4,X5),X6) = k7_relat_1(k8_relat_1(X6,k7_relat_1(X4,X5)),X6)) )),
+% 1.96/0.62    inference(resolution,[],[f31,f30])).
+% 1.96/0.62  fof(f30,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (v1_relat_1(k7_relat_1(X0,X1)) | ~v1_relat_1(X0)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f17])).
+% 1.96/0.62  fof(f17,plain,(
+% 1.96/0.62    ! [X0,X1] : (v1_relat_1(k7_relat_1(X0,X1)) | ~v1_relat_1(X0))),
+% 1.96/0.62    inference(ennf_transformation,[],[f7])).
+% 1.96/0.62  fof(f7,axiom,(
+% 1.96/0.62    ! [X0,X1] : (v1_relat_1(X0) => v1_relat_1(k7_relat_1(X0,X1)))),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',dt_k7_relat_1)).
+% 1.96/0.62  fof(f1511,plain,(
+% 1.96/0.62    ( ! [X4,X5,X3] : (k7_relat_1(k7_relat_1(k8_relat_1(X3,sK2),X4),X5) = k7_relat_1(k7_relat_1(k8_relat_1(X3,sK2),X5),X4)) )),
+% 1.96/0.62    inference(superposition,[],[f1387,f1382])).
+% 1.96/0.62  fof(f1382,plain,(
+% 1.96/0.62    ( ! [X761,X759,X760] : (k8_relat_1(X759,k7_relat_1(k7_relat_1(sK2,X760),X761)) = k7_relat_1(k7_relat_1(k8_relat_1(X759,sK2),X760),X761)) )),
+% 1.96/0.62    inference(forward_demodulation,[],[f1375,f68])).
+% 1.96/0.62  fof(f1375,plain,(
+% 1.96/0.62    ( ! [X761,X759,X760] : (k7_relat_1(k8_relat_1(X759,k7_relat_1(sK2,X760)),X761) = k8_relat_1(X759,k7_relat_1(k7_relat_1(sK2,X760),X761))) )),
+% 1.96/0.62    inference(resolution,[],[f64,f24])).
+% 1.96/0.62  fof(f64,plain,(
+% 1.96/0.62    ( ! [X2,X0,X3,X1] : (~v1_relat_1(X1) | k7_relat_1(k8_relat_1(X0,k7_relat_1(X1,X2)),X3) = k8_relat_1(X0,k7_relat_1(k7_relat_1(X1,X2),X3))) )),
+% 1.96/0.62    inference(resolution,[],[f35,f30])).
+% 1.96/0.62  fof(f1387,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (k8_relat_1(X2,k7_relat_1(k7_relat_1(sK2,X1),X0)) = k7_relat_1(k7_relat_1(k8_relat_1(X2,sK2),X0),X1)) )),
+% 1.96/0.62    inference(superposition,[],[f1382,f755])).
+% 1.96/0.62  fof(f755,plain,(
+% 1.96/0.62    ( ! [X2,X3] : (k7_relat_1(k7_relat_1(sK2,X2),X3) = k7_relat_1(k7_relat_1(sK2,X3),X2)) )),
+% 1.96/0.62    inference(superposition,[],[f714,f713])).
+% 1.96/0.62  fof(f713,plain,(
+% 1.96/0.62    ( ! [X372,X371] : (k7_relat_1(k7_relat_1(sK2,X371),X372) = k7_relat_1(sK2,k1_setfam_1(k4_enumset1(X371,X371,X371,X371,X371,X372)))) )),
+% 1.96/0.62    inference(resolution,[],[f45,f24])).
+% 1.96/0.62  fof(f45,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (~v1_relat_1(X2) | k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k1_setfam_1(k4_enumset1(X0,X0,X0,X0,X0,X1)))) )),
+% 1.96/0.62    inference(definition_unfolding,[],[f34,f41])).
+% 1.96/0.62  fof(f34,plain,(
+% 1.96/0.62    ( ! [X2,X0,X1] : (k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k3_xboole_0(X0,X1)) | ~v1_relat_1(X2)) )),
+% 1.96/0.62    inference(cnf_transformation,[],[f20])).
+% 1.96/0.62  fof(f20,plain,(
+% 1.96/0.62    ! [X0,X1,X2] : (k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k3_xboole_0(X0,X1)) | ~v1_relat_1(X2))),
+% 1.96/0.62    inference(ennf_transformation,[],[f9])).
+% 1.96/0.62  fof(f9,axiom,(
+% 1.96/0.62    ! [X0,X1,X2] : (v1_relat_1(X2) => k7_relat_1(k7_relat_1(X2,X0),X1) = k7_relat_1(X2,k3_xboole_0(X0,X1)))),
+% 1.96/0.62    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t100_relat_1)).
+% 1.96/0.62  fof(f714,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k7_relat_1(k7_relat_1(sK2,X0),X1) = k7_relat_1(sK2,k1_setfam_1(k4_enumset1(X1,X1,X1,X1,X1,X0)))) )),
+% 1.96/0.62    inference(superposition,[],[f713,f43])).
+% 1.96/0.62  fof(f1033,plain,(
+% 1.96/0.62    ( ! [X4,X5,X3] : (k7_relat_1(k8_relat_1(X5,k7_relat_1(k8_relat_1(X3,sK2),X4)),X3) = k8_relat_1(X5,k2_wellord1(k7_relat_1(sK2,X4),X3))) ) | ~spl3_3),
+% 1.96/0.62    inference(superposition,[],[f75,f1028])).
+% 1.96/0.62  fof(f75,plain,(
+% 1.96/0.62    ( ! [X2,X0,X3,X1] : (k7_relat_1(k8_relat_1(X0,k7_relat_1(k8_relat_1(X1,sK2),X2)),X3) = k8_relat_1(X0,k7_relat_1(k7_relat_1(k8_relat_1(X1,sK2),X2),X3))) ) | ~spl3_3),
+% 1.96/0.62    inference(resolution,[],[f73,f35])).
+% 1.96/0.62  fof(f6884,plain,(
+% 1.96/0.62    k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(k2_wellord1(sK2,sK1),sK0) | (~spl3_2 | ~spl3_3)),
+% 1.96/0.62    inference(superposition,[],[f42,f6615])).
+% 1.96/0.62  fof(f6615,plain,(
+% 1.96/0.62    ( ! [X4,X3] : (k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k2_wellord1(k2_wellord1(sK2,X4),X3)) ) | (~spl3_2 | ~spl3_3)),
+% 1.96/0.62    inference(forward_demodulation,[],[f6614,f58])).
+% 1.96/0.62  fof(f6614,plain,(
+% 1.96/0.62    ( ! [X4,X3] : (k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k8_relat_1(X3,k2_wellord1(sK2,X4)),X3)) ) | ~spl3_3),
+% 1.96/0.62    inference(forward_demodulation,[],[f6613,f1807])).
+% 1.96/0.62  fof(f6613,plain,(
+% 1.96/0.62    ( ! [X4,X3] : (k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k7_relat_1(k8_relat_1(X3,k8_relat_1(X4,sK2)),X3),X4)) )),
+% 1.96/0.62    inference(forward_demodulation,[],[f6594,f253])).
+% 1.96/0.62  fof(f6594,plain,(
+% 1.96/0.62    ( ! [X4,X3] : (k2_wellord1(sK2,k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k7_relat_1(k8_relat_1(k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4)),sK2),X3),X4)) )),
+% 1.96/0.62    inference(superposition,[],[f3091,f46])).
+% 1.96/0.62  fof(f3091,plain,(
+% 1.96/0.62    ( ! [X4,X5,X3] : (k7_relat_1(k8_relat_1(X5,sK2),k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k7_relat_1(k7_relat_1(k8_relat_1(X5,sK2),X3),X4)) )),
+% 1.96/0.62    inference(forward_demodulation,[],[f717,f1382])).
+% 1.96/0.62  fof(f717,plain,(
+% 1.96/0.62    ( ! [X4,X5,X3] : (k7_relat_1(k8_relat_1(X5,sK2),k1_setfam_1(k4_enumset1(X3,X3,X3,X3,X3,X4))) = k8_relat_1(X5,k7_relat_1(k7_relat_1(sK2,X3),X4))) )),
+% 1.96/0.62    inference(superposition,[],[f68,f713])).
+% 1.96/0.62  fof(f42,plain,(
+% 1.96/0.62    k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k1_setfam_1(k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK1)))),
+% 1.96/0.62    inference(definition_unfolding,[],[f25,f41])).
+% 1.96/0.62  fof(f25,plain,(
+% 1.96/0.62    k2_wellord1(k2_wellord1(sK2,sK0),sK1) != k2_wellord1(sK2,k3_xboole_0(sK0,sK1))),
+% 1.96/0.62    inference(cnf_transformation,[],[f23])).
+% 1.96/0.62  fof(f74,plain,(
+% 1.96/0.62    ~spl3_1 | spl3_3),
+% 1.96/0.62    inference(avatar_split_clause,[],[f70,f72,f53])).
+% 1.96/0.62  fof(f53,plain,(
+% 1.96/0.62    spl3_1 <=> v1_relat_1(sK2)),
+% 1.96/0.62    introduced(avatar_definition,[new_symbols(naming,[spl3_1])])).
+% 1.96/0.62  fof(f70,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1)) | ~v1_relat_1(sK2)) )),
+% 1.96/0.62    inference(resolution,[],[f69,f30])).
+% 1.96/0.62  fof(f69,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (~v1_relat_1(k7_relat_1(sK2,X1)) | v1_relat_1(k7_relat_1(k8_relat_1(X0,sK2),X1))) )),
+% 1.96/0.62    inference(superposition,[],[f29,f68])).
+% 1.96/0.62  fof(f61,plain,(
+% 1.96/0.62    spl3_1),
+% 1.96/0.62    inference(avatar_contradiction_clause,[],[f60])).
+% 1.96/0.62  fof(f60,plain,(
+% 1.96/0.62    $false | spl3_1),
+% 1.96/0.62    inference(resolution,[],[f55,f24])).
+% 1.96/0.62  fof(f55,plain,(
+% 1.96/0.62    ~v1_relat_1(sK2) | spl3_1),
+% 1.96/0.62    inference(avatar_component_clause,[],[f53])).
+% 1.96/0.62  fof(f59,plain,(
+% 1.96/0.62    ~spl3_1 | spl3_2),
+% 1.96/0.62    inference(avatar_split_clause,[],[f51,f57,f53])).
+% 1.96/0.62  fof(f51,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1) | ~v1_relat_1(sK2)) )),
+% 1.96/0.62    inference(resolution,[],[f50,f29])).
+% 1.96/0.62  fof(f50,plain,(
+% 1.96/0.62    ( ! [X0,X1] : (~v1_relat_1(k8_relat_1(X0,sK2)) | k2_wellord1(k2_wellord1(sK2,X0),X1) = k7_relat_1(k8_relat_1(X1,k2_wellord1(sK2,X0)),X1)) )),
+% 1.96/0.62    inference(resolution,[],[f49,f31])).
+% 1.96/0.62  fof(f49,plain,(
+% 1.96/0.62    ( ! [X0] : (v1_relat_1(k2_wellord1(sK2,X0)) | ~v1_relat_1(k8_relat_1(X0,sK2))) )),
+% 1.96/0.62    inference(superposition,[],[f30,f46])).
+% 1.96/0.62  % SZS output end Proof for theBenchmark
+% 1.96/0.62  % (5371)------------------------------
+% 1.96/0.62  % (5371)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 1.96/0.62  % (5371)Termination reason: Refutation
+% 1.96/0.62  
+% 1.96/0.62  % (5371)Memory used [KB]: 11513
+% 1.96/0.62  % (5371)Time elapsed: 0.196 s
+% 1.96/0.62  % (5371)------------------------------
+% 1.96/0.62  % (5371)------------------------------
+% 2.12/0.63  % (5364)Success in time 0.266 s
+%------------------------------------------------------------------------------

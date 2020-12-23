@@ -1,0 +1,591 @@
+%------------------------------------------------------------------------------
+% File       : Beagle---0.9.47
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+
+% Computer   : n023.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 10:15:11 EST 2020
+
+% Result     : Theorem 4.23s
+% Output     : CNFRefutation 4.23s
+% Verified   : 
+% Statistics : Number of formulae       :   86 ( 112 expanded)
+%              Number of leaves         :   47 (  61 expanded)
+%              Depth                    :   11
+%              Number of atoms          :  110 ( 198 expanded)
+%              Number of equality atoms :   32 (  60 expanded)
+%              Maximal formula depth    :    9 (   4 average)
+%              Maximal term depth       :    4 (   1 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+%$ v1_funct_2 > r2_hidden > r1_tarski > m1_subset_1 > v1_xboole_0 > v1_relat_1 > v1_funct_1 > k2_enumset1 > k2_relset_1 > k1_relset_1 > k1_enumset1 > k2_zfmisc_1 > k2_tarski > k1_funct_1 > #nlpp > k2_relat_1 > k1_zfmisc_1 > k1_tarski > k1_relat_1 > k1_xboole_0 > #skF_6 > #skF_11 > #skF_3 > #skF_10 > #skF_2 > #skF_9 > #skF_8 > #skF_7 > #skF_1 > #skF_5 > #skF_12 > #skF_4
+
+%Foreground sorts:
+
+%Background operators:
+
+%Foreground operators:
+tff(k2_relset_1,type,(
+    k2_relset_1: ( $i * $i * $i ) > $i )).
+
+tff('#skF_6',type,(
+    '#skF_6': ( $i * $i ) > $i )).
+
+tff(v1_funct_1,type,(
+    v1_funct_1: $i > $o )).
+
+tff('#nlpp',type,(
+    '#nlpp': ( $real * $real ) > $real )).
+
+tff(r2_hidden,type,(
+    r2_hidden: ( $i * $i ) > $o )).
+
+tff('#skF_11',type,(
+    '#skF_11': $i )).
+
+tff(k1_tarski,type,(
+    k1_tarski: $i > $i )).
+
+tff(k1_xboole_0,type,(
+    k1_xboole_0: $i )).
+
+tff('#skF_3',type,(
+    '#skF_3': ( $i * $i ) > $i )).
+
+tff(r1_tarski,type,(
+    r1_tarski: ( $i * $i ) > $o )).
+
+tff(k2_enumset1,type,(
+    k2_enumset1: ( $i * $i * $i * $i ) > $i )).
+
+tff('#skF_10',type,(
+    '#skF_10': $i )).
+
+tff(k2_relat_1,type,(
+    k2_relat_1: $i > $i )).
+
+tff(k2_tarski,type,(
+    k2_tarski: ( $i * $i ) > $i )).
+
+tff(v1_funct_2,type,(
+    v1_funct_2: ( $i * $i * $i ) > $o )).
+
+tff('#skF_2',type,(
+    '#skF_2': ( $i * $i * $i * $i ) > $i )).
+
+tff(k1_enumset1,type,(
+    k1_enumset1: ( $i * $i * $i ) > $i )).
+
+tff('#skF_9',type,(
+    '#skF_9': $i )).
+
+tff(k1_relset_1,type,(
+    k1_relset_1: ( $i * $i * $i ) > $i )).
+
+tff(k1_zfmisc_1,type,(
+    k1_zfmisc_1: $i > $i )).
+
+tff(k1_funct_1,type,(
+    k1_funct_1: ( $i * $i ) > $i )).
+
+tff('#nlpp_001',type,(
+    '#nlpp': ( $rat * $rat ) > $rat )).
+
+tff(v1_relat_1,type,(
+    v1_relat_1: $i > $o )).
+
+tff(k2_zfmisc_1,type,(
+    k2_zfmisc_1: ( $i * $i ) > $i )).
+
+tff('#nlpp_002',type,(
+    '#nlpp': ( $int * $int ) > $int )).
+
+tff('#skF_8',type,(
+    '#skF_8': ( $i * $i * $i ) > $i )).
+
+tff('#skF_7',type,(
+    '#skF_7': ( $i * $i ) > $i )).
+
+tff('#skF_1',type,(
+    '#skF_1': ( $i * $i * $i * $i ) > $i )).
+
+tff(v1_xboole_0,type,(
+    v1_xboole_0: $i > $o )).
+
+tff('#skF_5',type,(
+    '#skF_5': ( $i * $i ) > $i )).
+
+tff(k1_relat_1,type,(
+    k1_relat_1: $i > $i )).
+
+tff('#skF_12',type,(
+    '#skF_12': $i )).
+
+tff('#skF_4',type,(
+    '#skF_4': ( $i * $i ) > $i )).
+
+tff(m1_subset_1,type,(
+    m1_subset_1: ( $i * $i ) > $o )).
+
+tff(f_27,axiom,(
+    ! [A] : r1_tarski(k1_xboole_0,A) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t2_xboole_1)).
+
+tff(f_135,negated_conjecture,(
+    ~ ! [A,B,C,D] :
+        ( ( v1_funct_1(D)
+          & v1_funct_2(D,A,k1_tarski(B))
+          & m1_subset_1(D,k1_zfmisc_1(k2_zfmisc_1(A,k1_tarski(B)))) )
+       => ( r2_hidden(C,A)
+         => k1_funct_1(D,C) = B ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t65_funct_2)).
+
+tff(f_102,axiom,(
+    ! [A,B,C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+     => k1_relset_1(A,B,C) = k1_relat_1(C) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',redefinition_k1_relset_1)).
+
+tff(f_124,axiom,(
+    ! [A,B,C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+     => ( ( ( B = k1_xboole_0
+           => A = k1_xboole_0 )
+         => ( v1_funct_2(C,A,B)
+          <=> A = k1_relset_1(A,B,C) ) )
+        & ( B = k1_xboole_0
+         => ( A = k1_xboole_0
+            | ( v1_funct_2(C,A,B)
+            <=> C = k1_xboole_0 ) ) ) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',d1_funct_2)).
+
+tff(f_94,axiom,(
+    ! [A,B,C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+     => v1_relat_1(C) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',cc1_relset_1)).
+
+tff(f_85,axiom,(
+    ! [A] :
+      ( ( v1_relat_1(A)
+        & v1_funct_1(A) )
+     => ! [B] :
+          ( B = k2_relat_1(A)
+        <=> ! [C] :
+              ( r2_hidden(C,B)
+            <=> ? [D] :
+                  ( r2_hidden(D,k1_relat_1(A))
+                  & C = k1_funct_1(A,D) ) ) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',d5_funct_1)).
+
+tff(f_106,axiom,(
+    ! [A,B,C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+     => k2_relset_1(A,B,C) = k2_relat_1(C) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',redefinition_k2_relset_1)).
+
+tff(f_98,axiom,(
+    ! [A,B,C] :
+      ( m1_subset_1(C,k1_zfmisc_1(k2_zfmisc_1(A,B)))
+     => m1_subset_1(k2_relset_1(A,B,C),k1_zfmisc_1(B)) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',dt_k2_relset_1)).
+
+tff(f_70,axiom,(
+    ! [A,B,C] :
+      ( ( r2_hidden(A,B)
+        & m1_subset_1(B,k1_zfmisc_1(C)) )
+     => m1_subset_1(A,C) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t4_subset)).
+
+tff(f_58,axiom,(
+    ! [A] : ~ v1_xboole_0(k1_tarski(A)) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',fc2_xboole_0)).
+
+tff(f_64,axiom,(
+    ! [A,B] :
+      ( m1_subset_1(A,B)
+     => ( v1_xboole_0(B)
+        | r2_hidden(A,B) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t2_subset)).
+
+tff(f_49,axiom,(
+    ! [A,B] :
+      ( B = k1_tarski(A)
+    <=> ! [C] :
+          ( r2_hidden(C,B)
+        <=> C = A ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',d1_tarski)).
+
+tff(f_90,axiom,(
+    ! [A,B] :
+      ~ ( r2_hidden(A,B)
+        & r1_tarski(B,A) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t7_ordinal1)).
+
+tff(c_2,plain,(
+    ! [A_1] : r1_tarski(k1_xboole_0,A_1) ),
+    inference(cnfTransformation,[status(thm)],[f_27])).
+
+tff(c_92,plain,(
+    k1_funct_1('#skF_12','#skF_11') != '#skF_10' ),
+    inference(cnfTransformation,[status(thm)],[f_135])).
+
+tff(c_94,plain,(
+    r2_hidden('#skF_11','#skF_9') ),
+    inference(cnfTransformation,[status(thm)],[f_135])).
+
+tff(c_98,plain,(
+    v1_funct_2('#skF_12','#skF_9',k1_tarski('#skF_10')) ),
+    inference(cnfTransformation,[status(thm)],[f_135])).
+
+tff(c_96,plain,(
+    m1_subset_1('#skF_12',k1_zfmisc_1(k2_zfmisc_1('#skF_9',k1_tarski('#skF_10')))) ),
+    inference(cnfTransformation,[status(thm)],[f_135])).
+
+tff(c_938,plain,(
+    ! [A_2696,B_2697,C_2698] :
+      ( k1_relset_1(A_2696,B_2697,C_2698) = k1_relat_1(C_2698)
+      | ~ m1_subset_1(C_2698,k1_zfmisc_1(k2_zfmisc_1(A_2696,B_2697))) ) ),
+    inference(cnfTransformation,[status(thm)],[f_102])).
+
+tff(c_944,plain,(
+    k1_relset_1('#skF_9',k1_tarski('#skF_10'),'#skF_12') = k1_relat_1('#skF_12') ),
+    inference(resolution,[status(thm)],[c_96,c_938])).
+
+tff(c_2598,plain,(
+    ! [B_4751,A_4752,C_4753] :
+      ( k1_xboole_0 = B_4751
+      | k1_relset_1(A_4752,B_4751,C_4753) = A_4752
+      | ~ v1_funct_2(C_4753,A_4752,B_4751)
+      | ~ m1_subset_1(C_4753,k1_zfmisc_1(k2_zfmisc_1(A_4752,B_4751))) ) ),
+    inference(cnfTransformation,[status(thm)],[f_124])).
+
+tff(c_2607,plain,
+    ( k1_tarski('#skF_10') = k1_xboole_0
+    | k1_relset_1('#skF_9',k1_tarski('#skF_10'),'#skF_12') = '#skF_9'
+    | ~ v1_funct_2('#skF_12','#skF_9',k1_tarski('#skF_10')) ),
+    inference(resolution,[status(thm)],[c_96,c_2598])).
+
+tff(c_2611,plain,
+    ( k1_tarski('#skF_10') = k1_xboole_0
+    | k1_relat_1('#skF_12') = '#skF_9' ),
+    inference(demodulation,[status(thm),theory(equality)],[c_98,c_944,c_2607])).
+
+tff(c_2612,plain,(
+    k1_relat_1('#skF_12') = '#skF_9' ),
+    inference(splitLeft,[status(thm)],[c_2611])).
+
+tff(c_213,plain,(
+    ! [C_122,A_123,B_124] :
+      ( v1_relat_1(C_122)
+      | ~ m1_subset_1(C_122,k1_zfmisc_1(k2_zfmisc_1(A_123,B_124))) ) ),
+    inference(cnfTransformation,[status(thm)],[f_94])).
+
+tff(c_217,plain,(
+    v1_relat_1('#skF_12') ),
+    inference(resolution,[status(thm)],[c_96,c_213])).
+
+tff(c_100,plain,(
+    v1_funct_1('#skF_12') ),
+    inference(cnfTransformation,[status(thm)],[f_135])).
+
+tff(c_1654,plain,(
+    ! [A_3557,D_3558] :
+      ( r2_hidden(k1_funct_1(A_3557,D_3558),k2_relat_1(A_3557))
+      | ~ r2_hidden(D_3558,k1_relat_1(A_3557))
+      | ~ v1_funct_1(A_3557)
+      | ~ v1_relat_1(A_3557) ) ),
+    inference(cnfTransformation,[status(thm)],[f_85])).
+
+tff(c_696,plain,(
+    ! [A_1969,B_1970,C_1971] :
+      ( k2_relset_1(A_1969,B_1970,C_1971) = k2_relat_1(C_1971)
+      | ~ m1_subset_1(C_1971,k1_zfmisc_1(k2_zfmisc_1(A_1969,B_1970))) ) ),
+    inference(cnfTransformation,[status(thm)],[f_106])).
+
+tff(c_702,plain,(
+    k2_relset_1('#skF_9',k1_tarski('#skF_10'),'#skF_12') = k2_relat_1('#skF_12') ),
+    inference(resolution,[status(thm)],[c_96,c_696])).
+
+tff(c_1227,plain,(
+    ! [A_2969,B_2970,C_2971] :
+      ( m1_subset_1(k2_relset_1(A_2969,B_2970,C_2971),k1_zfmisc_1(B_2970))
+      | ~ m1_subset_1(C_2971,k1_zfmisc_1(k2_zfmisc_1(A_2969,B_2970))) ) ),
+    inference(cnfTransformation,[status(thm)],[f_98])).
+
+tff(c_1244,plain,
+    ( m1_subset_1(k2_relat_1('#skF_12'),k1_zfmisc_1(k1_tarski('#skF_10')))
+    | ~ m1_subset_1('#skF_12',k1_zfmisc_1(k2_zfmisc_1('#skF_9',k1_tarski('#skF_10')))) ),
+    inference(superposition,[status(thm),theory(equality)],[c_702,c_1227])).
+
+tff(c_1252,plain,(
+    m1_subset_1(k2_relat_1('#skF_12'),k1_zfmisc_1(k1_tarski('#skF_10'))) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_96,c_1244])).
+
+tff(c_50,plain,(
+    ! [A_23,C_25,B_24] :
+      ( m1_subset_1(A_23,C_25)
+      | ~ m1_subset_1(B_24,k1_zfmisc_1(C_25))
+      | ~ r2_hidden(A_23,B_24) ) ),
+    inference(cnfTransformation,[status(thm)],[f_70])).
+
+tff(c_1312,plain,(
+    ! [A_23] :
+      ( m1_subset_1(A_23,k1_tarski('#skF_10'))
+      | ~ r2_hidden(A_23,k2_relat_1('#skF_12')) ) ),
+    inference(resolution,[status(thm)],[c_1252,c_50])).
+
+tff(c_1660,plain,(
+    ! [D_3558] :
+      ( m1_subset_1(k1_funct_1('#skF_12',D_3558),k1_tarski('#skF_10'))
+      | ~ r2_hidden(D_3558,k1_relat_1('#skF_12'))
+      | ~ v1_funct_1('#skF_12')
+      | ~ v1_relat_1('#skF_12') ) ),
+    inference(resolution,[status(thm)],[c_1654,c_1312])).
+
+tff(c_1671,plain,(
+    ! [D_3603] :
+      ( m1_subset_1(k1_funct_1('#skF_12',D_3603),k1_tarski('#skF_10'))
+      | ~ r2_hidden(D_3603,k1_relat_1('#skF_12')) ) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_217,c_100,c_1660])).
+
+tff(c_46,plain,(
+    ! [A_20] : ~ v1_xboole_0(k1_tarski(A_20)) ),
+    inference(cnfTransformation,[status(thm)],[f_58])).
+
+tff(c_201,plain,(
+    ! [A_120,B_121] :
+      ( r2_hidden(A_120,B_121)
+      | v1_xboole_0(B_121)
+      | ~ m1_subset_1(A_120,B_121) ) ),
+    inference(cnfTransformation,[status(thm)],[f_64])).
+
+tff(c_28,plain,(
+    ! [C_13,A_9] :
+      ( C_13 = A_9
+      | ~ r2_hidden(C_13,k1_tarski(A_9)) ) ),
+    inference(cnfTransformation,[status(thm)],[f_49])).
+
+tff(c_205,plain,(
+    ! [A_9,A_120] :
+      ( A_9 = A_120
+      | v1_xboole_0(k1_tarski(A_9))
+      | ~ m1_subset_1(A_120,k1_tarski(A_9)) ) ),
+    inference(resolution,[status(thm)],[c_201,c_28])).
+
+tff(c_211,plain,(
+    ! [A_9,A_120] :
+      ( A_9 = A_120
+      | ~ m1_subset_1(A_120,k1_tarski(A_9)) ) ),
+    inference(negUnitSimplification,[status(thm)],[c_46,c_205])).
+
+tff(c_1731,plain,(
+    ! [D_3603] :
+      ( k1_funct_1('#skF_12',D_3603) = '#skF_10'
+      | ~ r2_hidden(D_3603,k1_relat_1('#skF_12')) ) ),
+    inference(resolution,[status(thm)],[c_1671,c_211])).
+
+tff(c_2696,plain,(
+    ! [D_4930] :
+      ( k1_funct_1('#skF_12',D_4930) = '#skF_10'
+      | ~ r2_hidden(D_4930,'#skF_9') ) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_2612,c_1731])).
+
+tff(c_2714,plain,(
+    k1_funct_1('#skF_12','#skF_11') = '#skF_10' ),
+    inference(resolution,[status(thm)],[c_94,c_2696])).
+
+tff(c_2724,plain,(
+    $false ),
+    inference(negUnitSimplification,[status(thm)],[c_92,c_2714])).
+
+tff(c_2725,plain,(
+    k1_tarski('#skF_10') = k1_xboole_0 ),
+    inference(splitRight,[status(thm)],[c_2611])).
+
+tff(c_30,plain,(
+    ! [C_13] : r2_hidden(C_13,k1_tarski(C_13)) ),
+    inference(cnfTransformation,[status(thm)],[f_49])).
+
+tff(c_116,plain,(
+    ! [B_96,A_97] :
+      ( ~ r1_tarski(B_96,A_97)
+      | ~ r2_hidden(A_97,B_96) ) ),
+    inference(cnfTransformation,[status(thm)],[f_90])).
+
+tff(c_135,plain,(
+    ! [C_13] : ~ r1_tarski(k1_tarski(C_13),C_13) ),
+    inference(resolution,[status(thm)],[c_30,c_116])).
+
+tff(c_2757,plain,(
+    ~ r1_tarski(k1_xboole_0,'#skF_10') ),
+    inference(superposition,[status(thm),theory(equality)],[c_2725,c_135])).
+
+tff(c_2824,plain,(
+    $false ),
+    inference(demodulation,[status(thm),theory(equality)],[c_2,c_2757])).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.12/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.12/0.13  % Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+% 0.13/0.34  % Computer   : n023.cluster.edu
+% 0.13/0.34  % Model      : x86_64 x86_64
+% 0.13/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.34  % Memory     : 8042.1875MB
+% 0.13/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.34  % CPULimit   : 60
+% 0.13/0.34  % DateTime   : Tue Dec  1 10:46:36 EST 2020
+% 0.13/0.35  % CPUTime    : 
+% 0.13/0.35  OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=384M; support was removed in 8.0
+% 4.23/2.01  % SZS status Theorem for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 4.23/2.02  
+% 4.23/2.02  % SZS output start CNFRefutation for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 4.23/2.02  %$ v1_funct_2 > r2_hidden > r1_tarski > m1_subset_1 > v1_xboole_0 > v1_relat_1 > v1_funct_1 > k2_enumset1 > k2_relset_1 > k1_relset_1 > k1_enumset1 > k2_zfmisc_1 > k2_tarski > k1_funct_1 > #nlpp > k2_relat_1 > k1_zfmisc_1 > k1_tarski > k1_relat_1 > k1_xboole_0 > #skF_6 > #skF_11 > #skF_3 > #skF_10 > #skF_2 > #skF_9 > #skF_8 > #skF_7 > #skF_1 > #skF_5 > #skF_12 > #skF_4
+% 4.23/2.02  
+% 4.23/2.02  %Foreground sorts:
+% 4.23/2.02  
+% 4.23/2.02  
+% 4.23/2.02  %Background operators:
+% 4.23/2.02  
+% 4.23/2.02  
+% 4.23/2.02  %Foreground operators:
+% 4.23/2.02  tff(k2_relset_1, type, k2_relset_1: ($i * $i * $i) > $i).
+% 4.23/2.02  tff('#skF_6', type, '#skF_6': ($i * $i) > $i).
+% 4.23/2.02  tff(v1_funct_1, type, v1_funct_1: $i > $o).
+% 4.23/2.02  tff('#nlpp', type, '#nlpp': ($real * $real) > $real).
+% 4.23/2.02  tff(r2_hidden, type, r2_hidden: ($i * $i) > $o).
+% 4.23/2.02  tff('#skF_11', type, '#skF_11': $i).
+% 4.23/2.02  tff(k1_tarski, type, k1_tarski: $i > $i).
+% 4.23/2.02  tff(k1_xboole_0, type, k1_xboole_0: $i).
+% 4.23/2.02  tff('#skF_3', type, '#skF_3': ($i * $i) > $i).
+% 4.23/2.02  tff(r1_tarski, type, r1_tarski: ($i * $i) > $o).
+% 4.23/2.02  tff(k2_enumset1, type, k2_enumset1: ($i * $i * $i * $i) > $i).
+% 4.23/2.02  tff('#skF_10', type, '#skF_10': $i).
+% 4.23/2.02  tff(k2_relat_1, type, k2_relat_1: $i > $i).
+% 4.23/2.02  tff(k2_tarski, type, k2_tarski: ($i * $i) > $i).
+% 4.23/2.02  tff(v1_funct_2, type, v1_funct_2: ($i * $i * $i) > $o).
+% 4.23/2.02  tff('#skF_2', type, '#skF_2': ($i * $i * $i * $i) > $i).
+% 4.23/2.02  tff(k1_enumset1, type, k1_enumset1: ($i * $i * $i) > $i).
+% 4.23/2.02  tff('#skF_9', type, '#skF_9': $i).
+% 4.23/2.02  tff(k1_relset_1, type, k1_relset_1: ($i * $i * $i) > $i).
+% 4.23/2.02  tff(k1_zfmisc_1, type, k1_zfmisc_1: $i > $i).
+% 4.23/2.02  tff(k1_funct_1, type, k1_funct_1: ($i * $i) > $i).
+% 4.23/2.02  tff('#nlpp', type, '#nlpp': ($rat * $rat) > $rat).
+% 4.23/2.02  tff(v1_relat_1, type, v1_relat_1: $i > $o).
+% 4.23/2.02  tff(k2_zfmisc_1, type, k2_zfmisc_1: ($i * $i) > $i).
+% 4.23/2.02  tff('#nlpp', type, '#nlpp': ($int * $int) > $int).
+% 4.23/2.02  tff('#skF_8', type, '#skF_8': ($i * $i * $i) > $i).
+% 4.23/2.02  tff('#skF_7', type, '#skF_7': ($i * $i) > $i).
+% 4.23/2.02  tff('#skF_1', type, '#skF_1': ($i * $i * $i * $i) > $i).
+% 4.23/2.02  tff(v1_xboole_0, type, v1_xboole_0: $i > $o).
+% 4.23/2.02  tff('#skF_5', type, '#skF_5': ($i * $i) > $i).
+% 4.23/2.02  tff(k1_relat_1, type, k1_relat_1: $i > $i).
+% 4.23/2.02  tff('#skF_12', type, '#skF_12': $i).
+% 4.23/2.02  tff('#skF_4', type, '#skF_4': ($i * $i) > $i).
+% 4.23/2.02  tff(m1_subset_1, type, m1_subset_1: ($i * $i) > $o).
+% 4.23/2.02  
+% 4.23/2.04  tff(f_27, axiom, (![A]: r1_tarski(k1_xboole_0, A)), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t2_xboole_1)).
+% 4.23/2.04  tff(f_135, negated_conjecture, ~(![A, B, C, D]: (((v1_funct_1(D) & v1_funct_2(D, A, k1_tarski(B))) & m1_subset_1(D, k1_zfmisc_1(k2_zfmisc_1(A, k1_tarski(B))))) => (r2_hidden(C, A) => (k1_funct_1(D, C) = B)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t65_funct_2)).
+% 4.23/2.04  tff(f_102, axiom, (![A, B, C]: (m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, B))) => (k1_relset_1(A, B, C) = k1_relat_1(C)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', redefinition_k1_relset_1)).
+% 4.23/2.04  tff(f_124, axiom, (![A, B, C]: (m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, B))) => ((((B = k1_xboole_0) => (A = k1_xboole_0)) => (v1_funct_2(C, A, B) <=> (A = k1_relset_1(A, B, C)))) & ((B = k1_xboole_0) => ((A = k1_xboole_0) | (v1_funct_2(C, A, B) <=> (C = k1_xboole_0))))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', d1_funct_2)).
+% 4.23/2.04  tff(f_94, axiom, (![A, B, C]: (m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, B))) => v1_relat_1(C))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', cc1_relset_1)).
+% 4.23/2.04  tff(f_85, axiom, (![A]: ((v1_relat_1(A) & v1_funct_1(A)) => (![B]: ((B = k2_relat_1(A)) <=> (![C]: (r2_hidden(C, B) <=> (?[D]: (r2_hidden(D, k1_relat_1(A)) & (C = k1_funct_1(A, D)))))))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', d5_funct_1)).
+% 4.23/2.04  tff(f_106, axiom, (![A, B, C]: (m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, B))) => (k2_relset_1(A, B, C) = k2_relat_1(C)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', redefinition_k2_relset_1)).
+% 4.23/2.04  tff(f_98, axiom, (![A, B, C]: (m1_subset_1(C, k1_zfmisc_1(k2_zfmisc_1(A, B))) => m1_subset_1(k2_relset_1(A, B, C), k1_zfmisc_1(B)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', dt_k2_relset_1)).
+% 4.23/2.04  tff(f_70, axiom, (![A, B, C]: ((r2_hidden(A, B) & m1_subset_1(B, k1_zfmisc_1(C))) => m1_subset_1(A, C))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t4_subset)).
+% 4.23/2.04  tff(f_58, axiom, (![A]: ~v1_xboole_0(k1_tarski(A))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', fc2_xboole_0)).
+% 4.23/2.04  tff(f_64, axiom, (![A, B]: (m1_subset_1(A, B) => (v1_xboole_0(B) | r2_hidden(A, B)))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t2_subset)).
+% 4.23/2.04  tff(f_49, axiom, (![A, B]: ((B = k1_tarski(A)) <=> (![C]: (r2_hidden(C, B) <=> (C = A))))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', d1_tarski)).
+% 4.23/2.04  tff(f_90, axiom, (![A, B]: ~(r2_hidden(A, B) & r1_tarski(B, A))), file('/export/starexec/sandbox/benchmark/theBenchmark.p', t7_ordinal1)).
+% 4.23/2.04  tff(c_2, plain, (![A_1]: (r1_tarski(k1_xboole_0, A_1))), inference(cnfTransformation, [status(thm)], [f_27])).
+% 4.23/2.04  tff(c_92, plain, (k1_funct_1('#skF_12', '#skF_11')!='#skF_10'), inference(cnfTransformation, [status(thm)], [f_135])).
+% 4.23/2.04  tff(c_94, plain, (r2_hidden('#skF_11', '#skF_9')), inference(cnfTransformation, [status(thm)], [f_135])).
+% 4.23/2.04  tff(c_98, plain, (v1_funct_2('#skF_12', '#skF_9', k1_tarski('#skF_10'))), inference(cnfTransformation, [status(thm)], [f_135])).
+% 4.23/2.04  tff(c_96, plain, (m1_subset_1('#skF_12', k1_zfmisc_1(k2_zfmisc_1('#skF_9', k1_tarski('#skF_10'))))), inference(cnfTransformation, [status(thm)], [f_135])).
+% 4.23/2.04  tff(c_938, plain, (![A_2696, B_2697, C_2698]: (k1_relset_1(A_2696, B_2697, C_2698)=k1_relat_1(C_2698) | ~m1_subset_1(C_2698, k1_zfmisc_1(k2_zfmisc_1(A_2696, B_2697))))), inference(cnfTransformation, [status(thm)], [f_102])).
+% 4.23/2.04  tff(c_944, plain, (k1_relset_1('#skF_9', k1_tarski('#skF_10'), '#skF_12')=k1_relat_1('#skF_12')), inference(resolution, [status(thm)], [c_96, c_938])).
+% 4.23/2.04  tff(c_2598, plain, (![B_4751, A_4752, C_4753]: (k1_xboole_0=B_4751 | k1_relset_1(A_4752, B_4751, C_4753)=A_4752 | ~v1_funct_2(C_4753, A_4752, B_4751) | ~m1_subset_1(C_4753, k1_zfmisc_1(k2_zfmisc_1(A_4752, B_4751))))), inference(cnfTransformation, [status(thm)], [f_124])).
+% 4.23/2.04  tff(c_2607, plain, (k1_tarski('#skF_10')=k1_xboole_0 | k1_relset_1('#skF_9', k1_tarski('#skF_10'), '#skF_12')='#skF_9' | ~v1_funct_2('#skF_12', '#skF_9', k1_tarski('#skF_10'))), inference(resolution, [status(thm)], [c_96, c_2598])).
+% 4.23/2.04  tff(c_2611, plain, (k1_tarski('#skF_10')=k1_xboole_0 | k1_relat_1('#skF_12')='#skF_9'), inference(demodulation, [status(thm), theory('equality')], [c_98, c_944, c_2607])).
+% 4.23/2.04  tff(c_2612, plain, (k1_relat_1('#skF_12')='#skF_9'), inference(splitLeft, [status(thm)], [c_2611])).
+% 4.23/2.04  tff(c_213, plain, (![C_122, A_123, B_124]: (v1_relat_1(C_122) | ~m1_subset_1(C_122, k1_zfmisc_1(k2_zfmisc_1(A_123, B_124))))), inference(cnfTransformation, [status(thm)], [f_94])).
+% 4.23/2.04  tff(c_217, plain, (v1_relat_1('#skF_12')), inference(resolution, [status(thm)], [c_96, c_213])).
+% 4.23/2.04  tff(c_100, plain, (v1_funct_1('#skF_12')), inference(cnfTransformation, [status(thm)], [f_135])).
+% 4.23/2.04  tff(c_1654, plain, (![A_3557, D_3558]: (r2_hidden(k1_funct_1(A_3557, D_3558), k2_relat_1(A_3557)) | ~r2_hidden(D_3558, k1_relat_1(A_3557)) | ~v1_funct_1(A_3557) | ~v1_relat_1(A_3557))), inference(cnfTransformation, [status(thm)], [f_85])).
+% 4.23/2.04  tff(c_696, plain, (![A_1969, B_1970, C_1971]: (k2_relset_1(A_1969, B_1970, C_1971)=k2_relat_1(C_1971) | ~m1_subset_1(C_1971, k1_zfmisc_1(k2_zfmisc_1(A_1969, B_1970))))), inference(cnfTransformation, [status(thm)], [f_106])).
+% 4.23/2.04  tff(c_702, plain, (k2_relset_1('#skF_9', k1_tarski('#skF_10'), '#skF_12')=k2_relat_1('#skF_12')), inference(resolution, [status(thm)], [c_96, c_696])).
+% 4.23/2.04  tff(c_1227, plain, (![A_2969, B_2970, C_2971]: (m1_subset_1(k2_relset_1(A_2969, B_2970, C_2971), k1_zfmisc_1(B_2970)) | ~m1_subset_1(C_2971, k1_zfmisc_1(k2_zfmisc_1(A_2969, B_2970))))), inference(cnfTransformation, [status(thm)], [f_98])).
+% 4.23/2.04  tff(c_1244, plain, (m1_subset_1(k2_relat_1('#skF_12'), k1_zfmisc_1(k1_tarski('#skF_10'))) | ~m1_subset_1('#skF_12', k1_zfmisc_1(k2_zfmisc_1('#skF_9', k1_tarski('#skF_10'))))), inference(superposition, [status(thm), theory('equality')], [c_702, c_1227])).
+% 4.23/2.04  tff(c_1252, plain, (m1_subset_1(k2_relat_1('#skF_12'), k1_zfmisc_1(k1_tarski('#skF_10')))), inference(demodulation, [status(thm), theory('equality')], [c_96, c_1244])).
+% 4.23/2.04  tff(c_50, plain, (![A_23, C_25, B_24]: (m1_subset_1(A_23, C_25) | ~m1_subset_1(B_24, k1_zfmisc_1(C_25)) | ~r2_hidden(A_23, B_24))), inference(cnfTransformation, [status(thm)], [f_70])).
+% 4.23/2.04  tff(c_1312, plain, (![A_23]: (m1_subset_1(A_23, k1_tarski('#skF_10')) | ~r2_hidden(A_23, k2_relat_1('#skF_12')))), inference(resolution, [status(thm)], [c_1252, c_50])).
+% 4.23/2.04  tff(c_1660, plain, (![D_3558]: (m1_subset_1(k1_funct_1('#skF_12', D_3558), k1_tarski('#skF_10')) | ~r2_hidden(D_3558, k1_relat_1('#skF_12')) | ~v1_funct_1('#skF_12') | ~v1_relat_1('#skF_12'))), inference(resolution, [status(thm)], [c_1654, c_1312])).
+% 4.23/2.04  tff(c_1671, plain, (![D_3603]: (m1_subset_1(k1_funct_1('#skF_12', D_3603), k1_tarski('#skF_10')) | ~r2_hidden(D_3603, k1_relat_1('#skF_12')))), inference(demodulation, [status(thm), theory('equality')], [c_217, c_100, c_1660])).
+% 4.23/2.04  tff(c_46, plain, (![A_20]: (~v1_xboole_0(k1_tarski(A_20)))), inference(cnfTransformation, [status(thm)], [f_58])).
+% 4.23/2.04  tff(c_201, plain, (![A_120, B_121]: (r2_hidden(A_120, B_121) | v1_xboole_0(B_121) | ~m1_subset_1(A_120, B_121))), inference(cnfTransformation, [status(thm)], [f_64])).
+% 4.23/2.04  tff(c_28, plain, (![C_13, A_9]: (C_13=A_9 | ~r2_hidden(C_13, k1_tarski(A_9)))), inference(cnfTransformation, [status(thm)], [f_49])).
+% 4.23/2.04  tff(c_205, plain, (![A_9, A_120]: (A_9=A_120 | v1_xboole_0(k1_tarski(A_9)) | ~m1_subset_1(A_120, k1_tarski(A_9)))), inference(resolution, [status(thm)], [c_201, c_28])).
+% 4.23/2.04  tff(c_211, plain, (![A_9, A_120]: (A_9=A_120 | ~m1_subset_1(A_120, k1_tarski(A_9)))), inference(negUnitSimplification, [status(thm)], [c_46, c_205])).
+% 4.23/2.04  tff(c_1731, plain, (![D_3603]: (k1_funct_1('#skF_12', D_3603)='#skF_10' | ~r2_hidden(D_3603, k1_relat_1('#skF_12')))), inference(resolution, [status(thm)], [c_1671, c_211])).
+% 4.23/2.04  tff(c_2696, plain, (![D_4930]: (k1_funct_1('#skF_12', D_4930)='#skF_10' | ~r2_hidden(D_4930, '#skF_9'))), inference(demodulation, [status(thm), theory('equality')], [c_2612, c_1731])).
+% 4.23/2.04  tff(c_2714, plain, (k1_funct_1('#skF_12', '#skF_11')='#skF_10'), inference(resolution, [status(thm)], [c_94, c_2696])).
+% 4.23/2.04  tff(c_2724, plain, $false, inference(negUnitSimplification, [status(thm)], [c_92, c_2714])).
+% 4.23/2.04  tff(c_2725, plain, (k1_tarski('#skF_10')=k1_xboole_0), inference(splitRight, [status(thm)], [c_2611])).
+% 4.23/2.04  tff(c_30, plain, (![C_13]: (r2_hidden(C_13, k1_tarski(C_13)))), inference(cnfTransformation, [status(thm)], [f_49])).
+% 4.23/2.04  tff(c_116, plain, (![B_96, A_97]: (~r1_tarski(B_96, A_97) | ~r2_hidden(A_97, B_96))), inference(cnfTransformation, [status(thm)], [f_90])).
+% 4.23/2.04  tff(c_135, plain, (![C_13]: (~r1_tarski(k1_tarski(C_13), C_13))), inference(resolution, [status(thm)], [c_30, c_116])).
+% 4.23/2.04  tff(c_2757, plain, (~r1_tarski(k1_xboole_0, '#skF_10')), inference(superposition, [status(thm), theory('equality')], [c_2725, c_135])).
+% 4.23/2.04  tff(c_2824, plain, $false, inference(demodulation, [status(thm), theory('equality')], [c_2, c_2757])).
+% 4.23/2.04  % SZS output end CNFRefutation for /export/starexec/sandbox/benchmark/theBenchmark.p
+% 4.23/2.04  
+% 4.23/2.04  Inference rules
+% 4.23/2.04  ----------------------
+% 4.23/2.04  #Ref     : 0
+% 4.23/2.04  #Sup     : 359
+% 4.23/2.04  #Fact    : 0
+% 4.23/2.04  #Define  : 0
+% 4.23/2.04  #Split   : 9
+% 4.23/2.04  #Chain   : 0
+% 4.23/2.04  #Close   : 0
+% 4.23/2.04  
+% 4.23/2.04  Ordering : KBO
+% 4.23/2.04  
+% 4.23/2.04  Simplification rules
+% 4.23/2.04  ----------------------
+% 4.23/2.04  #Subsume      : 74
+% 4.23/2.04  #Demod        : 96
+% 4.23/2.04  #Tautology    : 118
+% 4.23/2.04  #SimpNegUnit  : 9
+% 4.23/2.04  #BackRed      : 15
+% 4.23/2.04  
+% 4.23/2.04  #Partial instantiations: 2568
+% 4.23/2.04  #Strategies tried      : 1
+% 4.23/2.04  
+% 4.23/2.04  Timing (in seconds)
+% 4.23/2.04  ----------------------
+% 4.23/2.04  Preprocessing        : 0.48
+% 4.23/2.04  Parsing              : 0.27
+% 4.23/2.04  CNF conversion       : 0.03
+% 4.23/2.04  Main loop            : 0.69
+% 4.23/2.04  Inferencing          : 0.33
+% 4.23/2.04  Reduction            : 0.17
+% 4.23/2.04  Demodulation         : 0.12
+% 4.23/2.04  BG Simplification    : 0.04
+% 4.23/2.04  Subsumption          : 0.10
+% 4.23/2.04  Abstraction          : 0.03
+% 4.23/2.04  MUC search           : 0.00
+% 4.23/2.04  Cooper               : 0.00
+% 4.23/2.04  Total                : 1.20
+% 4.23/2.04  Index Insertion      : 0.00
+% 4.23/2.04  Index Deletion       : 0.00
+% 4.23/2.04  Index Matching       : 0.00
+% 4.23/2.04  BG Taut test         : 0.00
+%------------------------------------------------------------------------------

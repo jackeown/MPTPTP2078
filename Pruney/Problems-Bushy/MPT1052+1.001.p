@@ -1,0 +1,48 @@
+%------------------------------------------------------------------------------
+% File     : MPT1052+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Domain   : Set theory
+% Problem  :
+% Version  : [MPTP] axioms : Especial.
+% English  :
+
+% Refs     : [AH+14] Alma et al. (2014), Premise Selection for Mathematics
+% Source   : [MPTP]
+% Names    : funct_2__t169_funct_2---1.p [MPTPTP]
+
+% Status   : Theorem
+% Rating   : ? v7.4.0
+% Syntax   : Number of formulae    :    2 (   0 unit)
+%            Number of atoms       :   12 (   4 equality)
+%            Maximal formula depth :   12 (  10 average)
+%            Number of connectives :   10 (   0   ~;   0   |;   6   &)
+%                                         (   2 <=>;   2  =>;   0  <=;   0 <~>)
+%                                         (   0  ~|;   0  ~&)
+%            Number of predicates  :    5 (   0 propositional; 1-2 arity)
+%            Number of functors    :    3 (   0 constant; 1-2 arity)
+%            Number of variables   :    8 (   0 sgn;   7   !;   1   ?)
+%            Maximal term depth    :    2 (   1 average)
+% SPC      : FOF_THM_RFO_SEQ
+
+% Comments : 
+%------------------------------------------------------------------------------
+fof(d2_funct_2,axiom,(
+    ! [A,B,C] :
+      ( C = k1_funct_2(A,B)
+    <=> ! [D] :
+          ( r2_hidden(D,C)
+        <=> ? [E] :
+              ( v1_relat_1(E)
+              & v1_funct_1(E)
+              & D = E
+              & k1_relat_1(E) = A
+              & r1_tarski(k2_relat_1(E),B) ) ) ) )).
+
+fof(t169_funct_2,conjecture,(
+    ! [A,B,C] :
+      ( ( v1_relat_1(C)
+        & v1_funct_1(C) )
+     => ( r2_hidden(C,k1_funct_2(A,B))
+       => ( k1_relat_1(C) = A
+          & r1_tarski(k2_relat_1(C),B) ) ) ) )).
+
+%------------------------------------------------------------------------------

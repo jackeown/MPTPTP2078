@@ -1,0 +1,175 @@
+%------------------------------------------------------------------------------
+% File       : Vampire---4.5
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_vampire %s %d
+
+% Computer   : n011.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 13:16:03 EST 2020
+
+% Result     : CounterSatisfiable 0.21s
+% Output     : Saturation 0.21s
+% Verified   : 
+% Statistics : Number of clauses        :   16 (  16 expanded)
+%              Number of leaves         :   16 (  16 expanded)
+%              Depth                    :    0
+%              Number of atoms          :   38 (  38 expanded)
+%              Number of equality atoms :   15 (  15 expanded)
+%              Maximal clause size      :    5 (   2 average)
+%              Maximal term depth       :    4 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+cnf(u61,negated_conjecture,
+    ( ~ r2_hidden(k4_tarski(X0,X1),u1_orders_2(sK0))
+    | ~ m1_subset_1(X0,u1_struct_0(sK0))
+    | ~ m1_subset_1(X1,u1_struct_0(sK0))
+    | r1_orders_2(sK1,X0,X1) )).
+
+cnf(u17,axiom,
+    ( ~ r2_hidden(k4_tarski(X1,X2),u1_orders_2(X0))
+    | ~ m1_subset_1(X1,u1_struct_0(X0))
+    | ~ m1_subset_1(X2,u1_struct_0(X0))
+    | ~ l1_orders_2(X0)
+    | r1_orders_2(X0,X1,X2) )).
+
+cnf(u18,axiom,
+    ( ~ r1_orders_2(X0,X1,X2)
+    | ~ m1_subset_1(X1,u1_struct_0(X0))
+    | ~ m1_subset_1(X2,u1_struct_0(X0))
+    | r2_hidden(k4_tarski(X1,X2),u1_orders_2(X0))
+    | ~ l1_orders_2(X0) )).
+
+cnf(u50,negated_conjecture,
+    ( m1_subset_1(u1_orders_2(sK0),k1_zfmisc_1(k2_zfmisc_1(u1_struct_0(sK0),u1_struct_0(sK0)))) )).
+
+cnf(u16,axiom,
+    ( m1_subset_1(u1_orders_2(X0),k1_zfmisc_1(k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0))))
+    | ~ l1_orders_2(X0) )).
+
+cnf(u19,axiom,
+    ( ~ m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(X0,X0)))
+    | g1_orders_2(X0,X1) != g1_orders_2(X2,X3)
+    | X0 = X2 )).
+
+cnf(u20,axiom,
+    ( ~ m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(X0,X0)))
+    | g1_orders_2(X0,X1) != g1_orders_2(X2,X3)
+    | X1 = X3 )).
+
+cnf(u15,negated_conjecture,
+    ( l1_orders_2(sK0) )).
+
+cnf(u12,negated_conjecture,
+    ( l1_orders_2(sK1) )).
+
+cnf(u21,axiom,
+    ( ~ l1_orders_2(X0)
+    | u1_struct_0(X0) = X1
+    | g1_orders_2(u1_struct_0(X0),u1_orders_2(X0)) != g1_orders_2(X1,X2) )).
+
+cnf(u41,axiom,
+    ( ~ l1_orders_2(X0)
+    | u1_orders_2(X0) = X2
+    | g1_orders_2(u1_struct_0(X0),u1_orders_2(X0)) != g1_orders_2(X1,X2) )).
+
+cnf(u47,negated_conjecture,
+    ( u1_orders_2(sK0) = u1_orders_2(sK1) )).
+
+cnf(u29,negated_conjecture,
+    ( u1_struct_0(sK0) = u1_struct_0(sK1) )).
+
+cnf(u23,negated_conjecture,
+    ( g1_orders_2(X2,X3) != g1_orders_2(u1_struct_0(sK0),u1_orders_2(sK0))
+    | u1_struct_0(sK0) = X2 )).
+
+cnf(u48,negated_conjecture,
+    ( g1_orders_2(X0,X1) != g1_orders_2(u1_struct_0(sK0),u1_orders_2(sK0))
+    | u1_orders_2(sK0) = X1 )).
+
+cnf(u14,negated_conjecture,
+    ( k2_yellow_0(sK0,sK2) != k2_yellow_0(sK1,sK2) )).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.07/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.07/0.14  % Command    : run_vampire %s %d
+% 0.14/0.35  % Computer   : n011.cluster.edu
+% 0.14/0.35  % Model      : x86_64 x86_64
+% 0.14/0.35  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.14/0.35  % Memory     : 8042.1875MB
+% 0.14/0.35  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.14/0.35  % CPULimit   : 60
+% 0.14/0.35  % WCLimit    : 600
+% 0.14/0.35  % DateTime   : Tue Dec  1 14:49:27 EST 2020
+% 0.14/0.35  % CPUTime    : 
+% 0.21/0.50  % (26344)ott+11_16_av=off:gs=on:gsem=on:irw=on:lma=on:nm=64:newcnf=on:nwc=1.3:sas=z3:sp=reverse_arity_14 on theBenchmark
+% 0.21/0.50  % (26362)dis+1011_10_av=off:cond=on:lma=on:nm=0:newcnf=on:nwc=1:sos=on:sp=occurrence:updr=off_4 on theBenchmark
+% 0.21/0.51  % SZS status CounterSatisfiable for theBenchmark
+% 0.21/0.51  % (26355)lrs+1010_8_add=off:afp=100000:afq=1.0:amm=off:anc=none:bce=on:irw=on:nm=16:newcnf=on:nwc=1.1:nicw=on:sas=z3:stl=30:sp=reverse_arity:urr=on_13 on theBenchmark
+% 0.21/0.51  % (26344)# SZS output start Saturation.
+% 0.21/0.51  cnf(u61,negated_conjecture,
+% 0.21/0.51      ~r2_hidden(k4_tarski(X0,X1),u1_orders_2(sK0)) | ~m1_subset_1(X0,u1_struct_0(sK0)) | ~m1_subset_1(X1,u1_struct_0(sK0)) | r1_orders_2(sK1,X0,X1)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u17,axiom,
+% 0.21/0.51      ~r2_hidden(k4_tarski(X1,X2),u1_orders_2(X0)) | ~m1_subset_1(X1,u1_struct_0(X0)) | ~m1_subset_1(X2,u1_struct_0(X0)) | ~l1_orders_2(X0) | r1_orders_2(X0,X1,X2)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u18,axiom,
+% 0.21/0.51      ~r1_orders_2(X0,X1,X2) | ~m1_subset_1(X1,u1_struct_0(X0)) | ~m1_subset_1(X2,u1_struct_0(X0)) | r2_hidden(k4_tarski(X1,X2),u1_orders_2(X0)) | ~l1_orders_2(X0)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u50,negated_conjecture,
+% 0.21/0.51      m1_subset_1(u1_orders_2(sK0),k1_zfmisc_1(k2_zfmisc_1(u1_struct_0(sK0),u1_struct_0(sK0))))).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u16,axiom,
+% 0.21/0.51      m1_subset_1(u1_orders_2(X0),k1_zfmisc_1(k2_zfmisc_1(u1_struct_0(X0),u1_struct_0(X0)))) | ~l1_orders_2(X0)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u19,axiom,
+% 0.21/0.51      ~m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(X0,X0))) | g1_orders_2(X0,X1) != g1_orders_2(X2,X3) | X0 = X2).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u20,axiom,
+% 0.21/0.51      ~m1_subset_1(X1,k1_zfmisc_1(k2_zfmisc_1(X0,X0))) | g1_orders_2(X0,X1) != g1_orders_2(X2,X3) | X1 = X3).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u15,negated_conjecture,
+% 0.21/0.51      l1_orders_2(sK0)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u12,negated_conjecture,
+% 0.21/0.51      l1_orders_2(sK1)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u21,axiom,
+% 0.21/0.51      ~l1_orders_2(X0) | u1_struct_0(X0) = X1 | g1_orders_2(u1_struct_0(X0),u1_orders_2(X0)) != g1_orders_2(X1,X2)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u41,axiom,
+% 0.21/0.51      ~l1_orders_2(X0) | u1_orders_2(X0) = X2 | g1_orders_2(u1_struct_0(X0),u1_orders_2(X0)) != g1_orders_2(X1,X2)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u47,negated_conjecture,
+% 0.21/0.51      u1_orders_2(sK0) = u1_orders_2(sK1)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u29,negated_conjecture,
+% 0.21/0.51      u1_struct_0(sK0) = u1_struct_0(sK1)).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u23,negated_conjecture,
+% 0.21/0.51      g1_orders_2(X2,X3) != g1_orders_2(u1_struct_0(sK0),u1_orders_2(sK0)) | u1_struct_0(sK0) = X2).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u48,negated_conjecture,
+% 0.21/0.51      g1_orders_2(X0,X1) != g1_orders_2(u1_struct_0(sK0),u1_orders_2(sK0)) | u1_orders_2(sK0) = X1).
+% 0.21/0.51  
+% 0.21/0.51  cnf(u14,negated_conjecture,
+% 0.21/0.51      k2_yellow_0(sK0,sK2) != k2_yellow_0(sK1,sK2)).
+% 0.21/0.51  
+% 0.21/0.51  % (26344)# SZS output end Saturation.
+% 0.21/0.51  % (26344)------------------------------
+% 0.21/0.51  % (26344)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 0.21/0.51  % (26344)Termination reason: Satisfiable
+% 0.21/0.51  
+% 0.21/0.51  % (26344)Memory used [KB]: 6268
+% 0.21/0.51  % (26344)Time elapsed: 0.097 s
+% 0.21/0.51  % (26344)------------------------------
+% 0.21/0.51  % (26344)------------------------------
+% 0.21/0.51  % (26332)Success in time 0.149 s
+%------------------------------------------------------------------------------

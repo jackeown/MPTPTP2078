@@ -1,0 +1,390 @@
+%------------------------------------------------------------------------------
+% File       : Vampire---4.5
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_vampire %s %d
+
+% Computer   : n001.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 12:35:10 EST 2020
+
+% Result     : Timeout 60.53s
+% Output     : None 
+% Verified   : 
+% Statistics : -
+
+% Comments   : 
+%------------------------------------------------------------------------------
+%----No solution output by system
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.07/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.07/0.14  % Command    : run_vampire %s %d
+% 0.14/0.34  % Computer   : n001.cluster.edu
+% 0.14/0.34  % Model      : x86_64 x86_64
+% 0.14/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.14/0.34  % Memory     : 8042.1875MB
+% 0.14/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.14/0.34  % CPULimit   : 60
+% 0.14/0.34  % WCLimit    : 600
+% 0.14/0.34  % DateTime   : Tue Dec  1 11:10:14 EST 2020
+% 0.14/0.35  % CPUTime    : 
+% 0.21/0.51  % (30603)lrs+1011_2:3_av=off:gs=on:gsem=off:nwc=1.5:stl=30:sos=theory:sp=occurrence:urr=ec_only:updr=off_223 on theBenchmark
+% 0.21/0.52  % (30595)lrs+10_1_av=off:fde=unused:irw=on:lcm=predicate:lma=on:nm=6:nwc=1:stl=30:sd=2:ss=axioms:st=5.0:sos=on:sp=reverse_arity_2 on theBenchmark
+% 0.21/0.52  % (30587)dis+10_3_add=off:afp=40000:afq=1.0:amm=sco:anc=none:er=filter:gs=on:gsem=off:irw=on:lma=on:nm=4:nwc=1.3:sp=reverse_arity:updr=off_2 on theBenchmark
+% 1.28/0.54  % (30609)dis+1002_7_acc=on:afp=4000:afq=2.0:amm=sco:anc=none:cond=fast:fsr=off:gsp=input_only:gs=on:gsem=on:lma=on:nm=6:newcnf=on:nwc=1.1:nicw=on:sos=on:sac=on:sp=reverse_arity:urr=ec_only:updr=off_73 on theBenchmark
+% 1.28/0.54  % (30586)dis-1_2:3_av=off:cond=on:fsr=off:irw=on:lma=on:nwc=3:sd=3:ss=axioms:st=3.0:sp=occurrence:updr=off_9 on theBenchmark
+% 1.28/0.54  % (30595)Refutation not found, incomplete strategy% (30595)------------------------------
+% 1.28/0.54  % (30595)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 1.28/0.54  % (30595)Termination reason: Refutation not found, incomplete strategy
+% 1.28/0.54  
+% 1.28/0.54  % (30595)Memory used [KB]: 1791
+% 1.28/0.54  % (30595)Time elapsed: 0.123 s
+% 1.28/0.54  % (30595)------------------------------
+% 1.28/0.54  % (30595)------------------------------
+% 1.28/0.54  % (30604)dis+1010_4_acc=on:afr=on:afp=1000:afq=2.0:anc=none:bd=off:bs=unit_only:bsr=on:ccuc=small_ones:cond=fast:fsr=off:gs=on:gsem=off:lcm=reverse:lma=on:nm=64:nwc=2.5:nicw=on:sd=3:ss=axioms:st=3.0:sac=on:urr=ec_only:updr=off:uhcvi=on_83 on theBenchmark
+% 1.40/0.54  % (30585)dis+1002_8:1_av=off:br=off:cond=on:irw=on:lma=on:nm=32:nwc=1:sp=occurrence:urr=on_89 on theBenchmark
+% 1.40/0.54  % (30596)dis+1011_3_afp=4000:afq=1.1:amm=sco:anc=none:gs=on:gsaa=from_current:gsem=off:irw=on:nm=16:nwc=1:sas=z3:ss=axioms:sos=all:sac=on:sp=reverse_arity:updr=off_17 on theBenchmark
+% 1.40/0.54  % (30584)dis+11_2:1_add=large:afp=1000:afq=1.2:amm=sco:anc=none:cond=on:gs=on:gsem=off:nm=16:newcnf=on:nwc=1:sas=z3:sd=1:ss=axioms:st=1.2:sos=on:sp=reverse_arity:updr=off_5 on theBenchmark
+% 1.40/0.54  % (30581)dis+10_16_awrs=decay:awrsf=256:afr=on:afp=40000:afq=2.0:amm=off:bsr=on:cond=on:er=known:gsp=input_only:irw=on:lma=on:nm=6:newcnf=on:nwc=3:sas=z3:sd=4:ss=axioms:s2a=on:sp=frequency:updr=off_8 on theBenchmark
+% 1.40/0.54  % (30591)dis+1002_7_acc=on:afr=on:afp=10000:afq=2.0:amm=sco:anc=none:ccuc=first:fsr=off:gsp=input_only:gs=on:gsem=on:nm=6:nwc=1.1:nicw=on:sos=on:sac=on:sp=occurrence:urr=ec_only_217 on theBenchmark
+% 1.40/0.54  % (30582)dis+11_3_av=off:fsr=off:lcm=predicate:lma=on:nm=4:nwc=1:sd=3:ss=axioms:st=1.2:sos=on:updr=off_4 on theBenchmark
+% 1.40/0.54  % (30582)Refutation not found, incomplete strategy% (30582)------------------------------
+% 1.40/0.54  % (30582)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 1.40/0.54  % (30582)Termination reason: Refutation not found, incomplete strategy
+% 1.40/0.54  
+% 1.40/0.54  % (30582)Memory used [KB]: 1663
+% 1.40/0.54  % (30582)Time elapsed: 0.123 s
+% 1.40/0.54  % (30582)------------------------------
+% 1.40/0.54  % (30582)------------------------------
+% 1.40/0.54  % (30598)lrs+1_7_av=off:irw=on:lcm=predicate:lma=on:nm=4:newcnf=on:nwc=1:stl=30:sos=all:sp=occurrence:updr=off_36 on theBenchmark
+% 1.40/0.54  % (30588)lrs+1_8:1_av=off:cond=fast:fde=unused:lcm=predicate:nm=16:nwc=10:stl=60:sp=occurrence:urr=ec_only_3 on theBenchmark
+% 1.40/0.55  % (30610)lrs+11_3_av=off:bce=on:cond=fast:ep=R:lcm=reverse:lma=on:newcnf=on:nwc=1.3:stl=30:sd=3:ss=axioms:st=1.2:sos=on:sp=occurrence:uhcvi=on_2 on theBenchmark
+% 1.40/0.55  % (30601)ott+4_4:1_acc=model:add=large:afr=on:afp=10000:afq=1.4:amm=off:anc=none:bd=preordered:bs=unit_only:ccuc=first:cond=on:gs=on:nm=32:nwc=1.5:sac=on:urr=on:updr=off_13 on theBenchmark
+% 1.40/0.55  % (30593)lrs+1011_1_afp=40000:afq=1.4:bd=off:cond=fast:fde=unused:gs=on:gsem=on:irw=on:lma=on:nm=16:nwc=1:stl=30:sd=2:ss=axioms:sos=all:sp=occurrence_6 on theBenchmark
+% 1.40/0.55  % (30602)dis+1010_3:2_acc=on:afr=on:afp=1000:afq=1.2:amm=sco:bs=on:ccuc=first:fde=none:nm=0:nwc=4:sd=3:ss=axioms:st=5.0:urr=ec_only_75 on theBenchmark
+% 1.40/0.55  % (30607)lrs+1_1_aac=none:acc=model:add=large:afp=100000:afq=1.2:anc=none:bd=off:bs=on:bsr=on:ccuc=first:cond=on:fde=unused:irw=on:nm=2:newcnf=on:nwc=1:stl=30:sd=3:ss=axioms:st=2.0:sos=on:sac=on:uhcvi=on_11 on theBenchmark
+% 1.40/0.55  % (30594)dis+1010_7_afr=on:afp=10000:afq=1.1:amm=sco:anc=none:bd=off:bsr=on:cond=on:fsr=off:lma=on:nm=32:newcnf=on:nwc=1:urr=ec_only:updr=off_83 on theBenchmark
+% 1.40/0.55  % (30606)lrs+1011_5_add=large:afp=1000:afq=1.2:anc=none:fsr=off:irw=on:lma=on:nm=64:newcnf=on:nwc=1:stl=30:sd=3:ss=axioms:st=2.0:sos=on:sac=on:sp=reverse_arity:urr=on:updr=off_91 on theBenchmark
+% 1.40/0.55  % (30590)lrs+1002_1_av=off:fde=unused:lwlo=on:nm=16:nwc=4:stl=30:sp=occurrence_66 on theBenchmark
+% 1.40/0.56  % (30599)ott-3_3_av=off:cond=fast:fde=none:lcm=reverse:nm=6:nwc=1:sd=5:ss=axioms:st=2.0:sos=on:sp=reverse_arity:updr=off:uhcvi=on_88 on theBenchmark
+% 1.40/0.56  % (30610)Refutation not found, incomplete strategy% (30610)------------------------------
+% 1.40/0.56  % (30610)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 1.40/0.56  % (30610)Termination reason: Refutation not found, incomplete strategy
+% 1.40/0.56  
+% 1.40/0.56  % (30610)Memory used [KB]: 1663
+% 1.40/0.56  % (30610)Time elapsed: 0.003 s
+% 1.40/0.56  % (30610)------------------------------
+% 1.40/0.56  % (30610)------------------------------
+% 1.40/0.56  % (30583)dis+1_5:1_aac=none:afr=on:afp=100000:afq=1.4:amm=sco:anc=none:br=off:gsp=input_only:gs=on:gsem=on:lcm=reverse:nm=6:nwc=1:nicw=on:sas=z3:sos=on:urr=on_1 on theBenchmark
+% 1.40/0.56  % (30592)lrs+4_2_av=off:gs=on:gsem=on:lma=on:nm=16:nwc=1:sas=z3:stl=30:sos=on:urr=on_23 on theBenchmark
+% 1.40/0.56  % (30608)lrs-4_5:1_add=large:afr=on:afp=40000:afq=1.4:amm=off:anc=none:bs=unit_only:bsr=on:irw=on:lcm=reverse:newcnf=on:nwc=1:stl=30:sd=3:ss=axioms:st=2.0:sos=on:sac=on:updr=off_6 on theBenchmark
+% 1.40/0.57  % (30605)dis-11_3_add=off:afp=40000:afq=1.0:amm=sco:anc=none:gs=on:irw=on:lcm=reverse:nm=6:nwc=1:sd=4:ss=axioms:st=3.0:sos=on:sac=on_1 on theBenchmark
+% 1.40/0.57  % (30593)Refutation not found, incomplete strategy% (30593)------------------------------
+% 1.40/0.57  % (30593)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 1.40/0.57  % (30593)Termination reason: Refutation not found, incomplete strategy
+% 1.40/0.57  
+% 1.40/0.57  % (30593)Memory used [KB]: 10618
+% 1.40/0.57  % (30593)Time elapsed: 0.158 s
+% 1.40/0.57  % (30593)------------------------------
+% 1.40/0.57  % (30593)------------------------------
+% 1.40/0.58  % (30589)lrs+11_3_afr=on:afp=10000:afq=1.0:cond=fast:fsr=off:fde=none:gs=on:gsem=off:lcm=reverse:nm=2:newcnf=on:nwc=1:sas=z3:stl=30:sd=10:ss=axioms:st=2.0:sos=all:sp=reverse_arity:urr=on:uhcvi=on_23 on theBenchmark
+% 1.40/0.58  % (30597)dis+1010_10_afr=on:afp=100000:afq=2.0:amm=sco:anc=none:ep=RS:fde=unused:gs=on:nwc=1:sos=on:sac=on:sp=occurrence_9 on theBenchmark
+% 1.40/0.58  % (30597)Refutation not found, incomplete strategy% (30597)------------------------------
+% 1.40/0.58  % (30597)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 1.40/0.58  % (30597)Termination reason: Refutation not found, incomplete strategy
+% 1.40/0.58  
+% 1.40/0.58  % (30597)Memory used [KB]: 10618
+% 1.40/0.58  % (30597)Time elapsed: 0.162 s
+% 1.40/0.58  % (30597)------------------------------
+% 1.40/0.58  % (30597)------------------------------
+% 1.40/0.60  % (30600)lrs+1011_3:2_av=off:er=known:lma=on:nm=2:newcnf=on:nwc=2:stl=30:sd=2:ss=axioms:st=3.0:urr=on:updr=off_24 on theBenchmark
+% 2.40/0.69  % (30581)Refutation not found, incomplete strategy% (30581)------------------------------
+% 2.40/0.69  % (30581)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 2.40/0.69  % (30581)Termination reason: Refutation not found, incomplete strategy
+% 2.40/0.69  
+% 2.40/0.69  % (30581)Memory used [KB]: 1663
+% 2.40/0.69  % (30581)Time elapsed: 0.248 s
+% 2.40/0.69  % (30581)------------------------------
+% 2.40/0.69  % (30581)------------------------------
+% 2.40/0.71  % (30615)dis+1010_1_acc=model:add=large:afr=on:amm=off:anc=none:bd=off:bsr=on:ccuc=small_ones:gs=on:gsem=on:nm=16:nwc=2:urr=ec_only:updr=off_155 on theBenchmark
+% 2.40/0.72  % (30596)Refutation not found, incomplete strategy% (30596)------------------------------
+% 2.40/0.72  % (30596)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 2.40/0.72  % (30596)Termination reason: Refutation not found, incomplete strategy
+% 2.40/0.72  
+% 2.40/0.72  % (30596)Memory used [KB]: 6140
+% 2.40/0.72  % (30596)Time elapsed: 0.265 s
+% 2.40/0.72  % (30596)------------------------------
+% 2.40/0.72  % (30596)------------------------------
+% 2.40/0.73  % (30617)lrs-1_14_add=off:afr=on:afp=40000:afq=1.4:amm=sco:anc=none:bd=off:br=off:cond=fast:fde=unused:gs=on:lcm=reverse:lma=on:nwc=1:stl=30:sos=on:urr=on:updr=off_25 on theBenchmark
+% 2.40/0.73  % (30614)ott+1010_8:1_add=off:afp=4000:afq=1.4:amm=off:anc=all:bd=off:bsr=on:fsr=off:fde=unused:irw=on:lma=on:nwc=4:nicw=on:sac=on:sp=reverse_arity:urr=on:updr=off:uhcvi=on_239 on theBenchmark
+% 2.40/0.73  % (30584)Refutation not found, incomplete strategy% (30584)------------------------------
+% 2.40/0.73  % (30584)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 2.40/0.73  % (30584)Termination reason: Refutation not found, incomplete strategy
+% 2.40/0.73  
+% 2.40/0.73  % (30584)Memory used [KB]: 6140
+% 2.40/0.73  % (30584)Time elapsed: 0.316 s
+% 2.40/0.73  % (30584)------------------------------
+% 2.40/0.73  % (30584)------------------------------
+% 2.90/0.76  % (30616)lrs+11_2:1_av=off:bsr=on:gs=on:gsem=on:irw=on:lma=on:lwlo=on:nm=16:nwc=1:stl=30:sd=1:ss=axioms:st=1.2:sp=reverse_arity_4 on theBenchmark
+% 2.90/0.76  % (30616)Refutation not found, incomplete strategy% (30616)------------------------------
+% 2.90/0.76  % (30616)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 2.90/0.76  % (30616)Termination reason: Refutation not found, incomplete strategy
+% 2.90/0.76  
+% 2.90/0.76  % (30616)Memory used [KB]: 6140
+% 2.90/0.76  % (30616)Time elapsed: 0.145 s
+% 2.90/0.76  % (30616)------------------------------
+% 2.90/0.76  % (30616)------------------------------
+% 2.97/0.77  % (30618)dis+10_3_add=large:afp=10000:afq=1.0:amm=sco:anc=none:gsp=input_only:gs=on:gsem=off:lcm=reverse:nwc=1:sos=on_171 on theBenchmark
+% 3.41/0.84  % (30605)Time limit reached!
+% 3.41/0.84  % (30605)------------------------------
+% 3.41/0.84  % (30605)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 3.41/0.84  % (30605)Termination reason: Time limit
+% 3.41/0.84  
+% 3.41/0.84  % (30605)Memory used [KB]: 13304
+% 3.41/0.84  % (30605)Time elapsed: 0.423 s
+% 3.41/0.84  % (30605)------------------------------
+% 3.41/0.84  % (30605)------------------------------
+% 3.41/0.85  % (30583)Time limit reached!
+% 3.41/0.85  % (30583)------------------------------
+% 3.41/0.85  % (30583)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 3.41/0.85  % (30647)dis+1010_3:2_av=off:lma=on:nm=2:newcnf=on:nwc=1:sd=3:ss=axioms:st=5.0:sos=all:sp=reverse_arity:updr=off_99 on theBenchmark
+% 3.41/0.86  % (30583)Termination reason: Time limit
+% 3.41/0.86  
+% 3.41/0.86  % (30583)Memory used [KB]: 7036
+% 3.41/0.86  % (30583)Time elapsed: 0.416 s
+% 3.41/0.86  % (30583)------------------------------
+% 3.41/0.86  % (30583)------------------------------
+% 3.41/0.87  % (30648)lrs+10_2_afp=40000:afq=1.0:amm=sco:anc=none:bsr=on:br=off:cond=on:gs=on:gsem=off:irw=on:lma=on:nm=64:nwc=1:stl=30:sd=2:ss=axioms:st=3.0:sos=all:sac=on:sp=occurrence:urr=on:updr=off_3 on theBenchmark
+% 3.41/0.90  % (30651)dis+1002_1_av=off:bsr=on:cond=on:lma=on:nwc=2:sd=3:ss=axioms:st=3.0:updr=off_24 on theBenchmark
+% 3.93/0.94  % (30587)Time limit reached!
+% 3.93/0.94  % (30587)------------------------------
+% 3.93/0.94  % (30587)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 3.93/0.94  % (30587)Termination reason: Time limit
+% 3.93/0.94  
+% 3.93/0.94  % (30587)Memory used [KB]: 14200
+% 3.93/0.94  % (30587)Time elapsed: 0.520 s
+% 3.93/0.94  % (30587)------------------------------
+% 3.93/0.94  % (30587)------------------------------
+% 3.93/0.96  % (30654)ott+1_5_afp=40000:afq=1.0:anc=all:fde=none:gs=on:irw=on:lma=on:nm=32:nwc=2:sos=all:sac=on:sp=occurrence:urr=ec_only:uhcvi=on_4 on theBenchmark
+% 4.24/1.00  % (30656)lrs+1010_3:2_afr=on:afp=100000:afq=1.1:anc=none:gsp=input_only:irw=on:lwlo=on:nm=2:newcnf=on:nwc=1.7:stl=30:sac=on:sp=occurrence_95 on theBenchmark
+% 4.24/1.02  % (30652)lrs+1002_2:1_aac=none:afr=on:afp=1000:afq=1.2:anc=all:bd=preordered:bsr=on:cond=fast:gsp=input_only:gs=on:nm=0:nwc=2.5:nicw=on:sas=z3:stl=30:sd=4:ss=axioms:st=2.0:sos=on:sac=on:urr=on:updr=off:uhcvi=on_22 on theBenchmark
+% 4.59/1.06  % (30588)Time limit reached!
+% 4.59/1.06  % (30588)------------------------------
+% 4.59/1.06  % (30588)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 4.59/1.06  % (30588)Termination reason: Time limit
+% 4.59/1.06  
+% 4.59/1.06  % (30588)Memory used [KB]: 6652
+% 4.59/1.06  % (30588)Time elapsed: 0.608 s
+% 4.59/1.06  % (30588)------------------------------
+% 4.59/1.06  % (30588)------------------------------
+% 5.63/1.08  % (30657)lrs+1010_2_add=large:afp=4000:afq=2.0:amm=off:bd=off:bs=unit_only:bsr=on:br=off:fsr=off:gs=on:gsem=off:irw=on:lma=on:nm=32:nwc=1.1:stl=30:sos=all:sp=reverse_arity:urr=on:updr=off_80 on theBenchmark
+% 6.20/1.19  % (30658)lrs+1004_8:1_av=off:bd=off:fsr=off:lwlo=on:nm=4:nwc=1.5:stl=30:sd=1:ss=axioms:st=5.0:uhcvi=on_98 on theBenchmark
+% 7.75/1.37  % (30648)Time limit reached!
+% 7.75/1.37  % (30648)------------------------------
+% 7.75/1.37  % (30648)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 7.75/1.37  % (30648)Termination reason: Time limit
+% 7.75/1.37  
+% 7.75/1.37  % (30648)Memory used [KB]: 15863
+% 7.75/1.37  % (30648)Time elapsed: 0.605 s
+% 7.75/1.37  % (30648)------------------------------
+% 7.75/1.37  % (30648)------------------------------
+% 8.51/1.48  % (30608)Time limit reached!
+% 8.51/1.48  % (30608)------------------------------
+% 8.51/1.48  % (30608)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 8.51/1.48  % (30608)Termination reason: Time limit
+% 8.51/1.48  % (30608)Termination phase: Saturation
+% 8.51/1.48  
+% 8.51/1.48  % (30608)Memory used [KB]: 14328
+% 8.51/1.48  % (30608)Time elapsed: 1.0000 s
+% 8.51/1.48  % (30608)------------------------------
+% 8.51/1.48  % (30608)------------------------------
+% 8.51/1.51  % (30758)lrs+1_2:3_aac=none:afr=on:afp=100000:afq=1.0:amm=sco:bd=off:fde=none:gs=on:gsem=on:irw=on:nm=4:nwc=1:stl=30:sos=on:sac=on:sp=occurrence:urr=ec_only:updr=off:uhcvi=on_1 on theBenchmark
+% 9.49/1.62  % (30811)lrs+1010_5_afr=on:afp=4000:afq=2.0:amm=sco:anc=none:bd=off:gsp=input_only:gs=on:gsem=on:lma=on:nm=64:newcnf=on:nwc=4:sas=z3:stl=30:sos=on:sac=on:sp=occurrence:urr=ec_only:updr=off_298 on theBenchmark
+% 10.36/1.71  % (30654)Time limit reached!
+% 10.36/1.71  % (30654)------------------------------
+% 10.36/1.71  % (30654)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 10.36/1.71  % (30654)Termination reason: Time limit
+% 10.36/1.71  
+% 10.36/1.71  % (30654)Memory used [KB]: 18038
+% 10.36/1.71  % (30654)Time elapsed: 0.832 s
+% 10.36/1.71  % (30654)------------------------------
+% 10.36/1.71  % (30654)------------------------------
+% 10.92/1.76  % (30586)Time limit reached!
+% 10.92/1.76  % (30586)------------------------------
+% 10.92/1.76  % (30586)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 10.92/1.77  % (30586)Termination reason: Time limit
+% 10.92/1.77  
+% 10.92/1.77  % (30586)Memory used [KB]: 12409
+% 10.92/1.77  % (30586)Time elapsed: 1.345 s
+% 10.92/1.77  % (30586)------------------------------
+% 10.92/1.77  % (30586)------------------------------
+% 10.92/1.81  % (30758)Time limit reached!
+% 10.92/1.81  % (30758)------------------------------
+% 10.92/1.81  % (30758)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 10.92/1.81  % (30758)Termination reason: Time limit
+% 10.92/1.81  % (30758)Termination phase: Saturation
+% 10.92/1.81  
+% 10.92/1.81  % (30758)Memory used [KB]: 13688
+% 10.92/1.81  % (30758)Time elapsed: 0.400 s
+% 10.92/1.81  % (30758)------------------------------
+% 10.92/1.81  % (30758)------------------------------
+% 11.46/1.83  % (30879)lrs+1010_3:2_awrs=decay:awrsf=2:afr=on:afp=40000:afq=1.0:amm=sco:anc=none:bd=off:bs=on:cond=on:fde=unused:gs=on:gsaa=from_current:gsem=on:irw=on:nm=6:newcnf=on:nwc=1.5:nicw=on:sas=z3:stl=30:sd=4:ss=axioms:s2a=on:sos=on:sac=on:sp=weighted_frequency:urr=on_1 on theBenchmark
+% 11.84/1.91  % (30889)ott+10_1024_afp=40000:afq=2.0:amm=off:anc=all:bd=preordered:bs=unit_only:fde=unused:irw=on:nm=16:nwc=1:sp=reverse_arity:uhcvi=on_2 on theBenchmark
+% 11.84/1.94  % (30890)lrs+2_1_add=large:afp=100000:afq=1.0:amm=off:anc=none:bd=off:bs=unit_only:bsr=on:gsp=input_only:lma=on:lwlo=on:newcnf=on:nwc=1:stl=30:sos=theory:sp=reverse_arity:updr=off_1 on theBenchmark
+% 12.43/1.97  % (30879)Refutation not found, incomplete strategy% (30879)------------------------------
+% 12.43/1.97  % (30879)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 12.43/1.98  % (30879)Termination reason: Refutation not found, incomplete strategy
+% 12.66/1.98  
+% 12.66/1.98  % (30879)Memory used [KB]: 6140
+% 12.66/1.98  % (30879)Time elapsed: 0.245 s
+% 12.66/1.98  % (30879)------------------------------
+% 12.66/1.98  % (30879)------------------------------
+% 13.06/2.03  % (30607)Time limit reached!
+% 13.06/2.03  % (30607)------------------------------
+% 13.06/2.03  % (30607)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 13.06/2.03  % (30607)Termination reason: Time limit
+% 13.06/2.03  
+% 13.06/2.03  % (30607)Memory used [KB]: 20980
+% 13.06/2.03  % (30607)Time elapsed: 1.618 s
+% 13.06/2.03  % (30607)------------------------------
+% 13.06/2.03  % (30607)------------------------------
+% 13.66/2.13  % (30891)lrs+1010_2:3_afr=on:afp=40000:afq=1.4:amm=sco:anc=none:bd=off:gs=on:gsem=off:nm=16:nwc=1:nicw=on:sas=z3:stl=30:sd=2:ss=axioms:st=1.5:updr=off_97 on theBenchmark
+% 14.33/2.21  % (30892)dis+10_3_av=off:irw=on:nm=0:nwc=1:sd=1:ss=axioms:st=5.0:sos=all:sp=occurrence:updr=off_1 on theBenchmark
+% 14.33/2.24  % (30890)Time limit reached!
+% 14.33/2.24  % (30890)------------------------------
+% 14.33/2.24  % (30890)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 14.33/2.25  % (30890)Termination reason: Time limit
+% 14.33/2.25  % (30890)Termination phase: Saturation
+% 14.33/2.25  
+% 14.33/2.25  % (30890)Memory used [KB]: 10106
+% 14.33/2.25  % (30890)Time elapsed: 0.400 s
+% 14.33/2.25  % (30890)------------------------------
+% 14.33/2.25  % (30890)------------------------------
+% 14.99/2.28  % (30601)Time limit reached!
+% 14.99/2.28  % (30601)------------------------------
+% 14.99/2.28  % (30601)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 15.22/2.29  % (30601)Termination reason: Time limit
+% 15.22/2.29  
+% 15.22/2.29  % (30601)Memory used [KB]: 25074
+% 15.22/2.29  % (30601)Time elapsed: 1.843 s
+% 15.22/2.29  % (30601)------------------------------
+% 15.22/2.29  % (30601)------------------------------
+% 15.22/2.30  % (30889)Time limit reached!
+% 15.22/2.30  % (30889)------------------------------
+% 15.22/2.30  % (30889)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 15.22/2.30  % (30889)Termination reason: Time limit
+% 15.22/2.30  
+% 15.22/2.30  % (30889)Memory used [KB]: 10490
+% 15.22/2.30  % (30889)Time elapsed: 0.508 s
+% 15.22/2.30  % (30889)------------------------------
+% 15.22/2.30  % (30889)------------------------------
+% 15.64/2.38  % (30893)lrs+1_128_add=off:afr=on:afp=10000:afq=2.0:amm=sco:anc=none:bs=unit_only:gs=on:gsem=off:lwlo=on:nm=2:nwc=1:sas=z3:stl=90:sac=on:sp=occurrence:urr=on:updr=off:uhcvi=on_1 on theBenchmark
+% 16.65/2.51  % (30892)Time limit reached!
+% 16.65/2.51  % (30892)------------------------------
+% 16.65/2.51  % (30892)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 16.65/2.51  % (30892)Termination reason: Time limit
+% 16.65/2.51  
+% 16.65/2.51  % (30892)Memory used [KB]: 3198
+% 16.65/2.51  % (30892)Time elapsed: 0.401 s
+% 16.65/2.51  % (30892)------------------------------
+% 16.65/2.51  % (30892)------------------------------
+% 18.01/2.68  % (30893)Time limit reached!
+% 18.01/2.68  % (30893)------------------------------
+% 18.01/2.68  % (30893)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 18.01/2.70  % (30893)Termination reason: Time limit
+% 18.01/2.70  
+% 18.01/2.70  % (30893)Memory used [KB]: 7803
+% 18.01/2.70  % (30893)Time elapsed: 0.415 s
+% 18.01/2.70  % (30893)------------------------------
+% 18.01/2.70  % (30893)------------------------------
+% 25.16/3.53  % (30589)Time limit reached!
+% 25.16/3.53  % (30589)------------------------------
+% 25.16/3.53  % (30589)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 25.16/3.53  % (30589)Termination reason: Time limit
+% 25.16/3.53  
+% 25.16/3.53  % (30589)Memory used [KB]: 25074
+% 25.16/3.53  % (30589)Time elapsed: 3.116 s
+% 25.16/3.53  % (30589)------------------------------
+% 25.16/3.53  % (30589)------------------------------
+% 25.84/3.63  % (30592)Time limit reached!
+% 25.84/3.63  % (30592)------------------------------
+% 25.84/3.63  % (30592)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 25.84/3.64  % (30592)Termination reason: Time limit
+% 25.84/3.64  
+% 25.84/3.64  % (30592)Memory used [KB]: 30575
+% 25.84/3.64  % (30592)Time elapsed: 3.172 s
+% 25.84/3.64  % (30592)------------------------------
+% 25.84/3.64  % (30592)------------------------------
+% 26.40/3.74  % (30600)Time limit reached!
+% 26.40/3.74  % (30600)------------------------------
+% 26.40/3.74  % (30600)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 26.40/3.75  % (30600)Termination reason: Time limit
+% 26.40/3.75  
+% 26.40/3.75  % (30600)Memory used [KB]: 37483
+% 26.40/3.75  % (30600)Time elapsed: 3.311 s
+% 26.40/3.75  % (30600)------------------------------
+% 26.40/3.75  % (30600)------------------------------
+% 27.67/3.91  % (30652)Time limit reached!
+% 27.67/3.91  % (30652)------------------------------
+% 27.67/3.91  % (30652)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 27.67/3.91  % (30652)Termination reason: Time limit
+% 27.67/3.91  % (30652)Termination phase: Saturation
+% 27.67/3.91  
+% 27.67/3.91  % (30652)Memory used [KB]: 27504
+% 27.67/3.91  % (30652)Time elapsed: 3.0000 s
+% 27.67/3.91  % (30652)------------------------------
+% 27.67/3.91  % (30652)------------------------------
+% 28.82/4.05  % (30617)Time limit reached!
+% 28.82/4.05  % (30617)------------------------------
+% 28.82/4.05  % (30617)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 28.82/4.05  % (30617)Termination reason: Time limit
+% 28.82/4.05  
+% 28.82/4.05  % (30617)Memory used [KB]: 37611
+% 28.82/4.05  % (30617)Time elapsed: 3.423 s
+% 28.82/4.05  % (30617)------------------------------
+% 28.82/4.05  % (30617)------------------------------
+% 29.83/4.13  % (30651)Time limit reached!
+% 29.83/4.13  % (30651)------------------------------
+% 29.83/4.13  % (30651)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 29.83/4.13  % (30651)Termination reason: Time limit
+% 29.83/4.13  
+% 29.83/4.13  % (30651)Memory used [KB]: 25969
+% 29.83/4.13  % (30651)Time elapsed: 3.326 s
+% 29.83/4.13  % (30651)------------------------------
+% 29.83/4.13  % (30651)------------------------------
+% 38.29/5.22  % (30598)Time limit reached!
+% 38.29/5.22  % (30598)------------------------------
+% 38.29/5.22  % (30598)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 38.29/5.23  % (30598)Termination reason: Time limit
+% 38.29/5.23  
+% 38.29/5.23  % (30598)Memory used [KB]: 39786
+% 38.29/5.23  % (30598)Time elapsed: 4.812 s
+% 38.29/5.23  % (30598)------------------------------
+% 38.29/5.23  % (30598)------------------------------
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.96  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+% 60.53/7.97  External time out (SIGXCPU) on /export/starexec/sandbox/benchmark/theBenchmark.p
+%------------------------------------------------------------------------------

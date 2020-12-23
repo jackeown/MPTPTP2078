@@ -1,0 +1,287 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT1506+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox2/benchmark/theBenchmark.p /export/starexec/sandbox2/tmp/tmp.fiBeCmOnjs
+
+% Computer   : n026.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 08:53:42 EST 2020
+
+% Result     : Theorem 0.21s
+% Output     : Refutation 0.21s
+% Verified   : 
+% Statistics : Number of formulae       :   48 (  70 expanded)
+%              Number of leaves         :   19 (  30 expanded)
+%              Depth                    :   11
+%              Number of atoms          :  313 ( 797 expanded)
+%              Number of equality atoms :    4 (   4 expanded)
+%              Maximal formula depth    :   14 (   5 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(r2_hidden_type,type,(
+    r2_hidden: $i > $i > $o )).
+
+thf(v10_lattices_type,type,(
+    v10_lattices: $i > $o )).
+
+thf(k16_lattice3_type,type,(
+    k16_lattice3: $i > $i > $i )).
+
+thf(sk_C_type,type,(
+    sk_C: $i )).
+
+thf(k15_lattice3_type,type,(
+    k15_lattice3: $i > $i > $i )).
+
+thf(v2_struct_0_type,type,(
+    v2_struct_0: $i > $o )).
+
+thf(a_2_1_lattice3_type,type,(
+    a_2_1_lattice3: $i > $i > $i )).
+
+thf(sk_B_type,type,(
+    sk_B: $i )).
+
+thf(v4_lattice3_type,type,(
+    v4_lattice3: $i > $o )).
+
+thf(r3_lattices_type,type,(
+    r3_lattices: $i > $i > $i > $o )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(l3_lattices_type,type,(
+    l3_lattices: $i > $o )).
+
+thf(r3_lattice3_type,type,(
+    r3_lattice3: $i > $i > $i > $o )).
+
+thf(u1_struct_0_type,type,(
+    u1_struct_0: $i > $i )).
+
+thf(m1_subset_1_type,type,(
+    m1_subset_1: $i > $i > $o )).
+
+thf(t40_lattice3,conjecture,(
+    ! [A: $i] :
+      ( ( ~ ( v2_struct_0 @ A )
+        & ( v10_lattices @ A )
+        & ( v4_lattice3 @ A )
+        & ( l3_lattices @ A ) )
+     => ! [B: $i] :
+          ( ( m1_subset_1 @ B @ ( u1_struct_0 @ A ) )
+         => ! [C: $i] :
+              ( ( r3_lattice3 @ A @ B @ C )
+             => ( r3_lattices @ A @ B @ ( k16_lattice3 @ A @ C ) ) ) ) ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i] :
+        ( ( ~ ( v2_struct_0 @ A )
+          & ( v10_lattices @ A )
+          & ( v4_lattice3 @ A )
+          & ( l3_lattices @ A ) )
+       => ! [B: $i] :
+            ( ( m1_subset_1 @ B @ ( u1_struct_0 @ A ) )
+           => ! [C: $i] :
+                ( ( r3_lattice3 @ A @ B @ C )
+               => ( r3_lattices @ A @ B @ ( k16_lattice3 @ A @ C ) ) ) ) ) ),
+    inference('cnf.neg',[status(esa)],[t40_lattice3])).
+
+thf('0',plain,(
+    ~ ( v2_struct_0 @ sk_A ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(d22_lattice3,axiom,(
+    ! [A: $i] :
+      ( ( ~ ( v2_struct_0 @ A )
+        & ( l3_lattices @ A ) )
+     => ! [B: $i] :
+          ( ( k16_lattice3 @ A @ B )
+          = ( k15_lattice3 @ A @ ( a_2_1_lattice3 @ A @ B ) ) ) ) )).
+
+thf('1',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ( ( k16_lattice3 @ X0 @ X1 )
+        = ( k15_lattice3 @ X0 @ ( a_2_1_lattice3 @ X0 @ X1 ) ) )
+      | ~ ( l3_lattices @ X0 )
+      | ( v2_struct_0 @ X0 ) ) ),
+    inference(cnf,[status(esa)],[d22_lattice3])).
+
+thf('2',plain,(
+    r3_lattice3 @ sk_A @ sk_B @ sk_C ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('3',plain,(
+    m1_subset_1 @ sk_B @ ( u1_struct_0 @ sk_A ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(fraenkel_a_2_1_lattice3,axiom,(
+    ! [A: $i,B: $i,C: $i] :
+      ( ( ~ ( v2_struct_0 @ B )
+        & ( l3_lattices @ B ) )
+     => ( ( r2_hidden @ A @ ( a_2_1_lattice3 @ B @ C ) )
+      <=> ? [D: $i] :
+            ( ( r3_lattice3 @ B @ D @ C )
+            & ( A = D )
+            & ( m1_subset_1 @ D @ ( u1_struct_0 @ B ) ) ) ) ) )).
+
+thf('4',plain,(
+    ! [X2: $i,X3: $i,X4: $i,X5: $i] :
+      ( ~ ( l3_lattices @ X2 )
+      | ( v2_struct_0 @ X2 )
+      | ( r2_hidden @ X4 @ ( a_2_1_lattice3 @ X2 @ X3 ) )
+      | ~ ( m1_subset_1 @ X5 @ ( u1_struct_0 @ X2 ) )
+      | ( X4 != X5 )
+      | ~ ( r3_lattice3 @ X2 @ X5 @ X3 ) ) ),
+    inference(cnf,[status(esa)],[fraenkel_a_2_1_lattice3])).
+
+thf('5',plain,(
+    ! [X2: $i,X3: $i,X5: $i] :
+      ( ~ ( r3_lattice3 @ X2 @ X5 @ X3 )
+      | ~ ( m1_subset_1 @ X5 @ ( u1_struct_0 @ X2 ) )
+      | ( r2_hidden @ X5 @ ( a_2_1_lattice3 @ X2 @ X3 ) )
+      | ( v2_struct_0 @ X2 )
+      | ~ ( l3_lattices @ X2 ) ) ),
+    inference(simplify,[status(thm)],['4'])).
+
+thf('6',plain,(
+    ! [X0: $i] :
+      ( ~ ( l3_lattices @ sk_A )
+      | ( v2_struct_0 @ sk_A )
+      | ( r2_hidden @ sk_B @ ( a_2_1_lattice3 @ sk_A @ X0 ) )
+      | ~ ( r3_lattice3 @ sk_A @ sk_B @ X0 ) ) ),
+    inference('sup-',[status(thm)],['3','5'])).
+
+thf('7',plain,(
+    l3_lattices @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('8',plain,(
+    ! [X0: $i] :
+      ( ( v2_struct_0 @ sk_A )
+      | ( r2_hidden @ sk_B @ ( a_2_1_lattice3 @ sk_A @ X0 ) )
+      | ~ ( r3_lattice3 @ sk_A @ sk_B @ X0 ) ) ),
+    inference(demod,[status(thm)],['6','7'])).
+
+thf('9',plain,(
+    ~ ( v2_struct_0 @ sk_A ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('10',plain,(
+    ! [X0: $i] :
+      ( ~ ( r3_lattice3 @ sk_A @ sk_B @ X0 )
+      | ( r2_hidden @ sk_B @ ( a_2_1_lattice3 @ sk_A @ X0 ) ) ) ),
+    inference(clc,[status(thm)],['8','9'])).
+
+thf('11',plain,(
+    r2_hidden @ sk_B @ ( a_2_1_lattice3 @ sk_A @ sk_C ) ),
+    inference('sup-',[status(thm)],['2','10'])).
+
+thf('12',plain,(
+    m1_subset_1 @ sk_B @ ( u1_struct_0 @ sk_A ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(t38_lattice3,axiom,(
+    ! [A: $i] :
+      ( ( ~ ( v2_struct_0 @ A )
+        & ( v10_lattices @ A )
+        & ( v4_lattice3 @ A )
+        & ( l3_lattices @ A ) )
+     => ! [B: $i] :
+          ( ( m1_subset_1 @ B @ ( u1_struct_0 @ A ) )
+         => ! [C: $i] :
+              ( ( r2_hidden @ B @ C )
+             => ( ( r3_lattices @ A @ B @ ( k15_lattice3 @ A @ C ) )
+                & ( r3_lattices @ A @ ( k16_lattice3 @ A @ C ) @ B ) ) ) ) ) )).
+
+thf('13',plain,(
+    ! [X6: $i,X7: $i,X8: $i] :
+      ( ~ ( m1_subset_1 @ X6 @ ( u1_struct_0 @ X7 ) )
+      | ( r3_lattices @ X7 @ X6 @ ( k15_lattice3 @ X7 @ X8 ) )
+      | ~ ( r2_hidden @ X6 @ X8 )
+      | ~ ( l3_lattices @ X7 )
+      | ~ ( v4_lattice3 @ X7 )
+      | ~ ( v10_lattices @ X7 )
+      | ( v2_struct_0 @ X7 ) ) ),
+    inference(cnf,[status(esa)],[t38_lattice3])).
+
+thf('14',plain,(
+    ! [X0: $i] :
+      ( ( v2_struct_0 @ sk_A )
+      | ~ ( v10_lattices @ sk_A )
+      | ~ ( v4_lattice3 @ sk_A )
+      | ~ ( l3_lattices @ sk_A )
+      | ~ ( r2_hidden @ sk_B @ X0 )
+      | ( r3_lattices @ sk_A @ sk_B @ ( k15_lattice3 @ sk_A @ X0 ) ) ) ),
+    inference('sup-',[status(thm)],['12','13'])).
+
+thf('15',plain,(
+    v10_lattices @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('16',plain,(
+    v4_lattice3 @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('17',plain,(
+    l3_lattices @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('18',plain,(
+    ! [X0: $i] :
+      ( ( v2_struct_0 @ sk_A )
+      | ~ ( r2_hidden @ sk_B @ X0 )
+      | ( r3_lattices @ sk_A @ sk_B @ ( k15_lattice3 @ sk_A @ X0 ) ) ) ),
+    inference(demod,[status(thm)],['14','15','16','17'])).
+
+thf('19',plain,(
+    ~ ( v2_struct_0 @ sk_A ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('20',plain,(
+    ! [X0: $i] :
+      ( ( r3_lattices @ sk_A @ sk_B @ ( k15_lattice3 @ sk_A @ X0 ) )
+      | ~ ( r2_hidden @ sk_B @ X0 ) ) ),
+    inference(clc,[status(thm)],['18','19'])).
+
+thf('21',plain,(
+    r3_lattices @ sk_A @ sk_B @ ( k15_lattice3 @ sk_A @ ( a_2_1_lattice3 @ sk_A @ sk_C ) ) ),
+    inference('sup-',[status(thm)],['11','20'])).
+
+thf('22',plain,
+    ( ( r3_lattices @ sk_A @ sk_B @ ( k16_lattice3 @ sk_A @ sk_C ) )
+    | ( v2_struct_0 @ sk_A )
+    | ~ ( l3_lattices @ sk_A ) ),
+    inference('sup+',[status(thm)],['1','21'])).
+
+thf('23',plain,(
+    l3_lattices @ sk_A ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('24',plain,
+    ( ( r3_lattices @ sk_A @ sk_B @ ( k16_lattice3 @ sk_A @ sk_C ) )
+    | ( v2_struct_0 @ sk_A ) ),
+    inference(demod,[status(thm)],['22','23'])).
+
+thf('25',plain,(
+    ~ ( r3_lattices @ sk_A @ sk_B @ ( k16_lattice3 @ sk_A @ sk_C ) ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('26',plain,(
+    v2_struct_0 @ sk_A ),
+    inference(clc,[status(thm)],['24','25'])).
+
+thf('27',plain,(
+    $false ),
+    inference(demod,[status(thm)],['0','26'])).
+
+
+%------------------------------------------------------------------------------

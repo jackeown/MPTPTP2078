@@ -1,0 +1,256 @@
+%------------------------------------------------------------------------------
+% File       : Zipperpin---2.0
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_portfolio.sh /export/starexec/sandbox2/benchmark/theBenchmark.p /export/starexec/sandbox2/tmp/tmp.PGPZ757hTN
+
+% Computer   : n003.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 13:38:29 EST 2020
+
+% Result     : Theorem 0.21s
+% Output     : Refutation 0.21s
+% Verified   : 
+% Statistics : Number of formulae       :   28 (  33 expanded)
+%              Number of leaves         :   13 (  16 expanded)
+%              Depth                    :    6
+%              Number of atoms          :  114 ( 151 expanded)
+%              Number of equality atoms :    4 (   4 expanded)
+%              Maximal formula depth    :    8 (   4 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+thf(m1_subset_1_type,type,(
+    m1_subset_1: $i > $i > $o )).
+
+thf(v1_xboole_0_type,type,(
+    v1_xboole_0: $i > $o )).
+
+thf(sk_A_type,type,(
+    sk_A: $i )).
+
+thf(k1_zfmisc_1_type,type,(
+    k1_zfmisc_1: $i > $i )).
+
+thf(k1_xboole_0_type,type,(
+    k1_xboole_0: $i )).
+
+thf(k1_tarski_type,type,(
+    k1_tarski: $i > $i )).
+
+thf(sk_B_type,type,(
+    sk_B: $i )).
+
+thf(r2_hidden_type,type,(
+    r2_hidden: $i > $i > $o )).
+
+thf(t63_subset_1,conjecture,(
+    ! [A: $i,B: $i] :
+      ( ( r2_hidden @ A @ B )
+     => ( m1_subset_1 @ ( k1_tarski @ A ) @ ( k1_zfmisc_1 @ B ) ) ) )).
+
+thf(zf_stmt_0,negated_conjecture,(
+    ~ ! [A: $i,B: $i] :
+        ( ( r2_hidden @ A @ B )
+       => ( m1_subset_1 @ ( k1_tarski @ A ) @ ( k1_zfmisc_1 @ B ) ) ) ),
+    inference('cnf.neg',[status(esa)],[t63_subset_1])).
+
+thf('0',plain,(
+    r2_hidden @ sk_A @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(t7_boole,axiom,(
+    ! [A: $i,B: $i] :
+      ~ ( ( r2_hidden @ A @ B )
+        & ( v1_xboole_0 @ B ) ) )).
+
+thf('1',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r2_hidden @ X0 @ X1 )
+      | ~ ( v1_xboole_0 @ X1 ) ) ),
+    inference(cnf,[status(esa)],[t7_boole])).
+
+thf('2',plain,(
+    ~ ( v1_xboole_0 @ sk_B ) ),
+    inference('sup-',[status(thm)],['0','1'])).
+
+thf('3',plain,(
+    r2_hidden @ sk_A @ sk_B ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf(d2_subset_1,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( ( v1_xboole_0 @ A )
+       => ( ( m1_subset_1 @ B @ A )
+        <=> ( v1_xboole_0 @ B ) ) )
+      & ( ~ ( v1_xboole_0 @ A )
+       => ( ( m1_subset_1 @ B @ A )
+        <=> ( r2_hidden @ B @ A ) ) ) ) )).
+
+thf('4',plain,(
+    ! [X30: $i,X31: $i] :
+      ( ~ ( r2_hidden @ X30 @ X31 )
+      | ( m1_subset_1 @ X30 @ X31 )
+      | ( v1_xboole_0 @ X31 ) ) ),
+    inference(cnf,[status(esa)],[d2_subset_1])).
+
+thf('5',plain,(
+    ! [X0: $i,X1: $i] :
+      ( ~ ( r2_hidden @ X0 @ X1 )
+      | ~ ( v1_xboole_0 @ X1 ) ) ),
+    inference(cnf,[status(esa)],[t7_boole])).
+
+thf('6',plain,(
+    ! [X30: $i,X31: $i] :
+      ( ( m1_subset_1 @ X30 @ X31 )
+      | ~ ( r2_hidden @ X30 @ X31 ) ) ),
+    inference(clc,[status(thm)],['4','5'])).
+
+thf('7',plain,(
+    m1_subset_1 @ sk_A @ sk_B ),
+    inference('sup-',[status(thm)],['3','6'])).
+
+thf(t55_subset_1,axiom,(
+    ! [A: $i,B: $i] :
+      ( ( m1_subset_1 @ B @ A )
+     => ( ( A != k1_xboole_0 )
+       => ( m1_subset_1 @ ( k1_tarski @ B ) @ ( k1_zfmisc_1 @ A ) ) ) ) )).
+
+thf('8',plain,(
+    ! [X33: $i,X34: $i] :
+      ( ( X33 = k1_xboole_0 )
+      | ~ ( m1_subset_1 @ X34 @ X33 )
+      | ( m1_subset_1 @ ( k1_tarski @ X34 ) @ ( k1_zfmisc_1 @ X33 ) ) ) ),
+    inference(cnf,[status(esa)],[t55_subset_1])).
+
+thf('9',plain,
+    ( ( m1_subset_1 @ ( k1_tarski @ sk_A ) @ ( k1_zfmisc_1 @ sk_B ) )
+    | ( sk_B = k1_xboole_0 ) ),
+    inference('sup-',[status(thm)],['7','8'])).
+
+thf('10',plain,(
+    ~ ( m1_subset_1 @ ( k1_tarski @ sk_A ) @ ( k1_zfmisc_1 @ sk_B ) ) ),
+    inference(cnf,[status(esa)],[zf_stmt_0])).
+
+thf('11',plain,(
+    sk_B = k1_xboole_0 ),
+    inference(clc,[status(thm)],['9','10'])).
+
+thf(fc1_xboole_0,axiom,(
+    v1_xboole_0 @ k1_xboole_0 )).
+
+thf('12',plain,(
+    v1_xboole_0 @ k1_xboole_0 ),
+    inference(cnf,[status(esa)],[fc1_xboole_0])).
+
+thf('13',plain,(
+    $false ),
+    inference(demod,[status(thm)],['2','11','12'])).
+
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.03/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.03/0.13  % Command    : run_portfolio.sh /export/starexec/sandbox2/benchmark/theBenchmark.p /export/starexec/sandbox2/tmp/tmp.PGPZ757hTN
+% 0.13/0.36  % Computer   : n003.cluster.edu
+% 0.13/0.36  % Model      : x86_64 x86_64
+% 0.13/0.36  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.36  % Memory     : 8042.1875MB
+% 0.13/0.36  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.36  % CPULimit   : 60
+% 0.13/0.36  % DateTime   : Tue Dec  1 17:28:27 EST 2020
+% 0.13/0.36  % CPUTime    : 
+% 0.13/0.36  % Running portfolio for 600 s
+% 0.13/0.36  % File         : /export/starexec/sandbox2/benchmark/theBenchmark.p
+% 0.13/0.36  % Number of cores: 8
+% 0.13/0.36  % Python version: Python 3.6.8
+% 0.13/0.36  % Running in FO mode
+% 0.21/0.48  % Running /export/starexec/sandbox2/solver/bin/fo/fo7.sh for 78
+% 0.21/0.48  % Solved by: fo/fo7.sh
+% 0.21/0.48  To remain in the chosen logic fragment, unification with booleans has been disabled.
+% 0.21/0.48  % done 19 iterations in 0.013s
+% 0.21/0.48  % SZS status Theorem for '/export/starexec/sandbox2/benchmark/theBenchmark.p'
+% 0.21/0.48  % SZS output start Refutation
+% 0.21/0.48  thf(m1_subset_1_type, type, m1_subset_1: $i > $i > $o).
+% 0.21/0.48  thf(v1_xboole_0_type, type, v1_xboole_0: $i > $o).
+% 0.21/0.48  thf(sk_A_type, type, sk_A: $i).
+% 0.21/0.48  thf(k1_zfmisc_1_type, type, k1_zfmisc_1: $i > $i).
+% 0.21/0.48  thf(k1_xboole_0_type, type, k1_xboole_0: $i).
+% 0.21/0.48  thf(k1_tarski_type, type, k1_tarski: $i > $i).
+% 0.21/0.48  thf(sk_B_type, type, sk_B: $i).
+% 0.21/0.48  thf(r2_hidden_type, type, r2_hidden: $i > $i > $o).
+% 0.21/0.48  thf(t63_subset_1, conjecture,
+% 0.21/0.48    (![A:$i,B:$i]:
+% 0.21/0.48     ( ( r2_hidden @ A @ B ) =>
+% 0.21/0.48       ( m1_subset_1 @ ( k1_tarski @ A ) @ ( k1_zfmisc_1 @ B ) ) ))).
+% 0.21/0.48  thf(zf_stmt_0, negated_conjecture,
+% 0.21/0.48    (~( ![A:$i,B:$i]:
+% 0.21/0.48        ( ( r2_hidden @ A @ B ) =>
+% 0.21/0.48          ( m1_subset_1 @ ( k1_tarski @ A ) @ ( k1_zfmisc_1 @ B ) ) ) )),
+% 0.21/0.48    inference('cnf.neg', [status(esa)], [t63_subset_1])).
+% 0.21/0.48  thf('0', plain, ((r2_hidden @ sk_A @ sk_B)),
+% 0.21/0.48      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.48  thf(t7_boole, axiom,
+% 0.21/0.48    (![A:$i,B:$i]: ( ~( ( r2_hidden @ A @ B ) & ( v1_xboole_0 @ B ) ) ))).
+% 0.21/0.48  thf('1', plain,
+% 0.21/0.48      (![X0 : $i, X1 : $i]: (~ (r2_hidden @ X0 @ X1) | ~ (v1_xboole_0 @ X1))),
+% 0.21/0.48      inference('cnf', [status(esa)], [t7_boole])).
+% 0.21/0.48  thf('2', plain, (~ (v1_xboole_0 @ sk_B)),
+% 0.21/0.48      inference('sup-', [status(thm)], ['0', '1'])).
+% 0.21/0.48  thf('3', plain, ((r2_hidden @ sk_A @ sk_B)),
+% 0.21/0.48      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.48  thf(d2_subset_1, axiom,
+% 0.21/0.48    (![A:$i,B:$i]:
+% 0.21/0.48     ( ( ( v1_xboole_0 @ A ) =>
+% 0.21/0.48         ( ( m1_subset_1 @ B @ A ) <=> ( v1_xboole_0 @ B ) ) ) & 
+% 0.21/0.48       ( ( ~( v1_xboole_0 @ A ) ) =>
+% 0.21/0.48         ( ( m1_subset_1 @ B @ A ) <=> ( r2_hidden @ B @ A ) ) ) ))).
+% 0.21/0.48  thf('4', plain,
+% 0.21/0.48      (![X30 : $i, X31 : $i]:
+% 0.21/0.48         (~ (r2_hidden @ X30 @ X31)
+% 0.21/0.48          | (m1_subset_1 @ X30 @ X31)
+% 0.21/0.48          | (v1_xboole_0 @ X31))),
+% 0.21/0.48      inference('cnf', [status(esa)], [d2_subset_1])).
+% 0.21/0.48  thf('5', plain,
+% 0.21/0.48      (![X0 : $i, X1 : $i]: (~ (r2_hidden @ X0 @ X1) | ~ (v1_xboole_0 @ X1))),
+% 0.21/0.48      inference('cnf', [status(esa)], [t7_boole])).
+% 0.21/0.48  thf('6', plain,
+% 0.21/0.48      (![X30 : $i, X31 : $i]:
+% 0.21/0.48         ((m1_subset_1 @ X30 @ X31) | ~ (r2_hidden @ X30 @ X31))),
+% 0.21/0.48      inference('clc', [status(thm)], ['4', '5'])).
+% 0.21/0.48  thf('7', plain, ((m1_subset_1 @ sk_A @ sk_B)),
+% 0.21/0.48      inference('sup-', [status(thm)], ['3', '6'])).
+% 0.21/0.48  thf(t55_subset_1, axiom,
+% 0.21/0.48    (![A:$i,B:$i]:
+% 0.21/0.48     ( ( m1_subset_1 @ B @ A ) =>
+% 0.21/0.48       ( ( ( A ) != ( k1_xboole_0 ) ) =>
+% 0.21/0.48         ( m1_subset_1 @ ( k1_tarski @ B ) @ ( k1_zfmisc_1 @ A ) ) ) ))).
+% 0.21/0.48  thf('8', plain,
+% 0.21/0.48      (![X33 : $i, X34 : $i]:
+% 0.21/0.48         (((X33) = (k1_xboole_0))
+% 0.21/0.48          | ~ (m1_subset_1 @ X34 @ X33)
+% 0.21/0.48          | (m1_subset_1 @ (k1_tarski @ X34) @ (k1_zfmisc_1 @ X33)))),
+% 0.21/0.48      inference('cnf', [status(esa)], [t55_subset_1])).
+% 0.21/0.48  thf('9', plain,
+% 0.21/0.48      (((m1_subset_1 @ (k1_tarski @ sk_A) @ (k1_zfmisc_1 @ sk_B))
+% 0.21/0.48        | ((sk_B) = (k1_xboole_0)))),
+% 0.21/0.48      inference('sup-', [status(thm)], ['7', '8'])).
+% 0.21/0.48  thf('10', plain,
+% 0.21/0.48      (~ (m1_subset_1 @ (k1_tarski @ sk_A) @ (k1_zfmisc_1 @ sk_B))),
+% 0.21/0.48      inference('cnf', [status(esa)], [zf_stmt_0])).
+% 0.21/0.48  thf('11', plain, (((sk_B) = (k1_xboole_0))),
+% 0.21/0.48      inference('clc', [status(thm)], ['9', '10'])).
+% 0.21/0.48  thf(fc1_xboole_0, axiom, (v1_xboole_0 @ k1_xboole_0)).
+% 0.21/0.48  thf('12', plain, ((v1_xboole_0 @ k1_xboole_0)),
+% 0.21/0.48      inference('cnf', [status(esa)], [fc1_xboole_0])).
+% 0.21/0.48  thf('13', plain, ($false),
+% 0.21/0.48      inference('demod', [status(thm)], ['2', '11', '12'])).
+% 0.21/0.48  
+% 0.21/0.48  % SZS output end Refutation
+% 0.21/0.48  
+% 0.21/0.49  % Zipperpin 1.5 exiting
+%------------------------------------------------------------------------------

@@ -1,0 +1,210 @@
+%------------------------------------------------------------------------------
+% File       : iProver---3.3
+% Problem    : MPT0072+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : iproveropt_run.sh %d %s
+
+% Computer   : n029.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 08:42:24 EST 2020
+
+% Result     : Theorem 0.61s
+% Output     : CNFRefutation 0.61s
+% Verified   : 
+% Statistics : Number of formulae       :   32 (  32 expanded)
+%              Number of clauses        :   12 (  12 expanded)
+%              Number of leaves         :    7 (   7 expanded)
+%              Depth                    :    9
+%              Number of atoms          :   65 (  65 expanded)
+%              Number of equality atoms :    2 (   2 expanded)
+%              Maximal formula depth    :    9 (   3 average)
+%              Maximal clause size      :    6 (   1 average)
+%              Maximal term depth       :    2 (   1 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f2,axiom,(
+    v1_xboole_0(o_0_0_xboole_0) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',unknown)).
+
+fof(f18,plain,(
+    v1_xboole_0(o_0_0_xboole_0) ),
+    inference(cnf_transformation,[],[f2])).
+
+fof(f5,axiom,(
+    ! [X0,X1] :
+      ~ ( v1_xboole_0(X1)
+        & r2_hidden(X0,X1) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',unknown)).
+
+fof(f11,plain,(
+    ! [X0,X1] :
+      ( ~ v1_xboole_0(X1)
+      | ~ r2_hidden(X0,X1) ) ),
+    inference(ennf_transformation,[],[f5])).
+
+fof(f23,plain,(
+    ! [X0,X1] :
+      ( ~ v1_xboole_0(X1)
+      | ~ r2_hidden(X0,X1) ) ),
+    inference(cnf_transformation,[],[f11])).
+
+fof(f4,axiom,(
+    ! [X0,X1] :
+      ( ~ ( r1_xboole_0(X0,X1)
+          & ? [X2] :
+              ( r2_hidden(X2,X1)
+              & r2_hidden(X2,X0) ) )
+      & ~ ( ! [X2] :
+              ~ ( r2_hidden(X2,X1)
+                & r2_hidden(X2,X0) )
+          & ~ r1_xboole_0(X0,X1) ) ) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',unknown)).
+
+fof(f8,plain,(
+    ! [X0,X1] :
+      ( ~ ( r1_xboole_0(X0,X1)
+          & ? [X2] :
+              ( r2_hidden(X2,X1)
+              & r2_hidden(X2,X0) ) )
+      & ~ ( ! [X3] :
+              ~ ( r2_hidden(X3,X1)
+                & r2_hidden(X3,X0) )
+          & ~ r1_xboole_0(X0,X1) ) ) ),
+    inference(rectify,[],[f4])).
+
+fof(f10,plain,(
+    ! [X0,X1] :
+      ( ( ~ r1_xboole_0(X0,X1)
+        | ! [X2] :
+            ( ~ r2_hidden(X2,X1)
+            | ~ r2_hidden(X2,X0) ) )
+      & ( ? [X3] :
+            ( r2_hidden(X3,X1)
+            & r2_hidden(X3,X0) )
+        | r1_xboole_0(X0,X1) ) ) ),
+    inference(ennf_transformation,[],[f8])).
+
+fof(f13,plain,(
+    ! [X1,X0] :
+      ( ? [X3] :
+          ( r2_hidden(X3,X1)
+          & r2_hidden(X3,X0) )
+     => ( r2_hidden(sK0(X0,X1),X1)
+        & r2_hidden(sK0(X0,X1),X0) ) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f14,plain,(
+    ! [X0,X1] :
+      ( ( ~ r1_xboole_0(X0,X1)
+        | ! [X2] :
+            ( ~ r2_hidden(X2,X1)
+            | ~ r2_hidden(X2,X0) ) )
+      & ( ( r2_hidden(sK0(X0,X1),X1)
+          & r2_hidden(sK0(X0,X1),X0) )
+        | r1_xboole_0(X0,X1) ) ) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f10,f13])).
+
+fof(f21,plain,(
+    ! [X0,X1] :
+      ( r2_hidden(sK0(X0,X1),X1)
+      | r1_xboole_0(X0,X1) ) ),
+    inference(cnf_transformation,[],[f14])).
+
+fof(f6,conjecture,(
+    ! [X0] : r1_xboole_0(X0,k1_xboole_0) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',unknown)).
+
+fof(f7,negated_conjecture,(
+    ~ ! [X0] : r1_xboole_0(X0,k1_xboole_0) ),
+    inference(negated_conjecture,[],[f6])).
+
+fof(f12,plain,(
+    ? [X0] : ~ r1_xboole_0(X0,k1_xboole_0) ),
+    inference(ennf_transformation,[],[f7])).
+
+fof(f15,plain,
+    ( ? [X0] : ~ r1_xboole_0(X0,k1_xboole_0)
+   => ~ r1_xboole_0(sK1,k1_xboole_0) ),
+    introduced(choice_axiom,[])).
+
+fof(f16,plain,(
+    ~ r1_xboole_0(sK1,k1_xboole_0) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK1])],[f12,f15])).
+
+fof(f24,plain,(
+    ~ r1_xboole_0(sK1,k1_xboole_0) ),
+    inference(cnf_transformation,[],[f16])).
+
+fof(f1,axiom,(
+    k1_xboole_0 = o_0_0_xboole_0 ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',unknown)).
+
+fof(f17,plain,(
+    k1_xboole_0 = o_0_0_xboole_0 ),
+    inference(cnf_transformation,[],[f1])).
+
+fof(f25,plain,(
+    ~ r1_xboole_0(sK1,o_0_0_xboole_0) ),
+    inference(definition_unfolding,[],[f24,f17])).
+
+cnf(c_0,plain,
+    ( v1_xboole_0(o_0_0_xboole_0) ),
+    inference(cnf_transformation,[],[f18])).
+
+cnf(c_5,plain,
+    ( ~ r2_hidden(X0,X1)
+    | ~ v1_xboole_0(X1) ),
+    inference(cnf_transformation,[],[f23])).
+
+cnf(c_73,plain,
+    ( ~ r2_hidden(X0,o_0_0_xboole_0) ),
+    inference(resolution,[status(thm)],[c_0,c_5])).
+
+cnf(c_122,plain,
+    ( ~ r2_hidden(X0_34,o_0_0_xboole_0) ),
+    inference(subtyping,[status(esa)],[c_73])).
+
+cnf(c_165,plain,
+    ( ~ r2_hidden(sK0(X0_35,o_0_0_xboole_0),o_0_0_xboole_0) ),
+    inference(instantiation,[status(thm)],[c_122])).
+
+cnf(c_186,plain,
+    ( ~ r2_hidden(sK0(sK1,o_0_0_xboole_0),o_0_0_xboole_0) ),
+    inference(instantiation,[status(thm)],[c_165])).
+
+cnf(c_3,plain,
+    ( r2_hidden(sK0(X0,X1),X1)
+    | r1_xboole_0(X0,X1) ),
+    inference(cnf_transformation,[],[f21])).
+
+cnf(c_125,plain,
+    ( r2_hidden(sK0(X0_35,X1_35),X1_35)
+    | r1_xboole_0(X0_35,X1_35) ),
+    inference(subtyping,[status(esa)],[c_3])).
+
+cnf(c_164,plain,
+    ( r2_hidden(sK0(X0_35,o_0_0_xboole_0),o_0_0_xboole_0)
+    | r1_xboole_0(X0_35,o_0_0_xboole_0) ),
+    inference(instantiation,[status(thm)],[c_125])).
+
+cnf(c_176,plain,
+    ( r2_hidden(sK0(sK1,o_0_0_xboole_0),o_0_0_xboole_0)
+    | r1_xboole_0(sK1,o_0_0_xboole_0) ),
+    inference(instantiation,[status(thm)],[c_164])).
+
+cnf(c_6,negated_conjecture,
+    ( ~ r1_xboole_0(sK1,o_0_0_xboole_0) ),
+    inference(cnf_transformation,[],[f25])).
+
+cnf(contradiction,plain,
+    ( $false ),
+    inference(minisat,[status(thm)],[c_186,c_176,c_6])).
+
+
+%------------------------------------------------------------------------------

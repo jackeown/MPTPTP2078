@@ -1,0 +1,603 @@
+%------------------------------------------------------------------------------
+% File       : Beagle---0.9.47
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox2/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox2/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+
+% Computer   : n024.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 10:27:52 EST 2020
+
+% Result     : Theorem 2.11s
+% Output     : CNFRefutation 2.11s
+% Verified   : 
+% Statistics : Number of formulae       :   78 ( 206 expanded)
+%              Number of leaves         :   23 (  83 expanded)
+%              Depth                    :   10
+%              Number of atoms          :  161 ( 617 expanded)
+%              Number of equality atoms :   43 ( 147 expanded)
+%              Maximal formula depth    :    9 (   4 average)
+%              Maximal term depth       :    4 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+%$ v3_pre_topc > r2_hidden > m1_subset_1 > v2_struct_0 > v2_pre_topc > l1_pre_topc > k6_tmap_1 > k5_tmap_1 > g1_pre_topc > #nlpp > u1_struct_0 > u1_pre_topc > k1_zfmisc_1 > #skF_2 > #skF_1
+
+%Foreground sorts:
+
+%Background operators:
+
+%Foreground operators:
+tff(v2_struct_0,type,(
+    v2_struct_0: $i > $o )).
+
+tff(u1_pre_topc,type,(
+    u1_pre_topc: $i > $i )).
+
+tff(v3_pre_topc,type,(
+    v3_pre_topc: ( $i * $i ) > $o )).
+
+tff('#nlpp',type,(
+    '#nlpp': ( $real * $real ) > $real )).
+
+tff(g1_pre_topc,type,(
+    g1_pre_topc: ( $i * $i ) > $i )).
+
+tff(r2_hidden,type,(
+    r2_hidden: ( $i * $i ) > $o )).
+
+tff(l1_pre_topc,type,(
+    l1_pre_topc: $i > $o )).
+
+tff('#skF_2',type,(
+    '#skF_2': $i )).
+
+tff('#skF_1',type,(
+    '#skF_1': $i )).
+
+tff(k1_zfmisc_1,type,(
+    k1_zfmisc_1: $i > $i )).
+
+tff('#nlpp_001',type,(
+    '#nlpp': ( $rat * $rat ) > $rat )).
+
+tff(k6_tmap_1,type,(
+    k6_tmap_1: ( $i * $i ) > $i )).
+
+tff('#nlpp_002',type,(
+    '#nlpp': ( $int * $int ) > $int )).
+
+tff(v2_pre_topc,type,(
+    v2_pre_topc: $i > $o )).
+
+tff(k5_tmap_1,type,(
+    k5_tmap_1: ( $i * $i ) > $i )).
+
+tff(u1_struct_0,type,(
+    u1_struct_0: $i > $i )).
+
+tff(m1_subset_1,type,(
+    m1_subset_1: ( $i * $i ) > $o )).
+
+tff(f_95,negated_conjecture,(
+    ~ ! [A] :
+        ( ( ~ v2_struct_0(A)
+          & v2_pre_topc(A)
+          & l1_pre_topc(A) )
+       => ! [B] :
+            ( m1_subset_1(B,k1_zfmisc_1(u1_struct_0(A)))
+           => ( v3_pre_topc(B,A)
+            <=> g1_pre_topc(u1_struct_0(A),u1_pre_topc(A)) = k6_tmap_1(A,B) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t106_tmap_1)).
+
+tff(f_34,axiom,(
+    ! [A] :
+      ( l1_pre_topc(A)
+     => ! [B] :
+          ( m1_subset_1(B,k1_zfmisc_1(u1_struct_0(A)))
+         => ( v3_pre_topc(B,A)
+          <=> r2_hidden(B,u1_pre_topc(A)) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',d5_pre_topc)).
+
+tff(f_55,axiom,(
+    ! [A] :
+      ( ( ~ v2_struct_0(A)
+        & v2_pre_topc(A)
+        & l1_pre_topc(A) )
+     => ! [B] :
+          ( m1_subset_1(B,k1_zfmisc_1(u1_struct_0(A)))
+         => k6_tmap_1(A,B) = g1_pre_topc(u1_struct_0(A),k5_tmap_1(A,B)) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',d9_tmap_1)).
+
+tff(f_43,axiom,(
+    ! [A,B] :
+      ( m1_subset_1(B,k1_zfmisc_1(k1_zfmisc_1(A)))
+     => ! [C,D] :
+          ( g1_pre_topc(A,B) = g1_pre_topc(C,D)
+         => ( A = C
+            & B = D ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',free_g1_pre_topc)).
+
+tff(f_66,axiom,(
+    ! [A,B] :
+      ( ( ~ v2_struct_0(A)
+        & v2_pre_topc(A)
+        & l1_pre_topc(A)
+        & m1_subset_1(B,k1_zfmisc_1(u1_struct_0(A))) )
+     => m1_subset_1(k5_tmap_1(A,B),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0(A)))) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',dt_k5_tmap_1)).
+
+tff(f_80,axiom,(
+    ! [A] :
+      ( ( ~ v2_struct_0(A)
+        & v2_pre_topc(A)
+        & l1_pre_topc(A) )
+     => ! [B] :
+          ( m1_subset_1(B,k1_zfmisc_1(u1_struct_0(A)))
+         => ( r2_hidden(B,u1_pre_topc(A))
+          <=> u1_pre_topc(A) = k5_tmap_1(A,B) ) ) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t103_tmap_1)).
+
+tff(c_24,plain,(
+    ~ v2_struct_0('#skF_1') ),
+    inference(cnfTransformation,[status(thm)],[f_95])).
+
+tff(c_26,plain,
+    ( g1_pre_topc(u1_struct_0('#skF_1'),u1_pre_topc('#skF_1')) != k6_tmap_1('#skF_1','#skF_2')
+    | ~ v3_pre_topc('#skF_2','#skF_1') ),
+    inference(cnfTransformation,[status(thm)],[f_95])).
+
+tff(c_33,plain,(
+    ~ v3_pre_topc('#skF_2','#skF_1') ),
+    inference(splitLeft,[status(thm)],[c_26])).
+
+tff(c_20,plain,(
+    l1_pre_topc('#skF_1') ),
+    inference(cnfTransformation,[status(thm)],[f_95])).
+
+tff(c_18,plain,(
+    m1_subset_1('#skF_2',k1_zfmisc_1(u1_struct_0('#skF_1'))) ),
+    inference(cnfTransformation,[status(thm)],[f_95])).
+
+tff(c_58,plain,(
+    ! [B_29,A_30] :
+      ( v3_pre_topc(B_29,A_30)
+      | ~ r2_hidden(B_29,u1_pre_topc(A_30))
+      | ~ m1_subset_1(B_29,k1_zfmisc_1(u1_struct_0(A_30)))
+      | ~ l1_pre_topc(A_30) ) ),
+    inference(cnfTransformation,[status(thm)],[f_34])).
+
+tff(c_61,plain,
+    ( v3_pre_topc('#skF_2','#skF_1')
+    | ~ r2_hidden('#skF_2',u1_pre_topc('#skF_1'))
+    | ~ l1_pre_topc('#skF_1') ),
+    inference(resolution,[status(thm)],[c_18,c_58])).
+
+tff(c_64,plain,
+    ( v3_pre_topc('#skF_2','#skF_1')
+    | ~ r2_hidden('#skF_2',u1_pre_topc('#skF_1')) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_20,c_61])).
+
+tff(c_65,plain,(
+    ~ r2_hidden('#skF_2',u1_pre_topc('#skF_1')) ),
+    inference(negUnitSimplification,[status(thm)],[c_33,c_64])).
+
+tff(c_22,plain,(
+    v2_pre_topc('#skF_1') ),
+    inference(cnfTransformation,[status(thm)],[f_95])).
+
+tff(c_184,plain,(
+    ! [A_47,B_48] :
+      ( g1_pre_topc(u1_struct_0(A_47),k5_tmap_1(A_47,B_48)) = k6_tmap_1(A_47,B_48)
+      | ~ m1_subset_1(B_48,k1_zfmisc_1(u1_struct_0(A_47)))
+      | ~ l1_pre_topc(A_47)
+      | ~ v2_pre_topc(A_47)
+      | v2_struct_0(A_47) ) ),
+    inference(cnfTransformation,[status(thm)],[f_55])).
+
+tff(c_186,plain,
+    ( g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) = k6_tmap_1('#skF_1','#skF_2')
+    | ~ l1_pre_topc('#skF_1')
+    | ~ v2_pre_topc('#skF_1')
+    | v2_struct_0('#skF_1') ),
+    inference(resolution,[status(thm)],[c_18,c_184])).
+
+tff(c_189,plain,
+    ( g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) = k6_tmap_1('#skF_1','#skF_2')
+    | v2_struct_0('#skF_1') ),
+    inference(demodulation,[status(thm),theory(equality)],[c_22,c_20,c_186])).
+
+tff(c_190,plain,(
+    g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) = k6_tmap_1('#skF_1','#skF_2') ),
+    inference(negUnitSimplification,[status(thm)],[c_24,c_189])).
+
+tff(c_32,plain,
+    ( v3_pre_topc('#skF_2','#skF_1')
+    | g1_pre_topc(u1_struct_0('#skF_1'),u1_pre_topc('#skF_1')) = k6_tmap_1('#skF_1','#skF_2') ),
+    inference(cnfTransformation,[status(thm)],[f_95])).
+
+tff(c_34,plain,(
+    g1_pre_topc(u1_struct_0('#skF_1'),u1_pre_topc('#skF_1')) = k6_tmap_1('#skF_1','#skF_2') ),
+    inference(negUnitSimplification,[status(thm)],[c_33,c_32])).
+
+tff(c_43,plain,(
+    ! [D_19,B_20,C_21,A_22] :
+      ( D_19 = B_20
+      | g1_pre_topc(C_21,D_19) != g1_pre_topc(A_22,B_20)
+      | ~ m1_subset_1(B_20,k1_zfmisc_1(k1_zfmisc_1(A_22))) ) ),
+    inference(cnfTransformation,[status(thm)],[f_43])).
+
+tff(c_47,plain,(
+    ! [D_19,C_21] :
+      ( u1_pre_topc('#skF_1') = D_19
+      | k6_tmap_1('#skF_1','#skF_2') != g1_pre_topc(C_21,D_19)
+      | ~ m1_subset_1(u1_pre_topc('#skF_1'),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))) ) ),
+    inference(superposition,[status(thm),theory(equality)],[c_34,c_43])).
+
+tff(c_75,plain,(
+    ~ m1_subset_1(u1_pre_topc('#skF_1'),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))) ),
+    inference(splitLeft,[status(thm)],[c_47])).
+
+tff(c_85,plain,(
+    ! [A_37,B_38] :
+      ( g1_pre_topc(u1_struct_0(A_37),k5_tmap_1(A_37,B_38)) = k6_tmap_1(A_37,B_38)
+      | ~ m1_subset_1(B_38,k1_zfmisc_1(u1_struct_0(A_37)))
+      | ~ l1_pre_topc(A_37)
+      | ~ v2_pre_topc(A_37)
+      | v2_struct_0(A_37) ) ),
+    inference(cnfTransformation,[status(thm)],[f_55])).
+
+tff(c_87,plain,
+    ( g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) = k6_tmap_1('#skF_1','#skF_2')
+    | ~ l1_pre_topc('#skF_1')
+    | ~ v2_pre_topc('#skF_1')
+    | v2_struct_0('#skF_1') ),
+    inference(resolution,[status(thm)],[c_18,c_85])).
+
+tff(c_90,plain,
+    ( g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) = k6_tmap_1('#skF_1','#skF_2')
+    | v2_struct_0('#skF_1') ),
+    inference(demodulation,[status(thm),theory(equality)],[c_22,c_20,c_87])).
+
+tff(c_91,plain,(
+    g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) = k6_tmap_1('#skF_1','#skF_2') ),
+    inference(negUnitSimplification,[status(thm)],[c_24,c_90])).
+
+tff(c_12,plain,(
+    ! [A_13,B_14] :
+      ( m1_subset_1(k5_tmap_1(A_13,B_14),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0(A_13))))
+      | ~ m1_subset_1(B_14,k1_zfmisc_1(u1_struct_0(A_13)))
+      | ~ l1_pre_topc(A_13)
+      | ~ v2_pre_topc(A_13)
+      | v2_struct_0(A_13) ) ),
+    inference(cnfTransformation,[status(thm)],[f_66])).
+
+tff(c_8,plain,(
+    ! [C_8,A_4,D_9,B_5] :
+      ( C_8 = A_4
+      | g1_pre_topc(C_8,D_9) != g1_pre_topc(A_4,B_5)
+      | ~ m1_subset_1(B_5,k1_zfmisc_1(k1_zfmisc_1(A_4))) ) ),
+    inference(cnfTransformation,[status(thm)],[f_43])).
+
+tff(c_96,plain,(
+    ! [C_8,D_9] :
+      ( u1_struct_0('#skF_1') = C_8
+      | k6_tmap_1('#skF_1','#skF_2') != g1_pre_topc(C_8,D_9)
+      | ~ m1_subset_1(k5_tmap_1('#skF_1','#skF_2'),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))) ) ),
+    inference(superposition,[status(thm),theory(equality)],[c_91,c_8])).
+
+tff(c_109,plain,(
+    ~ m1_subset_1(k5_tmap_1('#skF_1','#skF_2'),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))) ),
+    inference(splitLeft,[status(thm)],[c_96])).
+
+tff(c_112,plain,
+    ( ~ m1_subset_1('#skF_2',k1_zfmisc_1(u1_struct_0('#skF_1')))
+    | ~ l1_pre_topc('#skF_1')
+    | ~ v2_pre_topc('#skF_1')
+    | v2_struct_0('#skF_1') ),
+    inference(resolution,[status(thm)],[c_12,c_109])).
+
+tff(c_115,plain,(
+    v2_struct_0('#skF_1') ),
+    inference(demodulation,[status(thm),theory(equality)],[c_22,c_20,c_18,c_112])).
+
+tff(c_117,plain,(
+    $false ),
+    inference(negUnitSimplification,[status(thm)],[c_24,c_115])).
+
+tff(c_119,plain,(
+    m1_subset_1(k5_tmap_1('#skF_1','#skF_2'),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))) ),
+    inference(splitRight,[status(thm)],[c_96])).
+
+tff(c_45,plain,(
+    ! [B_20,A_22] :
+      ( u1_pre_topc('#skF_1') = B_20
+      | k6_tmap_1('#skF_1','#skF_2') != g1_pre_topc(A_22,B_20)
+      | ~ m1_subset_1(B_20,k1_zfmisc_1(k1_zfmisc_1(A_22))) ) ),
+    inference(superposition,[status(thm),theory(equality)],[c_34,c_43])).
+
+tff(c_128,plain,
+    ( k5_tmap_1('#skF_1','#skF_2') = u1_pre_topc('#skF_1')
+    | g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) != k6_tmap_1('#skF_1','#skF_2') ),
+    inference(resolution,[status(thm)],[c_119,c_45])).
+
+tff(c_139,plain,(
+    k5_tmap_1('#skF_1','#skF_2') = u1_pre_topc('#skF_1') ),
+    inference(demodulation,[status(thm),theory(equality)],[c_91,c_128])).
+
+tff(c_140,plain,(
+    m1_subset_1(u1_pre_topc('#skF_1'),k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_139,c_119])).
+
+tff(c_144,plain,(
+    $false ),
+    inference(negUnitSimplification,[status(thm)],[c_75,c_140])).
+
+tff(c_145,plain,(
+    ! [D_19,C_21] :
+      ( u1_pre_topc('#skF_1') = D_19
+      | k6_tmap_1('#skF_1','#skF_2') != g1_pre_topc(C_21,D_19) ) ),
+    inference(splitRight,[status(thm)],[c_47])).
+
+tff(c_210,plain,(
+    k5_tmap_1('#skF_1','#skF_2') = u1_pre_topc('#skF_1') ),
+    inference(superposition,[status(thm),theory(equality)],[c_190,c_145])).
+
+tff(c_235,plain,(
+    ! [B_51,A_52] :
+      ( r2_hidden(B_51,u1_pre_topc(A_52))
+      | k5_tmap_1(A_52,B_51) != u1_pre_topc(A_52)
+      | ~ m1_subset_1(B_51,k1_zfmisc_1(u1_struct_0(A_52)))
+      | ~ l1_pre_topc(A_52)
+      | ~ v2_pre_topc(A_52)
+      | v2_struct_0(A_52) ) ),
+    inference(cnfTransformation,[status(thm)],[f_80])).
+
+tff(c_238,plain,
+    ( r2_hidden('#skF_2',u1_pre_topc('#skF_1'))
+    | k5_tmap_1('#skF_1','#skF_2') != u1_pre_topc('#skF_1')
+    | ~ l1_pre_topc('#skF_1')
+    | ~ v2_pre_topc('#skF_1')
+    | v2_struct_0('#skF_1') ),
+    inference(resolution,[status(thm)],[c_18,c_235])).
+
+tff(c_241,plain,
+    ( r2_hidden('#skF_2',u1_pre_topc('#skF_1'))
+    | v2_struct_0('#skF_1') ),
+    inference(demodulation,[status(thm),theory(equality)],[c_22,c_20,c_210,c_238])).
+
+tff(c_243,plain,(
+    $false ),
+    inference(negUnitSimplification,[status(thm)],[c_24,c_65,c_241])).
+
+tff(c_244,plain,(
+    g1_pre_topc(u1_struct_0('#skF_1'),u1_pre_topc('#skF_1')) != k6_tmap_1('#skF_1','#skF_2') ),
+    inference(splitRight,[status(thm)],[c_26])).
+
+tff(c_245,plain,(
+    v3_pre_topc('#skF_2','#skF_1') ),
+    inference(splitRight,[status(thm)],[c_26])).
+
+tff(c_258,plain,(
+    ! [B_61,A_62] :
+      ( r2_hidden(B_61,u1_pre_topc(A_62))
+      | ~ v3_pre_topc(B_61,A_62)
+      | ~ m1_subset_1(B_61,k1_zfmisc_1(u1_struct_0(A_62)))
+      | ~ l1_pre_topc(A_62) ) ),
+    inference(cnfTransformation,[status(thm)],[f_34])).
+
+tff(c_261,plain,
+    ( r2_hidden('#skF_2',u1_pre_topc('#skF_1'))
+    | ~ v3_pre_topc('#skF_2','#skF_1')
+    | ~ l1_pre_topc('#skF_1') ),
+    inference(resolution,[status(thm)],[c_18,c_258])).
+
+tff(c_264,plain,(
+    r2_hidden('#skF_2',u1_pre_topc('#skF_1')) ),
+    inference(demodulation,[status(thm),theory(equality)],[c_20,c_245,c_261])).
+
+tff(c_273,plain,(
+    ! [A_67,B_68] :
+      ( k5_tmap_1(A_67,B_68) = u1_pre_topc(A_67)
+      | ~ r2_hidden(B_68,u1_pre_topc(A_67))
+      | ~ m1_subset_1(B_68,k1_zfmisc_1(u1_struct_0(A_67)))
+      | ~ l1_pre_topc(A_67)
+      | ~ v2_pre_topc(A_67)
+      | v2_struct_0(A_67) ) ),
+    inference(cnfTransformation,[status(thm)],[f_80])).
+
+tff(c_276,plain,
+    ( k5_tmap_1('#skF_1','#skF_2') = u1_pre_topc('#skF_1')
+    | ~ r2_hidden('#skF_2',u1_pre_topc('#skF_1'))
+    | ~ l1_pre_topc('#skF_1')
+    | ~ v2_pre_topc('#skF_1')
+    | v2_struct_0('#skF_1') ),
+    inference(resolution,[status(thm)],[c_18,c_273])).
+
+tff(c_279,plain,
+    ( k5_tmap_1('#skF_1','#skF_2') = u1_pre_topc('#skF_1')
+    | v2_struct_0('#skF_1') ),
+    inference(demodulation,[status(thm),theory(equality)],[c_22,c_20,c_264,c_276])).
+
+tff(c_280,plain,(
+    k5_tmap_1('#skF_1','#skF_2') = u1_pre_topc('#skF_1') ),
+    inference(negUnitSimplification,[status(thm)],[c_24,c_279])).
+
+tff(c_291,plain,(
+    ! [A_69,B_70] :
+      ( g1_pre_topc(u1_struct_0(A_69),k5_tmap_1(A_69,B_70)) = k6_tmap_1(A_69,B_70)
+      | ~ m1_subset_1(B_70,k1_zfmisc_1(u1_struct_0(A_69)))
+      | ~ l1_pre_topc(A_69)
+      | ~ v2_pre_topc(A_69)
+      | v2_struct_0(A_69) ) ),
+    inference(cnfTransformation,[status(thm)],[f_55])).
+
+tff(c_293,plain,
+    ( g1_pre_topc(u1_struct_0('#skF_1'),k5_tmap_1('#skF_1','#skF_2')) = k6_tmap_1('#skF_1','#skF_2')
+    | ~ l1_pre_topc('#skF_1')
+    | ~ v2_pre_topc('#skF_1')
+    | v2_struct_0('#skF_1') ),
+    inference(resolution,[status(thm)],[c_18,c_291])).
+
+tff(c_296,plain,
+    ( g1_pre_topc(u1_struct_0('#skF_1'),u1_pre_topc('#skF_1')) = k6_tmap_1('#skF_1','#skF_2')
+    | v2_struct_0('#skF_1') ),
+    inference(demodulation,[status(thm),theory(equality)],[c_22,c_20,c_280,c_293])).
+
+tff(c_298,plain,(
+    $false ),
+    inference(negUnitSimplification,[status(thm)],[c_24,c_244,c_296])).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.09/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.09/0.13  % Command    : java -Xms512M -Xmx4G -Xss10M -XX:MaxPermSize=384M -jar /export/starexec/sandbox2/solver/bin/beagle.jar -auto -q -proof -print tff -smtsolver /export/starexec/sandbox2/solver/bin/cvc4-1.4-x86_64-linux-opt -liasolver cooper -t %d %s
+% 0.13/0.34  % Computer   : n024.cluster.edu
+% 0.13/0.34  % Model      : x86_64 x86_64
+% 0.13/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.34  % Memory     : 8042.1875MB
+% 0.13/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.34  % CPULimit   : 60
+% 0.13/0.34  % DateTime   : Tue Dec  1 13:23:21 EST 2020
+% 0.13/0.34  % CPUTime    : 
+% 0.13/0.35  OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=384M; support was removed in 8.0
+% 2.11/1.27  % SZS status Theorem for /export/starexec/sandbox2/benchmark/theBenchmark.p
+% 2.11/1.28  
+% 2.11/1.28  % SZS output start CNFRefutation for /export/starexec/sandbox2/benchmark/theBenchmark.p
+% 2.11/1.28  %$ v3_pre_topc > r2_hidden > m1_subset_1 > v2_struct_0 > v2_pre_topc > l1_pre_topc > k6_tmap_1 > k5_tmap_1 > g1_pre_topc > #nlpp > u1_struct_0 > u1_pre_topc > k1_zfmisc_1 > #skF_2 > #skF_1
+% 2.11/1.28  
+% 2.11/1.28  %Foreground sorts:
+% 2.11/1.28  
+% 2.11/1.28  
+% 2.11/1.28  %Background operators:
+% 2.11/1.28  
+% 2.11/1.28  
+% 2.11/1.28  %Foreground operators:
+% 2.11/1.28  tff(v2_struct_0, type, v2_struct_0: $i > $o).
+% 2.11/1.28  tff(u1_pre_topc, type, u1_pre_topc: $i > $i).
+% 2.11/1.28  tff(v3_pre_topc, type, v3_pre_topc: ($i * $i) > $o).
+% 2.11/1.28  tff('#nlpp', type, '#nlpp': ($real * $real) > $real).
+% 2.11/1.28  tff(g1_pre_topc, type, g1_pre_topc: ($i * $i) > $i).
+% 2.11/1.28  tff(r2_hidden, type, r2_hidden: ($i * $i) > $o).
+% 2.11/1.28  tff(l1_pre_topc, type, l1_pre_topc: $i > $o).
+% 2.11/1.28  tff('#skF_2', type, '#skF_2': $i).
+% 2.11/1.28  tff('#skF_1', type, '#skF_1': $i).
+% 2.11/1.28  tff(k1_zfmisc_1, type, k1_zfmisc_1: $i > $i).
+% 2.11/1.28  tff('#nlpp', type, '#nlpp': ($rat * $rat) > $rat).
+% 2.11/1.28  tff(k6_tmap_1, type, k6_tmap_1: ($i * $i) > $i).
+% 2.11/1.28  tff('#nlpp', type, '#nlpp': ($int * $int) > $int).
+% 2.11/1.28  tff(v2_pre_topc, type, v2_pre_topc: $i > $o).
+% 2.11/1.28  tff(k5_tmap_1, type, k5_tmap_1: ($i * $i) > $i).
+% 2.11/1.28  tff(u1_struct_0, type, u1_struct_0: $i > $i).
+% 2.11/1.28  tff(m1_subset_1, type, m1_subset_1: ($i * $i) > $o).
+% 2.11/1.28  
+% 2.11/1.30  tff(f_95, negated_conjecture, ~(![A]: (((~v2_struct_0(A) & v2_pre_topc(A)) & l1_pre_topc(A)) => (![B]: (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) => (v3_pre_topc(B, A) <=> (g1_pre_topc(u1_struct_0(A), u1_pre_topc(A)) = k6_tmap_1(A, B))))))), file('/export/starexec/sandbox2/benchmark/theBenchmark.p', t106_tmap_1)).
+% 2.11/1.30  tff(f_34, axiom, (![A]: (l1_pre_topc(A) => (![B]: (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) => (v3_pre_topc(B, A) <=> r2_hidden(B, u1_pre_topc(A))))))), file('/export/starexec/sandbox2/benchmark/theBenchmark.p', d5_pre_topc)).
+% 2.11/1.30  tff(f_55, axiom, (![A]: (((~v2_struct_0(A) & v2_pre_topc(A)) & l1_pre_topc(A)) => (![B]: (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) => (k6_tmap_1(A, B) = g1_pre_topc(u1_struct_0(A), k5_tmap_1(A, B))))))), file('/export/starexec/sandbox2/benchmark/theBenchmark.p', d9_tmap_1)).
+% 2.11/1.30  tff(f_43, axiom, (![A, B]: (m1_subset_1(B, k1_zfmisc_1(k1_zfmisc_1(A))) => (![C, D]: ((g1_pre_topc(A, B) = g1_pre_topc(C, D)) => ((A = C) & (B = D)))))), file('/export/starexec/sandbox2/benchmark/theBenchmark.p', free_g1_pre_topc)).
+% 2.11/1.30  tff(f_66, axiom, (![A, B]: ((((~v2_struct_0(A) & v2_pre_topc(A)) & l1_pre_topc(A)) & m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A)))) => m1_subset_1(k5_tmap_1(A, B), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0(A)))))), file('/export/starexec/sandbox2/benchmark/theBenchmark.p', dt_k5_tmap_1)).
+% 2.11/1.30  tff(f_80, axiom, (![A]: (((~v2_struct_0(A) & v2_pre_topc(A)) & l1_pre_topc(A)) => (![B]: (m1_subset_1(B, k1_zfmisc_1(u1_struct_0(A))) => (r2_hidden(B, u1_pre_topc(A)) <=> (u1_pre_topc(A) = k5_tmap_1(A, B))))))), file('/export/starexec/sandbox2/benchmark/theBenchmark.p', t103_tmap_1)).
+% 2.11/1.30  tff(c_24, plain, (~v2_struct_0('#skF_1')), inference(cnfTransformation, [status(thm)], [f_95])).
+% 2.11/1.30  tff(c_26, plain, (g1_pre_topc(u1_struct_0('#skF_1'), u1_pre_topc('#skF_1'))!=k6_tmap_1('#skF_1', '#skF_2') | ~v3_pre_topc('#skF_2', '#skF_1')), inference(cnfTransformation, [status(thm)], [f_95])).
+% 2.11/1.30  tff(c_33, plain, (~v3_pre_topc('#skF_2', '#skF_1')), inference(splitLeft, [status(thm)], [c_26])).
+% 2.11/1.30  tff(c_20, plain, (l1_pre_topc('#skF_1')), inference(cnfTransformation, [status(thm)], [f_95])).
+% 2.11/1.30  tff(c_18, plain, (m1_subset_1('#skF_2', k1_zfmisc_1(u1_struct_0('#skF_1')))), inference(cnfTransformation, [status(thm)], [f_95])).
+% 2.11/1.30  tff(c_58, plain, (![B_29, A_30]: (v3_pre_topc(B_29, A_30) | ~r2_hidden(B_29, u1_pre_topc(A_30)) | ~m1_subset_1(B_29, k1_zfmisc_1(u1_struct_0(A_30))) | ~l1_pre_topc(A_30))), inference(cnfTransformation, [status(thm)], [f_34])).
+% 2.11/1.30  tff(c_61, plain, (v3_pre_topc('#skF_2', '#skF_1') | ~r2_hidden('#skF_2', u1_pre_topc('#skF_1')) | ~l1_pre_topc('#skF_1')), inference(resolution, [status(thm)], [c_18, c_58])).
+% 2.11/1.30  tff(c_64, plain, (v3_pre_topc('#skF_2', '#skF_1') | ~r2_hidden('#skF_2', u1_pre_topc('#skF_1'))), inference(demodulation, [status(thm), theory('equality')], [c_20, c_61])).
+% 2.11/1.30  tff(c_65, plain, (~r2_hidden('#skF_2', u1_pre_topc('#skF_1'))), inference(negUnitSimplification, [status(thm)], [c_33, c_64])).
+% 2.11/1.30  tff(c_22, plain, (v2_pre_topc('#skF_1')), inference(cnfTransformation, [status(thm)], [f_95])).
+% 2.11/1.30  tff(c_184, plain, (![A_47, B_48]: (g1_pre_topc(u1_struct_0(A_47), k5_tmap_1(A_47, B_48))=k6_tmap_1(A_47, B_48) | ~m1_subset_1(B_48, k1_zfmisc_1(u1_struct_0(A_47))) | ~l1_pre_topc(A_47) | ~v2_pre_topc(A_47) | v2_struct_0(A_47))), inference(cnfTransformation, [status(thm)], [f_55])).
+% 2.11/1.30  tff(c_186, plain, (g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))=k6_tmap_1('#skF_1', '#skF_2') | ~l1_pre_topc('#skF_1') | ~v2_pre_topc('#skF_1') | v2_struct_0('#skF_1')), inference(resolution, [status(thm)], [c_18, c_184])).
+% 2.11/1.30  tff(c_189, plain, (g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))=k6_tmap_1('#skF_1', '#skF_2') | v2_struct_0('#skF_1')), inference(demodulation, [status(thm), theory('equality')], [c_22, c_20, c_186])).
+% 2.11/1.30  tff(c_190, plain, (g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))=k6_tmap_1('#skF_1', '#skF_2')), inference(negUnitSimplification, [status(thm)], [c_24, c_189])).
+% 2.11/1.30  tff(c_32, plain, (v3_pre_topc('#skF_2', '#skF_1') | g1_pre_topc(u1_struct_0('#skF_1'), u1_pre_topc('#skF_1'))=k6_tmap_1('#skF_1', '#skF_2')), inference(cnfTransformation, [status(thm)], [f_95])).
+% 2.11/1.30  tff(c_34, plain, (g1_pre_topc(u1_struct_0('#skF_1'), u1_pre_topc('#skF_1'))=k6_tmap_1('#skF_1', '#skF_2')), inference(negUnitSimplification, [status(thm)], [c_33, c_32])).
+% 2.11/1.30  tff(c_43, plain, (![D_19, B_20, C_21, A_22]: (D_19=B_20 | g1_pre_topc(C_21, D_19)!=g1_pre_topc(A_22, B_20) | ~m1_subset_1(B_20, k1_zfmisc_1(k1_zfmisc_1(A_22))))), inference(cnfTransformation, [status(thm)], [f_43])).
+% 2.11/1.30  tff(c_47, plain, (![D_19, C_21]: (u1_pre_topc('#skF_1')=D_19 | k6_tmap_1('#skF_1', '#skF_2')!=g1_pre_topc(C_21, D_19) | ~m1_subset_1(u1_pre_topc('#skF_1'), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))))), inference(superposition, [status(thm), theory('equality')], [c_34, c_43])).
+% 2.11/1.30  tff(c_75, plain, (~m1_subset_1(u1_pre_topc('#skF_1'), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1'))))), inference(splitLeft, [status(thm)], [c_47])).
+% 2.11/1.30  tff(c_85, plain, (![A_37, B_38]: (g1_pre_topc(u1_struct_0(A_37), k5_tmap_1(A_37, B_38))=k6_tmap_1(A_37, B_38) | ~m1_subset_1(B_38, k1_zfmisc_1(u1_struct_0(A_37))) | ~l1_pre_topc(A_37) | ~v2_pre_topc(A_37) | v2_struct_0(A_37))), inference(cnfTransformation, [status(thm)], [f_55])).
+% 2.11/1.30  tff(c_87, plain, (g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))=k6_tmap_1('#skF_1', '#skF_2') | ~l1_pre_topc('#skF_1') | ~v2_pre_topc('#skF_1') | v2_struct_0('#skF_1')), inference(resolution, [status(thm)], [c_18, c_85])).
+% 2.11/1.30  tff(c_90, plain, (g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))=k6_tmap_1('#skF_1', '#skF_2') | v2_struct_0('#skF_1')), inference(demodulation, [status(thm), theory('equality')], [c_22, c_20, c_87])).
+% 2.11/1.30  tff(c_91, plain, (g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))=k6_tmap_1('#skF_1', '#skF_2')), inference(negUnitSimplification, [status(thm)], [c_24, c_90])).
+% 2.11/1.30  tff(c_12, plain, (![A_13, B_14]: (m1_subset_1(k5_tmap_1(A_13, B_14), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0(A_13)))) | ~m1_subset_1(B_14, k1_zfmisc_1(u1_struct_0(A_13))) | ~l1_pre_topc(A_13) | ~v2_pre_topc(A_13) | v2_struct_0(A_13))), inference(cnfTransformation, [status(thm)], [f_66])).
+% 2.11/1.30  tff(c_8, plain, (![C_8, A_4, D_9, B_5]: (C_8=A_4 | g1_pre_topc(C_8, D_9)!=g1_pre_topc(A_4, B_5) | ~m1_subset_1(B_5, k1_zfmisc_1(k1_zfmisc_1(A_4))))), inference(cnfTransformation, [status(thm)], [f_43])).
+% 2.11/1.30  tff(c_96, plain, (![C_8, D_9]: (u1_struct_0('#skF_1')=C_8 | k6_tmap_1('#skF_1', '#skF_2')!=g1_pre_topc(C_8, D_9) | ~m1_subset_1(k5_tmap_1('#skF_1', '#skF_2'), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1')))))), inference(superposition, [status(thm), theory('equality')], [c_91, c_8])).
+% 2.11/1.30  tff(c_109, plain, (~m1_subset_1(k5_tmap_1('#skF_1', '#skF_2'), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1'))))), inference(splitLeft, [status(thm)], [c_96])).
+% 2.11/1.30  tff(c_112, plain, (~m1_subset_1('#skF_2', k1_zfmisc_1(u1_struct_0('#skF_1'))) | ~l1_pre_topc('#skF_1') | ~v2_pre_topc('#skF_1') | v2_struct_0('#skF_1')), inference(resolution, [status(thm)], [c_12, c_109])).
+% 2.11/1.30  tff(c_115, plain, (v2_struct_0('#skF_1')), inference(demodulation, [status(thm), theory('equality')], [c_22, c_20, c_18, c_112])).
+% 2.11/1.30  tff(c_117, plain, $false, inference(negUnitSimplification, [status(thm)], [c_24, c_115])).
+% 2.11/1.30  tff(c_119, plain, (m1_subset_1(k5_tmap_1('#skF_1', '#skF_2'), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1'))))), inference(splitRight, [status(thm)], [c_96])).
+% 2.11/1.30  tff(c_45, plain, (![B_20, A_22]: (u1_pre_topc('#skF_1')=B_20 | k6_tmap_1('#skF_1', '#skF_2')!=g1_pre_topc(A_22, B_20) | ~m1_subset_1(B_20, k1_zfmisc_1(k1_zfmisc_1(A_22))))), inference(superposition, [status(thm), theory('equality')], [c_34, c_43])).
+% 2.11/1.30  tff(c_128, plain, (k5_tmap_1('#skF_1', '#skF_2')=u1_pre_topc('#skF_1') | g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))!=k6_tmap_1('#skF_1', '#skF_2')), inference(resolution, [status(thm)], [c_119, c_45])).
+% 2.11/1.30  tff(c_139, plain, (k5_tmap_1('#skF_1', '#skF_2')=u1_pre_topc('#skF_1')), inference(demodulation, [status(thm), theory('equality')], [c_91, c_128])).
+% 2.11/1.30  tff(c_140, plain, (m1_subset_1(u1_pre_topc('#skF_1'), k1_zfmisc_1(k1_zfmisc_1(u1_struct_0('#skF_1'))))), inference(demodulation, [status(thm), theory('equality')], [c_139, c_119])).
+% 2.11/1.30  tff(c_144, plain, $false, inference(negUnitSimplification, [status(thm)], [c_75, c_140])).
+% 2.11/1.30  tff(c_145, plain, (![D_19, C_21]: (u1_pre_topc('#skF_1')=D_19 | k6_tmap_1('#skF_1', '#skF_2')!=g1_pre_topc(C_21, D_19))), inference(splitRight, [status(thm)], [c_47])).
+% 2.11/1.30  tff(c_210, plain, (k5_tmap_1('#skF_1', '#skF_2')=u1_pre_topc('#skF_1')), inference(superposition, [status(thm), theory('equality')], [c_190, c_145])).
+% 2.11/1.30  tff(c_235, plain, (![B_51, A_52]: (r2_hidden(B_51, u1_pre_topc(A_52)) | k5_tmap_1(A_52, B_51)!=u1_pre_topc(A_52) | ~m1_subset_1(B_51, k1_zfmisc_1(u1_struct_0(A_52))) | ~l1_pre_topc(A_52) | ~v2_pre_topc(A_52) | v2_struct_0(A_52))), inference(cnfTransformation, [status(thm)], [f_80])).
+% 2.11/1.30  tff(c_238, plain, (r2_hidden('#skF_2', u1_pre_topc('#skF_1')) | k5_tmap_1('#skF_1', '#skF_2')!=u1_pre_topc('#skF_1') | ~l1_pre_topc('#skF_1') | ~v2_pre_topc('#skF_1') | v2_struct_0('#skF_1')), inference(resolution, [status(thm)], [c_18, c_235])).
+% 2.11/1.30  tff(c_241, plain, (r2_hidden('#skF_2', u1_pre_topc('#skF_1')) | v2_struct_0('#skF_1')), inference(demodulation, [status(thm), theory('equality')], [c_22, c_20, c_210, c_238])).
+% 2.11/1.30  tff(c_243, plain, $false, inference(negUnitSimplification, [status(thm)], [c_24, c_65, c_241])).
+% 2.11/1.30  tff(c_244, plain, (g1_pre_topc(u1_struct_0('#skF_1'), u1_pre_topc('#skF_1'))!=k6_tmap_1('#skF_1', '#skF_2')), inference(splitRight, [status(thm)], [c_26])).
+% 2.11/1.30  tff(c_245, plain, (v3_pre_topc('#skF_2', '#skF_1')), inference(splitRight, [status(thm)], [c_26])).
+% 2.11/1.30  tff(c_258, plain, (![B_61, A_62]: (r2_hidden(B_61, u1_pre_topc(A_62)) | ~v3_pre_topc(B_61, A_62) | ~m1_subset_1(B_61, k1_zfmisc_1(u1_struct_0(A_62))) | ~l1_pre_topc(A_62))), inference(cnfTransformation, [status(thm)], [f_34])).
+% 2.11/1.30  tff(c_261, plain, (r2_hidden('#skF_2', u1_pre_topc('#skF_1')) | ~v3_pre_topc('#skF_2', '#skF_1') | ~l1_pre_topc('#skF_1')), inference(resolution, [status(thm)], [c_18, c_258])).
+% 2.11/1.30  tff(c_264, plain, (r2_hidden('#skF_2', u1_pre_topc('#skF_1'))), inference(demodulation, [status(thm), theory('equality')], [c_20, c_245, c_261])).
+% 2.11/1.30  tff(c_273, plain, (![A_67, B_68]: (k5_tmap_1(A_67, B_68)=u1_pre_topc(A_67) | ~r2_hidden(B_68, u1_pre_topc(A_67)) | ~m1_subset_1(B_68, k1_zfmisc_1(u1_struct_0(A_67))) | ~l1_pre_topc(A_67) | ~v2_pre_topc(A_67) | v2_struct_0(A_67))), inference(cnfTransformation, [status(thm)], [f_80])).
+% 2.11/1.30  tff(c_276, plain, (k5_tmap_1('#skF_1', '#skF_2')=u1_pre_topc('#skF_1') | ~r2_hidden('#skF_2', u1_pre_topc('#skF_1')) | ~l1_pre_topc('#skF_1') | ~v2_pre_topc('#skF_1') | v2_struct_0('#skF_1')), inference(resolution, [status(thm)], [c_18, c_273])).
+% 2.11/1.30  tff(c_279, plain, (k5_tmap_1('#skF_1', '#skF_2')=u1_pre_topc('#skF_1') | v2_struct_0('#skF_1')), inference(demodulation, [status(thm), theory('equality')], [c_22, c_20, c_264, c_276])).
+% 2.11/1.30  tff(c_280, plain, (k5_tmap_1('#skF_1', '#skF_2')=u1_pre_topc('#skF_1')), inference(negUnitSimplification, [status(thm)], [c_24, c_279])).
+% 2.11/1.30  tff(c_291, plain, (![A_69, B_70]: (g1_pre_topc(u1_struct_0(A_69), k5_tmap_1(A_69, B_70))=k6_tmap_1(A_69, B_70) | ~m1_subset_1(B_70, k1_zfmisc_1(u1_struct_0(A_69))) | ~l1_pre_topc(A_69) | ~v2_pre_topc(A_69) | v2_struct_0(A_69))), inference(cnfTransformation, [status(thm)], [f_55])).
+% 2.11/1.30  tff(c_293, plain, (g1_pre_topc(u1_struct_0('#skF_1'), k5_tmap_1('#skF_1', '#skF_2'))=k6_tmap_1('#skF_1', '#skF_2') | ~l1_pre_topc('#skF_1') | ~v2_pre_topc('#skF_1') | v2_struct_0('#skF_1')), inference(resolution, [status(thm)], [c_18, c_291])).
+% 2.11/1.30  tff(c_296, plain, (g1_pre_topc(u1_struct_0('#skF_1'), u1_pre_topc('#skF_1'))=k6_tmap_1('#skF_1', '#skF_2') | v2_struct_0('#skF_1')), inference(demodulation, [status(thm), theory('equality')], [c_22, c_20, c_280, c_293])).
+% 2.11/1.30  tff(c_298, plain, $false, inference(negUnitSimplification, [status(thm)], [c_24, c_244, c_296])).
+% 2.11/1.30  % SZS output end CNFRefutation for /export/starexec/sandbox2/benchmark/theBenchmark.p
+% 2.11/1.30  
+% 2.11/1.30  Inference rules
+% 2.11/1.30  ----------------------
+% 2.11/1.30  #Ref     : 4
+% 2.11/1.30  #Sup     : 49
+% 2.11/1.30  #Fact    : 0
+% 2.11/1.30  #Define  : 0
+% 2.11/1.30  #Split   : 3
+% 2.11/1.30  #Chain   : 0
+% 2.11/1.30  #Close   : 0
+% 2.11/1.30  
+% 2.11/1.30  Ordering : KBO
+% 2.11/1.30  
+% 2.11/1.30  Simplification rules
+% 2.11/1.30  ----------------------
+% 2.11/1.30  #Subsume      : 11
+% 2.11/1.30  #Demod        : 49
+% 2.11/1.30  #Tautology    : 27
+% 2.11/1.30  #SimpNegUnit  : 14
+% 2.11/1.30  #BackRed      : 4
+% 2.11/1.30  
+% 2.11/1.30  #Partial instantiations: 0
+% 2.11/1.30  #Strategies tried      : 1
+% 2.11/1.30  
+% 2.11/1.30  Timing (in seconds)
+% 2.11/1.30  ----------------------
+% 2.11/1.30  Preprocessing        : 0.31
+% 2.11/1.30  Parsing              : 0.17
+% 2.11/1.30  CNF conversion       : 0.02
+% 2.11/1.30  Main loop            : 0.21
+% 2.11/1.30  Inferencing          : 0.08
+% 2.11/1.30  Reduction            : 0.06
+% 2.11/1.30  Demodulation         : 0.04
+% 2.11/1.30  BG Simplification    : 0.01
+% 2.11/1.30  Subsumption          : 0.04
+% 2.11/1.30  Abstraction          : 0.02
+% 2.11/1.30  MUC search           : 0.00
+% 2.11/1.30  Cooper               : 0.00
+% 2.11/1.30  Total                : 0.56
+% 2.11/1.30  Index Insertion      : 0.00
+% 2.11/1.30  Index Deletion       : 0.00
+% 2.11/1.30  Index Matching       : 0.00
+% 2.11/1.30  BG Taut test         : 0.00
+%------------------------------------------------------------------------------

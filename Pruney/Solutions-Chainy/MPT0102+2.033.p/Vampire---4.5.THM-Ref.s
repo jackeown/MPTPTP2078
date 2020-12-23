@@ -1,0 +1,371 @@
+%------------------------------------------------------------------------------
+% File       : Vampire---4.5
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_vampire %s %d
+
+% Computer   : n024.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 12:32:00 EST 2020
+
+% Result     : Theorem 0.21s
+% Output     : Refutation 0.21s
+% Verified   : 
+% Statistics : Number of formulae       :   45 ( 182 expanded)
+%              Number of leaves         :   10 (  62 expanded)
+%              Depth                    :   13
+%              Number of atoms          :   46 ( 183 expanded)
+%              Number of equality atoms :   45 ( 182 expanded)
+%              Maximal formula depth    :    5 (   3 average)
+%              Maximal term depth       :    7 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f110,plain,(
+    $false ),
+    inference(subsumption_resolution,[],[f109,f41])).
+
+fof(f41,plain,(
+    ! [X0,X1] : k5_xboole_0(X0,k5_xboole_0(X0,X1)) = X1 ),
+    inference(forward_demodulation,[],[f35,f33])).
+
+fof(f33,plain,(
+    ! [X0] : k5_xboole_0(o_0_0_xboole_0,X0) = X0 ),
+    inference(forward_demodulation,[],[f32,f27])).
+
+fof(f27,plain,(
+    ! [X0] : o_0_0_xboole_0 = k5_xboole_0(X0,X0) ),
+    inference(definition_unfolding,[],[f18,f16])).
+
+fof(f16,plain,(
+    k1_xboole_0 = o_0_0_xboole_0 ),
+    inference(cnf_transformation,[],[f1])).
+
+fof(f1,axiom,(
+    k1_xboole_0 = o_0_0_xboole_0 ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',d2_xboole_0)).
+
+fof(f18,plain,(
+    ! [X0] : k1_xboole_0 = k5_xboole_0(X0,X0) ),
+    inference(cnf_transformation,[],[f7])).
+
+fof(f7,axiom,(
+    ! [X0] : k1_xboole_0 = k5_xboole_0(X0,X0) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t92_xboole_1)).
+
+fof(f32,plain,(
+    ! [X0] : k5_xboole_0(k5_xboole_0(X0,X0),X0) = X0 ),
+    inference(forward_demodulation,[],[f31,f28])).
+
+fof(f28,plain,(
+    ! [X0] : k4_xboole_0(X0,o_0_0_xboole_0) = X0 ),
+    inference(definition_unfolding,[],[f19,f16])).
+
+fof(f19,plain,(
+    ! [X0] : k4_xboole_0(X0,k1_xboole_0) = X0 ),
+    inference(cnf_transformation,[],[f4])).
+
+fof(f4,axiom,(
+    ! [X0] : k4_xboole_0(X0,k1_xboole_0) = X0 ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t3_boole)).
+
+fof(f31,plain,(
+    ! [X0] : k5_xboole_0(k5_xboole_0(X0,X0),k4_xboole_0(X0,o_0_0_xboole_0)) = X0 ),
+    inference(forward_demodulation,[],[f29,f30])).
+
+fof(f30,plain,(
+    ! [X0] : o_0_0_xboole_0 = k4_xboole_0(X0,X0) ),
+    inference(backward_demodulation,[],[f26,f28])).
+
+fof(f26,plain,(
+    ! [X0] : o_0_0_xboole_0 = k4_xboole_0(X0,k4_xboole_0(X0,o_0_0_xboole_0)) ),
+    inference(definition_unfolding,[],[f17,f16,f21,f16])).
+
+fof(f21,plain,(
+    ! [X0,X1] : k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1) ),
+    inference(cnf_transformation,[],[f5])).
+
+fof(f5,axiom,(
+    ! [X0,X1] : k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t48_xboole_1)).
+
+fof(f17,plain,(
+    ! [X0] : k1_xboole_0 = k3_xboole_0(X0,k1_xboole_0) ),
+    inference(cnf_transformation,[],[f3])).
+
+fof(f3,axiom,(
+    ! [X0] : k1_xboole_0 = k3_xboole_0(X0,k1_xboole_0) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t2_boole)).
+
+fof(f29,plain,(
+    ! [X0] : k5_xboole_0(k5_xboole_0(X0,X0),k4_xboole_0(X0,k4_xboole_0(X0,X0))) = X0 ),
+    inference(definition_unfolding,[],[f20,f24])).
+
+fof(f24,plain,(
+    ! [X0,X1] : k2_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k4_xboole_0(X0,k4_xboole_0(X0,X1))) ),
+    inference(definition_unfolding,[],[f22,f21])).
+
+fof(f22,plain,(
+    ! [X0,X1] : k2_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k3_xboole_0(X0,X1)) ),
+    inference(cnf_transformation,[],[f8])).
+
+fof(f8,axiom,(
+    ! [X0,X1] : k2_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k3_xboole_0(X0,X1)) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t94_xboole_1)).
+
+fof(f20,plain,(
+    ! [X0] : k2_xboole_0(X0,X0) = X0 ),
+    inference(cnf_transformation,[],[f11])).
+
+fof(f11,plain,(
+    ! [X0] : k2_xboole_0(X0,X0) = X0 ),
+    inference(rectify,[],[f2])).
+
+fof(f2,axiom,(
+    ! [X0,X1] : k2_xboole_0(X0,X0) = X0 ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',idempotence_k2_xboole_0)).
+
+fof(f35,plain,(
+    ! [X0,X1] : k5_xboole_0(X0,k5_xboole_0(X0,X1)) = k5_xboole_0(o_0_0_xboole_0,X1) ),
+    inference(superposition,[],[f23,f27])).
+
+fof(f23,plain,(
+    ! [X2,X0,X1] : k5_xboole_0(k5_xboole_0(X0,X1),X2) = k5_xboole_0(X0,k5_xboole_0(X1,X2)) ),
+    inference(cnf_transformation,[],[f6])).
+
+fof(f6,axiom,(
+    ! [X0,X1,X2] : k5_xboole_0(k5_xboole_0(X0,X1),X2) = k5_xboole_0(X0,k5_xboole_0(X1,X2)) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t91_xboole_1)).
+
+fof(f109,plain,(
+    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(sK0,k5_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)))) ),
+    inference(backward_demodulation,[],[f40,f107])).
+
+fof(f107,plain,(
+    ! [X6,X4,X5] : k5_xboole_0(X5,X6) = k5_xboole_0(X4,k5_xboole_0(X5,k5_xboole_0(X4,X6))) ),
+    inference(forward_demodulation,[],[f101,f23])).
+
+fof(f101,plain,(
+    ! [X6,X4,X5] : k5_xboole_0(X5,X6) = k5_xboole_0(X4,k5_xboole_0(k5_xboole_0(X5,X4),X6)) ),
+    inference(superposition,[],[f23,f84])).
+
+fof(f84,plain,(
+    ! [X2,X3] : k5_xboole_0(X3,k5_xboole_0(X2,X3)) = X2 ),
+    inference(forward_demodulation,[],[f73,f44])).
+
+fof(f44,plain,(
+    ! [X0] : k5_xboole_0(X0,o_0_0_xboole_0) = X0 ),
+    inference(superposition,[],[f41,f27])).
+
+fof(f73,plain,(
+    ! [X2,X3] : k5_xboole_0(X2,o_0_0_xboole_0) = k5_xboole_0(X3,k5_xboole_0(X2,X3)) ),
+    inference(superposition,[],[f41,f38])).
+
+fof(f38,plain,(
+    ! [X0,X1] : o_0_0_xboole_0 = k5_xboole_0(X0,k5_xboole_0(X1,k5_xboole_0(X0,X1))) ),
+    inference(superposition,[],[f23,f27])).
+
+fof(f40,plain,(
+    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(sK0,k5_xboole_0(sK1,k5_xboole_0(sK0,k5_xboole_0(sK1,k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)))))) ),
+    inference(superposition,[],[f34,f23])).
+
+fof(f34,plain,(
+    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(k5_xboole_0(sK0,sK1),k5_xboole_0(sK0,k5_xboole_0(sK1,k4_xboole_0(sK0,k4_xboole_0(sK0,sK1))))) ),
+    inference(backward_demodulation,[],[f25,f23])).
+
+fof(f25,plain,(
+    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(k5_xboole_0(sK0,sK1),k5_xboole_0(k5_xboole_0(sK0,sK1),k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)))) ),
+    inference(definition_unfolding,[],[f15,f21,f24])).
+
+fof(f15,plain,(
+    k3_xboole_0(sK0,sK1) != k5_xboole_0(k5_xboole_0(sK0,sK1),k2_xboole_0(sK0,sK1)) ),
+    inference(cnf_transformation,[],[f14])).
+
+fof(f14,plain,(
+    k3_xboole_0(sK0,sK1) != k5_xboole_0(k5_xboole_0(sK0,sK1),k2_xboole_0(sK0,sK1)) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f12,f13])).
+
+fof(f13,plain,
+    ( ? [X0,X1] : k3_xboole_0(X0,X1) != k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1))
+   => k3_xboole_0(sK0,sK1) != k5_xboole_0(k5_xboole_0(sK0,sK1),k2_xboole_0(sK0,sK1)) ),
+    introduced(choice_axiom,[])).
+
+fof(f12,plain,(
+    ? [X0,X1] : k3_xboole_0(X0,X1) != k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1)) ),
+    inference(ennf_transformation,[],[f10])).
+
+fof(f10,negated_conjecture,(
+    ~ ! [X0,X1] : k3_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1)) ),
+    inference(negated_conjecture,[],[f9])).
+
+fof(f9,conjecture,(
+    ! [X0,X1] : k3_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1)) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t95_xboole_1)).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.10/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.10/0.13  % Command    : run_vampire %s %d
+% 0.13/0.34  % Computer   : n024.cluster.edu
+% 0.13/0.34  % Model      : x86_64 x86_64
+% 0.13/0.34  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.13/0.34  % Memory     : 8042.1875MB
+% 0.13/0.34  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.13/0.34  % CPULimit   : 60
+% 0.13/0.34  % WCLimit    : 600
+% 0.13/0.34  % DateTime   : Tue Dec  1 11:26:51 EST 2020
+% 0.13/0.34  % CPUTime    : 
+% 0.21/0.41  % (16680)ott+1_28_av=off:bs=unit_only:cond=on:irw=on:nm=64:nwc=2:sp=occurrence:updr=off:uhcvi=on_1052 on theBenchmark
+% 0.21/0.41  % (16680)Refutation found. Thanks to Tanya!
+% 0.21/0.41  % SZS status Theorem for theBenchmark
+% 0.21/0.41  % SZS output start Proof for theBenchmark
+% 0.21/0.41  fof(f110,plain,(
+% 0.21/0.41    $false),
+% 0.21/0.41    inference(subsumption_resolution,[],[f109,f41])).
+% 0.21/0.41  fof(f41,plain,(
+% 0.21/0.41    ( ! [X0,X1] : (k5_xboole_0(X0,k5_xboole_0(X0,X1)) = X1) )),
+% 0.21/0.41    inference(forward_demodulation,[],[f35,f33])).
+% 0.21/0.41  fof(f33,plain,(
+% 0.21/0.41    ( ! [X0] : (k5_xboole_0(o_0_0_xboole_0,X0) = X0) )),
+% 0.21/0.41    inference(forward_demodulation,[],[f32,f27])).
+% 0.21/0.41  fof(f27,plain,(
+% 0.21/0.41    ( ! [X0] : (o_0_0_xboole_0 = k5_xboole_0(X0,X0)) )),
+% 0.21/0.41    inference(definition_unfolding,[],[f18,f16])).
+% 0.21/0.41  fof(f16,plain,(
+% 0.21/0.41    k1_xboole_0 = o_0_0_xboole_0),
+% 0.21/0.41    inference(cnf_transformation,[],[f1])).
+% 0.21/0.41  fof(f1,axiom,(
+% 0.21/0.41    k1_xboole_0 = o_0_0_xboole_0),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',d2_xboole_0)).
+% 0.21/0.41  fof(f18,plain,(
+% 0.21/0.41    ( ! [X0] : (k1_xboole_0 = k5_xboole_0(X0,X0)) )),
+% 0.21/0.41    inference(cnf_transformation,[],[f7])).
+% 0.21/0.41  fof(f7,axiom,(
+% 0.21/0.41    ! [X0] : k1_xboole_0 = k5_xboole_0(X0,X0)),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t92_xboole_1)).
+% 0.21/0.41  fof(f32,plain,(
+% 0.21/0.41    ( ! [X0] : (k5_xboole_0(k5_xboole_0(X0,X0),X0) = X0) )),
+% 0.21/0.41    inference(forward_demodulation,[],[f31,f28])).
+% 0.21/0.41  fof(f28,plain,(
+% 0.21/0.41    ( ! [X0] : (k4_xboole_0(X0,o_0_0_xboole_0) = X0) )),
+% 0.21/0.41    inference(definition_unfolding,[],[f19,f16])).
+% 0.21/0.41  fof(f19,plain,(
+% 0.21/0.41    ( ! [X0] : (k4_xboole_0(X0,k1_xboole_0) = X0) )),
+% 0.21/0.41    inference(cnf_transformation,[],[f4])).
+% 0.21/0.41  fof(f4,axiom,(
+% 0.21/0.41    ! [X0] : k4_xboole_0(X0,k1_xboole_0) = X0),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t3_boole)).
+% 0.21/0.41  fof(f31,plain,(
+% 0.21/0.41    ( ! [X0] : (k5_xboole_0(k5_xboole_0(X0,X0),k4_xboole_0(X0,o_0_0_xboole_0)) = X0) )),
+% 0.21/0.41    inference(forward_demodulation,[],[f29,f30])).
+% 0.21/0.41  fof(f30,plain,(
+% 0.21/0.41    ( ! [X0] : (o_0_0_xboole_0 = k4_xboole_0(X0,X0)) )),
+% 0.21/0.41    inference(backward_demodulation,[],[f26,f28])).
+% 0.21/0.41  fof(f26,plain,(
+% 0.21/0.41    ( ! [X0] : (o_0_0_xboole_0 = k4_xboole_0(X0,k4_xboole_0(X0,o_0_0_xboole_0))) )),
+% 0.21/0.41    inference(definition_unfolding,[],[f17,f16,f21,f16])).
+% 0.21/0.41  fof(f21,plain,(
+% 0.21/0.41    ( ! [X0,X1] : (k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1)) )),
+% 0.21/0.41    inference(cnf_transformation,[],[f5])).
+% 0.21/0.41  fof(f5,axiom,(
+% 0.21/0.41    ! [X0,X1] : k4_xboole_0(X0,k4_xboole_0(X0,X1)) = k3_xboole_0(X0,X1)),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t48_xboole_1)).
+% 0.21/0.41  fof(f17,plain,(
+% 0.21/0.41    ( ! [X0] : (k1_xboole_0 = k3_xboole_0(X0,k1_xboole_0)) )),
+% 0.21/0.41    inference(cnf_transformation,[],[f3])).
+% 0.21/0.41  fof(f3,axiom,(
+% 0.21/0.41    ! [X0] : k1_xboole_0 = k3_xboole_0(X0,k1_xboole_0)),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t2_boole)).
+% 0.21/0.41  fof(f29,plain,(
+% 0.21/0.41    ( ! [X0] : (k5_xboole_0(k5_xboole_0(X0,X0),k4_xboole_0(X0,k4_xboole_0(X0,X0))) = X0) )),
+% 0.21/0.41    inference(definition_unfolding,[],[f20,f24])).
+% 0.21/0.41  fof(f24,plain,(
+% 0.21/0.41    ( ! [X0,X1] : (k2_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k4_xboole_0(X0,k4_xboole_0(X0,X1)))) )),
+% 0.21/0.41    inference(definition_unfolding,[],[f22,f21])).
+% 0.21/0.41  fof(f22,plain,(
+% 0.21/0.41    ( ! [X0,X1] : (k2_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k3_xboole_0(X0,X1))) )),
+% 0.21/0.41    inference(cnf_transformation,[],[f8])).
+% 0.21/0.41  fof(f8,axiom,(
+% 0.21/0.41    ! [X0,X1] : k2_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k3_xboole_0(X0,X1))),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t94_xboole_1)).
+% 0.21/0.41  fof(f20,plain,(
+% 0.21/0.41    ( ! [X0] : (k2_xboole_0(X0,X0) = X0) )),
+% 0.21/0.41    inference(cnf_transformation,[],[f11])).
+% 0.21/0.41  fof(f11,plain,(
+% 0.21/0.41    ! [X0] : k2_xboole_0(X0,X0) = X0),
+% 0.21/0.41    inference(rectify,[],[f2])).
+% 0.21/0.41  fof(f2,axiom,(
+% 0.21/0.41    ! [X0,X1] : k2_xboole_0(X0,X0) = X0),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',idempotence_k2_xboole_0)).
+% 0.21/0.41  fof(f35,plain,(
+% 0.21/0.41    ( ! [X0,X1] : (k5_xboole_0(X0,k5_xboole_0(X0,X1)) = k5_xboole_0(o_0_0_xboole_0,X1)) )),
+% 0.21/0.41    inference(superposition,[],[f23,f27])).
+% 0.21/0.41  fof(f23,plain,(
+% 0.21/0.41    ( ! [X2,X0,X1] : (k5_xboole_0(k5_xboole_0(X0,X1),X2) = k5_xboole_0(X0,k5_xboole_0(X1,X2))) )),
+% 0.21/0.41    inference(cnf_transformation,[],[f6])).
+% 0.21/0.41  fof(f6,axiom,(
+% 0.21/0.41    ! [X0,X1,X2] : k5_xboole_0(k5_xboole_0(X0,X1),X2) = k5_xboole_0(X0,k5_xboole_0(X1,X2))),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t91_xboole_1)).
+% 0.21/0.41  fof(f109,plain,(
+% 0.21/0.41    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(sK0,k5_xboole_0(sK0,k4_xboole_0(sK0,k4_xboole_0(sK0,sK1))))),
+% 0.21/0.41    inference(backward_demodulation,[],[f40,f107])).
+% 0.21/0.41  fof(f107,plain,(
+% 0.21/0.41    ( ! [X6,X4,X5] : (k5_xboole_0(X5,X6) = k5_xboole_0(X4,k5_xboole_0(X5,k5_xboole_0(X4,X6)))) )),
+% 0.21/0.41    inference(forward_demodulation,[],[f101,f23])).
+% 0.21/0.41  fof(f101,plain,(
+% 0.21/0.41    ( ! [X6,X4,X5] : (k5_xboole_0(X5,X6) = k5_xboole_0(X4,k5_xboole_0(k5_xboole_0(X5,X4),X6))) )),
+% 0.21/0.41    inference(superposition,[],[f23,f84])).
+% 0.21/0.41  fof(f84,plain,(
+% 0.21/0.41    ( ! [X2,X3] : (k5_xboole_0(X3,k5_xboole_0(X2,X3)) = X2) )),
+% 0.21/0.41    inference(forward_demodulation,[],[f73,f44])).
+% 0.21/0.41  fof(f44,plain,(
+% 0.21/0.41    ( ! [X0] : (k5_xboole_0(X0,o_0_0_xboole_0) = X0) )),
+% 0.21/0.41    inference(superposition,[],[f41,f27])).
+% 0.21/0.41  fof(f73,plain,(
+% 0.21/0.41    ( ! [X2,X3] : (k5_xboole_0(X2,o_0_0_xboole_0) = k5_xboole_0(X3,k5_xboole_0(X2,X3))) )),
+% 0.21/0.41    inference(superposition,[],[f41,f38])).
+% 0.21/0.41  fof(f38,plain,(
+% 0.21/0.41    ( ! [X0,X1] : (o_0_0_xboole_0 = k5_xboole_0(X0,k5_xboole_0(X1,k5_xboole_0(X0,X1)))) )),
+% 0.21/0.41    inference(superposition,[],[f23,f27])).
+% 0.21/0.41  fof(f40,plain,(
+% 0.21/0.41    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(sK0,k5_xboole_0(sK1,k5_xboole_0(sK0,k5_xboole_0(sK1,k4_xboole_0(sK0,k4_xboole_0(sK0,sK1))))))),
+% 0.21/0.41    inference(superposition,[],[f34,f23])).
+% 0.21/0.41  fof(f34,plain,(
+% 0.21/0.41    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(k5_xboole_0(sK0,sK1),k5_xboole_0(sK0,k5_xboole_0(sK1,k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)))))),
+% 0.21/0.41    inference(backward_demodulation,[],[f25,f23])).
+% 0.21/0.41  fof(f25,plain,(
+% 0.21/0.41    k4_xboole_0(sK0,k4_xboole_0(sK0,sK1)) != k5_xboole_0(k5_xboole_0(sK0,sK1),k5_xboole_0(k5_xboole_0(sK0,sK1),k4_xboole_0(sK0,k4_xboole_0(sK0,sK1))))),
+% 0.21/0.41    inference(definition_unfolding,[],[f15,f21,f24])).
+% 0.21/0.41  fof(f15,plain,(
+% 0.21/0.41    k3_xboole_0(sK0,sK1) != k5_xboole_0(k5_xboole_0(sK0,sK1),k2_xboole_0(sK0,sK1))),
+% 0.21/0.41    inference(cnf_transformation,[],[f14])).
+% 0.21/0.41  fof(f14,plain,(
+% 0.21/0.41    k3_xboole_0(sK0,sK1) != k5_xboole_0(k5_xboole_0(sK0,sK1),k2_xboole_0(sK0,sK1))),
+% 0.21/0.41    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f12,f13])).
+% 0.21/0.41  fof(f13,plain,(
+% 0.21/0.41    ? [X0,X1] : k3_xboole_0(X0,X1) != k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1)) => k3_xboole_0(sK0,sK1) != k5_xboole_0(k5_xboole_0(sK0,sK1),k2_xboole_0(sK0,sK1))),
+% 0.21/0.41    introduced(choice_axiom,[])).
+% 0.21/0.41  fof(f12,plain,(
+% 0.21/0.41    ? [X0,X1] : k3_xboole_0(X0,X1) != k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1))),
+% 0.21/0.41    inference(ennf_transformation,[],[f10])).
+% 0.21/0.41  fof(f10,negated_conjecture,(
+% 0.21/0.41    ~! [X0,X1] : k3_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1))),
+% 0.21/0.41    inference(negated_conjecture,[],[f9])).
+% 0.21/0.41  fof(f9,conjecture,(
+% 0.21/0.41    ! [X0,X1] : k3_xboole_0(X0,X1) = k5_xboole_0(k5_xboole_0(X0,X1),k2_xboole_0(X0,X1))),
+% 0.21/0.41    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',t95_xboole_1)).
+% 0.21/0.41  % SZS output end Proof for theBenchmark
+% 0.21/0.41  % (16680)------------------------------
+% 0.21/0.41  % (16680)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 0.21/0.41  % (16680)Termination reason: Refutation
+% 0.21/0.41  
+% 0.21/0.41  % (16680)Memory used [KB]: 1663
+% 0.21/0.41  % (16680)Time elapsed: 0.005 s
+% 0.21/0.41  % (16680)------------------------------
+% 0.21/0.41  % (16680)------------------------------
+% 0.21/0.42  % (16666)Success in time 0.06 s
+%------------------------------------------------------------------------------

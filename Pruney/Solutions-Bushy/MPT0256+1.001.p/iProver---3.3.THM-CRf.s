@@ -1,0 +1,128 @@
+%------------------------------------------------------------------------------
+% File       : iProver---3.3
+% Problem    : MPT0256+1.001 : TPTP v7.4.0. Released v7.4.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : iproveropt_run.sh %d %s
+
+% Computer   : n031.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 08:42:50 EST 2020
+
+% Result     : Theorem 0.62s
+% Output     : CNFRefutation 0.62s
+% Verified   : 
+% Statistics : Number of formulae       :   19 (  24 expanded)
+%              Number of clauses        :    9 (   9 expanded)
+%              Number of leaves         :    3 (   5 expanded)
+%              Depth                    :   10
+%              Number of atoms          :   32 (  44 expanded)
+%              Number of equality atoms :   19 (  25 expanded)
+%              Maximal formula depth    :    6 (   3 average)
+%              Maximal clause size      :    4 (   1 average)
+%              Maximal term depth       :    3 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f1,axiom,(
+    ! [X0,X1] :
+      ( k1_tarski(X1) = k3_xboole_0(X0,k1_tarski(X1))
+     => r2_hidden(X1,X0) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f4,plain,(
+    ! [X0,X1] :
+      ( r2_hidden(X1,X0)
+      | k1_tarski(X1) != k3_xboole_0(X0,k1_tarski(X1)) ) ),
+    inference(ennf_transformation,[],[f1])).
+
+fof(f8,plain,(
+    ! [X0,X1] :
+      ( r2_hidden(X1,X0)
+      | k1_tarski(X1) != k3_xboole_0(X0,k1_tarski(X1)) ) ),
+    inference(cnf_transformation,[],[f4])).
+
+fof(f2,conjecture,(
+    ! [X0,X1] :
+      ( k1_tarski(X1) = k3_xboole_0(X0,k1_tarski(X1))
+     => r2_hidden(X1,X0) ) ),
+    file('/export/starexec/sandbox2/benchmark/theBenchmark.p',unknown)).
+
+fof(f3,negated_conjecture,(
+    ~ ! [X0,X1] :
+        ( k1_tarski(X1) = k3_xboole_0(X0,k1_tarski(X1))
+       => r2_hidden(X1,X0) ) ),
+    inference(negated_conjecture,[],[f2])).
+
+fof(f5,plain,(
+    ? [X0,X1] :
+      ( ~ r2_hidden(X1,X0)
+      & k1_tarski(X1) = k3_xboole_0(X0,k1_tarski(X1)) ) ),
+    inference(ennf_transformation,[],[f3])).
+
+fof(f6,plain,
+    ( ? [X0,X1] :
+        ( ~ r2_hidden(X1,X0)
+        & k1_tarski(X1) = k3_xboole_0(X0,k1_tarski(X1)) )
+   => ( ~ r2_hidden(sK1,sK0)
+      & k1_tarski(sK1) = k3_xboole_0(sK0,k1_tarski(sK1)) ) ),
+    introduced(choice_axiom,[])).
+
+fof(f7,plain,
+    ( ~ r2_hidden(sK1,sK0)
+    & k1_tarski(sK1) = k3_xboole_0(sK0,k1_tarski(sK1)) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0,sK1])],[f5,f6])).
+
+fof(f10,plain,(
+    ~ r2_hidden(sK1,sK0) ),
+    inference(cnf_transformation,[],[f7])).
+
+fof(f9,plain,(
+    k1_tarski(sK1) = k3_xboole_0(sK0,k1_tarski(sK1)) ),
+    inference(cnf_transformation,[],[f7])).
+
+cnf(c_0,plain,
+    ( r2_hidden(X0,X1)
+    | k3_xboole_0(X1,k1_tarski(X0)) != k1_tarski(X0) ),
+    inference(cnf_transformation,[],[f8])).
+
+cnf(c_1,negated_conjecture,
+    ( ~ r2_hidden(sK1,sK0) ),
+    inference(cnf_transformation,[],[f10])).
+
+cnf(c_28,plain,
+    ( k3_xboole_0(X0,k1_tarski(X1)) != k1_tarski(X1)
+    | sK0 != X0
+    | sK1 != X1 ),
+    inference(resolution_lifted,[status(thm)],[c_0,c_1])).
+
+cnf(c_29,plain,
+    ( k3_xboole_0(sK0,k1_tarski(sK1)) != k1_tarski(sK1) ),
+    inference(unflattening,[status(thm)],[c_28])).
+
+cnf(c_38,plain,
+    ( k3_xboole_0(sK0,k1_tarski(sK1)) != k1_tarski(sK1) ),
+    inference(subtyping,[status(esa)],[c_29])).
+
+cnf(c_2,negated_conjecture,
+    ( k1_tarski(sK1) = k3_xboole_0(sK0,k1_tarski(sK1)) ),
+    inference(cnf_transformation,[],[f9])).
+
+cnf(c_39,negated_conjecture,
+    ( k1_tarski(sK1) = k3_xboole_0(sK0,k1_tarski(sK1)) ),
+    inference(subtyping,[status(esa)],[c_2])).
+
+cnf(c_45,plain,
+    ( k1_tarski(sK1) != k1_tarski(sK1) ),
+    inference(light_normalisation,[status(thm)],[c_38,c_39])).
+
+cnf(c_46,plain,
+    ( $false ),
+    inference(equality_resolution_simp,[status(thm)],[c_45])).
+
+
+%------------------------------------------------------------------------------

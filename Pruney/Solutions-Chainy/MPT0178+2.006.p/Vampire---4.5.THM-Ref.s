@@ -1,0 +1,258 @@
+%------------------------------------------------------------------------------
+% File       : Vampire---4.5
+% Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% Transform  : none
+% Format     : tptp:raw
+% Command    : run_vampire %s %d
+
+% Computer   : n002.cluster.edu
+% Model      : x86_64 x86_64
+% CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 2.10GHz
+% Memory     : 8042.1875MB
+% OS         : Linux 3.10.0-693.el7.x86_64
+% CPULimit   : 60s
+% DateTime   : Thu Dec  3 12:34:04 EST 2020
+
+% Result     : Theorem 0.21s
+% Output     : Refutation 0.21s
+% Verified   : 
+% Statistics : Number of formulae       :   27 (  32 expanded)
+%              Number of leaves         :    8 (  13 expanded)
+%              Depth                    :    6
+%              Number of atoms          :   40 (  50 expanded)
+%              Number of equality atoms :   22 (  27 expanded)
+%              Maximal formula depth    :    7 (   3 average)
+%              Maximal term depth       :    2 (   2 average)
+
+% Comments   : 
+%------------------------------------------------------------------------------
+fof(f33,plain,(
+    $false ),
+    inference(avatar_sat_refutation,[],[f17,f23,f29,f32])).
+
+fof(f32,plain,(
+    spl1_3 ),
+    inference(avatar_contradiction_clause,[],[f31])).
+
+fof(f31,plain,
+    ( $false
+    | spl1_3 ),
+    inference(trivial_inequality_removal,[],[f30])).
+
+fof(f30,plain,
+    ( k1_tarski(sK0) != k1_tarski(sK0)
+    | spl1_3 ),
+    inference(superposition,[],[f28,f10])).
+
+fof(f10,plain,(
+    ! [X0] : k2_tarski(X0,X0) = k1_tarski(X0) ),
+    inference(cnf_transformation,[],[f1])).
+
+fof(f1,axiom,(
+    ! [X0] : k2_tarski(X0,X0) = k1_tarski(X0) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t69_enumset1)).
+
+fof(f28,plain,
+    ( k1_tarski(sK0) != k2_tarski(sK0,sK0)
+    | spl1_3 ),
+    inference(avatar_component_clause,[],[f26])).
+
+fof(f26,plain,
+    ( spl1_3
+  <=> k1_tarski(sK0) = k2_tarski(sK0,sK0) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl1_3])])).
+
+fof(f29,plain,
+    ( ~ spl1_3
+    | spl1_2 ),
+    inference(avatar_split_clause,[],[f24,f20,f26])).
+
+fof(f20,plain,
+    ( spl1_2
+  <=> k1_tarski(sK0) = k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK0) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl1_2])])).
+
+fof(f24,plain,
+    ( k1_tarski(sK0) != k2_tarski(sK0,sK0)
+    | spl1_2 ),
+    inference(superposition,[],[f22,f11])).
+
+fof(f11,plain,(
+    ! [X0,X1] : k4_enumset1(X0,X0,X0,X0,X0,X1) = k2_tarski(X0,X1) ),
+    inference(cnf_transformation,[],[f3])).
+
+fof(f3,axiom,(
+    ! [X0,X1] : k4_enumset1(X0,X0,X0,X0,X0,X1) = k2_tarski(X0,X1) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t88_enumset1)).
+
+fof(f22,plain,
+    ( k1_tarski(sK0) != k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK0)
+    | spl1_2 ),
+    inference(avatar_component_clause,[],[f20])).
+
+fof(f23,plain,
+    ( ~ spl1_2
+    | spl1_1 ),
+    inference(avatar_split_clause,[],[f18,f14,f20])).
+
+fof(f14,plain,
+    ( spl1_1
+  <=> k1_tarski(sK0) = k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0) ),
+    introduced(avatar_definition,[new_symbols(naming,[spl1_1])])).
+
+fof(f18,plain,
+    ( k1_tarski(sK0) != k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK0)
+    | spl1_1 ),
+    inference(superposition,[],[f16,f12])).
+
+fof(f12,plain,(
+    ! [X4,X2,X0,X5,X3,X1] : k5_enumset1(X0,X0,X1,X2,X3,X4,X5) = k4_enumset1(X0,X1,X2,X3,X4,X5) ),
+    inference(cnf_transformation,[],[f2])).
+
+fof(f2,axiom,(
+    ! [X0,X1,X2,X3,X4,X5] : k5_enumset1(X0,X0,X1,X2,X3,X4,X5) = k4_enumset1(X0,X1,X2,X3,X4,X5) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t74_enumset1)).
+
+fof(f16,plain,
+    ( k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0)
+    | spl1_1 ),
+    inference(avatar_component_clause,[],[f14])).
+
+fof(f17,plain,(
+    ~ spl1_1 ),
+    inference(avatar_split_clause,[],[f9,f14])).
+
+fof(f9,plain,(
+    k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0) ),
+    inference(cnf_transformation,[],[f8])).
+
+fof(f8,plain,(
+    k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0) ),
+    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f6,f7])).
+
+fof(f7,plain,
+    ( ? [X0] : k1_tarski(X0) != k5_enumset1(X0,X0,X0,X0,X0,X0,X0)
+   => k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0) ),
+    introduced(choice_axiom,[])).
+
+fof(f6,plain,(
+    ? [X0] : k1_tarski(X0) != k5_enumset1(X0,X0,X0,X0,X0,X0,X0) ),
+    inference(ennf_transformation,[],[f5])).
+
+fof(f5,negated_conjecture,(
+    ~ ! [X0] : k1_tarski(X0) = k5_enumset1(X0,X0,X0,X0,X0,X0,X0) ),
+    inference(negated_conjecture,[],[f4])).
+
+fof(f4,conjecture,(
+    ! [X0] : k1_tarski(X0) = k5_enumset1(X0,X0,X0,X0,X0,X0,X0) ),
+    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t94_enumset1)).
+%------------------------------------------------------------------------------
+%----ORIGINAL SYSTEM OUTPUT
+% 0.11/0.12  % Problem    : MPT0001+2.001 : TPTP v7.5.0. Released v7.5.0.
+% 0.11/0.14  % Command    : run_vampire %s %d
+% 0.14/0.35  % Computer   : n002.cluster.edu
+% 0.14/0.35  % Model      : x86_64 x86_64
+% 0.14/0.35  % CPU        : Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz
+% 0.14/0.35  % Memory     : 8042.1875MB
+% 0.14/0.35  % OS         : Linux 3.10.0-693.el7.x86_64
+% 0.14/0.35  % CPULimit   : 60
+% 0.14/0.35  % WCLimit    : 600
+% 0.14/0.35  % DateTime   : Tue Dec  1 17:20:51 EST 2020
+% 0.14/0.35  % CPUTime    : 
+% 0.21/0.43  % (11372)ott+11_20_afp=10000:afq=1.1:anc=none:bs=unit_only:bsr=on:bce=on:fsr=off:gs=on:gsem=on:nwc=2.5:sas=z3:sp=occurrence:updr=off:uhcvi=on_385 on theBenchmark
+% 0.21/0.45  % (11373)dis+10_128_acc=on:add=off:afp=4000:afq=1.4:amm=off:bd=preordered:bce=on:cond=on:fsr=off:fde=unused:gs=on:gsem=on:irw=on:lma=on:nm=64:nwc=1.2:nicw=on:sos=on:sp=occurrence:updr=off:uhcvi=on_122 on theBenchmark
+% 0.21/0.45  % (11373)Refutation found. Thanks to Tanya!
+% 0.21/0.45  % SZS status Theorem for theBenchmark
+% 0.21/0.45  % SZS output start Proof for theBenchmark
+% 0.21/0.45  fof(f33,plain,(
+% 0.21/0.45    $false),
+% 0.21/0.45    inference(avatar_sat_refutation,[],[f17,f23,f29,f32])).
+% 0.21/0.45  fof(f32,plain,(
+% 0.21/0.45    spl1_3),
+% 0.21/0.45    inference(avatar_contradiction_clause,[],[f31])).
+% 0.21/0.45  fof(f31,plain,(
+% 0.21/0.45    $false | spl1_3),
+% 0.21/0.45    inference(trivial_inequality_removal,[],[f30])).
+% 0.21/0.45  fof(f30,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k1_tarski(sK0) | spl1_3),
+% 0.21/0.45    inference(superposition,[],[f28,f10])).
+% 0.21/0.45  fof(f10,plain,(
+% 0.21/0.45    ( ! [X0] : (k2_tarski(X0,X0) = k1_tarski(X0)) )),
+% 0.21/0.45    inference(cnf_transformation,[],[f1])).
+% 0.21/0.45  fof(f1,axiom,(
+% 0.21/0.45    ! [X0] : k2_tarski(X0,X0) = k1_tarski(X0)),
+% 0.21/0.45    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t69_enumset1)).
+% 0.21/0.45  fof(f28,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k2_tarski(sK0,sK0) | spl1_3),
+% 0.21/0.45    inference(avatar_component_clause,[],[f26])).
+% 0.21/0.45  fof(f26,plain,(
+% 0.21/0.45    spl1_3 <=> k1_tarski(sK0) = k2_tarski(sK0,sK0)),
+% 0.21/0.45    introduced(avatar_definition,[new_symbols(naming,[spl1_3])])).
+% 0.21/0.45  fof(f29,plain,(
+% 0.21/0.45    ~spl1_3 | spl1_2),
+% 0.21/0.45    inference(avatar_split_clause,[],[f24,f20,f26])).
+% 0.21/0.45  fof(f20,plain,(
+% 0.21/0.45    spl1_2 <=> k1_tarski(sK0) = k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK0)),
+% 0.21/0.45    introduced(avatar_definition,[new_symbols(naming,[spl1_2])])).
+% 0.21/0.45  fof(f24,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k2_tarski(sK0,sK0) | spl1_2),
+% 0.21/0.45    inference(superposition,[],[f22,f11])).
+% 0.21/0.45  fof(f11,plain,(
+% 0.21/0.45    ( ! [X0,X1] : (k4_enumset1(X0,X0,X0,X0,X0,X1) = k2_tarski(X0,X1)) )),
+% 0.21/0.45    inference(cnf_transformation,[],[f3])).
+% 0.21/0.45  fof(f3,axiom,(
+% 0.21/0.45    ! [X0,X1] : k4_enumset1(X0,X0,X0,X0,X0,X1) = k2_tarski(X0,X1)),
+% 0.21/0.45    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t88_enumset1)).
+% 0.21/0.45  fof(f22,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK0) | spl1_2),
+% 0.21/0.45    inference(avatar_component_clause,[],[f20])).
+% 0.21/0.45  fof(f23,plain,(
+% 0.21/0.45    ~spl1_2 | spl1_1),
+% 0.21/0.45    inference(avatar_split_clause,[],[f18,f14,f20])).
+% 0.21/0.45  fof(f14,plain,(
+% 0.21/0.45    spl1_1 <=> k1_tarski(sK0) = k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0)),
+% 0.21/0.45    introduced(avatar_definition,[new_symbols(naming,[spl1_1])])).
+% 0.21/0.45  fof(f18,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k4_enumset1(sK0,sK0,sK0,sK0,sK0,sK0) | spl1_1),
+% 0.21/0.45    inference(superposition,[],[f16,f12])).
+% 0.21/0.45  fof(f12,plain,(
+% 0.21/0.45    ( ! [X4,X2,X0,X5,X3,X1] : (k5_enumset1(X0,X0,X1,X2,X3,X4,X5) = k4_enumset1(X0,X1,X2,X3,X4,X5)) )),
+% 0.21/0.45    inference(cnf_transformation,[],[f2])).
+% 0.21/0.45  fof(f2,axiom,(
+% 0.21/0.45    ! [X0,X1,X2,X3,X4,X5] : k5_enumset1(X0,X0,X1,X2,X3,X4,X5) = k4_enumset1(X0,X1,X2,X3,X4,X5)),
+% 0.21/0.45    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t74_enumset1)).
+% 0.21/0.45  fof(f16,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0) | spl1_1),
+% 0.21/0.45    inference(avatar_component_clause,[],[f14])).
+% 0.21/0.45  fof(f17,plain,(
+% 0.21/0.45    ~spl1_1),
+% 0.21/0.45    inference(avatar_split_clause,[],[f9,f14])).
+% 0.21/0.45  fof(f9,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0)),
+% 0.21/0.45    inference(cnf_transformation,[],[f8])).
+% 0.21/0.45  fof(f8,plain,(
+% 0.21/0.45    k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0)),
+% 0.21/0.45    inference(skolemisation,[status(esa),new_symbols(skolem,[sK0])],[f6,f7])).
+% 0.21/0.45  fof(f7,plain,(
+% 0.21/0.45    ? [X0] : k1_tarski(X0) != k5_enumset1(X0,X0,X0,X0,X0,X0,X0) => k1_tarski(sK0) != k5_enumset1(sK0,sK0,sK0,sK0,sK0,sK0,sK0)),
+% 0.21/0.45    introduced(choice_axiom,[])).
+% 0.21/0.45  fof(f6,plain,(
+% 0.21/0.45    ? [X0] : k1_tarski(X0) != k5_enumset1(X0,X0,X0,X0,X0,X0,X0)),
+% 0.21/0.45    inference(ennf_transformation,[],[f5])).
+% 0.21/0.45  fof(f5,negated_conjecture,(
+% 0.21/0.45    ~! [X0] : k1_tarski(X0) = k5_enumset1(X0,X0,X0,X0,X0,X0,X0)),
+% 0.21/0.45    inference(negated_conjecture,[],[f4])).
+% 0.21/0.45  fof(f4,conjecture,(
+% 0.21/0.45    ! [X0] : k1_tarski(X0) = k5_enumset1(X0,X0,X0,X0,X0,X0,X0)),
+% 0.21/0.45    file('/export/starexec/sandbox/benchmark/theBenchmark.p',t94_enumset1)).
+% 0.21/0.45  % SZS output end Proof for theBenchmark
+% 0.21/0.45  % (11373)------------------------------
+% 0.21/0.45  % (11373)Version: Vampire 4.5.0 (commit 2ee491ce on 2020-06-19 13:55:12 +0100)
+% 0.21/0.45  % (11373)Termination reason: Refutation
+% 0.21/0.45  
+% 0.21/0.45  % (11373)Memory used [KB]: 10490
+% 0.21/0.45  % (11373)Time elapsed: 0.006 s
+% 0.21/0.45  % (11373)------------------------------
+% 0.21/0.45  % (11373)------------------------------
+% 0.21/0.45  % (11356)Success in time 0.087 s
+%------------------------------------------------------------------------------
