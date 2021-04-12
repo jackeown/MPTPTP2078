@@ -1,0 +1,16 @@
+#!/bin/tcsh
+
+foreach CALine (`cat ConjectureAndAxiomNames`)
+    set Filename = `expr "$CALine" : "\([^,]*\)" | sed -e "s/\.p//"`
+    rm -rf ProCoSubgraphs/$Filename
+    touch ProCoSubgraphs/$Filename
+    foreach ProCoLine (`cat ProCo`)
+        set Name1 = `expr "$ProCoLine" : "\([^,]*\).*"`
+        set Name2 = `expr "$ProCoLine" : "[^,]*,\([^,]*\)"`
+#DEBUG echo "Look for ==$Name1==$Name2== in ==$CALine=="
+# if (`expr "$CALine" : ".*,$Name1,.*"` && `expr "$CALine" : ".*,$Name2,.*"`) then
+        if ("$CALine" =~ *"$Name1"* && "$CALine" =~ *"$Name2"*) then
+            echo "$ProCoLine" >> ProCoSubgraphs/$Filename
+        endif
+    end
+end
