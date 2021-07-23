@@ -14,13 +14,14 @@ touch ProofFormulaNames
 set TotalNumberOfProofs = 0
 
 #----For each problem
-foreach problem_path (/exp/home/tptp/TPAP/MPTPTP2078/Chainy/Problems/MPT*+2.p)
+foreach problem_path (`cat $1`)
+#----e.g., /exp/home/tptp/TDTP/MPTPTP2078/Chainy/Problems/MPT*+2.p
     set problem = `basename $problem_path .p`
 #DEBUG echo "Doing problem $problem"
 #----Check if there are any proofs
-    if (`ls /exp/home/tptp/TPAP/MPTPTP2078/Pruney/Problems-Chainy/$problem*.p |& sed -e "/ls: No match/d" | wc -w` > 0) then
+    if (`ls /exp/home/tptp/TDTP/MPTPTP2078/Pruney/Problems-Chainy/$problem*.p |& sed -e "/ls: No match/d" | wc -w` > 0) then
 #----For each proof to this problem
-        foreach proof (/exp/home/tptp/TPAP/MPTPTP2078/Pruney/Problems-Chainy/$problem*.p)
+        foreach proof (/exp/home/tptp/TDTP/MPTPTP2078/Pruney/Problems-Chainy/$problem*.p)
 #----Increament total number of proofs found
             @ TotalNumberOfProofs++
 #DEBUG echo "Doing proof $proof"
